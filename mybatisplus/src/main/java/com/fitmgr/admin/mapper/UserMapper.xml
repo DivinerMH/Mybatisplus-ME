@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitmgr.admin.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fitmgr.admin.entity.User">
+    <result column="id" property="id" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="salt" property="salt" />
+        <result column="name" property="name" />
+        <result column="phone" property="phone" />
+        <result column="avatar" property="avatar" />
+        <result column="email" property="email" />
+        <result column="wx_openid" property="wxOpenid" />
+        <result column="qq_openid" property="qqOpenid" />
+        <result column="default_role" property="defaultRole" />
+        <result column="default_project" property="defaultProject" />
+        <result column="lock_flag" property="lockFlag" />
+        <result column="last_login_time" property="lastLoginTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        tenant_id, username, password, salt, name, phone, avatar, email, wx_openid, qq_openid, default_role, default_project, lock_flag, last_login_time, create_time, update_time, del_flag
+    </sql>
+
+</mapper>
