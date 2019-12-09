@@ -28,10 +28,10 @@ public class MeGenerator {
     private final static String PORT_NUMBER = ":3006/";                         // 数据库端口号
     private final static String USERNAME = "root";                              // 数据库账号
     private final static String PASSWORD = "123456";                            // 数据库密码
-    private final static String DATABASE_NAME = "user_center";                  // 数据库名称
+    private final static String DATABASE_NAME = "fitmgr_quota";                  // 数据库名称
     // 包配置
     private final static String PARENT = "com.fitmgr";                          // 父包名。 如果为空，将下面子包名必须写全部， 否则就只需写子包名
-    private final static String MODULE_NAME = "admin";                          // 父包模块名 , 可以为空字符串
+    private final static String MODULE_NAME = "quota";                          // 父包模块名 , 可以为空字符串
     // 自定义基类 (会导致自动生成文件，XxxController extends BaseController)
     private final static String SuperEntity = "com.baomidou.mybatisplus.samples.generator.common.BaseEntity";           // 所有实体的基类(全类名)
     private final static String SuperController = "com.baomidou.mybatisplus.samples.generator.common.BaseController";   // 所有控制器的基类(全类名)
@@ -66,7 +66,7 @@ public class MeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + OUTPUT_DIR);
+        gc.setOutputDir(projectPath + OUTPUT_DIR);      // 生成文件的输出目录
         gc.setAuthor(AUTHOR);       // 作者名
         gc.setOpen(false);
         gc.setBaseResultMap(true);
@@ -88,7 +88,7 @@ public class MeGenerator {
         PackageConfig pc = new PackageConfig();
         // 自定义模块名
         // pc.setModuleName(scanner("模块名"));
-        pc.setModuleName(MODULE_NAME);
+        pc.setModuleName(MODULE_NAME);      // 父包模块名 , 可以为空字符串
         pc.setParent(PARENT);       // 包名（自己手动设置）
         mpg.setPackageInfo(pc);
 
@@ -155,11 +155,14 @@ public class MeGenerator {
 
         // 调用 scanner 启动控制台操作,禁用时，直接按code配置生成
         // strategy.setInclude(scanner("表名"));
+
         strategy.setInclude(".+");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
+
+        // 将数据库表名具象化至项目中，删除 _ 之前的部分（注释后，可实现项目与数据库完美映射）
+        //strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
         // 选择 freemarker 引擎需要指定如下，注意 pom.xml 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());

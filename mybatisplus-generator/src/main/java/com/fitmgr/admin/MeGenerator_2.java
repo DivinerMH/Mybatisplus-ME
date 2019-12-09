@@ -21,9 +21,9 @@ public class MeGenerator_2 {
 	public static void main(String[] args) {
 		MeGenerator_2 g = new MeGenerator_2();
 		boolean startWithI = true;
-		String projectName = "Demo2019110802";
+		String projectName = "mybatisplus";
 		String packageName = "com.fitmgr.wepush";
-		String tableName = "sys_user";				// 数据库单表生成
+		String tableName = "quota_operation";				// 数据库单表生成
 		//String tableName = "fitmgr_cloud";  		数据库整体生成失败
 		g.generateByTables(startWithI, projectName, packageName, tableName);
 	}
@@ -87,7 +87,7 @@ public class MeGenerator_2 {
 	 */
 	private GlobalConfig getGlobalConfig(boolean serviceNameStartWithI, String projectName) {
 		GlobalConfig globalConfig = new GlobalConfig();
-		globalConfig.setBaseColumnList(true).setBaseResultMap(true).setActiveRecord(false).setAuthor("dzl")
+		globalConfig.setBaseColumnList(true).setBaseResultMap(true).setActiveRecord(false).setAuthor("menghuan")
 				// 设置输出路径System.getProperty("user.dir")+"/"+projectName+"/src/main/java/"
 				//.setOutputDir("E:/java9" + "/" + projectName).setFileOverride(true);
 				.setOutputDir(documentAddress + "/" + projectName).setFileOverride(true);
@@ -122,7 +122,7 @@ public class MeGenerator_2 {
 	 */
 	private DataSourceConfig getDataSourceConfig() {
 		return new DataSourceConfig().setDbType(DbType.MYSQL)
-				.setUrl("jdbc:mysql://192.168.1.174:3006/fitmgr_cloud?serverTimezone=Hongkong&nullCatalogMeansCurrent=true&characterEncoding=UTF-8&useSSL=false").setUsername("root").setPassword("123456")
+				.setUrl("jdbc:mysql://192.168.1.174:3006/fitmgr_quota?serverTimezone=Hongkong&nullCatalogMeansCurrent=true&characterEncoding=UTF-8&useSSL=false").setUsername("root").setPassword("123456")
 				// 版本冲突问题解决方案
 				//.setDriverName("com.mysql.cj.jdbc.Driver");
 				.setDriverName("com.mysql.jdbc.Driver");
