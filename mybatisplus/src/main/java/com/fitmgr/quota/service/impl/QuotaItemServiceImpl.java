@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author menghuan
- * @since 2019-12-09
+ * @since 2019-12-16
  */
 @Service
 public class QuotaItemServiceImpl extends ServiceImpl<QuotaItemMapper, QuotaItem> implements IQuotaItemService {

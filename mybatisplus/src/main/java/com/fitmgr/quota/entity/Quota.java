@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author menghuan
- * @since 2019-12-09
+ * @since 2019-12-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -35,11 +35,6 @@ public class Quota implements Serializable {
      * 资源类型 0-无 1-vmware 2-openStack
      */
     private String resourceType;
-
-    /**
-     * 总量限制 0-限制 1-不限制
-     */
-    private String isLimit;
 
     /**
      * 配额总量

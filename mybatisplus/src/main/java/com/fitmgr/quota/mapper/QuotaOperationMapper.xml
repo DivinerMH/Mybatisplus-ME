@@ -5,13 +5,13 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.fitmgr.quota.entity.QuotaOperation">
     <result column="id" property="id" />
+        <result column="quota_operation_id" property="quotaOperationId" />
         <result column="project_id" property="projectId" />
         <result column="order_id" property="orderId" />
         <result column="code" property="code" />
         <result column="parameter" property="parameter" />
         <result column="number" property="number" />
         <result column="resource_type" property="resourceType" />
-        <result column="quota_type" property="quotaType" />
         <result column="quota_status" property="quotaStatus" />
         <result column="operation_status" property="operationStatus" />
         <result column="create_time" property="createTime" />
@@ -22,7 +22,7 @@
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id,
-        project_id, order_id, code, parameter, number, resource_type, quota_type, quota_status, operation_status, create_time, update_time, del_flag
+        quota_operation_id, project_id, order_id, code, parameter, number, resource_type, quota_status, operation_status, create_time, update_time, del_flag
     </sql>
 
 </mapper>

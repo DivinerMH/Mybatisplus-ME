@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author menghuan
- * @since 2019-12-09
+ * @since 2019-12-16
  */
 public interface QuotaOperationMapper extends BaseMapper<QuotaOperation> {
 

@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * @Author:menghuan
- * @Date:2019/9/26 16:15
+ * @Date:2019/12/26 16:15
  */
 public class MeGenerator {
 
@@ -25,9 +25,9 @@ public class MeGenerator {
     private final static String AUTHOR = "menghuan";                            // 开发人员
     // 数据源配置
     private final static String DATABASE_IP = "192.168.1.174";                  // 数据库id
-    private final static String PORT_NUMBER = ":3006/";                         // 数据库端口号
+    private final static String PORT_NUMBER = ":3306/";                         // 数据库端口号
     private final static String USERNAME = "root";                              // 数据库账号
-    private final static String PASSWORD = "123456";                            // 数据库密码
+    private final static String PASSWORD = "root";                              // 数据库密码
     private final static String DATABASE_NAME = "fitmgr_quota";                  // 数据库名称
     // 包配置
     private final static String PARENT = "com.fitmgr";                          // 父包名。 如果为空，将下面子包名必须写全部， 否则就只需写子包名

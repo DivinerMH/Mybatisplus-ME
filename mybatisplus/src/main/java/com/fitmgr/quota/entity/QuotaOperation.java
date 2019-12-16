@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author menghuan
- * @since 2019-12-09
+ * @since 2019-12-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -22,9 +22,14 @@ public class QuotaOperation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 配额操作id(雪花算法生成18位)
+     */
+    private Long quotaOperationId;
+
+    /**
      * 项目id
      */
-    private String projectId;
+    private Integer projectId;
 
     /**
      * 订单id
@@ -50,11 +55,6 @@ public class QuotaOperation implements Serializable {
      * 资源类型 0-无 1-vmware 2-openStack
      */
     private String resourceType;
-
-    /**
-     * 配额类型 0-租户 1-project
-     */
-    private String quotaType;
 
     /**
      * 配额状态：0-未扣减 1-已扣减 2-未补偿 3-已补偿

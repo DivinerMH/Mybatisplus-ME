@@ -8,7 +8,6 @@
         <result column="quota_id" property="quotaId" />
         <result column="quota_item_id" property="quotaItemId" />
         <result column="resource_type" property="resourceType" />
-        <result column="is_limit" property="isLimit" />
         <result column="quota_total" property="quotaTotal" />
         <result column="quota_surplus" property="quotaSurplus" />
         <result column="tp_id" property="tpId" />
@@ -22,7 +21,7 @@
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id,
-        quota_id, quota_item_id, resource_type, is_limit, quota_total, quota_surplus, tp_id, quota_type, elastic_expansion, create_time, update_time, del_flag
+        quota_id, quota_item_id, resource_type, quota_total, quota_surplus, tp_id, quota_type, elastic_expansion, create_time, update_time, del_flag
     </sql>
 
 </mapper>
