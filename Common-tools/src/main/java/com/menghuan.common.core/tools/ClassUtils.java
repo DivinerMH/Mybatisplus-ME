@@ -1,5 +1,3 @@
-
-
 package com.menghuan.common.core.tools;
 
 import lombok.experimental.UtilityClass;
