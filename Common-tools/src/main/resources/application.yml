@@ -1,21 +1,5 @@
 # DataSource Config
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mybatisplus?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
 
-server:
-  port: 80
-
-mybatis-plus:
-  type-aliases-package: com.menghaun.mybatisplus.vo
-  mapper-locations: classpath:/mapper/*Mapper.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    # SQL
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #logging:
 #  level:
