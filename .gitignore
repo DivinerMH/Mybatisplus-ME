@@ -1,8 +1,16 @@
 HELP.md
+README.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+### 从未提交过的文件可以用 .gitignore； 也就是添加之后从来没有提交 commit 过的文件，可以使用 .gitignore忽略该文件。###
+### 只针对文件夹名，不管路径
+
 ### STS ###
+.idea
+/.idea/
+target
+/target/
 .apt_generated
 .classpath
 .factorypath
@@ -10,24 +18,20 @@ HELP.md
 .settings
 .springBeans
 .sts4-cache
-.idea
 *.class
 *.iml
-target
 
 ### IntelliJ IDEA ###
-### 从未提交过的文件可以用 .gitignore 。也就是添加之后从来没有提交 commit 过的文件，可以使用 .gitignore忽略该文件。###
-### 只针对文件夹名，不管路径
 .idea
 /.idea/
+target
+/target/
 /src/test/
 *.iws
 *.iml
 *.ipr
 *.class
 *.iml
-target
-/target/
 
 ### NetBeans ###
 /nbproject/private/
