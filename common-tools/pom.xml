@@ -41,10 +41,12 @@
         </dependency>
 
         <!--lombok用来简化实体类-->
+        <!-- MeGenerator_2 belongs to Duan Zongliang -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.16.18</version>
+            <scope>provided</scope>
         </dependency>
 
 
@@ -87,11 +89,12 @@
         </dependency>-->
 
 
-        <!--hutool-->
+        <!--hutool ；是一个小而全的Java工具类库，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
+            <!--<version>${hutool.version}</version>-->
+            <version>5.1.0</version>
         </dependency>
         <!--server-api-->
         <dependency>
@@ -121,7 +124,8 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
-            <version>${ttl.version}</version>
+           <!--<version>${ttl.version}</version>-->
+            <version>2.11.2</version>
         </dependency>
 
         <dependency>
@@ -141,20 +145,30 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
+            <!--<version>${poi.version}</version>-->
+            <version>4.1.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
+            <!--<version>${poi.version}</version>-->
+            <version>4.1.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
     </dependencies>

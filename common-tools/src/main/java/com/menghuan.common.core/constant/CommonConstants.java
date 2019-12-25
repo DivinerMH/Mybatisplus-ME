@@ -1,6 +1,4 @@
-
-
-package com.fitmgr.common.core.constant;
+package com.menghuan.common.core.constant;
 
 /**
  * <p>
@@ -11,6 +9,7 @@ package com.fitmgr.common.core.constant;
  * @date 2017/10/29
  */
 public interface CommonConstants {
+
     /**
      * header 中租户ID
      */

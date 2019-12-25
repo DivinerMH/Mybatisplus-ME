@@ -1,4 +1,4 @@
-package com.fitmgr.common.core.constant;
+package com.menghuan.common.core.constant;
 
 /**
  * @author dzl

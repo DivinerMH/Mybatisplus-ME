@@ -1,4 +1,4 @@
-package com.fitmgr.common.core.constant;
+package com.menghuan.common.core.constant;
 
 /**
  * 分页相关的参数
@@ -6,6 +6,7 @@ package com.fitmgr.common.core.constant;
  * @date 2018/11/22
  */
 public interface PaginationConstants {
+
 	/**
 	 * 当前页
 	 */

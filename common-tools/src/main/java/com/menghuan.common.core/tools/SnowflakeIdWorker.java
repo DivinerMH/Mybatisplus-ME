@@ -13,6 +13,7 @@ import java.net.UnknownHostException;
  * @Description: 雪花算法
  */
 public class SnowflakeIdWorker {
+
     // ==============================Fields===========================================
     /**
      * 开始时间截 (2015-01-01)
@@ -172,7 +173,7 @@ public class SnowflakeIdWorker {
         return System.currentTimeMillis();
     }
 
-    private static Long  getWorkId() {
+    private static Long getWorkId() {
         try {
             String hostAddress = Inet4Address.getLocalHost().getHostAddress();
             int[] ints = StringUtils.toCodePoints(hostAddress);

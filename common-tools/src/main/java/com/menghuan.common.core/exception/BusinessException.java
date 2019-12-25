@@ -1,6 +1,6 @@
-package com.menghuan.common.core.tools;
+package com.menghuan.common.core.exception;
 
-import com.fitmgr.common.core.constant.enums.BusinessEnum;
+import com.menghuan.common.core.constant.enums.BusinessEnum;
 import lombok.Getter;
 import lombok.Setter;
 

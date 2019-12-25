@@ -1,6 +1,4 @@
-
-
-package com.fitmgr.common.core.constant;
+package com.menghuan.common.core.constant;
 
 /**
  * @author dzl
@@ -8,6 +6,7 @@ package com.fitmgr.common.core.constant;
  * 服务名称
  */
 public interface ServiceNameConstants {
+
     /**
      * 认证中心
      */

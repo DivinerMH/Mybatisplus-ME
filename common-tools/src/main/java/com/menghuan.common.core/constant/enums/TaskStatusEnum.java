@@ -1,6 +1,6 @@
 
 
-package com.fitmgr.common.core.constant.enums;
+package com.menghuan.common.core.constant.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +13,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum TaskStatusEnum {
+
 	/**
 	 * 未提交
 	 */

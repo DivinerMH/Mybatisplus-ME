@@ -1,12 +1,11 @@
-
-
-package com.fitmgr.common.core.constant;
+package com.menghuan.common.core.constant;
 
 /**
  * @author dzl
  * @date 2017-12-18
  */
 public interface SecurityConstants {
+
     /**
      * 刷新
      */

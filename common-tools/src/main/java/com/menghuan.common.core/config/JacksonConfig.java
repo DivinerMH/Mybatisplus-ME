@@ -1,8 +1,8 @@
-package com.fitmgr.common.core.config;
+package com.menghuan.common.core.config;
 
 import cn.hutool.core.date.DatePattern;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fitmgr.common.core.jackson.FitmgrJavaTimeModule;
+import com.menghuan.common.core.jackson.FitmgrJavaTimeModule;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;

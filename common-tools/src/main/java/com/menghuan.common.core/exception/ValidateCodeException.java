@@ -1,4 +1,4 @@
-package com.menghuan.common.core.tools;
+package com.menghuan.common.core.exception;
 
 /**
  * @author dzl
@@ -6,12 +6,12 @@ package com.menghuan.common.core.tools;
  */
 public class ValidateCodeException extends Exception {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public ValidateCodeException() {
-	}
+    public ValidateCodeException() {
+    }
 
-	public ValidateCodeException(String msg) {
-		super(msg);
-	}
+    public ValidateCodeException(String msg) {
+        super(msg);
+    }
 }

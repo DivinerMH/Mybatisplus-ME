@@ -1,8 +1,8 @@
 package com.menghuan.common.core.tools;
 
-import com.fitmgr.common.core.constant.CommonConstants;
-import com.fitmgr.common.core.constant.enums.BusinessEnum;
-import com.fitmgr.common.core.constant.enums.ResponseCodeEnum;
+import com.menghuan.common.core.constant.CommonConstants;
+import com.menghuan.common.core.constant.enums.BusinessEnum;
+import com.menghuan.common.core.constant.enums.ResponseCodeEnum;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -12,12 +12,13 @@ import java.io.Serializable;
  * 响应信息主体
  *
  * @param <T>
- * @author dzl
+ * @author menghuan
  */
 @Builder
 @ToString
 @Accessors(chain = true)
 @AllArgsConstructor
+@Data
 public class R<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -54,6 +55,8 @@ public class R<T> implements Serializable {
         this.msg = e.getMessage();
         this.code = CommonConstants.FAIL;
     }
+
+
 
 
     public static <T> R<T> ok() {

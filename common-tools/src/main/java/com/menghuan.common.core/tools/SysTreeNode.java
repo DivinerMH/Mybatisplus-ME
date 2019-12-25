@@ -12,8 +12,11 @@ import java.util.List;
  */
 @Data
 public class SysTreeNode {
+
     protected String menuId;
+
     protected String parentId;
+
     protected List<SysTreeNode> children = new ArrayList<SysTreeNode>();
 
     public void add(SysTreeNode node) {

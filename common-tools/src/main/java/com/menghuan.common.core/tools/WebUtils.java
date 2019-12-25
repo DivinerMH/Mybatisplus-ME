@@ -2,11 +2,13 @@ package com.menghuan.common.core.tools;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.json.JSONUtil;
-import com.fitmgr.common.core.exception.CheckedException;
+
+import com.menghuan.common.core.exception.CheckedException;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -32,6 +34,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @UtilityClass
 public class WebUtils extends org.springframework.web.util.WebUtils {
+
 	private  final String BASIC_ = "Basic ";
 	private  final String UNKNOWN = "unknown";
 

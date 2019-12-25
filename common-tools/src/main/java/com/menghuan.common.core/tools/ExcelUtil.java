@@ -4,8 +4,6 @@ import lombok.experimental.UtilityClass;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 import org.apache.poi.xssf.usermodel.extensions.XSSFCellBorder;
-import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTColor;
-import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTColors;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
@@ -14,16 +12,18 @@ import java.util.List;
 
 /**
  * Excel导出工具
+ *
  * @author bjx
  * @date 2019-11-28
  */
 @UtilityClass
 public class ExcelUtil {
+
     public void exportExcel(HttpServletResponse response, String fileName, ExcelData data) throws Exception {
         // 告诉浏览器用什么软件可以打开此文件
         response.setHeader("content-Type", "application/vnd.ms-excel");
         // 下载文件的默认名称
-        response.setHeader("Content-Disposition", "attachment;filename="+URLEncoder.encode(fileName + ".xlsx", "utf-8"));
+        response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName + ".xlsx", "utf-8"));
         exportExcel(data, response.getOutputStream());
     }
 

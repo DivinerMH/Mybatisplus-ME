@@ -1,4 +1,4 @@
-package com.fitmgr.common.core.constant.enums;
+package com.menghuan.common.core.constant.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,9 +17,13 @@ public enum BusinessEnum {
      * 参数校验 101-199
      */
     PARAMETER_NULL(101, "参数不能为空"),
+
     ADD_FAIL(102, "新增失败"),
+
     UPDATE_FAIL(103, "修改失败"),
+
     DELETE_FAIL(104, "删除失败"),
+
     PARAMETER_FAULT(105, "参数异常"),
 
     /**
@@ -65,7 +69,7 @@ public enum BusinessEnum {
 
     MODEL_ROLE_NULL(2012, "服务模板-角色关联集合为空"),
 
-    MODEL_COMPONENT_NULL(2013,"服务模板-组件关联集合为空"),
+    MODEL_COMPONENT_NULL(2013, "服务模板-组件关联集合为空"),
 
 
     MODEL_TENANT_TYPE_SAVE(2020, "服务模板-租户类型关联新增失败"),
@@ -160,7 +164,7 @@ public enum BusinessEnum {
     /**
      * 对象转换Map ---- 远程接口获取key列表
      */
-    REQUEST_PARSE_KEYS(9000,"获取远端数据api解析key失败"),
+    REQUEST_PARSE_KEYS(9000, "获取远端数据api解析key失败"),
 
     /**
      * JSON解析 9100~9500
