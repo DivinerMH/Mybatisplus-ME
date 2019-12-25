@@ -2,14 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--pom.xml的modelVersion是必要的,并且始终设置为4.0.0-->
+    <!--它被定义为强制性的，可能强制实施特定的XML模型，以便在定义新模型的情况下-->
+    <!--因为，目前，没有其他模型;如果你写你的pom符合4.1，它不会与Maven 3和模型4.0.0兼容-->
 
-    <groupId>com.menghuan</groupId>
-    <artifactId>common-tools</artifactId>
+    <groupId>com.menghuan</groupId><!--groupId是项目组织唯一的标识符，实际对应JAVA的包的结构，是main目录里java的目录结构-->
+    <artifactId>common-tools</artifactId><!--artifactId就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称-->
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>common-tools</name>
-    <description>Demo project for springboot-mybatis-plus</description>
+    <description>Demo project for common-tools</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -105,10 +108,12 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
+            <version>10.7.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.1.RELEASE</version>
         </dependency>
         <!--hibernate-validator-->
         <dependency>
