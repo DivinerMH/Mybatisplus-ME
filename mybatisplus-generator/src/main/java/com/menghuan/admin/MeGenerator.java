@@ -24,11 +24,11 @@ public class MeGenerator {
     private final static String OUTPUT_DIR = "/mybatisplus/src/main/java";      // 生成文件的输出目录
     private final static String AUTHOR = "menghuan";                            // 开发人员
     // 数据源配置
-    private final static String DATABASE_IP = "192.168.1.174";                  // 数据库id
+    private final static String DATABASE_IP = "127.0.0.1";                  // 数据库id
     private final static String PORT_NUMBER = ":3306/";                         // 数据库端口号
     private final static String USERNAME = "root";                              // 数据库账号
     private final static String PASSWORD = "root";                              // 数据库密码
-    private final static String DATABASE_NAME = "fitmgr_quota";                  // 数据库名称
+    private final static String DATABASE_NAME = "blogs_me";                  // 数据库名称
     // 包配置
     private final static String PARENT = "com.fitmgr";                          // 父包名。 如果为空，将下面子包名必须写全部， 否则就只需写子包名
     private final static String MODULE_NAME = "quota";                          // 父包模块名 , 可以为空字符串
@@ -65,7 +65,7 @@ public class MeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
+        final String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + OUTPUT_DIR);      // 生成文件的输出目录
         gc.setAuthor(AUTHOR);       // 作者名
         gc.setOpen(false);
@@ -114,7 +114,7 @@ public class MeGenerator {
             }
         };
         // 自定义输出配置
-        List<FileOutConfig> focList = new ArrayList<>();
+        List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
         // 自定义配置会被优先输出
         focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
             @Override

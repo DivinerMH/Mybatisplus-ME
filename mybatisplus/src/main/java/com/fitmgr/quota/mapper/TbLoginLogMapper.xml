@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitmgr.quota.mapper.TbLoginLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fitmgr.quota.entity.TbLoginLog">
+    <result column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="ip" property="ip" />
+        <result column="location" property="location" />
+        <result column="create_time" property="createTime" />
+        <result column="device" property="device" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        username, ip, location, create_time, device
+    </sql>
+
+</mapper>

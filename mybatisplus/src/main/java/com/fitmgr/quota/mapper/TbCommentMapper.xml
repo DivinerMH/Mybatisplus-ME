@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitmgr.quota.mapper.TbCommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fitmgr.quota.entity.TbComment">
+    <result column="id" property="id" />
+        <result column="p_id" property="pId" />
+        <result column="c_id" property="cId" />
+        <result column="article_title" property="articleTitle" />
+        <result column="article_id" property="articleId" />
+        <result column="name" property="name" />
+        <result column="c_name" property="cName" />
+        <result column="time" property="time" />
+        <result column="content" property="content" />
+        <result column="email" property="email" />
+        <result column="url" property="url" />
+        <result column="sort" property="sort" />
+        <result column="ip" property="ip" />
+        <result column="device" property="device" />
+        <result column="address" property="address" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        p_id, c_id, article_title, article_id, name, c_name, time, content, email, url, sort, ip, device, address
+    </sql>
+
+</mapper>
