@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--根标签-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--Maven的模板版本为4.0.0-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--项目的基本信息-->
+    <groupId>com.menghuan</groupId><!--分组ID，项目文件的分组-->
+    <artifactId>DreamMH2018</artifactId><!--项目ID，区别同组其他项目-->
+    <version>1.1</version><!--当前项目的版本号-->
+    <packaging>jar</packaging><!--打包的类型，目前Java项目打包有两种类型jar和war。jar是非web项目，war是web项目-->
+
+    <name>DreamMH2018</name><!--项目名称，对外，对用户。文件夹的名称-->
+    <url>http://menghuan.com</url><!--本项目的URL,今天学习可以先不管此配置-->
+
+    <!--当前项目的环境配置需要的属性值-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!--当前源文件的编码为UTF-8-->
+    </properties>
+
+    <!--依赖，jar，当前项目所有依赖的根标签-->
+    <dependencies>
+
+        <!--具体的依赖，jar-->
+        <dependency>
+            <groupId>junit</groupId><!--项目组名称-->
+            <artifactId>junit</artifactId><!--项目ID-->
+            <version>3.8.1</version><!--版本号-->
+            <scope>test</scope>
+            <!--依赖的生命周期范围，取值provide源码期间有效、rumtime运行期间有效，test单元测试有效，其他情况无效-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.4</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
