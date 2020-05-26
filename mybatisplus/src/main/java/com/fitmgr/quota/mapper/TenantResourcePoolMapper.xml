@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitmgr.quota.mapper.TenantResourcePoolMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fitmgr.quota.entity.TenantResourcePool">
+    <result column="id" property="id" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="resource_pool_code" property="resourcePoolCode" />
+        <result column="resource_pool_id" property="resourcePoolId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        tenant_id, resource_pool_code, resource_pool_id
+    </sql>
+
+</mapper>
