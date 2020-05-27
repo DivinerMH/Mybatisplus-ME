@@ -38,7 +38,8 @@ public class TimeSevenRecent {
 
     @Test
     public void TimeSevenRecent2() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 可以通过该代码控制日式显示的格式 - 示例：2020-05-22
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd"); // 改格式只取月/日 - 示例：05-27
         Calendar calendar = Calendar.getInstance();    //得到一个Calendar的实例
         ArrayList<Object> timeInfo = new ArrayList<>();
         String formatRecentInfo = null;
