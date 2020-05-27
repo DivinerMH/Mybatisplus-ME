@@ -1,9 +1,6 @@
 package com.menghuan.tools;
 
-import com.sun.media.jfxmedia.logging.Logger;
 import org.junit.Test;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,6 +9,8 @@ import java.util.Date;
 /**
  * @Author:menghuan
  * @Date:2020/5/26 14:18
+ * @Description 根据系统时间，处理参数时间，获取两者时间间隔
+ * @Show long finalResul 示例：最终时间间隔（小时）：38小时
  */
 public class TimeDeal {
 
