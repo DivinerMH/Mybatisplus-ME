@@ -188,6 +188,13 @@
             <artifactId>junrar</artifactId>
             <version>0.7</version>
         </dependency>
+        <!-- alibaba的fastjson，用来解析json --><!-- add by MH：20.06.15 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
+        </dependency>
+
 
     </dependencies>
 
