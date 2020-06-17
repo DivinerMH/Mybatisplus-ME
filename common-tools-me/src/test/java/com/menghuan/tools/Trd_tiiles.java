@@ -261,7 +261,7 @@ public class Trd_tiiles {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("文件异常");
+            // System.out.println("文件异常");
         }
     }
 
