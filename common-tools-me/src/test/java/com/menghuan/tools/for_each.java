@@ -6,7 +6,7 @@ import java.util.UUID;
  * @Author:menghuan
  * @Date:2019/12/9 11:05
  */
-public class UUID19 {
+public class for_each {
 
 
     public static void main(String[] args) {

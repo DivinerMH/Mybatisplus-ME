@@ -384,6 +384,7 @@ public class Trd_tiiles {
 
         // 将入参 json 转换为 json 对象
         JSONObject j6 = JSON.parseObject(s);
+
         Object remove = j6.remove("tileset.json");
         System.out.println("remove:" + remove);
         System.out.println("j6:" + j6);
@@ -416,7 +417,7 @@ public class Trd_tiiles {
             }
 
         }
-        System.out.println(stringBuilder);
+        System.out.println("stringBuilder:-------------------" + stringBuilder);
 
         /*String s2 = remove.toString();
         String replace = replace(s2, mid, j6);
