@@ -1,0 +1,16 @@
+package com.hzcloud.iot.asset.structure.service;
+
+import com.hzcloud.iot.asset.structure.entity.IotOrgType;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * <p>
+ * 资产类型表 服务类
+ * </p>
+ *
+ * @author menghuan
+ * @since 2020-07-01
+ */
+public interface IIotOrgTypeService extends IService<IotOrgType> {
+
+}

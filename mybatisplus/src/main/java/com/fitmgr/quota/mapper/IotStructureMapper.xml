@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitmgr.quota.mapper.IotStructureMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fitmgr.quota.entity.IotStructure">
+    <result column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="province_id" property="provinceId" />
+        <result column="has_trd" property="hasTrd" />
+        <result column="trd_id" property="trdId" />
+        <result column="gis_map" property="gisMap" />
+        <result column="planimetric_map" property="planimetricMap" />
+        <result column="name" property="name" />
+        <result column="identification" property="identification" />
+        <result column="path" property="path" />
+        <result column="level" property="level" />
+        <result column="org_type" property="orgType" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        parent_id, tenant_id, province_id, has_trd, trd_id, gis_map, planimetric_map, name, identification, path, level, org_type, status, create_time, update_time, del_flag
+    </sql>
+
+</mapper>
