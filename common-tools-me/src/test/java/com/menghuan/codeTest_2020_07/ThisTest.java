@@ -1,4 +1,4 @@
-package com.menghuan.codeTest;
+package com.menghuan.codeTest_2020_07;
 
 /**
  * @Author:menghuan
@@ -41,11 +41,11 @@ public class ThisTest {
         //this(i);
 
         /**
-        此处不能用，因为其他任何方法都不能调用构造器，只有构造方法能调用他。
+         此处不能用，因为其他任何方法都不能调用构造器，只有构造方法能调用他。
 
-        但是必须注意：就算是构造方法调用构造器，也必须为于其第一行，构造方法也只能调
+                 但是必须注意：就算是构造方法调用构造器，也必须为于其第一行，构造方法也只能调
 
-        用一个且仅一次构造器！*/
+                 用一个且仅一次构造器！*/
 
         this.i = i++;   //this以引用该类的成员变量
 
@@ -79,6 +79,7 @@ public class ThisTest {
         // 接着又返回在上面返回的对象基础上i++的ThisTest对象！
 
     }
+
 
 
 }
