@@ -1,4 +1,4 @@
-package com.menghuan.admin;
+package com.menghuan.tools;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;

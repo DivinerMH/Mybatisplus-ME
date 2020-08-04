@@ -1,4 +1,4 @@
-package com.menghuan.admin;
+package com.menghuan.tools;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
