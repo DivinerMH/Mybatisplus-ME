@@ -176,6 +176,26 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- ant --><!-- add by MH：20.06.10 -->
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+        <!-- 导入rar解压包 --><!-- add by MH：20.06.10 -->
+        <dependency>
+            <groupId>com.github.junrar</groupId>
+            <artifactId>junrar</artifactId>
+            <version>0.7</version>
+        </dependency>
+        <!-- alibaba的fastjson，用来解析json --><!-- add by MH：20.06.15 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
+        </dependency>
+
+
     </dependencies>
 
 
