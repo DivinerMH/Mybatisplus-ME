@@ -1,15 +1,15 @@
-package com.menghuan.codeTest_2020_07;
+    package com.menghuan.codeTest_2020_07;
 
-import org.junit.jupiter.api.Test;
+    import org.junit.jupiter.api.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+    import java.text.SimpleDateFormat;
+    import java.util.Date;
 
-/**
- * @Author: menghuan
- * @Date: 2020/8/13 21:34
- */
-public class ITest {
+    /**
+    * @Author: menghuan
+    * @Date: 2020/8/13 21:34
+    */
+    public class ITest {
 
     static Integer i = 2;
 
@@ -66,4 +66,4 @@ public class ITest {
     }
 
 
-}
+    }
