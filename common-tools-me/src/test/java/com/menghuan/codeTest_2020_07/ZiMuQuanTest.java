@@ -9,7 +9,7 @@ import java.util.Date;
  * @Author: menghuan
  * @Date: 2020/8/13 21:34
  */
-public class ITest {
+public class ZiMuQuanTest {
 
     static Integer i = 2;
 

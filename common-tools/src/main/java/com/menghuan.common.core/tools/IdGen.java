@@ -33,6 +33,7 @@ public class IdGen {
      * @return
      */
     public static long SnowflakeIdWorker() {
+
         return SnowflakeIdWorker.generateId();
     }
 
