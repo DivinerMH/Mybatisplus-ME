@@ -16,14 +16,14 @@ import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 public class MeGenerator_2 {
 
 	//生成文件地址配置
-	private final static String documentAddress = "E:/java2019-11";
+	private final static String documentAddress = "mybatisplus.com.hzcloud.iot";
 
 	public static void main(String[] args) {
 		MeGenerator_2 g = new MeGenerator_2();
 		boolean startWithI = true;
 		String projectName = "mybatisplus";
-		String packageName = "com.fitmgr.wepush";
-		String tableName = "quota_operation";				// 数据库单表生成
+		String packageName = "com.hzcloud.iot";
+		String tableName = "contract";				// 数据库单表生成
 		//String tableName = "fitmgr_cloud";  		数据库整体生成失败
 		g.generateByTables(startWithI, projectName, packageName, tableName);
 	}
@@ -122,7 +122,7 @@ public class MeGenerator_2 {
 	 */
 	private DataSourceConfig getDataSourceConfig() {
 		return new DataSourceConfig().setDbType(DbType.MYSQL)
-				.setUrl("jdbc:mysql://192.168.1.174:3006/fitmgr_quota?serverTimezone=Hongkong&nullCatalogMeansCurrent=true&characterEncoding=UTF-8&useSSL=false").setUsername("root").setPassword("123456")
+				.setUrl("jdbc:mysql://192.168.1.174:3037/iot_contract?serverTimezone=Hongkong&nullCatalogMeansCurrent=true&characterEncoding=UTF-8&useSSL=false").setUsername("root").setPassword("123456")
 				// 版本冲突问题解决方案
 				//.setDriverName("com.mysql.cj.jdbc.Driver");
 				.setDriverName("com.mysql.jdbc.Driver");

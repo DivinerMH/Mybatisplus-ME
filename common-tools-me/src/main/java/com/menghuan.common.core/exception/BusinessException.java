@@ -1,6 +1,7 @@
 package com.menghuan.common.core.exception;
 
-import com.hzcloud.iot.common.core.constant.enums.BusinessEnum;
+
+import com.menghuan.common.core.constant.enums.BusinessEnum;
 import lombok.Getter;
 import lombok.Setter;
 

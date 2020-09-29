@@ -23,4 +23,16 @@ public class TimeChange {
         System.out.println("String类型的时间转成LocalDateTime："+ldt);
     }
 
+    @Test
+    public void TimeChange2(){
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime time = LocalDateTime.now();
+
+        String localTime = df.format(time);
+        LocalDateTime ldt = LocalDateTime.parse("2017-09-28 17:07",df);
+
+        System.out.println("LocalDateTime转成String类型的时间2："+localTime);
+        System.out.println("String类型的时间转成LocalDateTime2："+ldt);
+    }
+
 }
