@@ -7,7 +7,7 @@ public class JsonResultVO {
 
     private int code;       //结果状态码
     private String msg;     //结果信息
-    private Object data;
+    private Object data;    //结果数据
 
 
     public int getCode() {
