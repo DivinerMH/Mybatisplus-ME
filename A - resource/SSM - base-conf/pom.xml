@@ -27,7 +27,7 @@
         <dependency>
             <groupId>junit</groupId><!--项目组名称-->
             <artifactId>junit</artifactId><!--项目ID-->
-            <version>3.8.1</version><!--版本号-->
+            <version>4.13.1</version><!--版本号-->
             <scope>test</scope>
             <!--依赖的生命周期范围，取值provide源码期间有效、rumtime运行期间有效，test单元测试有效，其他情况无效-->
         </dependency>
