@@ -24,11 +24,11 @@ public class MeGenerator {
     private final static String OUTPUT_DIR = "/mybatisplus/src/main/java";      // 生成文件的输出目录
     private final static String AUTHOR = "menghuan";                            // 开发人员
     // 数据源配置
-    private final static String DATABASE_IP = "192.168.1.174";                  // 数据库id
-    private final static String PORT_NUMBER = ":3037/";                         // 数据库端口号
+    private final static String DATABASE_IP = "192.168.1.175";                  // 数据库id
+    private final static String PORT_NUMBER = ":3036/";                         // 数据库端口号
     private final static String USERNAME = "root";                              // 数据库账号
     private final static String PASSWORD = "123456";                              // 数据库密码
-    private final static String DATABASE_NAME = "iot_contract";                  // 数据库名称
+    private final static String DATABASE_NAME = "iot_resource";                  // 数据库名称
     // 包配置
     private final static String PARENT = "com.hzcloud.iot";                          // 父包名。 如果为空，将下面子包名必须写全部， 否则就只需写子包名
     private final static String MODULE_NAME = "contract";                          // 父包模块名 , 可以为空字符串
