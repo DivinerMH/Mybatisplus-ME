@@ -1,0 +1,18 @@
+package ${package.ServiceImpl};
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import org.springframework.stereotype.Service;
+
+/**
+ * @描述：$!{table.comment} 服务类
+ * @作者: ${author}
+ * @日期: ${date}
+ */
+@Service
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName}{
+
+
+        }

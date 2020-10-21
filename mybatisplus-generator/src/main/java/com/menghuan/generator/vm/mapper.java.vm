@@ -1,0 +1,13 @@
+package ${package.Mapper};
+
+import ${package.Entity}.${entity};
+import ${superMapperClassPackage};
+
+/**
+ * @描述：$!{table.comment} Mapper 接口
+ * @作者: ${author}
+ * @日期: ${date}
+ */
+public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+
+        }
