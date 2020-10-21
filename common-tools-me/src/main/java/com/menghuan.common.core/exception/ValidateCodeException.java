@@ -15,7 +15,7 @@
  *  Author: lengleng (wangiegie@gmail.com)
  */
 
-package com.menghuan.common.core.exception;
+package com.helper.common.core.exception;
 
 /**
  * @author lengleng

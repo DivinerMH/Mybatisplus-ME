@@ -1,4 +1,4 @@
-package com.menghuan.common.core.tools;
+package com.helper.common.core.tools;
 
 import lombok.Data;
 

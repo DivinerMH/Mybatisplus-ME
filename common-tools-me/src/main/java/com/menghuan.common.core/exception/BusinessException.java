@@ -1,7 +1,7 @@
-package com.menghuan.common.core.exception;
+package com.helper.common.core.exception;
 
 
-import com.menghuan.common.core.constant.enums.BusinessEnum;
+import com.helper.common.core.constant.enums.BusinessEnum;
 import lombok.Getter;
 import lombok.Setter;
 

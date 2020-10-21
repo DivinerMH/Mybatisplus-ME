@@ -1,4 +1,4 @@
-package com.menghuan.common.core.constant;
+package com.helper.common.core.constant;
 
 /**
  * <p>
