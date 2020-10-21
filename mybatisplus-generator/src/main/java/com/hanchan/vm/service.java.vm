@@ -1,7 +1,8 @@
 package ${package.Service};
-
-import ${package.Entity}.${entity};
-import ${superServiceClassPackage};
+${package.Entity}
+        .${entity};
+    ${superServiceClassPackage}
+        ;
 
 /**
  * @描述：$!{table.comment} 服务类

@@ -1,10 +1,12 @@
-package ${package.ServiceImpl};
+package ${package.ServiceImpl}import org.springframework.stereotype.Service;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import ${package.Entity}.${entity};
-import ${package.Mapper}.${table.mapperName};
-import ${package.Service}.${table.serviceName};
-import org.springframework.stereotype.Service;
+;
+${package.Entity}
+        .${entity};
+    ${package.Mapper}
+        .${table.mapperName};
+    ${package.Service}
+        .${table.serviceName};
 
 /**
  * @描述：$!{table.comment} 服务类

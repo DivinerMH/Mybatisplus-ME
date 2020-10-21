@@ -23,7 +23,6 @@ import com.hzcloud.iot.common.core.constant.CommonConstants;
 import com.hzcloud.iot.common.core.constant.enums.BusinessEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
