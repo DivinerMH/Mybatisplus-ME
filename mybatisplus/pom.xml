@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hanchan</groupId>
-    <artifactId>mybatisplus-generator</artifactId>
+    <groupId>com.hzcloud.iot</groupId>
+    <artifactId>mybatisplus</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>mybatisplus-generator</name>
-    <description>Demo project for mybatisplus-generator</description>
+    <name>mybatisplus</name>
+    <description>Demo project for mybatisplus</description>
 
 
     <dependencies>
@@ -91,7 +91,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!--  指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.hanchan.GeneratorApplication</mainClass>
+                    <mainClass>com.hzcloud.iot.GeneratorApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

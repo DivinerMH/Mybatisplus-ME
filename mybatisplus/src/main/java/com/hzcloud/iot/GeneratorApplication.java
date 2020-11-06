@@ -1,4 +1,4 @@
-package com.hanchan;
+package com.hzcloud.iot;
 
 
 import org.springframework.boot.SpringApplication;
