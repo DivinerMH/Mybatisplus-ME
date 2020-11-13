@@ -15,7 +15,7 @@ import java.util.List;
  * 巡检节点(DangerNode)数据库访问层
  *
  * @author MH
- * @since 2020-11-12 16:26:56
+ * @since 2020-11-13 15:17:25
  */
 public interface DangerNodeMapper extends BaseMapper<DangerNode> {
 

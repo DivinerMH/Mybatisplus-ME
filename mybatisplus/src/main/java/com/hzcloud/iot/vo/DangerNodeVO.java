@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 巡检节点(DangerNode)表展示对象
  *
  * @author MH
- * @since 2020-11-12 16:26:54
+ * @since 2020-11-13 15:17:23
  */
 @Data
 @ApiModel(value = "巡检节点展示对象")

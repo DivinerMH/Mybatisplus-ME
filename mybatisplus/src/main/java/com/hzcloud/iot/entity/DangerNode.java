@@ -1,5 +1,6 @@
 package com.hzcloud.iot.entity;
 
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.Date;
  * 巡检节点(DangerNode)表实体类
  *
  * @author MH
- * @since 2020-11-12 16:26:52
+ * @since 2020-11-13 15:17:22
  */
 @Data
 @ApiModel(value = "巡检节点实体类")

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hzcloud.iot.dto.DangerNodeDTO;
 import com.hzcloud.iot.entity.DangerNode;
 import com.hzcloud.iot.mapper.DangerNodeMapper;
-import com.hzcloud.iot.service.DangerNodeService;
+import com.hzcloud.iot.service.IDangerNodeService;
 import com.hzcloud.iot.utils.CommonConstants;
 import com.hzcloud.iot.vo.DangerNodeVO;
 import lombok.AllArgsConstructor;
@@ -24,11 +24,11 @@ import java.util.List;
  * 巡检节点(DangerNode)表服务实现类
  *
  * @author MH
- * @since 2020-11-12 16:26:57
+ * @since 2020-11-13 15:17:26
  */
 @AllArgsConstructor
 @Service
-public class DangerNodeServiceImpl extends ServiceImpl<DangerNodeMapper, DangerNode> implements DangerNodeService {
+public class DangerNodeServiceImpl extends ServiceImpl<DangerNodeMapper, DangerNode> implements IDangerNodeService {
 
     private final DangerNodeMapper dangerNodeMapper;
 

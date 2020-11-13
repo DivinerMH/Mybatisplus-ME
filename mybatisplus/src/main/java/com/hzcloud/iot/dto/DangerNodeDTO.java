@@ -1,5 +1,6 @@
 package com.hzcloud.iot.dto;
 
+
 import com.hzcloud.iot.entity.DangerNode;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.io.Serializable;
  * 巡检节点(DangerNode)表传输对象
  *
  * @author MH
- * @since 2020-11-12 16:26:55
+ * @since 2020-11-13 15:17:24
  */
 @Data
 @ApiModel(value = "巡检节点传输对象")

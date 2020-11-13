@@ -3,10 +3,10 @@ package com.hzcloud.iot.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.hzcloud.iot.common.core.util.R;
 import com.hzcloud.iot.dto.DangerNodeDTO;
-import com.hzcloud.iot.service.DangerNodeService;
+import com.hzcloud.iot.service.IDangerNodeService;
 import com.hzcloud.iot.utils.BusinessEnum;
-import com.hzcloud.iot.utils.R;
 import com.hzcloud.iot.vo.DangerNodeVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -21,7 +21,7 @@ import java.util.List;
  * 巡检节点(DangerNode)表控制层
  *
  * @author MH
- * @since 2020-11-12 16:26:58
+ * @since 2020-11-13 15:17:26
  */
 @AllArgsConstructor
 @RestController
@@ -32,7 +32,7 @@ public class DangerNodeController {
     /**
      * 服务对象
      */
-    private final DangerNodeService dangerNodeService;
+    private final IDangerNodeService idangerNodeService;
 
     /**
      * 新增巡检节点
@@ -46,7 +46,7 @@ public class DangerNodeController {
             @ApiImplicitParam(paramType = "body", name = "dangerNodeDTO", dataType = "DangerNodeDTO", required = true, value = "巡检节点对象")})
     @PostMapping
     public R<Boolean> saveDangerNode(@RequestBody DangerNodeDTO dangerNodeDTO) {
-        return R.ok(dangerNodeService.saveDangerNode(dangerNodeDTO));
+        return R.ok(idangerNodeService.saveDangerNode(dangerNodeDTO));
     }
 
     /**
@@ -61,7 +61,7 @@ public class DangerNodeController {
     @ApiImplicitParams(@ApiImplicitParam(paramType = "query", name = "id", dataType = "Integer", required = true, value = "巡检节点id"))
     public R<Boolean> deleteDangerNode(@RequestParam("id") Integer id) {
         if (null != id) {
-            return R.ok(dangerNodeService.deleteDangerNode(id));
+            return R.ok(idangerNodeService.deleteDangerNode(id));
         }
         return R.failed(BusinessEnum.PARAMETER_NULL);
     }
@@ -78,7 +78,7 @@ public class DangerNodeController {
             @ApiImplicitParam(paramType = "body", name = "dangerNodeDTO", dataType = "DangerNodeDTO", required = true, value = "巡检节点对象")})
     @PutMapping
     public R<Boolean> updateDangerNode(@RequestBody DangerNodeDTO dangerNodeDTO) {
-        return R.ok(dangerNodeService.updateDangerNode(dangerNodeDTO));
+        return R.ok(idangerNodeService.updateDangerNode(dangerNodeDTO));
     }
 
     /**
@@ -92,7 +92,7 @@ public class DangerNodeController {
     @ApiImplicitParams(@ApiImplicitParam(paramType = "query", name = "id", dataType = "Integer", required = true, value = "巡检节点id"))
     public R<DangerNodeVO> queryDangerNode(@RequestParam("id") Integer id) {
         if (null != id) {
-            return R.ok(dangerNodeService.queryDangerNode(id));
+            return R.ok(idangerNodeService.queryDangerNode(id));
         }
         return R.failed(BusinessEnum.PARAMETER_NULL);
     }
@@ -108,7 +108,7 @@ public class DangerNodeController {
     @ApiImplicitParams(@ApiImplicitParam(paramType = "query", name = "id", dataType = "Integer", required = true, value = "巡检节点id"))
     public R<DangerNodeVO> queryDangerNodeDetail(@RequestParam("id") Integer id) {
         if (null != id) {
-            return R.ok(dangerNodeService.queryDangerNodeDetail(id));
+            return R.ok(idangerNodeService.queryDangerNodeDetail(id));
         }
         return R.failed(BusinessEnum.PARAMETER_NULL);
     }
@@ -121,7 +121,7 @@ public class DangerNodeController {
     @ApiOperation(value = "无参查询巡检节点列表")
     @GetMapping("/lists")
     public R<List<DangerNodeVO>> queryDangerNodeList() {
-        return R.ok(dangerNodeService.queryDangerNodeList());
+        return R.ok(idangerNodeService.queryDangerNodeList());
     }
 
     /**
@@ -135,7 +135,7 @@ public class DangerNodeController {
             @ApiImplicitParam(paramType = "body", name = "dangerNodeDTO", dataType = "DangerNodeDTO", required = false, value = "巡检节点对象")})
     @GetMapping("/lists/conditions")
     public R<List<DangerNodeVO>> queryListByConditions(DangerNodeDTO dangerNodeDTO) {
-        return R.ok(dangerNodeService.queryListByConditions(dangerNodeDTO));
+        return R.ok(idangerNodeService.queryListByConditions(dangerNodeDTO));
     }
 
     /**
@@ -150,7 +150,7 @@ public class DangerNodeController {
             @ApiImplicitParam(paramType = "query", name = "dangerNodeDTO", dataType = "DangerNodeDTO", required = false, value = "巡检节点对象")})
     @GetMapping("/page/conditions")
     public R<IPage<DangerNodeVO>> queryPageByConditions(Page page, DangerNodeDTO dangerNodeDTO) {
-        return R.ok(dangerNodeService.queryPageByConditions(page, dangerNodeDTO));
+        return R.ok(idangerNodeService.queryPageByConditions(page, dangerNodeDTO));
     }
 
 

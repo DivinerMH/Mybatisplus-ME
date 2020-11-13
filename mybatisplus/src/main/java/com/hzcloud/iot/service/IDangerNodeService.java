@@ -14,9 +14,9 @@ import java.util.List;
  * 巡检节点(DangerNode)表服务接口
  *
  * @author MH
- * @since 2020-11-12 16:26:57
+ * @since 2020-11-13 15:17:25
  */
-public interface DangerNodeService extends IService<DangerNode> {
+public interface IDangerNodeService extends IService<DangerNode> {
 
     /**
      * 新增巡检节点
