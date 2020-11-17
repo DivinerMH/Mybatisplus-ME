@@ -8,13 +8,13 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 巡检节点(DangerNode)表实体类
  *
  * @author MH
- * @since 2020-11-13 15:17:22
+ * @since 2020-11-13 16:01:15
  */
 @Data
 @ApiModel(value = "巡检节点实体类")
@@ -63,12 +63,12 @@ public class DangerNode implements Serializable {
      * 创建时间
      */
     @ApiModelProperty(value = "创建时间", name = "createTime")
-    private Date createTime;
+    private LocalDateTime createTime;
     /**
      * 修改时间
      */
     @ApiModelProperty(value = "修改时间", name = "updateTime")
-    private Date updateTime;
+    private LocalDateTime updateTime;
     /**
      * 逻辑删除(0=正常,1=删除)
      */
