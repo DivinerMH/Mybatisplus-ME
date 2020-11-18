@@ -161,10 +161,10 @@ public class ArrayDeal {
                 System.out.println("i:" + i);
                 // 判断奇偶数
                 if ((i & 1) == 1) {
-                    System.out.println("奇数-> X轴：" + strip );
+                    System.out.println("奇数-> Y轴：" + strip );
                     yValue = yValue + Double.parseDouble(strip);
                 } else {
-                    System.out.println("偶数-> Y轴：" + strip );
+                    System.out.println("偶数-> X轴：" + strip );
                     xValue = xValue + Double.parseDouble(strip);
                 }
             }
