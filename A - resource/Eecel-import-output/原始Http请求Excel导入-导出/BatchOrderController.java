@@ -1,15 +1,8 @@
 package com.joolun.cloud.mall.admin.controller;
 
 import cn.hutool.core.util.IdUtil;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.joolun.cloud.common.core.constant.CommonConstants;
 import com.joolun.cloud.common.core.util.R;
-import com.joolun.cloud.common.log.annotation.SysLog;
-import com.joolun.cloud.mall.admin.service.BatchOrderService;
-import com.joolun.cloud.mall.admin.service.GoodsSpuService;
-import com.joolun.cloud.mall.admin.service.UserInfoService;
 import com.joolun.cloud.mall.common.entity.BatchOrder;
 import com.joolun.cloud.mall.common.entity.GoodsSpu;
 import com.joolun.cloud.mall.common.enums.OrderInfoEnum;
@@ -17,7 +10,6 @@ import com.joolun.cloud.mall.common.util.BaseController;
 import com.joolun.cloud.mall.common.util.ExcelUtil;
 import com.joolun.cloud.mall.common.util.KeyUtil;
 import com.joolun.cloud.mall.common.util.PathUtil;
-import com.joolun.cloud.weixin.common.util.ThirdSessionHolder;
 import com.sun.deploy.util.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,12 +19,10 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
