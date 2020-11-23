@@ -19,6 +19,8 @@ $!callback.setFileName($tool.append($tableName, ".java"))
 
 ##自动导入包（全局变量）
 $!autoImport
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
 

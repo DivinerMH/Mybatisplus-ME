@@ -1,23 +1,33 @@
-##导入宏定义
+##导入宏定义 - 模板
 $!define
-
-##设置表后缀（宏定义）
-#setTableSuffix("Mapper")
-
-##保存文件（宏定义）
-#save("/mapper", "Mapper.java")
 
 ##包路径（宏定义）
 #setPackageSuffix("mapper")
 
-##定义实体对象名
+##保存文件（宏定义）
+#save("/mapper", "Mapper.java")
+
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀（Xxxxx -> XxxxMapper）
+#setTableSuffix("Mapper")
+
+##设置实体对象名（自定义）
 #set($entityName = $!tool.firstLowerCase($!tableInfo.name))
 
+##自动导入包（全局变量）
+$!autoImport
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
+import $!{tableInfo.savePackageName}.vo.$!{tableInfo.name}VO;
 import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+import $!{tableInfo.savePackageName}.dto.$!{tableInfo.name}DTO;
+import java.util.List;
 
 ##表注释（宏定义）
 #tableComment("数据库访问层")
+@Mapper
 public interface $!{tableName} extends BaseMapper<$!tableInfo.name> {
 
     /**

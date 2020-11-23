@@ -1,24 +1,26 @@
-##导入宏定义
+##导入宏定义 - 模板
 $!define
-
-##设置表后缀（宏定义）
-#setTableSuffix("Controller")
-
-##保存文件（宏定义）
-#save("/controller", "Controller.java")
 
 ##包路径（宏定义）
 #setPackageSuffix("controller")
 
-##定义服务名
-#set($serviceName = $!tool.append($!tool.firstLowerCase($!tableInfo.name), "Service"))
+##保存文件（宏定义）
+#save("/controller", "Controller.java")
 
-##定义实体对象名
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀
+#setTableSuffix("Controller")
+
+##设置Service服务名（自定义）
+#set($serviceName = $!tool.append("i",$!tool.firstLowerCase($!tableInfo.name), "Service"))
+
+##设置实体对象名（自定义）
 #set($entityName = $!tool.firstLowerCase($!tableInfo.name))
 
+##自动导入包（全局变量）
+$!autoImport
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
-import com.hzcloud.iot.common.core.util.R;
+import com.tsy.common.core.util.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
 import $!{tableInfo.savePackageName}.service.$!{tableInfo.name}Service;
@@ -40,7 +42,7 @@ import java.util.List;
 public class $!{tableName}{
 
     /** 服务对象 */
-    private final $!{tableInfo.name}Service $!{serviceName};
+    private final I$!{tableInfo.name}Service $!{serviceName};
 
     /**
      * 新增$!{tableInfo.comment}

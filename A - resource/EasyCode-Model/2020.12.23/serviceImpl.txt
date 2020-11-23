@@ -1,18 +1,22 @@
-##导入宏定义
+##导入宏定义 - 模板
 $!define
-
-##设置表后缀（宏定义）
-#setTableSuffix("ServiceImpl")
-
-##保存文件（宏定义）
-#save("/service/impl", "ServiceImpl.java")
 
 ##包路径（宏定义）
 #setPackageSuffix("service.impl")
 
-##定义实体对象名
+##保存文件（宏定义）
+#save("/service/impl", "ServiceImpl.java")
+
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀
+#setTableSuffix("ServiceImpl")
+
+##设置实体对象名（自定义）
 #set($entityName = $!tool.firstLowerCase($!tableInfo.name))
 
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +29,8 @@ import org.springframework.stereotype.Service;
 #tableComment("表服务实现类")
 @AllArgsConstructor
 @Service
-public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tableInfo.name}> implements $!{tableInfo.name}Service {
+@Slf4j
+public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tableInfo.name}> implements I$!{tableInfo.name}Service {
 
     private final $!{tableInfo.name}Mapper $!{entityName}Mapper;
 
@@ -108,7 +113,7 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
     private void checkResource(Integer id){
         $!{tableInfo.name} $!{entityName} = baseMapper.selectById(id);
         if(null == $!{entityName}){
-            throw new IotResourceException("应资源不存在,请核实后输入");
+            throw new IotRepositoryException("应资源不存在,请核实后输入");
         }
     }
 
@@ -119,7 +124,7 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
                         .eq(StringUtils.isNotEmpty(name),$!{tableInfo.name}::getName,name);
         List<$!{tableInfo.name}> $!{entityName}s = baseMapper.selectList(queryWrapper);
         if(null != $!{entityName}s && !$!{entityName}s.isEmpty()){
-            throw new IotResourceException("名称已存在，请核实后输入");
+            throw new IotRepositoryException("名称已存在，请核实后输入");
         }
     }
 
@@ -134,7 +139,7 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
             for ($!{tableInfo.name} $!{entityName} : $!{entityName}s) {
                 // 若非修改自身且名称还存在重复，则抛出异常
                 if(!$!{entityName}.getId().equals($!{entityName}DTO.getId()) && $!{entityName}.getName().equals($!{entityName}DTO.getName())){
-                    throw new IotResourceException("名称已存在，请核实后输入");
+                    throw new IotRepositoryException("名称已存在，请核实后输入");
                 }
             }
         }

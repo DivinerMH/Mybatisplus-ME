@@ -23,7 +23,7 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         #end
     </resultMap>
     <!-- $!{tableInfo.name}VO查询结果集映射 -->
-    <resultMap id="$!{tableInfo.name}VOResultMap" type="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+    <resultMap id="$!{tableInfo.name}VOResultMap" type="$!{tableInfo.savePackageName}.vo.$!{tableInfo.name}VO">
         #foreach($column in $tableInfo.fullColumn)
             <result property="$!column.name" column="$!column.obj.name" jdbcType="$!column.ext.jdbcType"/>
         #end
@@ -51,7 +51,7 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         ORDER BY create_time DESC
     </select>
 
-    <!-- 条件查询类型字段List -->
+    <!-- 条件查询$!{tableInfo.comment}List -->
     <select id="queryByConditions"  resultMap="$!{tableInfo.name}VOResultMap">
         SELECT
             <include refid="Base_Column_List" />
