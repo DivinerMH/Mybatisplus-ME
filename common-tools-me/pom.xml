@@ -217,6 +217,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- java调用Groovy脚本，所需依赖 - 2020.12.07 -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.7</version>
+        </dependency>
 
     </dependencies>
 
