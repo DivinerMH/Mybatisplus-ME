@@ -1,0 +1,86 @@
+##导入宏定义 - 模板
+$!define
+
+##包路径（宏定义）
+#setPackageSuffix("service")
+
+##保存文件（宏定义）
+#save("/service", "Service.java")
+
+##设置初始变量（当前环境 -> IXxxxService；覆盖模板tableName）
+##重置（宏定义）模板表名：tableName，为其添加自定义前缀、后缀
+#set($tableName = $tool.append("I",$tableInfo.name,"Service"))
+
+##设置回调 (使用当前 tableName 变量为参数，添加 .java后缀，作为当前文件命名)
+$!callback.setFileName($tool.append($tableName, ".java"))
+
+##设置实体对象名（自定义）
+#set($entityName = $!tool.firstLowerCase($!tableInfo.name))
+
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
+import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+
+##表注释（宏定义）
+#tableComment("表服务接口")
+public interface $!{tableName} extends IService<$!tableInfo.name> {
+
+    /**
+     * 新增$!tableInfo.comment
+     * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
+     * @return Boolean.TRUE or Boolean.FALSE
+     */
+    Boolean save$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO);
+
+    /**
+     * 根据id（逻辑）删除$!tableInfo.comment
+     * @param id $!{tableInfo.comment}id
+     * @return Boolean.TRUE or Boolean.FALSE
+     */
+    Boolean delete$!{tableInfo.name}(Integer id);
+
+    /**
+     * 修改$!tableInfo.comment
+     * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
+     * @return Boolean.TRUE or Boolean.FALSE
+     */
+    Boolean update$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO);
+
+    /**
+     * 根据id查询$!{tableInfo.comment}详情（单服务）
+     * @param id $!{tableInfo.comment}id
+     * @return $!{tableInfo.comment}展示对象
+     */
+    $!{tableInfo.name}VO query$!{tableInfo.name}(Integer id);
+
+    /**
+     * 根据id查询$!{tableInfo.comment}详情(跨服务)
+     * @param id $!{tableInfo.comment}id
+     * @return $!{tableInfo.comment}展示对象
+     */
+    $!{tableInfo.name}VO query$!{tableInfo.name}Detail(Integer id);
+
+    /**
+     * 无参查询查询$!{tableInfo.comment}列表
+     * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
+     */
+    List<$!{tableInfo.name}VO> query$!{tableInfo.name}List();
+
+    /**
+     * 条件查询查询$!{tableInfo.comment}列表
+     * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
+     * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
+     */
+    List<$!{tableInfo.name}VO> queryListByConditions($!{tableInfo.name}DTO $!{entityName}DTO);
+
+    /**
+     * 分页查询查询$!{tableInfo.comment}列表
+     * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
+     * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
+     */
+    IPage<$!{tableInfo.name}VO> queryPageByConditions(Page page, $!{tableInfo.name}DTO $!{entityName}DTO);
+
+}

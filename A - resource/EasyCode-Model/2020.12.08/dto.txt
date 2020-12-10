@@ -1,0 +1,35 @@
+##导入宏定义 - 模板
+$!define
+
+##包路径（宏定义）
+#setPackageSuffix("dto")
+
+##保存文件（宏定义） - 保存文件名需与 tableName（修改后的）一致
+#save("/dto", "DTO.java")
+
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀
+#setTableSuffix("DTO")
+
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+
+import java.io.Serializable;
+
+##表注释（宏定义）
+#tableComment("表传输对象")
+@Data
+@ApiModel(value = "$!{tableInfo.comment}传输对象")
+@EqualsAndHashCode(callSuper = true)
+public class $!{tableName} extends $!{tableInfo.name} implements Serializable {
+
+    ## 统一序列化版本号
+    private static final long serialVersionUID = 1L;
+
+}

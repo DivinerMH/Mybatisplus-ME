@@ -1,0 +1,74 @@
+##引入mybatis支持 - 模板
+$!mybatisSupport
+
+##设置保存名称与保存位置
+$!callback.setFileName($tool.append($!{tableInfo.name}, "Mapper.xml"))
+$!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
+
+##定义实体对象名
+#set($entityName = $!tool.firstLowerCase($!tableInfo.name))
+
+##拿到主键
+#if(!$tableInfo.pkColumn.isEmpty())
+    #set($pk = $tableInfo.pkColumn.get(0))
+#end
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="$!{tableInfo.savePackageName}.mapper.$!{tableInfo.name}Mapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        #foreach($column in $tableInfo.fullColumn)
+            <result property="$!column.name" column="$!column.obj.name" jdbcType="$!column.ext.jdbcType"/>
+        #end
+    </resultMap>
+    <!-- $!{tableInfo.name}VO查询结果集映射 -->
+    <resultMap id="$!{tableInfo.name}VOResultMap" type="$!{tableInfo.savePackageName}.vo.$!{tableInfo.name}VO">
+        #foreach($column in $tableInfo.fullColumn)
+            <result property="$!column.name" column="$!column.obj.name" jdbcType="$!column.ext.jdbcType"/>
+        #end
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">#allSqlColumn()</sql>
+
+
+    <!-- 根据id查询$!{tableInfo.comment}详情(跨服务) -->
+    <select id="query$!{tableInfo.name}Detail" resultMap="$!{tableInfo.name}VOResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM $!tableInfo.obj.name
+        WHERE del_flag = 0 AND status = 0 AND id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 无参查询$!{tableInfo.comment}List -->
+    <select id="query$!{tableInfo.name}List" resultMap="$!{tableInfo.name}VOResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM $!tableInfo.obj.name
+        WHERE del_flag = 0 AND status = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询$!{tableInfo.comment}List -->
+    <select id="queryByConditions"  resultMap="$!{tableInfo.name}VOResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM $!tableInfo.obj.name
+        <where>
+            del_flag = 0
+            <if test="$!{entityName}DTO.type != null and $!{entityName}DTO.type != '' ">
+                AND type = #{$!{entityName}DTO.type}
+            </if>
+            <if test="$!{entityName}DTO.status != null and $!{entityName}DTO.status != '' ">
+                AND status = #{$!{entityName}DTO.status}
+            </if>
+            <if test="$!{entityName}DTO.status == null or $!{entityName}DTO.status == '' ">
+                AND status = '0'
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
