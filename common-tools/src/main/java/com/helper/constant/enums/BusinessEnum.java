@@ -42,40 +42,40 @@ public enum BusinessEnum {
 
     /*角色枚举 1201-1299*/
     ROLE_DELET(1201, "该角色占用，无法删除！！！"),
-    ROLE_CODE_IS_NOT_NULL(1202,"角色code不允许为空"),
+    ROLE_CODE_IS_NOT_NULL(1202, "角色code不允许为空"),
 
     CLIENT_ID_EXIST(1351, "终端编号已存在,请重新填写"),
     SOCIAL_TYPE_EXIST(1361, "社交类型已存在,请选择其他类型"),
 
     /* 账号/用户 2000-2099*/
     USER_IS_LOCK(2000, "该账号已被禁用"),
-    USER_IS_EXIST(2001,"该账号已被注册，请重新输入"),
-    ADMIN_USER_NULL(2002,"未查询到匹配的账号信息"),
-    OLD_PASSWORD_IS_FAIL(2003,"原密码错误，修改失败"),
+    USER_IS_EXIST(2001, "该账号已被注册，请重新输入"),
+    ADMIN_USER_NULL(2002, "未查询到匹配的账号信息"),
+    OLD_PASSWORD_IS_FAIL(2003, "原密码错误，修改失败"),
     ADMIN_USERINFO_NULL(2004, "未查询到匹配的用户信息"),
-    ADMIN_TENANT_NULL(2005,"未查询到匹配的租户信息"),
-    TENANT_NOT_IS_NULL(2007,"租户ID不允许为空"),
-    USER_IDCODE_IS_EXIST(2008,"系统中已存在该身份证号, 请核对后再提交"),
-    USER_IDCODE_IS_ILLEGAL(2009,"身份证号不允许包含中文字符, 请确认后再提交"),
-    USER_ADD_MUST_ENTERED(2010,"新增正式用户必须录入账号信息"),
-    USER_PHONE_IS_ILLEGAL(2011,"手机号格式不规范，请重新输入"),
-    USER_PHONE_IS_EXIST(2012,"该手机号已被注册，请重新输入"),
-    USER_EMAIL_IS_ILLEGAL(2013,"邮箱格式不规范，请重新输入"),
-    USER_EMAIL_IS_EXIST(2014,"该邮箱已被注册，请重新输入"),
-    USER_RELATED_IS_EXIST(2015,"该用户信息存在关联数据, 不允许删除"),
-    USER_BINDING_IS_EXIST(2016,"该用户已有绑定账号, 绑定失败!"),
+    ADMIN_TENANT_NULL(2005, "未查询到匹配的租户信息"),
+    TENANT_NOT_IS_NULL(2007, "租户ID不允许为空"),
+    USER_IDCODE_IS_EXIST(2008, "系统中已存在该身份证号, 请核对后再提交"),
+    USER_IDCODE_IS_ILLEGAL(2009, "身份证号不允许包含中文字符, 请确认后再提交"),
+    USER_ADD_MUST_ENTERED(2010, "新增正式用户必须录入账号信息"),
+    USER_PHONE_IS_ILLEGAL(2011, "手机号格式不规范，请重新输入"),
+    USER_PHONE_IS_EXIST(2012, "该手机号已被注册，请重新输入"),
+    USER_EMAIL_IS_ILLEGAL(2013, "邮箱格式不规范，请重新输入"),
+    USER_EMAIL_IS_EXIST(2014, "该邮箱已被注册，请重新输入"),
+    USER_RELATED_IS_EXIST(2015, "该用户信息存在关联数据, 不允许删除"),
+    USER_BINDING_IS_EXIST(2016, "该用户已有绑定账号, 绑定失败!"),
 
     /* 租户 2100-2199*/
     TENANT_IS_LOCK(2100, "该租户已被禁用"),
-    TENANT_RELATED_USER_IS_EXIST(2101,"该租户存在已关联的账号信息, 不允许删除"),
-    TENANT_SYSTEM_ERROR(2102,"不允许添加系统租户"),
+    TENANT_RELATED_USER_IS_EXIST(2101, "该租户存在已关联的账号信息, 不允许删除"),
+    TENANT_SYSTEM_ERROR(2102, "不允许添加系统租户"),
 
     /* 人脸 2200-2299*/
     FACE_ERROR(2200, "调用人脸接口错误"),
     FACE_PATH_NULL(2201, "未查询到匹配的人脸信息"),
-    FACE_RELATED_IS_EXIST(2202,"人脸信息已存在关联关系, 请确认后再提交"),
-    FACE_RELATED_NOT_USERINFO(2203,"该人脸图片未关联用户信息"),
-    FACE_RELATED_NOT_BE_DELETE(2204,"该人脸存在关联数据, 不允许删除"),
+    FACE_RELATED_IS_EXIST(2202, "人脸信息已存在关联关系, 请确认后再提交"),
+    FACE_RELATED_NOT_USERINFO(2203, "该人脸图片未关联用户信息"),
+    FACE_RELATED_NOT_BE_DELETE(2204, "该人脸存在关联数据, 不允许删除"),
 
     /* 卡号 2300-2399*/
     CARD_FIND_FAIL(2300, "查询卡号错误"),
@@ -83,31 +83,31 @@ public enum BusinessEnum {
     CARD_BIND_REPEAT_NULL(2302, "卡号绑定重复或未绑定访客"),
     CARD_BIND_EXIST(2303, "卡号已被绑定"),
     CARD_BIND_FAIL(2304, "卡号绑定失败"),
-    CARD_RELATED_IS_EXIST(2305,"卡号信息已存在关联关系, 请确认后再提交"),
-    CARD_IS_ILLEGAL(2306,"卡号不允许包含中文字符, 请确认后再提交"),
-    CARD_RELATED_USERINFO_NULL(2307,"未查询到卡号关联的用户信息"),
-    CARD_IS_EXIST(2308,"卡号已存在, 请勿重复添加"),
-    CARD_RELATED_NOT_DELETE(2309,"卡号存在关联业务, 不允许删除"),
+    CARD_RELATED_IS_EXIST(2305, "卡号信息已存在关联关系, 请确认后再提交"),
+    CARD_IS_ILLEGAL(2306, "卡号不允许包含中文字符, 请确认后再提交"),
+    CARD_RELATED_USERINFO_NULL(2307, "未查询到卡号关联的用户信息"),
+    CARD_IS_EXIST(2308, "卡号已存在, 请勿重复添加"),
+    CARD_RELATED_NOT_DELETE(2309, "卡号存在关联业务, 不允许删除"),
 
     /* 车牌号 2400-2499*/
     CAR_ADD_FAIL(2400, "存储车牌错误"),
     CAR_PARAMETER_IS_NULL(2401, "车牌号参数为空,请输入车牌号"),
     CAR_FIND_FAIL(2402, "查询车牌错误"),
-    CAR_FIND_NULL(2403,"未查询到匹配的车牌号信息"),
-    RELATED_IS_EXIST(2404,"存在关联业务, 不允许删除"),
-    CAR_RELATED_IS_EXIST(2405,"车牌号信息已存在关联关系, 请确认后再提交"),
-    CAR_USER_RELATED_NOT_EXIST(2406,"用户-车牌关联信息不存在"),
-    CAR_IS_EXIST(2407,"车牌号已存在, 请勿重复添加"),
+    CAR_FIND_NULL(2403, "未查询到匹配的车牌号信息"),
+    RELATED_IS_EXIST(2404, "存在关联业务, 不允许删除"),
+    CAR_RELATED_IS_EXIST(2405, "车牌号信息已存在关联关系, 请确认后再提交"),
+    CAR_USER_RELATED_NOT_EXIST(2406, "用户-车牌关联信息不存在"),
+    CAR_IS_EXIST(2407, "车牌号已存在, 请勿重复添加"),
 
     /* 微信 2500-2599 */
-    WECHAT_FIND_NULL(2500,"未查询到匹配的微信数据"),
-    WECHAT_CODE_NULL(2501,"参数code不允许为空"),
-    WECHAT_SYSTEM_CONFIG_NULL(2502,"系统缺少微信app_id和app_secret配置"),
-    WECHAT_CALLBACK_NULL(2503,"获取微信响应报文为空"),
+    WECHAT_FIND_NULL(2500, "未查询到匹配的微信数据"),
+    WECHAT_CODE_NULL(2501, "参数code不允许为空"),
+    WECHAT_SYSTEM_CONFIG_NULL(2502, "系统缺少微信app_id和app_secret配置"),
+    WECHAT_CALLBACK_NULL(2503, "获取微信响应报文为空"),
 
     /* 其他异常 2500-2599*/
-    USERID_NOT_IS_NULL(2500,"userInfoId参数不允许为空"),
-    ISBINDING_NOT_IS_NULL(2501,"isBinding参数不允许为空"),
+    USERID_NOT_IS_NULL(2500, "userInfoId参数不允许为空"),
+    ISBINDING_NOT_IS_NULL(2501, "isBinding参数不允许为空"),
     MGS_CONFIG_FAIL(2599, "消息服务配置失败"),
 
     VISITORS_OUTBOUND_NULL(5210, "当前外访申请未找到"),
@@ -160,53 +160,61 @@ public enum BusinessEnum {
 
     PARKING_CARD_PRODUCT_EMPTY(5360, "卡套餐为空"),
 
-    /** Structure资产结构业务枚举 6000-6100 */
-    TENANT_ID_NULL(6000,"租户id不能为空"),
-    PROVINCE_ID_NULL(6001,"省市区id不能为空"),
-    TENANT_TYPE_EXCEPTION(6002,"租户类型应为平台租户，请核实后操作"),
+    /**
+     * Structure资产结构业务枚举 6000-6100
+     */
+    TENANT_ID_NULL(6000, "租户id不能为空"),
+    PROVINCE_ID_NULL(6001, "省市区id不能为空"),
+    TENANT_TYPE_EXCEPTION(6002, "租户类型应为平台租户，请核实后操作"),
 
-    STRUCTURE_EXIST(6010,"该资产结构已存在，请核实后操作"),
-    STRUCTURE_NO_EXIST(6011,"资产结构节点不存在，请核实后操作"),
-    STRUCTURE_NAME_EXIST(6012,"该名称已存在，请核实后操作"),
-    STRUCTURE_NAME_NO_EXIST(6013,"该名称不存在，请核实后操作"),
-    STRUCTURE_ANCHORS_INFO_EXIST(6014,"当前资产结构节点存在锚点信息，请核实后操作"),
-    STRUCTURE_LIST_EXCEPTION(6015,"资产结构List列表数据异常：当前无数据"),
-    STRUCTURE_PATH_EXCEPTION(6016,"该资产结构路劲异常,请核实后操作"),
+    STRUCTURE_EXIST(6010, "该资产结构已存在，请核实后操作"),
+    STRUCTURE_NO_EXIST(6011, "资产结构节点不存在，请核实后操作"),
+    STRUCTURE_NAME_EXIST(6012, "该名称已存在，请核实后操作"),
+    STRUCTURE_NAME_NO_EXIST(6013, "该名称不存在，请核实后操作"),
+    STRUCTURE_ANCHORS_INFO_EXIST(6014, "当前资产结构节点存在锚点信息，请核实后操作"),
+    STRUCTURE_LIST_EXCEPTION(6015, "资产结构List列表数据异常：当前无数据"),
+    STRUCTURE_PATH_EXCEPTION(6016, "该资产结构路劲异常,请核实后操作"),
 
-    PARENT_NODE_EXCEPTION(6030,"父级节点数据异常"),
-    CHILDREN_NODE_EXCEPTION(6031,"子级节点数据异常"),
-    CHILDREN_NODE_EXIST(6032,"当前节点存在子节点，请核实后操作"),
+    PARENT_NODE_EXCEPTION(6030, "父级节点数据异常"),
+    CHILDREN_NODE_EXCEPTION(6031, "子级节点数据异常"),
+    CHILDREN_NODE_EXIST(6032, "当前节点存在子节点，请核实后操作"),
 
-    ANCHORS_EXIST(6040,"存在锚点信息，请核实后操作"),
-    ANCHORS_NO_EXIST(6041,"存在锚点信息，请核实后操作"),
+    ANCHORS_EXIST(6040, "存在锚点信息，请核实后操作"),
+    ANCHORS_NO_EXIST(6041, "存在锚点信息，请核实后操作"),
 
-    ANCHORS_TYPE_LIMIT(6042,"锚点Type参数为0或1，请核实后操作"),
-    ANCHORS_TYPE_OR_MACHINE_NULL(6043,"锚点Type或machineId为空，请核实后操作"),
+    ANCHORS_TYPE_LIMIT(6042, "锚点Type参数为0或1，请核实后操作"),
+    ANCHORS_TYPE_OR_MACHINE_NULL(6043, "锚点Type或machineId为空，请核实后操作"),
 
 
-    /** Meeting智慧会议业务枚举 6100-6200 */
-    MEETING_ACTIVITY_NULL(6120,"会议室审批资源不存在，请核实后操作"),
-    MEETING_ACTIVITY_REVIEW(6121,"会议室资源未审核，请核实后操作"),
+    /**
+     * Meeting智慧会议业务枚举 6100-6200
+     */
+    MEETING_ACTIVITY_NULL(6120, "会议室审批资源不存在，请核实后操作"),
+    MEETING_ACTIVITY_REVIEW(6121, "会议室资源未审核，请核实后操作"),
 
-    /** 7000-7099 支付业务枚举*/
+    /**
+     * 7000-7099 支付业务枚举
+     */
     PAY_FAIL(7000, "支付失败"),
 
-    /** 7100 - 7199 消息枚举 */
-    WEBPUSH_PRODUCT_LIST_NULL(7100,"产品套餐为空"),
-    WEBPUSH_ORDER_NULL(7101,"订单为空"),
-    WEBPUSH_ORDER_ADD_FAIL(7102,"订单创建失败"),
-    WEBPUSH_ORDER_DETAIL_NULL(7110,"订单详情为空"),
-    WEBPUSH_ORDER_DETAIL_ADD_FAIL(7111,"订单详情创建失败"),
-    WEBPUSH_RECHARGE_TOP_FAIL(7120,"充值失败"),
+    /**
+     * 7100 - 7199 消息枚举
+     */
+    WEBPUSH_PRODUCT_LIST_NULL(7100, "产品套餐为空"),
+    WEBPUSH_ORDER_NULL(7101, "订单为空"),
+    WEBPUSH_ORDER_ADD_FAIL(7102, "订单创建失败"),
+    WEBPUSH_ORDER_DETAIL_NULL(7110, "订单详情为空"),
+    WEBPUSH_ORDER_DETAIL_ADD_FAIL(7111, "订单详情创建失败"),
+    WEBPUSH_RECHARGE_TOP_FAIL(7120, "充值失败"),
 
 
-
-
-    /**JSON合并 9999**/
-    JSON_Empty(9900,"json数据为空"),
-    JSON_WRONG_FORMAT(9901,"json格式有误"),
-    JSON_MERGE(9902,"(TF文件)JSON数据合并失败"),
-    JSON_CONVERT_FAIL(9903,"JSON转换失败"),
+    /**
+     * JSON合并 9999
+     **/
+    JSON_Empty(9900, "json数据为空"),
+    JSON_WRONG_FORMAT(9901, "json格式有误"),
+    JSON_MERGE(9902, "(TF文件)JSON数据合并失败"),
+    JSON_CONVERT_FAIL(9903, "JSON转换失败"),
 
     /* BIM */
     BIM_SERVER_ERROR(11180, "BimServer服务器未知错误"),
@@ -224,11 +232,10 @@ public enum BusinessEnum {
     ACTIVITI_PROCESS_TASK_ALERADY(13201, "该流程实例下存在待办任务"),
 
     /* 应用设置 15000-15200 */
-    APP_CLASSIFY_NAME_REPEAT(15000,"应用分类名称已存在"),
-    APP_CLASSIFY_BINDING_ERROR(15001,"该分类已关联应用,请先解除应用关联"),
-    APP_ACTIVERULE_REPEAT(15002,"应用路由已存在"),
-    pass_platform_REPEAT(15003,"已配置用户信息,不可重复提交");
-
+    APP_CLASSIFY_NAME_REPEAT(15000, "应用分类名称已存在"),
+    APP_CLASSIFY_BINDING_ERROR(15001, "该分类已关联应用,请先解除应用关联"),
+    APP_ACTIVERULE_REPEAT(15002, "应用路由已存在"),
+    pass_platform_REPEAT(15003, "已配置用户信息,不可重复提交");
 
 
     /**

@@ -13,11 +13,11 @@ import java.lang.annotation.Target;
  * @Description:
  * @Version: V1.0
  **/
-@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.TYPE })
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface  ExcelField {
+public @interface ExcelField {
 
-	//导出字段在excel中的名字
-	String title();
+    //导出字段在excel中的名字
+    String title();
 
 }

@@ -23,7 +23,7 @@ public class MqttConnectUtils {
         connOpts.setKeepAliveInterval(30);
         //设置断开后重新连接
         connOpts.setAutomaticReconnect(true);
-        if(!client.isConnected()){
+        if (!client.isConnected()) {
             client.connect(connOpts);
         }
         System.out.println("Connected");

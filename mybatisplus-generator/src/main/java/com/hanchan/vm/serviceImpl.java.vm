@@ -2,7 +2,7 @@ package ${package.ServiceImpl}import org.springframework.stereotype.Service;
 
 ;
 ${package.Entity}
-        .${entity};
+.${entity};
     ${package.Mapper}
         .${table.mapperName};
     ${package.Service}

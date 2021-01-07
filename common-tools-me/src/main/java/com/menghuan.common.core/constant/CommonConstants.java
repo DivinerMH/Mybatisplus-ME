@@ -76,6 +76,14 @@ public interface CommonConstants {
      * 默认存储bucket
      */
     String BUCKET_NAME = "test";
+    /**
+     * 删除(禁用)
+     */
+    String ELASTICITY_YES = "1";
+    /**
+     * 正常（启用）
+     */
+    String ELASTICITY_NO = "0";
 
     /**
      * 服务模板
@@ -91,16 +99,6 @@ public interface CommonConstants {
          */
         String STATUS_UP = "1";
     }
-
-    /**
-     * 删除(禁用)
-     */
-    String ELASTICITY_YES = "1";
-
-    /**
-     * 正常（启用）
-     */
-    String ELASTICITY_NO = "0";
 
 
 }

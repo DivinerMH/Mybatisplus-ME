@@ -73,7 +73,7 @@ public class KafkaConstant {
     public static final String SEND_TO_ACTIVITI_BACK = "iot_activiti_back_topic";
 
     //支付回调 用于在调用支付接口后成功后的通知调用方
-    public static final String IOT_PAY_CALLBACK_MESSAGE="iot_pay_callback_message";
+    public static final String IOT_PAY_CALLBACK_MESSAGE = "iot_pay_callback_message";
 
     public static final String UP_UPSTREAM_TOPIC_CONSUMER_GROUP_1 = "UP_UPSTREAM_TOPIC_CONSUMER_GROUP_1";
 
@@ -111,31 +111,31 @@ public class KafkaConstant {
     public static final String IOT_TRACK_DEVICE_MESSAGE = "iot_track_device_message";
 
     //协议解析数据监听topic路由键  iot_protocol_data_(消费者appKey)_(生产者appKey)
-    public static final String IOT_PROTOCOL_DATA_KEY= "iot_protocol_data_";
+    public static final String IOT_PROTOCOL_DATA_KEY = "iot_protocol_data_";
     //报警业务监听协议解析上行数据
-    public static final String ALARM_RECIVE_PROTOCOL_DATA= "alarm_protocol";
+    public static final String ALARM_RECIVE_PROTOCOL_DATA = "alarm_protocol";
     //自动化业务监听协议解析上行数据
-    public static final String AUTO_RECIVE_PROTOCOL_DATA= "auto_protocol";
+    public static final String AUTO_RECIVE_PROTOCOL_DATA = "auto_protocol";
     //门禁业务监听协议解析上行数据
-    public static final String ENTRANCE_RECIVE_PROTOCOL_DATA= "entrance_protocol";
+    public static final String ENTRANCE_RECIVE_PROTOCOL_DATA = "entrance_protocol";
     //轨迹追踪业务监听协议解析上行数据
-    public static final String TRACK_RECIVE_PROTOCOL_DATA= "track_protocol";
+    public static final String TRACK_RECIVE_PROTOCOL_DATA = "track_protocol";
     //停车场监听协议解析上行数据
-    public static final String PARKING_RECIVE_PROTOCOL_DATA= "parking_protocol";
+    public static final String PARKING_RECIVE_PROTOCOL_DATA = "parking_protocol";
     //用户业务监听协议解析上行数据
-    public static final String ADMIN_RECIVE_PROTOCOL_DATA= "admin_protocol";
+    public static final String ADMIN_RECIVE_PROTOCOL_DATA = "admin_protocol";
     //设备数据监听协议解析上行数据
-    public static final String  DEVICEDATA_RECIVE_PROTOCOL_DATA = "devicedata_protocol";
+    public static final String DEVICEDATA_RECIVE_PROTOCOL_DATA = "devicedata_protocol";
 
     //设备离线告警队列
-    public static final String  IOT_DEVICE_OFFLINE_ALARM = "iot_device_offline_alarm";
+    public static final String IOT_DEVICE_OFFLINE_ALARM = "iot_device_offline_alarm";
 
     //摄像头告警队列
-    public static final String  IOT_CAMERA_ALARM = "iot_camera_alarm";
+    public static final String IOT_CAMERA_ALARM = "iot_camera_alarm";
 
     //应用间消息主题 应用名_路由键_(消费者appKey)_(生产者appKey)
 
     //门禁下发卡失败主题key
-    public static final String SEND_CARD_FAIL_KEY= "iot_entrance_sendCardFail_";
+    public static final String SEND_CARD_FAIL_KEY = "iot_entrance_sendCardFail_";
 
 }

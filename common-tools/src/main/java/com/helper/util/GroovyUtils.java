@@ -13,20 +13,20 @@ import java.util.Map;
 
 public class GroovyUtils {
 
-    public static String runGroovyScript(String script, String funName, Object[] params) throws Exception{
-        if (script == null || "".equals(script)){
+    public static String runGroovyScript(String script, String funName, Object[] params) throws Exception {
+        if (script == null || "".equals(script)) {
             throw new RuntimeException("方法runGroovyScript无法执行，传入的脚本为空");
         }
-        Object object = new Object ();
+        Object object = new Object();
         ScriptEngineManager factory = new ScriptEngineManager();
         ScriptEngine engine = factory.getEngineByName("groovy");
         engine.eval(script);
         Invocable inv = (Invocable) engine;
-        object =  inv.invokeFunction(funName, params);
-        Map map = JSONObject.parseObject (JSONObject.toJSONString (object),HashMap.class);
-        String res =String.valueOf (map.get ("values"));
-        JSONArray jsonArray = JSONObject.parseArray (String.valueOf (map.get ("values")));
-        return jsonArray.size ()>0?jsonArray.get (0)+"":res;
+        object = inv.invokeFunction(funName, params);
+        Map map = JSONObject.parseObject(JSONObject.toJSONString(object), HashMap.class);
+        String res = String.valueOf(map.get("values"));
+        JSONArray jsonArray = JSONObject.parseArray(String.valueOf(map.get("values")));
+        return jsonArray.size() > 0 ? jsonArray.get(0) + "" : res;
     }
 
 

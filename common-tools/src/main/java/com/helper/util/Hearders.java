@@ -4,19 +4,33 @@ package com.helper.util;
  * 表头结构对象
  */
 public class Hearders {
-    /**表头字段名**/
+    /**
+     * 表头字段名
+     **/
     private String heardField;
-    /**是否展示**/
+    /**
+     * 是否展示
+     **/
     private boolean viewFlag;
-    /**是否编辑**/
+    /**
+     * 是否编辑
+     **/
     private boolean editFlag;
-    /**编辑属性 text redio select checkbox **/
+    /**
+     * 编辑属性 text redio select checkbox
+     **/
     private String editClass;
-    /**字典标识**/
+    /**
+     * 字典标识
+     **/
     private String dictType;
-    /**是否必填**/
+    /**
+     * 是否必填
+     **/
     private boolean required;
-    /**默认值**/
+    /**
+     * 默认值
+     **/
     private String val;
 
 

@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
  */
 public class ByteUtil {
     private static String[] binaryArray =
-            {"0000","0001","0010","0011",
-                    "0100","0101","0110","0111",
-                    "1000","1001","1010","1011",
-                    "1100","1101","1110","1111"};
+            {"0000", "0001", "0010", "0011",
+                    "0100", "0101", "0110", "0111",
+                    "1000", "1001", "1010", "1011",
+                    "1100", "1101", "1110", "1111"};
 
     /**
      * @param hex 十六进制转为十进制
@@ -22,16 +22,14 @@ public class ByteUtil {
      */
     public static String getHexToTen(String hex) {
 //        return String.valueOf(Integer.parseInt(hex, 16));
-        int sum=0;
-        for(int i=0;i<hex.length();i++)
-        {
-            int m=hex.charAt(i);//将输入的十六进制字符串转化为单个字符
-            int num=m>='A'?m-'A'+10:m-'0';//将字符对应的ASCII值转为数值
-            sum+=Math.pow(16, hex.length()-1-i)*num;
+        int sum = 0;
+        for (int i = 0; i < hex.length(); i++) {
+            int m = hex.charAt(i);//将输入的十六进制字符串转化为单个字符
+            int num = m >= 'A' ? m - 'A' + 10 : m - '0';//将字符对应的ASCII值转为数值
+            sum += Math.pow(16, hex.length() - 1 - i) * num;
         }
         return String.valueOf(sum);
     }
-
 
 
     /**
@@ -98,8 +96,6 @@ public class ByteUtil {
     }
 
 
-
-
     /**
      *      * 十六进制字符串装十进制
      *      *
@@ -129,9 +125,9 @@ public class ByteUtil {
      * 字符串转化成为16进制字符串
      */
     public static String strTo16(String s) {
-        if(StringUtil.isNumeric(s)){
+        if (StringUtil.isNumeric(s)) {
             return Long.toHexString(Long.parseLong(s));
-        }else{
+        } else {
             String str = "";
             for (int i = 0; i < s.length(); i++) {
                 int ch = (int) s.charAt(i);
@@ -142,7 +138,8 @@ public class ByteUtil {
         }
 
     }
-//
+
+    //
     public static void main(String[] args) throws DecoderException {
 
 //        System.out.println(get_to_2("0a01"));
@@ -164,6 +161,7 @@ public class ByteUtil {
 //
 //        System.out.println(1);
     }
+
     public static String str2HexStr(String str) {
         char[] chars = "0123456789ABCDEF".toCharArray();
         StringBuilder sb = new StringBuilder("");
@@ -432,10 +430,11 @@ public class ByteUtil {
 
     /**
      * 十六转二
+     *
      * @param s
      * @return
      */
-    public static String get_to_2(String hexString){
+    public static String get_to_2(String hexString) {
         if (hexString == null || hexString.length() % 2 != 0)
             return null;
         String bString = "", tmp;
@@ -447,20 +446,19 @@ public class ByteUtil {
     }
 
     /**
-     *
      * @return 转换为二进制字符串
      */
-    public static String bytes2BinaryStr(byte[] bArray){
+    public static String bytes2BinaryStr(byte[] bArray) {
 
         String outStr = "";
         int pos = 0;
-        for(byte b:bArray){
+        for (byte b : bArray) {
             //高四位
-            pos = (b&0xF0)>>4;
-            outStr+=binaryArray[pos];
+            pos = (b & 0xF0) >> 4;
+            outStr += binaryArray[pos];
             //低四位
-            pos=b&0x0F;
-            outStr+=binaryArray[pos];
+            pos = b & 0x0F;
+            outStr += binaryArray[pos];
         }
         return outStr;
 

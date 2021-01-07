@@ -22,6 +22,7 @@ import static com.hzcloud.iot.common.core.constant.CacheConstants.SUBMIT_DETAILS
 
 /**
  * 重复提交
+ *
  * @author bjx
  * @date 2020-07-23
  */
@@ -59,7 +60,7 @@ public class RepeatSubmitAspect {
                 proceed = point.proceed();
                 log.info("releaseLock success, key = [{}]", key);
                 return proceed;
-            }finally {
+            } finally {
                 // 解锁
                 iRedisService.unlock(key, lock);
             }
@@ -72,8 +73,9 @@ public class RepeatSubmitAspect {
 
     /**
      * 生成key
+     *
      * @param token token
-     * @param url url
+     * @param url   url
      * @return key
      */
     private String getKey(String token, String url) {

@@ -17,8 +17,8 @@ import java.util.TimeZone;
 /**
  * JacksonConfig
  *
- * @author: lengleng
  * @author L.cm
+ * @author: lengleng
  * @author: lishangbu
  * @date: 2018/10/22
  */
@@ -26,13 +26,13 @@ import java.util.TimeZone;
 @ConditionalOnClass(ObjectMapper.class)
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
 public class JacksonConfig {
-	@Bean
-	public Jackson2ObjectMapperBuilderCustomizer customizer() {
-		return builder -> {
-			builder.locale(Locale.CHINA);
-			builder.timeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
-			builder.simpleDateFormat(DatePattern.NORM_DATETIME_PATTERN);
-			builder.modules(new IotJavaTimeModule());
-		};
-	}
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer customizer() {
+        return builder -> {
+            builder.locale(Locale.CHINA);
+            builder.timeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
+            builder.simpleDateFormat(DatePattern.NORM_DATETIME_PATTERN);
+            builder.modules(new IotJavaTimeModule());
+        };
+    }
 }

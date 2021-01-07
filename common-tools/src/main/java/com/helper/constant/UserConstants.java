@@ -61,5 +61,4 @@ public interface UserConstants {
     String FACE_ILLEGAL_SEND_MSG = "face_illegal_remind";               //人脸不合法消息提醒编码
 
 
-
 }

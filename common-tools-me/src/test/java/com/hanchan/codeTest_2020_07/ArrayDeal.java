@@ -28,7 +28,7 @@ public class ArrayDeal {
             // "System.out.println("切割 str:" +  str3);"
             /* --------------------------------数组转换完成------------------------------ */
             String[] arr = str2.split(","); // 用,分割
-            if(arr.length > 1){
+            if (arr.length > 1) {
                 // "String s = arr[0] + "," + arr[1];"
                 map.put("lng", arr[0].substring(1));
                 map.put("lat", arr[1].substring(0, arr[1].lastIndexOf("]")));
@@ -58,8 +58,8 @@ public class ArrayDeal {
 
                 Integer x1 = Integer.parseInt(arr[i].substring(1));
                 System.out.println(i + "x:" + x1);
-                Integer y1 = Integer.parseInt(arr[i+1].substring(0, arr[1].lastIndexOf("]")));
-                System.out.println((i+1) + "y:" + y1);
+                Integer y1 = Integer.parseInt(arr[i + 1].substring(0, arr[1].lastIndexOf("]")));
+                System.out.println((i + 1) + "y:" + y1);
             }
         }
     }
@@ -73,7 +73,7 @@ public class ArrayDeal {
         String info3 = "[[11,22],[55,77]]";
 
         String strip = StringUtils.strip(info3, "[]");
-        System.out.println("strip:"+strip);
+        System.out.println("strip:" + strip);
 
     }
 
@@ -122,16 +122,16 @@ public class ArrayDeal {
                 String strip = StringUtils.strip(arr[i], "[]");
 
                 if ((i & 1) == 1) {
-                    System.out.println("奇数-> X轴：" + strip );
+                    System.out.println("奇数-> X轴：" + strip);
                     x = x + Integer.parseInt(strip);
                 } else {
-                    System.out.println("偶数-> Y轴：" + strip );
+                    System.out.println("偶数-> Y轴：" + strip);
                     y = y + Integer.parseInt(strip);
                 }
             }
             Integer denominator = arr.length / 2;
-            Integer  lng = (x / denominator);
-            Integer  lat = (y / denominator);
+            Integer lng = (x / denominator);
+            Integer lat = (y / denominator);
             map.put("lng", lng.toString());
             map.put("lat", lat.toString());
             map.put("height", "0");
@@ -161,23 +161,22 @@ public class ArrayDeal {
                 System.out.println("i:" + i);
                 // 判断奇偶数
                 if ((i & 1) == 1) {
-                    System.out.println("奇数-> Y轴：" + strip );
+                    System.out.println("奇数-> Y轴：" + strip);
                     yValue = yValue + Double.parseDouble(strip);
                 } else {
-                    System.out.println("偶数-> X轴：" + strip );
+                    System.out.println("偶数-> X轴：" + strip);
                     xValue = xValue + Double.parseDouble(strip);
                 }
             }
             Integer denominator = arr.length / 2;
-            Double lng = ( xValue / denominator );
-            Double lat = ( yValue / denominator );
+            Double lng = (xValue / denominator);
+            Double lat = (yValue / denominator);
             map.put("lng", lng.toString());
             map.put("lat", lat.toString());
             map.put("height", "0");
             System.out.println(map);
         }
     }
-
 
 
 }

@@ -10,13 +10,12 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  **/
 public class MqttProducer {
     /**
-     *
-     * @param client MqttConnectUtils.getMqttClient()
-     * @param topic  topic
+     * @param client  MqttConnectUtils.getMqttClient()
+     * @param topic   topic
      * @param payload 数据
      * @throws MqttException
      */
-    public static void publish(MqttClient client,String topic,byte[] payload) throws MqttException {
+    public static void publish(MqttClient client, String topic, byte[] payload) throws MqttException {
         MqttMessage message = new MqttMessage(payload);
         message.setQos(2);
         client.publish(topic, message);

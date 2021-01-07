@@ -14,18 +14,18 @@ import java.io.OutputStream;
  **/
 public class BaseController {
 
-	public void sendResponseErrorMsg(HttpServletResponse response, Exception e) {
-		try {
-			response.setContentType("application/json;charset=UTF-8");
-			OutputStream outputStream = new BufferedOutputStream(response.getOutputStream());
-			outputStream.write(e.getMessage().getBytes("UTF-8"));
-			outputStream.flush();
-			outputStream.close();
-			response.flushBuffer();
-		} catch (Exception e1) {
-			e.printStackTrace();
-		}
-	}
+    public void sendResponseErrorMsg(HttpServletResponse response, Exception e) {
+        try {
+            response.setContentType("application/json;charset=UTF-8");
+            OutputStream outputStream = new BufferedOutputStream(response.getOutputStream());
+            outputStream.write(e.getMessage().getBytes("UTF-8"));
+            outputStream.flush();
+            outputStream.close();
+            response.flushBuffer();
+        } catch (Exception e1) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

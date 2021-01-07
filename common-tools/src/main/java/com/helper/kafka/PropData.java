@@ -1,13 +1,6 @@
 package com.helper.kafka;
 
 public class PropData {
-    public PropData() {
-
-    }
-    public PropData(String val) {
-        this.val = val;
-    }
-
     private String attrCode;
     //属性名称
     private String attrName;
@@ -17,18 +10,23 @@ public class PropData {
     private String val;
     //属性数据
     private String isShow;
+    public PropData() {
+
+    }
+    public PropData(String val) {
+        this.val = val;
+    }
 
     public String getAttrCode() {
         return attrCode;
     }
 
-
-    public String getAttrIdString() {
-        return attrId+"";
+    public void setAttrCode(String attrCode) {
+        this.attrCode = attrCode;
     }
 
-    public void setAttrCode(String attrCode) {
-        this.attrCode=attrCode;
+    public String getAttrIdString() {
+        return attrId + "";
     }
 
     public String getAttrName() {
@@ -36,7 +34,7 @@ public class PropData {
     }
 
     public void setAttrName(String attrName) {
-        this.attrName=attrName;
+        this.attrName = attrName;
     }
 
     public Integer getAttrId() {
@@ -44,7 +42,7 @@ public class PropData {
     }
 
     public void setAttrId(Integer attrId) {
-        this.attrId=attrId;
+        this.attrId = attrId;
     }
 
     public String getVal() {
@@ -52,7 +50,7 @@ public class PropData {
     }
 
     public void setVal(String val) {
-        this.val=val;
+        this.val = val;
     }
 
     public String getIsShow() {
@@ -60,7 +58,7 @@ public class PropData {
     }
 
     public void setIsShow(String isShow) {
-        this.isShow=isShow;
+        this.isShow = isShow;
     }
 
 }

@@ -9,30 +9,30 @@ import java.nio.ByteBuffer;
  * @Description 用于各种类型，进制与byte之间的转换
  */
 public class ByteUtils {
-    private static String hexString="0123456789ABCDEF";
+    private static String hexString = "0123456789ABCDEF";
 
 
     /*将字符串转化为16进制，存入字符串数组中*/
     public static String string2Hex(String content) {
         byte[] bytes = content.getBytes();
         StringBuilder sb = new StringBuilder(bytes.length * 2);
-        for(int i = 0; i < bytes.length; i++) {
-            sb.append(hexString.charAt((bytes[i]&0xf0)>>4));
-            sb.append(hexString.charAt((bytes[i]&0x0f)>>0));
+        for (int i = 0; i < bytes.length; i++) {
+            sb.append(hexString.charAt((bytes[i] & 0xf0) >> 4));
+            sb.append(hexString.charAt((bytes[i] & 0x0f) >> 0));
         }
         return sb.toString();
     }
 
-    /**将16进制字符串转化为10进制字符串**/
-    public static String hexStr2Str(String hexStr)
-    {
+    /**
+     * 将16进制字符串转化为10进制字符串
+     **/
+    public static String hexStr2Str(String hexStr) {
         String str = "0123456789ABCDEF";
         char[] hexs = hexStr.toCharArray();
         byte[] bytes = new byte[hexStr.length() / 2];
         int n;
 
-        for (int i = 0; i < bytes.length; i++)
-        {
+        for (int i = 0; i < bytes.length; i++) {
             n = str.indexOf(hexs[2 * i]) * 16;
             n += str.indexOf(hexs[2 * i + 1]);
             bytes[i] = (byte) (n & 0xff);
@@ -41,26 +41,18 @@ public class ByteUtils {
     }
 
     /*将16进制字符串转化为10进制字符串*/
-    public static String toStringHex(String s)
-    {
-        byte[] baKeyword = new byte[s.length()/2];
-        for(int i = 0; i < baKeyword.length; i++)
-        {
-            try
-            {
-                baKeyword[i] = (byte)(0xff & Integer.parseInt(s.substring(i*2, i*2+2),16));
-            }
-            catch(Exception e)
-            {
+    public static String toStringHex(String s) {
+        byte[] baKeyword = new byte[s.length() / 2];
+        for (int i = 0; i < baKeyword.length; i++) {
+            try {
+                baKeyword[i] = (byte) (0xff & Integer.parseInt(s.substring(i * 2, i * 2 + 2), 16));
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        try
-        {
+        try {
             s = new String(baKeyword, "utf-8");//UTF-16 le:Not
-        }
-        catch (Exception e1)
-        {
+        } catch (Exception e1) {
             e1.printStackTrace();
         }
         return s;
@@ -73,13 +65,13 @@ public class ByteUtils {
         char[] achar = hex.toCharArray();
         for (int i = 0; i < len; i++) {
             int pos = i * 2;
-            result[i] = (byte) (toByte(achar[pos]) << 4 | toByte( achar[pos + 1] ));
+            result[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));
         }
         return result;
     }
 
     /*将bytes数组转化为16进制字符串*/
-    public static String bytesToHexString(byte[] src){
+    public static String bytesToHexString(byte[] src) {
         StringBuilder stringBuilder = new StringBuilder("");
         if (src == null || src.length <= 0) {
             return null;
@@ -96,15 +88,13 @@ public class ByteUtils {
     }
 
     /*将十六进制字符串解码成字符串*/
-    public static String decode(String bytes)
-    {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream( bytes.length() / 2 );
+    public static String decode(String bytes) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(bytes.length() / 2);
         //将每2位16进制整数组装成一个字节
-        for(int i = 0; i < bytes.length() ; i+=2)
-            baos.write((hexString.indexOf(bytes.charAt(i))<<4 | hexString.indexOf(bytes.charAt(i+1))));
+        for (int i = 0; i < bytes.length(); i += 2)
+            baos.write((hexString.indexOf(bytes.charAt(i)) << 4 | hexString.indexOf(bytes.charAt(i + 1))));
         return new String(baos.toByteArray());
     }
-
 
 
     /*将Short Int类型转化为16进制再转化为byte数组*/
@@ -127,7 +117,7 @@ public class ByteUtils {
 
     /*将int类型转化为16进制数，转化为byte数组类型*/
     public static byte[] intToHexToBytes(short num) {
-        byte[] byteNum = new byte[]{(byte)((num>>8)&0xFF), (byte)(num&0xFF)};
+        byte[] byteNum = new byte[]{(byte) ((num >> 8) & 0xFF), (byte) (num & 0xFF)};
         return byteNum;
     }
 
@@ -135,7 +125,7 @@ public class ByteUtils {
     public static byte intToHexToByte(int integer) {
         String hexStr = Integer.toHexString(integer);
         // Log.i("data", hexStr);
-        return Byte.valueOf(hexStr,16);
+        return Byte.valueOf(hexStr, 16);
     }
 
 
@@ -172,7 +162,6 @@ public class ByteUtils {
     }
 
 
-
     /*将长整形转化为byte数组*/
     public static byte[] long2Bytes(long num) {
         byte[] byteNum = new byte[8];
@@ -194,28 +183,29 @@ public class ByteUtils {
     }
 
 
-
-
-    /**将16进制的byte数组转化为float类型**/
-    public static float byte162float(byte[] num){
-        String hexString=bytesToHexString(num);
-        Integer temp=Integer.valueOf(hexString.trim(), 16);
-        float value=Float.intBitsToFloat(temp.intValue());
+    /**
+     * 将16进制的byte数组转化为float类型
+     **/
+    public static float byte162float(byte[] num) {
+        String hexString = bytesToHexString(num);
+        Integer temp = Integer.valueOf(hexString.trim(), 16);
+        float value = Float.intBitsToFloat(temp.intValue());
         System.out.println(value);
         return value;
     }
 
 
-    /**将float转化为byte数组，占用4个字节**/
-    public static byte [] float2ByteArray (float value)
-    {
+    /**
+     * 将float转化为byte数组，占用4个字节
+     **/
+    public static byte[] float2ByteArray(float value) {
         return ByteBuffer.allocate(4).putFloat(value).array();
     }
 
     /**
      * 将10进制byte数组转化为Float
      *
-     * @param b 字节（至少4个字节）
+     * @param b     字节（至少4个字节）
      * @param index 开始位置
      * @return
      */
@@ -256,37 +246,34 @@ public class ByteUtils {
 
     /*将byte（字节）类型转化为位*/
     public static String byteToBit(byte b) {
-        return "" +(byte)((b >> 7) & 0x1) +
-                (byte)((b >> 6) & 0x1) +
-                (byte)((b >> 5) & 0x1) +
-                (byte)((b >> 4) & 0x1) +
-                (byte)((b >> 3) & 0x1) +
-                (byte)((b >> 2) & 0x1) +
-                (byte)((b >> 1) & 0x1) +
-                (byte)((b >> 0) & 0x1);
+        return "" + (byte) ((b >> 7) & 0x1) +
+                (byte) ((b >> 6) & 0x1) +
+                (byte) ((b >> 5) & 0x1) +
+                (byte) ((b >> 4) & 0x1) +
+                (byte) ((b >> 3) & 0x1) +
+                (byte) ((b >> 2) & 0x1) +
+                (byte) ((b >> 1) & 0x1) +
+                (byte) ((b >> 0) & 0x1);
     }
 
 
-
     /*将指定byte数组以16进制的形式打印到控制台 */
-    public static void printHexString( byte[] b) {
+    public static void printHexString(byte[] b) {
         for (int i = 0; i < b.length; i++) {
             String hex = Integer.toHexString(b[i] & 0xFF);
             if (hex.length() == 1) {
                 hex = '0' + hex;
             }
-            System.out.print(hex.toUpperCase() );
+            System.out.print(hex.toUpperCase());
         }
     }
 
     /*判断字符串中是否出现非数字字符，如果出现非数字字符，返回true，否则返回false*/
-    public static  boolean ExistOtherChar(String str){
+    public static boolean ExistOtherChar(String str) {
         String numstr = "0123456789";
         int i = 0;
-        for(i = 0 ; i < str.length() ; i++ )
-        {
-            if(numstr.indexOf(str.charAt(i)) == -1 )
-            {
+        for (i = 0; i < str.length(); i++) {
+            if (numstr.indexOf(str.charAt(i)) == -1) {
                 return true;
             }
         }
@@ -294,15 +281,14 @@ public class ByteUtils {
     }
 
 
-
     /*判断字符串中是否只包含字母，只包含字母，返回true，否则返回false*/
-    public  static boolean ExistChar(String str){
+    public static boolean ExistChar(String str) {
         String regex = "[a-zA-Z]+$";
         return str.matches(regex);
     }
 
     /*判断版本号是否符合格式*/
-    public static boolean LegalVersion(String str){
+    public static boolean LegalVersion(String str) {
         String regex = "[0-9]+[.][0-9]+[.][0-9]+";
         return str.matches(regex);
     }

@@ -25,14 +25,14 @@ public class ZiMuQuanTest {
     }
 
     @Test
-    public void gugu(){
-        if(1 == i){
+    public void gugu() {
+        if (1 == i) {
             System.out.println("大佬咕咕，天下无敌");
-        }else{
+        } else {
             System.out.println("咕咕：“我要戒糖，明天起戒糖、锻炼”");
             for (int i1 = 0; i1 < 1000000; i1++) {
                 System.out.println("华灯第" + i1 + "次说：“不，你要多吃，长肉肉...”");
-                if(1222222 == i1){
+                if (1222222 == i1) {
                     System.out.println("华灯第" + i1 + "次说：“好吧，大佬咕咕，天下无敌”");
                     break;
                 }
@@ -42,16 +42,16 @@ public class ZiMuQuanTest {
     }
 
     @Test
-    public void xiannv(){
+    public void xiannv() {
         //获取当前时间为开始时间，转换为long型
-        long startTime =fromDateStringToLong(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS").format(new Date()));
+        long startTime = fromDateStringToLong(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS").format(new Date()));
 
-        if(1 == i){
+        if (1 == i) {
             System.out.println("大佬咕咕，天下无敌");
-        }else{
+        } else {
             for (int i1 = 0; i1 < 1000000; i1++) {
                 System.out.println("华灯第" + i1 + "次说：“群里的小姐姐，都是仙女哎”");
-                if(1222222 == i1){
+                if (1222222 == i1) {
                     System.out.println("华灯第" + i1 + "次说：“好吧，大佬咕咕，天下无敌”");
                     break;
                 }
@@ -62,7 +62,7 @@ public class ZiMuQuanTest {
 
         //计算时间差,单位毫秒
         long timeSpan = stopTime - startTime;
-        System.out.println("颤抖吧，用时" + timeSpan/1000 + "s");
+        System.out.println("颤抖吧，用时" + timeSpan / 1000 + "s");
     }
 
 

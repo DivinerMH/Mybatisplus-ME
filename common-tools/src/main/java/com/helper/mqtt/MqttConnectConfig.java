@@ -12,23 +12,21 @@ import java.util.UUID;
 @Configuration
 public class MqttConnectConfig {
 
+    public final static String MQTT_BROKER_ADDRESS = "tcp://192.168.1.175:1883";
+    public final static String IOT_USERNAME = "iotMonito";
+    public final static String IOT_PASSWORD = "linksame123456";
+    private final static String CLIENT_ID = "iot_mqtt_monito:";
+//public final static String MQTT_BROKER_ADDRESS= "tcp://127.0.0.1:1883";
     public static String address;
-    @Value("${emqx.brokerAddress}")
-    public  void setAddress(String address) {
-        MqttConnectConfig.address = address;
-    }
+
     public static String getAddress() {
         return address;
     }
 
-    public final static String MQTT_BROKER_ADDRESS= "tcp://192.168.1.175:1883";
-//public final static String MQTT_BROKER_ADDRESS= "tcp://127.0.0.1:1883";
-
-    private final static String CLIENT_ID = "iot_mqtt_monito:";
-
-    public final static String IOT_USERNAME = "iotMonito";
-
-    public final static String IOT_PASSWORD = "linksame123456";
+    @Value("${emqx.brokerAddress}")
+    public void setAddress(String address) {
+        MqttConnectConfig.address = address;
+    }
 
     public static String getClientId() {
         return CLIENT_ID + UUID.randomUUID();

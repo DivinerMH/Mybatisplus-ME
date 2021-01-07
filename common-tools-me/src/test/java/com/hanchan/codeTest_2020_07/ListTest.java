@@ -12,8 +12,8 @@ public class ListTest {
 
     //3、set集合去重，不打乱顺序
     @Test
-    public void test1(){
-        List<String> list  =   new ArrayList<String>();
+    public void test1() {
+        List<String> list = new ArrayList<String>();
         list.add("aaa");
         list.add("bbb");
         list.add("aaa");
@@ -26,12 +26,12 @@ public class ListTest {
         Set set = new HashSet(list);
         list.clear();
         list.addAll(set);
-        System.out.println( "去重后的集合： " + list);
+        System.out.println("去重后的集合： " + list);
     }
 
     @Test
-    public void test2(){
-        List<String> list  =   new ArrayList<String>();
+    public void test2() {
+        List<String> list = new ArrayList<String>();
         list.add("aaa");
         list.add("bbb");
         list.add("aaa");
@@ -44,7 +44,7 @@ public class ListTest {
         Set treeSet = new TreeSet(list);
         list.clear();
         list.addAll(treeSet);
-        System.out.println( "去重后的集合： " + list);
+        System.out.println("去重后的集合： " + list);
     }
 
 }

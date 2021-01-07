@@ -5,30 +5,30 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * 基类
  */
-public class BaseEntity{
+public class BaseEntity {
 
-    @ApiModelProperty(value="每页大小",name="interfacePath",example = "10",required=false)
+    @ApiModelProperty(value = "每页大小", name = "interfacePath", example = "10", required = false)
     private String limit;
-    @ApiModelProperty(value="页码起止",name="interfacePath",example = "0",required=false)
+    @ApiModelProperty(value = "页码起止", name = "interfacePath", example = "0", required = false)
     private String offset;
 
 
-    @ApiModelProperty(value="字典翻译值 value 无需填写仅供读取",name="value",required=false)
+    @ApiModelProperty(value = "字典翻译值 value 无需填写仅供读取", name = "value", required = false)
     private String value;
-    @ApiModelProperty(value="字典翻译值 label 无需填写仅供读取",name="label",required=false)
+    @ApiModelProperty(value = "字典翻译值 label 无需填写仅供读取", name = "label", required = false)
     private String label;
 
 
     private Integer structureId;
 
-    private Integer tenantId ;
+    private Integer tenantId;
 
     public Integer getTenantId() {
-        return tenantId != null? tenantId:0;
+        return tenantId != null ? tenantId : 0;
     }
 
     public void setTenantId(Integer tenantId) {
-        this.tenantId = tenantId != null? tenantId:0;
+        this.tenantId = tenantId != null ? tenantId : 0;
     }
 
     public String getLimit() {

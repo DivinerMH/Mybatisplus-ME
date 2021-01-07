@@ -31,11 +31,11 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 @Configuration
 public class MessageSourceConfig {
 
-	@Bean
-	public MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource messageSource
-			= new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:i18n/messages");
-		return messageSource;
-	}
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource
+                = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:i18n/messages");
+        return messageSource;
+    }
 }

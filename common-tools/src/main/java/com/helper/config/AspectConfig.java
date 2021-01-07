@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 
 /**
  * 配置切面
+ *
  * @author bjx
  * @date 2020-07-24
  */
@@ -25,6 +26,7 @@ public class AspectConfig {
 
     /**
      * 注入切面
+     *
      * @return RepeatSubmitAspect
      */
     @Order(2)

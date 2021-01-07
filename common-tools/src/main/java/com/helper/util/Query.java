@@ -15,7 +15,7 @@ public class Query extends LinkedHashMap<String, Object> {
     private int limit;
 
     public Query(Object o) {
-        Map<String,Object> params = ClassUtils.entityToMap(o);
+        Map<String, Object> params = ClassUtils.entityToMap(o);
         this.putAll(params);
         if (params != null && !params.isEmpty() && params.get("offset") != null && params.get("limit") != null
                 && StringUtil.isNotBlank(String.valueOf(params.get("offset")))

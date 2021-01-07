@@ -31,8 +31,8 @@ public class TimeSevenRecent {
         System.out.println(format2);
 
         ArrayList<Object> objects = new ArrayList<>();
-        objects.add(0,format1);
-        objects.add(1,format2);
+        objects.add(0, format1);
+        objects.add(1, format2);
         System.out.println(objects);
     }
 
@@ -44,12 +44,12 @@ public class TimeSevenRecent {
         ArrayList<Object> timeInfo = new ArrayList<>();
         String formatRecentInfo = null;
         Date time = null;
-        for(int i = 1;i < 8;i++){
+        for (int i = 1; i < 8; i++) {
             calendar.setTime(new Date());
             calendar.add(Calendar.DATE, -(i - 1));
             time = calendar.getTime();
             formatRecentInfo = simpleDateFormat.format(time);
-            timeInfo.add(i - 1,formatRecentInfo);
+            timeInfo.add(i - 1, formatRecentInfo);
             System.out.println(formatRecentInfo);
         }
         System.out.println(timeInfo);

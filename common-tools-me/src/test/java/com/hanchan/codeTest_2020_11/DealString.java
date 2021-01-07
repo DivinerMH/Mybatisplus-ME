@@ -10,27 +10,27 @@ import org.junit.Test;
 public class DealString {
 
     @Test
-    public void deleteString(){
-        String test  = ("chaojimali");
+    public void deleteString() {
+        String test = ("chaojimali");
         System.out.println("转换前：" + test);
-        test = test.replace("chaoji","");
+        test = test.replace("chaoji", "");
         System.out.println("转换后：" + test);
     }
 
     @Test
-    public void deleteString2(){
-        String test  = ("chaojimalichaoji");
+    public void deleteString2() {
+        String test = ("chaojimalichaoji");
         System.out.println("转换前：" + test);
-        test = test.replace("chaoji","");
+        test = test.replace("chaoji", "");
         System.out.println("转换后：" + test);
     }
 
     @Test
-    public void deleteString3(){
-        String test  = ("chaojimalichaoji");
+    public void deleteString3() {
+        String test = ("chaojimalichaoji");
         System.out.println("转换前：" + test);
         StringBuilder strBuilder = new StringBuilder(test);
-        StringBuilder replace = strBuilder.replace(6,10,"hundouluo");
+        StringBuilder replace = strBuilder.replace(6, 10, "hundouluo");
         System.out.println("转换后：" + replace);
 
     }
@@ -39,10 +39,10 @@ public class DealString {
      * 截取函数
      */
     @Test
-    public void deleteString4(){
-        String test  = ("chaojimalichaoji");
+    public void deleteString4() {
+        String test = ("chaojimalichaoji");
         System.out.println("转换前：" + test);
-        test = test.substring(5,12);
+        test = test.substring(5, 12);
         System.out.println("转换后：" + test);
     }
 

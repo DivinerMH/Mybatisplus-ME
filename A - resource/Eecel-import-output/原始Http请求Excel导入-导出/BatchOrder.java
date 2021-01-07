@@ -23,11 +23,11 @@ import java.io.Serializable;
 @ApiModel(description = "团体订单")
 public class BatchOrder extends Model<BatchOrder> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	//用户ID
-	@ApiModelProperty(value = "用户ID")
-	@ExcelField(title = "用户ID")
-	private String userId;
+    //用户ID
+    @ApiModelProperty(value = "用户ID")
+    @ExcelField(title = "用户ID")
+    private String userId;
 
 }

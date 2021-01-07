@@ -17,6 +17,178 @@ import java.util.Set;
 public class Trd_tiiles {
 
     /**
+     * @param json 需要处理的json数据 - JSONObject
+     * @param k    key
+     * @param list 空 list
+     * @return list
+     */
+    public static List<String> getJSONValue(JSONObject json, String k, List<String> list) {
+        for (Object j : json.keySet()) {
+            if (isJSONObj(json.get(j))) {
+                //是对象
+                JSONObject j2 = JSON.parseObject(json.get(j).toString());
+                getJSONValue(j2, k, list);
+            } else if (isJSONArray(json.get(j))) {
+                JSONArray j3 = JSON.parseArray(json.get(j).toString());
+                //是数组
+                getJSONValue(j3, k, list);
+            } else if (j == "uri") {
+                String s = json.get(j).toString();
+
+                /*Map<String, Object> map = Maps.newHashMap();
+                map.put("cat/meng1.jpg", 1);
+                map.put("cat/red/blue/huan1.jpg", 2);
+                map.put("1/0/1/m.cmpt", 3);*/
+
+                //是字符串
+                list.add(json.get(j).toString());
+                String mh = json.get(j).toString();
+                System.out.println("处理前-需要替换的路径：" + mh);
+
+               /* String substring = mh.substring(mh.indexOf("/") + 1);
+                System.out.println("处理后-需要替换的路径：" + substring);
+
+                // key
+                for(String key : map.keySet()){
+
+                    if (key.equals(substring)) {
+                        System.out.println("我是匹配的value" + map.get(key));
+                        map.put(key, "可怕的云服务");
+                    }
+                }*/
+            }
+        }
+        // System.out.println("list:" + list);
+        return list;
+    }
+
+    public static void getJSONValue(JSONArray json, String k, List<String> list) {
+        for (Object j : json) {
+            if (isJSONObj(j)) {
+                //是对象
+                getJSONValue((JSONObject) j, k, list);
+            } else if (isJSONArray(j)) {
+                //是数组
+                getJSONValue((JSONArray) j, k, list);
+            }
+        }
+    }
+
+    public static boolean isJSONObj(Object json) {
+        return json instanceof JSONObject;
+    }
+
+//    public static void getJSONValue(JSONArray json,String k,List<String> list){
+//        json.stream()
+//                .filter(f->isJSONObj(f))
+//                .filter(f->isJSONArray(f))
+//                .map(m->{
+//                    if(isJSONObj(m)){
+//                        //是对象
+//                        getJSONValue((JSONObject) m,k,list);
+//
+//                    }else if(isJSONArray(m)){
+//                        //是数组
+//                        getJSONValue((JSONArray) m,k,list);
+//                    }
+//                    return null;
+//                });
+//
+//    }
+
+    public static boolean isJSONArray(Object json) {
+        return json instanceof JSONArray;
+    }
+
+    public static <T> T jsonParse(Object json) {
+        if (isJSONObj(json)) {
+            //是对象
+            return (T) json;
+        } else {
+            //是数组
+            return (T) json;
+        }
+    }
+
+    //递归替换，将母字符串的目标字符串，替换成指定字符串
+    public static String replaceAll(String parent, String targetEle, String replaceEle) {
+
+        //当目标元素不存在时，返回母字符串
+        if (parent.indexOf(targetEle) == -1) {
+
+            return parent;
+        } else {                    //目标元素存在时，采用截取的方式进行递归
+            //获取目标元素开始下标
+            int beginIndex = parent.indexOf(targetEle);
+            //获取目标元素结束位置的下一位置下标
+            int endIndex = beginIndex + targetEle.length();
+
+            //采用递归的方法，截取目标元素在parent中的前面字符串 + 替换字符串 + 目标元素在parent中的后面字符串递归
+            //注意：substring()方法，当有两个参数时，后者所表示下标元素取不到
+            String sRes = parent.substring(0, beginIndex) + replaceEle +
+                    replaceAll(parent.substring(endIndex), targetEle, replaceEle);
+            return sRes;
+        }
+    }
+
+    /**
+     * 转义json字符串里面的value的特殊字符，key不用管
+     *
+     * @param jsonStr
+     * @return 返回替换后的字符串
+     */
+    public static String replaceJsonValue(String jsonStr) {
+        JSONObject obj = JSON.parseObject(jsonStr);
+        replaceValue(obj);
+        return obj.toJSONString();
+    }
+
+    // 递归修改new字符串
+    /*public static String replace(String str, List<String> mid, JSONObject json) {
+        for (int i = 0; i < mid.size();i++) {
+            if (str.contains(mid.get(i)) && json.getString(mid.get(i)) != null) {
+                boolean contains = str.contains(mid.get(i));
+                System.out.println("contains:" + contains);
+                System.out.println("j6.getString(s1):" + json.getString(mid.get(i)));
+                System.out.println("s1:" + mid.get(i));
+                String replace = str.replace(mid.get(i), json.getString(mid.get(i)));
+                // System.out.println("replace:" + replace);
+            }
+        }
+        return replace;
+    }*/
+
+    // 递归修改new字符串
+    /*public static String replace(String str, List<String> list, JSONObject json) {
+        // 数组包含所有需要惊醒替换的key
+        for (String string1 : list) {
+            if (str.contains(string1) && json.getString(string1) != null) {
+                String s2 = str.replace(string1, json.getString(string1));
+                // 递归
+                replace(s2, list, json);
+            }
+        }
+      return s2;
+    }*/
+
+    /**
+     * 递归转义value的值，目前是将所有的value的结尾都添加一个“$”，具体实现是，根据具体的需求来。
+     *
+     * @param obj
+     */
+    private static void replaceValue(JSONObject obj) {
+        Set<Map.Entry<String, Object>> keys = obj.entrySet();
+        keys.forEach(key -> {
+            Object value = obj.get(key.getKey());
+            if (value instanceof JSONObject) { //如果还是JSONObject，继续递归遍历
+                replaceValue((JSONObject) value);
+            } else if (value instanceof String) {//如果是String（这里没有处理其他类型，如int，double等），表示为具体的value值
+                obj.put(key.getKey(), value + "$");
+            }
+        });
+    }
+
+    /**
      * 递归算法-获取json指定key的所有值
      *
      * @author zheng
@@ -262,101 +434,6 @@ public class Trd_tiiles {
         }
     }
 
-    /**
-     * @param json 需要处理的json数据 - JSONObject
-     * @param k    key
-     * @param list 空 list
-     * @return list
-     */
-    public static List<String> getJSONValue(JSONObject json, String k, List<String> list) {
-        for (Object j : json.keySet()) {
-            if (isJSONObj(json.get(j))) {
-                //是对象
-                JSONObject j2 = JSON.parseObject(json.get(j).toString());
-                getJSONValue(j2, k, list);
-            } else if (isJSONArray(json.get(j))) {
-                JSONArray j3 = JSON.parseArray(json.get(j).toString());
-                //是数组
-                getJSONValue(j3, k, list);
-            } else if (j == "uri") {
-                String s = json.get(j).toString();
-
-                /*Map<String, Object> map = Maps.newHashMap();
-                map.put("cat/meng1.jpg", 1);
-                map.put("cat/red/blue/huan1.jpg", 2);
-                map.put("1/0/1/m.cmpt", 3);*/
-
-                //是字符串
-                list.add(json.get(j).toString());
-                String mh = json.get(j).toString();
-                System.out.println("处理前-需要替换的路径：" + mh);
-
-               /* String substring = mh.substring(mh.indexOf("/") + 1);
-                System.out.println("处理后-需要替换的路径：" + substring);
-
-                // key
-                for(String key : map.keySet()){
-
-                    if (key.equals(substring)) {
-                        System.out.println("我是匹配的value" + map.get(key));
-                        map.put(key, "可怕的云服务");
-                    }
-                }*/
-            }
-        }
-        // System.out.println("list:" + list);
-        return list;
-    }
-
-
-    public static void getJSONValue(JSONArray json, String k, List<String> list) {
-        for (Object j : json) {
-            if (isJSONObj(j)) {
-                //是对象
-                getJSONValue((JSONObject) j, k, list);
-            } else if (isJSONArray(j)) {
-                //是数组
-                getJSONValue((JSONArray) j, k, list);
-            }
-        }
-    }
-
-//    public static void getJSONValue(JSONArray json,String k,List<String> list){
-//        json.stream()
-//                .filter(f->isJSONObj(f))
-//                .filter(f->isJSONArray(f))
-//                .map(m->{
-//                    if(isJSONObj(m)){
-//                        //是对象
-//                        getJSONValue((JSONObject) m,k,list);
-//
-//                    }else if(isJSONArray(m)){
-//                        //是数组
-//                        getJSONValue((JSONArray) m,k,list);
-//                    }
-//                    return null;
-//                });
-//
-//    }
-
-    public static boolean isJSONObj(Object json) {
-        return json instanceof JSONObject;
-    }
-
-    public static boolean isJSONArray(Object json) {
-        return json instanceof JSONArray;
-    }
-
-    public static <T> T jsonParse(Object json) {
-        if (isJSONObj(json)) {
-            //是对象
-            return (T) json;
-        } else {
-            //是数组
-            return (T) json;
-        }
-    }
-
     @Test
     public void terAAA() {
         String s = "{\"0/2/1/m.cmpt\": \"eb1263b9cae94a90af1a5fadc0cc6641.cmpt\",\n" +
@@ -392,7 +469,7 @@ public class Trd_tiiles {
 
         StringBuilder stringBuilder = new StringBuilder(remove.toString());
 
-        for (int i = 0; i < mid.size();i++) {
+        for (int i = 0; i < mid.size(); i++) {
             if (s.contains(mid.get(i)) && j6.getString(mid.get(i)) != null) {
                 boolean contains = s.contains(mid.get(i));
                 System.out.println("contains:" + contains);
@@ -407,7 +484,7 @@ public class Trd_tiiles {
                 // int i2 = stringBuilder.lastIndexOf(mid.get(i));
                 System.out.println("i1:" + i1);
                 System.out.println("i2:" + i2);
-                stringBuilder.replace(i1,i2,j6.getString(mid.get(i)));
+                stringBuilder.replace(i1, i2, j6.getString(mid.get(i)));
                 // System.out.println("stringBuilder:" + stringBuilder);
 
 
@@ -420,86 +497,6 @@ public class Trd_tiiles {
         String replace = replace(s2, mid, j6);
         System.out.println(replace);*/
 
-    }
-
-    // 递归修改new字符串
-    /*public static String replace(String str, List<String> mid, JSONObject json) {
-        for (int i = 0; i < mid.size();i++) {
-            if (str.contains(mid.get(i)) && json.getString(mid.get(i)) != null) {
-                boolean contains = str.contains(mid.get(i));
-                System.out.println("contains:" + contains);
-                System.out.println("j6.getString(s1):" + json.getString(mid.get(i)));
-                System.out.println("s1:" + mid.get(i));
-                String replace = str.replace(mid.get(i), json.getString(mid.get(i)));
-                // System.out.println("replace:" + replace);
-            }
-        }
-        return replace;
-    }*/
-
-    // 递归修改new字符串
-    /*public static String replace(String str, List<String> list, JSONObject json) {
-        // 数组包含所有需要惊醒替换的key
-        for (String string1 : list) {
-            if (str.contains(string1) && json.getString(string1) != null) {
-                String s2 = str.replace(string1, json.getString(string1));
-                // 递归
-                replace(s2, list, json);
-            }
-        }
-      return s2;
-    }*/
-
-    //递归替换，将母字符串的目标字符串，替换成指定字符串
-    public static String replaceAll(String parent, String targetEle, String replaceEle) {
-
-        //当目标元素不存在时，返回母字符串
-        if (parent.indexOf(targetEle) == -1) {
-
-            return parent;
-        } else {                    //目标元素存在时，采用截取的方式进行递归
-            //获取目标元素开始下标
-            int beginIndex = parent.indexOf(targetEle);
-            //获取目标元素结束位置的下一位置下标
-            int endIndex = beginIndex + targetEle.length();
-
-            //采用递归的方法，截取目标元素在parent中的前面字符串 + 替换字符串 + 目标元素在parent中的后面字符串递归
-            //注意：substring()方法，当有两个参数时，后者所表示下标元素取不到
-            String sRes = parent.substring(0, beginIndex) + replaceEle +
-                    replaceAll(parent.substring(endIndex), targetEle, replaceEle);
-            return sRes;
-        }
-    }
-
-
-
-    /**
-     * 转义json字符串里面的value的特殊字符，key不用管
-     *
-     * @param jsonStr
-     * @return 返回替换后的字符串
-     */
-    public static String replaceJsonValue(String jsonStr) {
-        JSONObject obj = JSON.parseObject(jsonStr);
-        replaceValue(obj);
-        return obj.toJSONString();
-    }
-
-    /**
-     * 递归转义value的值，目前是将所有的value的结尾都添加一个“$”，具体实现是，根据具体的需求来。
-     *
-     * @param obj
-     */
-    private static void replaceValue(JSONObject obj) {
-        Set<Map.Entry<String, Object>> keys = obj.entrySet();
-        keys.forEach(key -> {
-            Object value = obj.get(key.getKey());
-            if (value instanceof JSONObject) { //如果还是JSONObject，继续递归遍历
-                replaceValue((JSONObject) value);
-            } else if (value instanceof String) {//如果是String（这里没有处理其他类型，如int，double等），表示为具体的value值
-                obj.put(key.getKey(), value + "$");
-            }
-        });
     }
 
 }

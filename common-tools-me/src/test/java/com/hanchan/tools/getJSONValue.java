@@ -12,7 +12,7 @@ import java.util.Iterator;
  */
 public class getJSONValue {
 
-    String oJson="{\n" +
+    String oJson = "{\n" +
             "\t\"asset\": {\n" +
             "\t\t\"version\": \"1.0\",\n" +
             "\t\t\"tilesetVersion\": \"2020-06-02 12:34:23.374\",\n" +
@@ -210,11 +210,12 @@ public class getJSONValue {
 
     /**
      * 通过递归遍历json，替换节点的值
-     * @author demo
+     *
      * @param oJson JSON数据源
      * @param key   替换的key
      * @param value 替换的值
      * @return
+     * @author demo
      */
     @Test
     public static Object jsonDeal(Object oJson, String key, String value) {

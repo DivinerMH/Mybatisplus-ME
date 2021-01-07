@@ -16,6 +16,10 @@ public class PageUtils implements Serializable {
         this.total = total;
     }
 
+    public static Integer getoffset(Integer offset, Integer pageSize) {
+        return (offset - 1) * pageSize;
+    }
+
     public int getTotal() {
         return total;
     }
@@ -30,9 +34,5 @@ public class PageUtils implements Serializable {
 
     public void setRows(List<?> rows) {
         this.rows = rows;
-    }
-
-    public static Integer getoffset(Integer offset, Integer pageSize) {
-        return (offset - 1) * pageSize;
     }
 }

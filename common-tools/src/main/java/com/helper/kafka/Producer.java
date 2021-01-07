@@ -16,7 +16,7 @@ public class Producer {
 
     private static Properties props;
 
-    public static Properties  getProps(String address)  {
+    public static Properties getProps(String address) {
         props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, address);
         //重试次数
@@ -31,7 +31,7 @@ public class Producer {
     }
 
     public static KafkaProducer<String, String> getProducer(String brokerAddress) {
-        return new KafkaProducer<String, String>(Producer.getProps (brokerAddress));
+        return new KafkaProducer<String, String>(Producer.getProps(brokerAddress));
     }
 
 

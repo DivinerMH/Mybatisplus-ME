@@ -16,13 +16,15 @@ public interface IRedisService {
 
     /**
      * 删除key
+     *
      * @param lockKey key
      */
     void releaseLock(String lockKey);
 
     /**
      * 分布式锁-重入锁
-     * @param lockName 锁名称
+     *
+     * @param lockName    锁名称
      * @param releaseTime 超时时间 秒
      * @return 解锁标识
      */
@@ -30,8 +32,9 @@ public interface IRedisService {
 
     /**
      * 释放锁
+     *
      * @param lockName 锁名称
-     * @param key 解锁标识
+     * @param key      解锁标识
      */
     void unlock(String lockName, String key);
 

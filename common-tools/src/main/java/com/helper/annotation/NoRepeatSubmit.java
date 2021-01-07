@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * 自定义注解-防止表单重复提交
+ *
  * @author bjx
  * @date 2020-07-23
  */
@@ -15,6 +16,7 @@ import java.lang.annotation.Target;
 public @interface NoRepeatSubmit {
     /**
      * 默认为10秒
+     *
      * @return 秒
      */
     int value() default 10;

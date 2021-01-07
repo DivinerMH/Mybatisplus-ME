@@ -53,16 +53,6 @@ public class ThisTest {
 
     }
 
-
-    public ThisTest increment() {
-
-        this.i++;
-
-        return this;    //返回的是当前的对象，该对象属于（ThisTest）
-
-    }
-
-
     public static void main(String[] args) {
 
         ThisTest tt0 = new ThisTest(10);
@@ -80,6 +70,13 @@ public class ThisTest {
 
     }
 
+    public ThisTest increment() {
+
+        this.i++;
+
+        return this;    //返回的是当前的对象，该对象属于（ThisTest）
+
+    }
 
 
 }

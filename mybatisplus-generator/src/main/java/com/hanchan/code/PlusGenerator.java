@@ -33,13 +33,9 @@ public class PlusGenerator {
 
     private static Environment env;
 
-    @Autowired
-    public void set(Environment env) throws IOException {
-        PlusGenerator.env = env;
-    }
-
     /**
      * key不存在则返回null
+     *
      * @param key
      * @return
      */
@@ -51,22 +47,21 @@ public class PlusGenerator {
         }
     }
 
-
     /**
-     * @param author  作者
+     * @param author      作者
      * @param packageName 包名
-     * @param dbType 数据库类型（mysql、oracle）
-     * @param tableName 表名
+     * @param dbType      数据库类型（mysql、oracle）
+     * @param tableName   表名
      */
-    public static void generatorByType(String author, String packageName,String dbType, String ... tableName) {
+    public static void generatorByType(String author, String packageName, String dbType, String... tableName) {
 
         AutoGenerator mpg = new AutoGenerator();
         // 选择 freemarker 引擎，默认 Veloctiy mpg.setTemplateEngine(new FreemarkerTemplateEngine());
 
         // 全局配置
         final GlobalConfig gc = new GlobalConfig();
-        System.out.println(PlusGenerator.class.getClassLoader().getResource("").getPath()+ "/codeGenerator");
-        gc.setOutputDir(PlusGenerator.class.getClassLoader().getResource("").getPath()+ "/codeGenerator");
+        System.out.println(PlusGenerator.class.getClassLoader().getResource("").getPath() + "/codeGenerator");
+        gc.setOutputDir(PlusGenerator.class.getClassLoader().getResource("").getPath() + "/codeGenerator");
         gc.setFileOverride(true);
         // ActiveRecord特性
         gc.setActiveRecord(true);
@@ -77,7 +72,7 @@ public class PlusGenerator {
         // XML columList
         gc.setBaseColumnList(true);
         gc.setDateType(DateType.ONLY_DATE);
-        if(StringUtils.isBlank(author)){
+        if (StringUtils.isBlank(author)) {
             author = "未知";
         }
         gc.setAuthor(author);
@@ -87,7 +82,7 @@ public class PlusGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.getDbType(dbType));
-        dsc.setTypeConvert(new OracleTypeConvert(){
+        dsc.setTypeConvert(new OracleTypeConvert() {
             // 自定义数据库表字段类型转换【可选】
             @Override
             public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
@@ -145,6 +140,11 @@ public class PlusGenerator {
 
         // 打印注入设置【可无】
         System.err.println("代码生成成功！！");
+    }
+
+    @Autowired
+    public void set(Environment env) throws IOException {
+        PlusGenerator.env = env;
     }
 
 

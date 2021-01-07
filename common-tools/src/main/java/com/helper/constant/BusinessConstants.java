@@ -2,6 +2,7 @@ package com.helper.constant;
 
 /**
  * 业务常量
+ *
  * @author bjx
  * @date 2020-04-20
  */

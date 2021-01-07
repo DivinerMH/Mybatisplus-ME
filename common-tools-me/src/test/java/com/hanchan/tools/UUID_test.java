@@ -9,7 +9,7 @@ import org.junit.Test;
 public class UUID_test {
 
     @Test
-    public void uuid_test(){
+    public void uuid_test() {
         java.util.UUID uuid = java.util.UUID.randomUUID();
         System.out.println("UUID:" + uuid);
     }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 ;
 ${package.Service}
-        .${table.serviceName}; ${package.Entity}.${entity};
+.${table.serviceName}; ${package.Entity}.${entity};
 
 
 /**

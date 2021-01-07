@@ -13,6 +13,7 @@ public class isValidDate {
 
     /**
      * 验证日期格式是否满足要求
+     *
      * @param str          需要验证的日期格式
      * @param formatString 验证的标准格式，如：（yyyy/MM/dd HH:mm:ss）
      * @return 返回验证结果
@@ -25,16 +26,16 @@ public class isValidDate {
             // 否则SimpleDateFormat会比较宽松地验证日期，比如2007/02/29会被接受，并转换成2007/03/01
             format.setLenient(false);
             format.parse(str);
-            } catch (ParseException e) {
+        } catch (ParseException e) {
             // e.printStackTrace();
             // 如果throw java.text.ParseException或者NullPointerException，就说明格式不对
             return false;
-            }
+        }
         return true;
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         String str = "2020-08-22 16:04:00";
         String formatString = "yyyy-MM-dd HH:mm:ss";
         boolean validDate = isValidDate(str, formatString);

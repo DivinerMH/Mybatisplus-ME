@@ -1,7 +1,6 @@
 package com.helper.kafka;
 
 
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -18,6 +17,7 @@ import java.util.Properties;
 public class Consumer {
 
     private static Properties props;
+
     static {
         props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaConfig.KAFKA_SERVER_ADDRESS);
@@ -29,37 +29,37 @@ public class Consumer {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
     }
 
-    public static org.apache.kafka.clients.consumer.Consumer<String,String> getConsumer(String clientId,String groupId) {
+    public static org.apache.kafka.clients.consumer.Consumer<String, String> getConsumer(String clientId, String groupId) {
         //设置组id
-        props.put(ConsumerConfig.GROUP_ID_CONFIG,groupId);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         //消费者实例ID
-        props.put(ConsumerConfig.CLIENT_ID_CONFIG,clientId);
+        props.put(ConsumerConfig.CLIENT_ID_CONFIG, clientId);
 
         org.apache.kafka.clients.consumer.Consumer<String, String> kafkaConsumer = new KafkaConsumer<String, String>(props);
         return kafkaConsumer;
     }
 
-    public static org.apache.kafka.clients.consumer.Consumer<String,String> getConsumer(String clientId,String groupId,String topic) {
+    public static org.apache.kafka.clients.consumer.Consumer<String, String> getConsumer(String clientId, String groupId, String topic) {
         //设置组id
-        props.put(ConsumerConfig.GROUP_ID_CONFIG,groupId);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         //消费者实例ID
-        props.put(ConsumerConfig.CLIENT_ID_CONFIG,clientId);
+        props.put(ConsumerConfig.CLIENT_ID_CONFIG, clientId);
         org.apache.kafka.clients.consumer.Consumer<String, String> kafkaConsumer = new KafkaConsumer<String, String>(props);
         kafkaConsumer.subscribe(Collections.singletonList(topic));
         return kafkaConsumer;
     }
 
-    public static void receive(Object object ,Class<?> cclass,String clientId, String groupId,String topic){
-        org.apache.kafka.clients.consumer.Consumer<String,String> consumer= Consumer.getConsumer(clientId,groupId, topic);
-        new Thread(){
+    public static void receive(Object object, Class<?> cclass, String clientId, String groupId, String topic) {
+        org.apache.kafka.clients.consumer.Consumer<String, String> consumer = Consumer.getConsumer(clientId, groupId, topic);
+        new Thread() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     ConsumerRecords<String, String> records = consumer.poll(KafkaConfig.CONSUMER_LICENCE_BLOCK_VALUE);
-                    for(ConsumerRecord record : records) {
+                    for (ConsumerRecord record : records) {
                         //do something
                         try {
-                            Reflection(object,cclass,KafkaConfig.RECEIVE_NAME,record);
+                            Reflection(object, cclass, KafkaConfig.RECEIVE_NAME, record);
 
                         } catch (NoSuchMethodException e) {
                             e.printStackTrace();
@@ -75,14 +75,10 @@ public class Consumer {
         }.start();
     }
 
-    public static Object Reflection(Object object ,Class<?> cclass,String methodName,Object args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Object Reflection(Object object, Class<?> cclass, String methodName, Object args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = cclass.getMethod(methodName, ConsumerRecord.class);
         return method.invoke(object, args);
     }
-
-
-
-
 
 
 }

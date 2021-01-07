@@ -13,12 +13,12 @@ public class ChineseHolidayUtils {
 
     /**
      * @author
-     * @description  判断是否是法定假日
+     * @description 判断是否是法定假日
      * @date Created in 21:03 2019/1/31
      **/
     public static boolean isLawHoliday(com.alibaba.fastjson.JSONArray holidays, String calendar) throws Exception {
         ChineseHolidayUtils.isValidDate(calendar);
-        if(null == holidays){
+        if (null == holidays) {
             return false;
         }
         if (holidays.contains(calendar)) {
@@ -26,18 +26,20 @@ public class ChineseHolidayUtils {
         }
         return false;
     }
-public static void main(String args[]){
-    String s = null;
-    System.out.println(JSONObject.parseArray(s));
+
+    public static void main(String args[]) {
+        String s = null;
+        System.out.println(JSONObject.parseArray(s));
     }
+
     /**
      * @author
-     * @description  当天是否为法定节假日补休周末
+     * @description 当天是否为法定节假日补休周末
      * @date Created in 21:03 2019/1/31
      **/
     public static boolean isLawHolidayWork(com.alibaba.fastjson.JSONArray holidaysWork, String calendar) throws Exception {
         ChineseHolidayUtils.isValidDate(calendar);
-        if(null == holidaysWork){
+        if (null == holidaysWork) {
             return false;
         }
         if (holidaysWork.contains(calendar)) {
@@ -48,7 +50,7 @@ public static void main(String args[]){
 
     /**
      * @author
-     * @description  校验字符串是否为指定的日期格式,含逻辑严格校验,2007/02/30返回false
+     * @description 校验字符串是否为指定的日期格式, 含逻辑严格校验, 2007/02/30返回false
      * @date Created in 21:06 2019/1/31
      **/
     private static boolean isValidDate(String str) {

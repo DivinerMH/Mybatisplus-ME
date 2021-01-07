@@ -16,6 +16,7 @@ import java.util.UUID;
 
 /**
  * Redis工具类
+ *
  * @author bjx
  * @date 2020-07-23
  */
@@ -25,9 +26,6 @@ public class RedisServiceImpl implements IRedisService {
 
     /*@Resource
     private RedisTemplate redisTemplate;*/
-
-    @Resource
-    private StringRedisTemplate stringRedisTemplate;
 
     private static final DefaultRedisScript<Long> LOCK_SCRIPT;
     private static final DefaultRedisScript<Object> UNLOCK_SCRIPT;
@@ -42,6 +40,9 @@ public class RedisServiceImpl implements IRedisService {
         UNLOCK_SCRIPT = new DefaultRedisScript<>();
         UNLOCK_SCRIPT.setScriptSource(new ResourceScriptSource(new ClassPathResource("/redis/unlock.lua")));
     }
+
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 
     /**
      * 获取一个redis分布锁
@@ -74,6 +75,7 @@ public class RedisServiceImpl implements IRedisService {
 
     /**
      * 删除key
+     *
      * @param lockKey key
      */
     public void releaseLock(String lockKey) {
@@ -92,9 +94,9 @@ public class RedisServiceImpl implements IRedisService {
                 key + Thread.currentThread().getId(), releaseTime);
 
         // 判断结果
-        if(result != null && result.intValue() == 1) {
+        if (result != null && result.intValue() == 1) {
             return key;
-        }else {
+        } else {
             return null;
         }
     }

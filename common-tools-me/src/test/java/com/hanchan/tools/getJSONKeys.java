@@ -18,6 +18,113 @@ public class getJSONKeys {
 
 
     /**
+     * @param json 需要处理的json数据 - JSONObject
+     * @param k    key
+     * @param list 空 list
+     * @return list
+     */
+    public static List getJSONValue(JSONObject json, String k, List<String> list) {
+        for (Object j : json.keySet()) {
+            if (isJSONObj(json.get(j))) {
+                //是对象
+                JSONObject j2 = JSON.parseObject(json.get(j).toString());
+                getJSONValue(j2, k, list);
+            } else if (isJSONArray(json.get(j))) {
+                JSONArray j3 = JSON.parseArray(json.get(j).toString());
+                //是数组
+                getJSONValue(j3, k, list);
+            } else if (j == "uri") {
+                String s = json.get(j).toString();
+
+                Map<String, Object> map = Maps.newHashMap();
+                map.put("cat/meng1.jpg", 1);
+                map.put("cat/red/blue/huan1.jpg", 2);
+                map.put("1/0/1/m.cmpt", 3);
+
+                //是字符串
+                list.add(json.get(j).toString());
+                String mh = json.get(j).toString();
+                System.out.println("处理前-需要替换的路径：" + mh);
+
+                String substring = mh.substring(mh.indexOf("/") + 1);
+                System.out.println("处理后-需要替换的路径：" + substring);
+
+                // key
+                for (String key : map.keySet()) {
+
+                    if (key.equals(substring)) {
+                        System.out.println("我是匹配的value" + map.get(key));
+                        map.put(key, "可怕的云服务");
+                    }
+                }
+                /*Map<String, Object> jsonResultMap = new HashMap<>();
+                jsonResultMap.put("jsonResultMap","\"cat/meng1.jpg\": {\n" +
+                        "            \"bucketName\": \"iot\",\n" +
+                        "            \"fileName\": \"cat-meng1.jpg\"\n" +
+                        "        },\n" +
+                        "        \"cat/red/blue/huan1.jpg\": {\n" +
+                        "            \"bucketName\": \"iot\",\n" +
+                        "            \"fileName\": \"cat-red-blue-huan1.jpg\"\n" +
+                        "        },\n" +
+                        "        \"cat/meng2.jpg\": {\n" +
+                        "            \"bucketName\": \"iot\",\n" +
+                        "            \"fileName\": \"cat-meng2.jpg\"\n" +
+                        "        }");*/
+            }
+        }
+        System.out.println("list:" + list);
+        return list;
+    }
+
+    public static void getJSONValue(JSONArray json, String k, List<String> list) {
+        for (Object j : json) {
+            if (isJSONObj(j)) {
+                //是对象
+                getJSONValue((JSONObject) j, k, list);
+            } else if (isJSONArray(j)) {
+                //是数组
+                getJSONValue((JSONArray) j, k, list);
+            }
+        }
+    }
+
+    public static boolean isJSONObj(Object json) {
+        return json instanceof JSONObject;
+    }
+
+//    public static void getJSONValue(JSONArray json,String k,List<String> list){
+//        json.stream()
+//                .filter(f->isJSONObj(f))
+//                .filter(f->isJSONArray(f))
+//                .map(m->{
+//                    if(isJSONObj(m)){
+//                        //是对象
+//                        getJSONValue((JSONObject) m,k,list);
+//
+//                    }else if(isJSONArray(m)){
+//                        //是数组
+//                        getJSONValue((JSONArray) m,k,list);
+//                    }
+//                    return null;
+//                });
+//
+//    }
+
+    public static boolean isJSONArray(Object json) {
+        return json instanceof JSONArray;
+    }
+
+    public static <T> T jsonParse(Object json) {
+        if (isJSONObj(json)) {
+            //是对象
+            return (T) json;
+        } else {
+            //是数组
+            return (T) json;
+        }
+    }
+
+    /**
      * 递归算法-获取json指定key的所有值
      *
      * @author zheng
@@ -260,115 +367,6 @@ public class getJSONKeys {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("文件异常");
-        }
-    }
-
-    /**
-     *
-     * @param json 需要处理的json数据 - JSONObject
-     * @param k key
-     * @param list 空 list
-     * @return list
-     */
-    public static List getJSONValue(JSONObject json, String k, List<String> list) {
-        for (Object j : json.keySet()) {
-            if (isJSONObj(json.get(j))) {
-                //是对象
-                JSONObject j2 = JSON.parseObject(json.get(j).toString());
-                getJSONValue(j2, k, list);
-            } else if (isJSONArray(json.get(j))) {
-                JSONArray j3 = JSON.parseArray(json.get(j).toString());
-                //是数组
-                getJSONValue(j3, k, list);
-            } else if (j == "uri") {
-                String s = json.get(j).toString();
-
-                Map<String, Object> map = Maps.newHashMap();
-                map.put("cat/meng1.jpg", 1);
-                map.put("cat/red/blue/huan1.jpg", 2);
-                map.put("1/0/1/m.cmpt", 3);
-
-                //是字符串
-                list.add(json.get(j).toString());
-                String mh = json.get(j).toString();
-                System.out.println("处理前-需要替换的路径：" + mh);
-
-                String substring = mh.substring(mh.indexOf("/") + 1);
-                System.out.println("处理后-需要替换的路径：" + substring);
-
-                // key
-                for(String key : map.keySet()){
-
-                    if (key.equals(substring)) {
-                        System.out.println("我是匹配的value" + map.get(key));
-                        map.put(key, "可怕的云服务");
-                    }
-                }
-                /*Map<String, Object> jsonResultMap = new HashMap<>();
-                jsonResultMap.put("jsonResultMap","\"cat/meng1.jpg\": {\n" +
-                        "            \"bucketName\": \"iot\",\n" +
-                        "            \"fileName\": \"cat-meng1.jpg\"\n" +
-                        "        },\n" +
-                        "        \"cat/red/blue/huan1.jpg\": {\n" +
-                        "            \"bucketName\": \"iot\",\n" +
-                        "            \"fileName\": \"cat-red-blue-huan1.jpg\"\n" +
-                        "        },\n" +
-                        "        \"cat/meng2.jpg\": {\n" +
-                        "            \"bucketName\": \"iot\",\n" +
-                        "            \"fileName\": \"cat-meng2.jpg\"\n" +
-                        "        }");*/
-            }
-        }
-        System.out.println("list:" + list);
-        return list;
-    }
-
-
-    public static void getJSONValue(JSONArray json, String k, List<String> list) {
-        for (Object j : json) {
-            if (isJSONObj(j)) {
-                //是对象
-                getJSONValue((JSONObject) j, k, list);
-            } else if (isJSONArray(j)) {
-                //是数组
-                getJSONValue((JSONArray) j, k, list);
-            }
-        }
-    }
-
-//    public static void getJSONValue(JSONArray json,String k,List<String> list){
-//        json.stream()
-//                .filter(f->isJSONObj(f))
-//                .filter(f->isJSONArray(f))
-//                .map(m->{
-//                    if(isJSONObj(m)){
-//                        //是对象
-//                        getJSONValue((JSONObject) m,k,list);
-//
-//                    }else if(isJSONArray(m)){
-//                        //是数组
-//                        getJSONValue((JSONArray) m,k,list);
-//                    }
-//                    return null;
-//                });
-//
-//    }
-
-    public static boolean isJSONObj(Object json) {
-        return json instanceof JSONObject;
-    }
-
-    public static boolean isJSONArray(Object json) {
-        return json instanceof JSONArray;
-    }
-
-    public static <T> T jsonParse(Object json) {
-        if (isJSONObj(json)) {
-            //是对象
-            return (T) json;
-        } else {
-            //是数组
-            return (T) json;
         }
     }
 

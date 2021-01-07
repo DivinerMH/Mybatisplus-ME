@@ -13,8 +13,8 @@ public class AssertTest {
 
     //3、set集合去重，不打乱顺序
     @Test
-    public void test1(){
-        List<String> list  =   new ArrayList<String>();
+    public void test1() {
+        List<String> list = new ArrayList<String>();
         list.add("aaa");
         list.add("bbb");
         list.add("aaa");
@@ -29,18 +29,18 @@ public class AssertTest {
         System.out.println("empty:" + empty);
         System.out.println("b:" + b);
 
-        assert empty:"list.isEmpty()不是空的";
+        assert empty : "list.isEmpty()不是空的";
         assert b;
 
         Set set = new HashSet(list);
         list.clear();
         list.addAll(set);
-        System.out.println( "去重后的集合： " + list);
+        System.out.println("去重后的集合： " + list);
     }
 
     @Test
-    public void test2(){
-        List<String> list  =   new ArrayList<String>();
+    public void test2() {
+        List<String> list = new ArrayList<String>();
         list.add("aaa");
         list.add("bbb");
         list.add("aaa");
@@ -53,7 +53,7 @@ public class AssertTest {
         Set treeSet = new TreeSet(list);
         list.clear();
         list.addAll(treeSet);
-        System.out.println( "去重后的集合： " + list);
+        System.out.println("去重后的集合： " + list);
     }
 
 }

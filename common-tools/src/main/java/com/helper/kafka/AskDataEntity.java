@@ -15,12 +15,13 @@ public class AskDataEntity {
 
     private List<Map<String, Object>> dataListMap;
 
-    public AskDataEntity(){}
+    public AskDataEntity() {
+    }
 
     public AskDataEntity(String proDomainName, String machineId, List<Map<String, String>> relationList, List<Map<String, Object>> dataListMap) {
-        this.proDomainName=proDomainName;
-        this.machineId=machineId;
-        this.relationList=relationList;
-        this.dataListMap=dataListMap;
+        this.proDomainName = proDomainName;
+        this.machineId = machineId;
+        this.relationList = relationList;
+        this.dataListMap = dataListMap;
     }
 }
