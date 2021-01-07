@@ -1,0 +1,65 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      client-secret: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      scope: server
+      ignore-urls:
+        - /druid/**
+        - /actuator/**
+        - /v2/api-docs
+
+# 数据源
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${MYSQL_USER:root}
+      password: ${MYSQL_PWD:123456}
+      url: jdbc:mysql://${MYSQL_HOST:iot-mysql}:${MYSQL_PORT:3306}/${MYSQL_DB:iot_core}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        #login-username: admin
+        #login-password: admin
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 10000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+
+# 文件系统 (提供测试环境，不要乱传)
+oss:
+  endpoint: http://192.168.1.174:9000
+  access-key: linksame
+  secret-key: linksame
+  bucket-name: iot
+
+# Logger Config
+logging:
+  level:
+    com.tsy.admin.mapper: debug
+
+# 租户表维护
+iot:
+  tenant:
+    column: tenant_id
+    tables:
+      - sys_user
+      - sys_role
+      - sys_menu
+      - sys_dept
+      - sys_log
+      - sys_social_details
+      - sys_dict
+      - sys_dict_item
+      - sys_public_param
+      - sys_log
+      - sys_file
+      - sys_oauth_client_details

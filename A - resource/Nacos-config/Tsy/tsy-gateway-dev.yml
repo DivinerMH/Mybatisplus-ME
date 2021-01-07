@@ -1,0 +1,33 @@
+security:
+  encode:
+    key: 'iotsiotsiotsiots'
+
+ignore:
+  clients:
+    - test
+  swagger-providers:
+    - tsy-auth
+    - tsy-tx-manager
+    - tsy-codegen
+    - tsy-monitor
+    - tsy-mp-platform
+
+ribbon:
+  rule:
+    gray-enabled: true
+
+# 验证码相关配置参考： http://t.cn/A647jEdu
+aj:
+  captcha:
+    water-mark: iot
+
+routes:
+  id: tsy-auth
+  uri: lb://tsy-auth
+  predicates:
+  - Path=/auth/**
+  filters:
+  - ImageCodeGatewayFilter
+    # 前端密码解密
+  - PasswordDecoderFilter
+  - StripPrefix=1

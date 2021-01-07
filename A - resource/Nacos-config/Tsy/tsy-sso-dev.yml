@@ -1,0 +1,15 @@
+server:
+  servlet:
+    context-path: /sso1
+
+security:
+  oauth2:
+    client:
+      client-id: pig
+      client-secret: pig
+      user-authorization-uri: http://192.168.1.176:9999/auth/oauth/authorize
+      access-token-uri: http://192.168.1.176:9999/auth/oauth/token
+      scope: server
+    resource:
+      loadBalanced: true
+      token-info-uri: http://192.168.1.176:9999/auth/oauth/check_token

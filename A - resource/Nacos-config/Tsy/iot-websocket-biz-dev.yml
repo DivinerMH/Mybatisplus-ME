@@ -1,0 +1,14 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      client-secret: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      scope: server
+      ignore-urls:
+        - /**
+        - /druid/**
+        - /actuator/**
+        - /v2/api-docs
+
+

@@ -1,0 +1,122 @@
+jasypt:
+  encryptor:
+    password: iot
+
+spring:
+  kafka:
+    bootstrap-servers: ${outer-kafka-ip:192.168.1.175}:${outer-kafka-port:9092}
+    consumer: #消费者配置
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:  #生产者配置
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  redis:
+    host: iot-redis
+    port: 6379
+    database: 2
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  cloud:
+    sentinel:
+      eager: true
+      filter:
+        url-patterns: /**
+      transport:
+        dashboard: iot-sentinel:5020
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+feign:
+  sentinel:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+#开启灰度
+gray:
+  rule:
+    enabled: true
+
+mybatis-plus:
+  tenant-enable: ture
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      field-strategy: NOT_EMPTY
+  type-handlers-package:  com.tsy.common.data.handler
+
+swagger:
+  title: Iot Swagger API
+  license: Powered By Iot
+  licenseUrl:
+  terms-of-service-url:
+  contact:
+    email:
+    url:
+  authorization:
+    name: Iot OAuth
+    auth-regex: ^.*$
+    authorization-scope-list:
+      - scope: server
+        description: server all
+    token-url-list:
+      - http://${GATEWAY_HOST:tsy-gateway}:${GATEWAY_PORT:9999}/auth/oauth/token
+
+security:
+  oauth2:
+    client:
+      ignore-urls:
+        - /actuator/**
+        - /v2/api-docs
+    resource:
+      loadBalanced: true
+      token-info-uri: http://tsy-auth/oauth/check_token
+
+#开启dbug日志
+logging:
+  level:
+    com: debug
+
+#kafka配置信息（提供:WebSocket连接信息使用）
+kafka:
+  address: 192.168.1.175:9092
+  otherAddress: 192.168.1.175:9092
+
+#引擎类型： 1-通用计算引擎  2-镜像计算引擎 3-通用推理引擎 4-镜像推理引擎
+template:
+  configId: 1
+  calculateType: 1
+  calculateId: 15
