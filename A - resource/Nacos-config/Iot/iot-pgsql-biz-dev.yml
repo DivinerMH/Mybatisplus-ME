@@ -1,0 +1,41 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      client-secret: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      scope: server
+      ignore-urls:
+        - /device-data/**
+        - /sop/routes
+        - /druid/**
+        - /actuator/**
+        - /v2/api-docs
+        - /sys-file/**
+
+spring:
+  datasource:
+    dynamic:
+      primary: pgsql # 设置默认的数据源或者数据源组，默认值即为 master
+      datasource:
+        pgsql:
+          url: jdbc:postgresql://192.168.1.175:5432/postgres
+          driver-class-name: org.postgresql.Driver
+          username: postgres
+          password: 123456
+        protocol:
+          url: jdbc:mysql://${MYSQL-HOST:iot-mysql}:${MYSQL-PORT:3037}/${MYSQL-DB:iot_pro_protocol}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: 123456
+
+# 文件系统 (提供测试环境，不要乱传)
+minio:
+  url: http://192.168.1.174:9000
+  access-key: linksame
+  secret-key: linksame
+
+# Logger Config
+logging:
+  level:
+    com.hzcloud.iot.devicedata.mapper: debug

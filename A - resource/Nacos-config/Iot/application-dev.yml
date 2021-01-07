@@ -1,0 +1,118 @@
+# 通用配置文件
+jasypt:
+  encryptor:
+    password: iot
+
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.176:9092
+    consumer: #消费者配置
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:  #生产者配置
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  redis:
+    host: iot-redis
+    port: 6379
+    database: 2
+
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 600000
+        readTimeout: 600000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+# hystrix If you need to use ThreadLocal bound variables in your RequestInterceptor`s
+# you will need to either set the thread isolation strategy for Hystrix to `SEMAPHORE or disable Hystrix in Feign.
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 600000
+  shareSecurityContext: true
+
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+
+mybatis-plus:
+  tenant-enable: ture
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      field-strategy: NOT_EMPTY
+swagger:
+  title:
+  license:
+  licenseUrl:
+  terms-of-service-url:
+  contact:
+    email:
+    url:
+  authorization:
+    # name: pigX OAuth
+    name: iot OAuth
+    auth-regex: ^.*$
+    authorization-scope-list:
+      - scope: server
+        description: server all
+    token-url-list:
+      - http://${GATEWAY-HOST:iot-gateway}:${GATEWAY-PORT:9999}/auth/oauth/token
+
+security:
+  oauth2:
+    client:
+      ignore-urls:
+        - /actuator/**
+        - /v2/api-docs
+        - /iot/**
+    resource:
+      loadBalanced: true
+      token-info-uri: http://${AUTH-HOST:iot-auth}/oauth/check_token
+
+kafka:
+  address: 192.168.1.176:9092
+  otherAddress: kafka.iot:9092
+
+paasImage:
+  tcp: hub.03in.com:5002/jinxiao/iot-connect:tcp
+  udp: hub.03in.com:5002/jinxiao/iot-connect:tcp
+  aliAmqp: harbor.ls.com/operation-operation-iot/iot-aliyun-amqp:latest
+
+emqx:
+  brokerAddress: tcp://192.168.1.175:1883
+

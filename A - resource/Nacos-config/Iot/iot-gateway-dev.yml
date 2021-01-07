@@ -1,0 +1,43 @@
+# 网关配置文件
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowCredentials: true
+            exposedHeaders: "Content-Disposition,Content-Type,Cache-Control"
+            allowedHeaders: "*"
+            allowedOrigins: "*"
+            allowedMethods: "*"
+      httpclient:
+        connect-timeout: 10000000
+        response-timeout: 1800000
+
+security:
+  encode:
+    # key: 'pigxpigxpigxpigx'
+    key: 'iotsiotsiotsiots'
+
+ignore:
+  clients:
+    - test
+  swagger-providers:
+    - ${AUTH-HOST:iot-auth}
+    - ${TX-MGR-HOST:iot-tx-manager}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 170000
+
+ribbon:
+  rule:
+    gray-enabled: true
+  ReadTimeout: 120000
+  ConnectTimeout: 120000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1

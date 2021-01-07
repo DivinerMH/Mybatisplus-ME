@@ -1,0 +1,18 @@
+xxl:
+  job:
+    admin:
+      addresses: http://iot-xxl-job-admin:8086/xxl # 调度器访问地址
+    executor:
+      appname: iot-xxl-job
+      #对应在xxl-job控制条新增执行器时，填写的APPNAME，执行器心跳注册分组依据
+      ip:
+      #执行器IP默认为空表示自动获取ip，
+      port: 9988
+      # 执行器的默认端口为9999，port是一个内置的jetty服务端口
+      logpath: /xxl-job/jobhandler
+      # 执行器运行日志文件存储的磁盘位置，需要对该路径拥有读写权限
+      logretentiondays: -1
+    accessToken:
+
+
+

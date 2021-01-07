@@ -1,0 +1,68 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      client-secret: ENC(Qw+cUczMH1ywGgwWt1AA3g==)
+      scope: server
+      ignore-urls:
+        - /device-data/**
+        - /sop/routes
+        - /druid/**
+        - /actuator/**
+        - /v2/api-docs
+        - /sys-file/**
+
+
+spring:
+  datasource:
+    dynamic:
+     primary: pgsql # 设置默认的数据源或者数据源组，默认值即为 master
+      datasource:
+        pgsql:
+          url: jdbc:postgresql://postgresql:5432/postgres
+          driver-class-name: org.postgresql.Driver
+          username: postgres
+          password: 123456
+        device:
+          url: jdbc:mysql://${MYSQL-HOST:iot-mysql}:${MYSQL-PORT:3037}/${MYSQL-DB:iot_device_data}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: 123456
+
+  quartz:
+    #相关属性配置
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: quartzScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: false
+            clusterCheckinInterval: 10000
+            useProperties: false
+            dataSource: quartzDs
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+    #数据库方式
+    job-store-type: JDBC
+    #初始化表结构
+    jdbc:
+      initialize-schema: NEVER
+# 文件系统 (提供测试环境，不要乱传)
+minio:
+  url: http://192.168.1.174:9000
+  access-key: linksame
+  secret-key: linksame
+
+# Logger Config
+logging:
+  level:
+    com.hzcloud.iot.devicedata.mapper: debug
