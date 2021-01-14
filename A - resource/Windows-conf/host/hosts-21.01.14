@@ -1,0 +1,106 @@
+﻿# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+#127.0.0.1       activate.navicat.com
+
+
+#fitmgr2.01（Test / 已失效）
+127.0.0.1 	linksame-redis
+127.0.0.1 	linksame-mysql
+127.0.0.1 	linksame-zookeeper
+
+127.0.0.1   linksame-eureka
+127.0.0.1	linksame-config
+127.0.0.1 	linksame-gateway
+127.0.0.1	linksame-auth
+127.0.0.1	linksame-admin
+127.0.0.1	linksame-log
+127.0.0.1	linksame-monitor
+127.0.0.1	linksame-oss
+
+#省经信委
+192.168.1.176   mysql
+192.168.1.175   redis
+192.168.1.174   activemq
+127.0.0.1    	linksame-register
+127.0.0.1	    linksame-gateway
+127.0.0.1    	linksame-auth
+192.168.1.176   linksame-mysql
+192.168.1.175   linksame-redis
+
+#linksame 2.04
+0.0.0.0 account.jetbrains.com
+0.0.0.0 www.jetbrains.com
+192.168.1.153 windows10.microdone.cn
+
+# ---------------------------------------------------------------
+
+# fitmgr 12.20 - company集中部署
+192.168.1.174	fitmgr-eureka		#8761
+192.168.1.174	fitmgr-eureka2		#8761
+192.168.1.174	fitmgr-gateway		#9999
+192.168.1.174	fitmgr-redis		#63790
+192.168.1.174	fitmgr-mysql		#3006
+192.168.1.174	fitmgr-log			#10010	12.20 - 已部署服务器
+192.168.1.174	fitmgr-rabbitmq
+
+#192.168.1.150	fitmgr-eureka		#8761	12.20 - 已部署服务器（01.20修改）
+#192.168.1.150	fitmgr-gateway		#9999	12.20 - 已部署服务器（01.20修改）
+#192.168.1.150	fitmgr-redis		#63790	12.20 - 已部署服务器（01.20修改）
+#192.168.1.150	fitmgr-log			#10010	12.20 - 已部署服务器（01.20修改）
+
+#127.0.0.1	fitmgr-eureka
+#127.0.0.1	fitmgr-eureka2			#8762
+#127.0.0.1	fitmgr-gateway
+#127.0.0.1	fitmgr-config			#8888
+#127.0.0.1	fitmgr-log
+
+# menghuan（私人注册中心高可用配置）
+127.0.0.1	peer1
+127.0.0.1 	peer2
+
+
+192.168.1.175  iot-admin
+
+
+# iot（mysql不动）
+192.168.1.175 	iot-register
+192.168.1.174 	iot-mysql
+192.168.1.175	iot-redis
+192.168.1.175	iot-gateway
+
+# 房屋租赁 -  info 配置（2020.04.26）
+# 地址：http://login.smart-park.03in.net:91/#/newapp
+192.168.1.176 login.smart-park.03in.net
+192.168.1.176 compact.smart-park.03in.net
+# 前2必须，后2非必须
+192.168.1.176 mysql.smart-park.03in.net
+192.168.1.176 iot.smart-park.03in.net
+
+
+
+
+# 开发软件（映射配置）
+192.168.1.171   chart.ls.com
+192.168.1.171   minio.ls.com
+192.168.1.171   gitlab.ls.com
+192.168.1.171   harbor.ls.com
+192.168.1.171   api.ls.com
+192.168.1.171   notify.ls.com
+192.168.1.171   devops.ls.com
+192.168.1.171   c7n.ls.com
+192.168.1.171   wiki.ls.com
+192.168.1.171   registry.ls.com
+192.168.1.171   notify.ls.com
+192.168.1.171   wiki.ls.com
+192.168.1.171   sonarqube.ls.com
+
+
+
+
+

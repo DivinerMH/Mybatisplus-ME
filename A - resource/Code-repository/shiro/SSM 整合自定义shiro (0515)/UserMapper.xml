@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.day22.dao.UserDAO">
+    <resultMap id="userMap" type="com.qianfeng.day22.entity.Users">
+        <id column="user_id" property="id"></id>
+        <result column="user_name" property="name"></result>
+        <result column="user_number" property="number"></result>
+        <result column="user_tel" property="tel"></result>
+    </resultMap>
+    
+    <select id="findByUsernameAndPwd" resultMap="userMap">
+        SELECT user_id, user_name, user_number, user_tel
+        FROM
+        users
+        WHERE user_number = #{username} AND user_pwd = #{pwd}
+    </select>
+    
+    <select id="findRoleCodeByUserId" resultType="java.lang.String">
+        SELECT
+        r.role_code
+        FROM
+        roles AS r
+        INNER JOIN user_role AS ur
+        ON
+        r.role_id = ur.role_id
+        INNER JOIN
+        users AS u
+        ON ur.user_id = u.user_id
+        WHERE
+        u.user_id = #{userId}
+    </select>
+
+    <select id="findAuthNameByUserId" resultType="java.lang.String">
+        SELECT a.auth_name FROM auths a
+        INNER JOIN
+        auth_role ar
+        ON a.auth_id = ar.auth_id
+        INNER JOIN roles r
+        ON ar.role_id = r.role_id
+        INNER JOIN
+        user_role ur
+        ON ur.role_id = r.role_id
+        WHERE ur.user_id = #{userId}
+    </select>
+</mapper>

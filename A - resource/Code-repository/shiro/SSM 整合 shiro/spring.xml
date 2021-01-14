@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--扫描-->
+    <context:component-scan base-package="com.qianfeng.day22">
+        <!--排除掉使用Controller注解的类，不由spring.xml加载时创建-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"></context:exclude-filter>
+    </context:component-scan>
+
+    <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder>
+
+    <!-- 配置数据库和连接池信息，使用config.properties里面的值 -->
+    <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 数据连接信息 -->
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+
+    <!-- shiro配置开始 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+
+    <!-- 数据库保存的密码是使用MD5算法加密的，所以这里需要配置一个密码匹配对象 -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher"></bean>
+
+    <!-- 缓存管理；可以添加（推荐），也可以删除 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
+
+
+    <!-- 使用 Shiro 自带的 JdbcRealm 类 -->
+    <!--<bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+        &lt;!&ndash; credentialsMatcher；此处用到MD5编码；不用则自行删除此行！ &ndash;&gt;
+        <property name="credentialsMatcher" ref="credentialsMatcher"></property>  &lt;!&ndash;指定密码匹配所需要用到的加密对象&ndash;&gt;
+        &lt;!&ndash;permissionsLookupEnabled默认false。False时不会使用permissionsQuery的SQL去查询权限资源。设置为true才会去执行&ndash;&gt;
+        <property name="permissionsLookupEnabled" value="true"></property>
+        <property name="dataSource" ref="dataSource"></property>  &lt;!&ndash;指定存储用户、角色、权限许可的数据源及相关查询语句&ndash;&gt;
+    </bean>-->
+
+    <!-- 使用 Shiro 自带的 JdbcRealm 类 ； 相对应的 Shiro安全管理器 -->
+    <!--<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        &lt;!&ndash; ref="jdbcRealm"根据该数据库对应的数据源 &ndash;&gt;
+        <property name="realm" ref="jdbcRealm"></property>
+        <property name="cacheManager" ref="cacheManager"></property>
+    </bean>-->
+
+    <!-- 自定义数据源 myRealm类； -->
+    <bean id="myRealm" class="com.qianfeng.day22.util.MyRealm"></bean>
+
+    <!-- 自定义数据源 myRealm类；相对应的 Shiro安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- 必须包含；使用 Shiro 自带JdbcRealm类去关联；ref="jdbcRealm" -->
+        <property name="realm" ref="myRealm"></property>
+        <property name="cacheManager" ref="cacheManager"></property>  <!-- 与缓存管理相关联，无则删除 -->
+    </bean>
+
+
+    <!--
+       Shiro主过滤器本身功能十分强大，其强大之处就在于它支持任何基于URL路径表达式的、自定义的过滤器的执行
+       Web应用中，Shiro可控制的Web请求必须经过Shiro主过滤器的拦截，Shiro对基于Spring的Web应用提供了完美的支持
+    -->
+    <!-- 仅仅依靠 web.xml 的 shiro filter 根本无法实现复杂的shiro的拦截路劲 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"></property>
+        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
+        <property name="loginUrl" value="/login"></property>
+        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+        <!-- <property name="successUrl" value="/" ></property> -->
+        <!-- 用户访问未对其授权的资源时（没有权限时），所显示的连接（就跳转到某一个路径）；虽然开着，但未使用 -->
+        <property name="unauthorizedUrl" value="/"></property>
+        <!-- 放弃使用路径拦截配置；选择使用注解！！！ --> <!--因为，下面才是真正的你需要拦截的请求：-->
+        <!-- anon：表示没有权限 ；/**=anon 所有的请求路径都不需要任何权限 -->
+        <!-- 若所有的方法路径，权限都描述清楚；难、麻烦、controller层路径命需按此处规范 -->
+        <property name="filterChainDefinitions">
+            <value>
+                /**=anon
+            </value>
+        </property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"></property>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="com.qianfeng.day22.dao"></property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+</beans>

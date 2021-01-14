@@ -1,0 +1,34 @@
+# 本次构建的阶段：build package
+stages:
+ - build
+ - package
+ - deploy
+
+
+variables:
+  IMAGES: harbor.ls.com/${CI_PROJECT_PATH}
+  SON_URL: "http://sonarqube.ls.com"
+  SON_LOGIN: "4e2f1c34bd0fe46df653806a0aa89deea4d92d5f"
+  # 镜像：地址
+
+
+deploy:
+  stage: deploy
+  script:
+  - echo "----------		打包结果 ma ster ---------------------"
+  - ls -all
+  - echo "======			执行docker 打包 ====="
+  - docker build -t ${IMG} .
+  - docker tag ${IMG} harbor.ls.com/operation-gold/nginx:latest
+#  - docker images|grep ${PRO_PATH}
+  - docker login harbor.ls.com -u admin -p Harbor12345
+  - docker push ${IMG}
+  - docker push harbor.ls.com/operation-gold/nginx:latest
+  - echo "================执行部署================="
+  - chmod +x ./install.sh && sh ./install.sh ${IMG}
+
+before_script:
+  - export DATATIME=$(date +"%Y-%m-%d-%H%M%S")
+  - export hi="ranmufei"
+  - export IMG=${IMAGES}:${DATATIME}
+ 
