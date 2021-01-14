@@ -1,9 +1,5 @@
 package com.hanchan.codeTest_2020_11;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-
-import java.util.List;
 
 /**
  * @Author:menghuan
@@ -28,11 +24,11 @@ public class JsonAnalysisUtils {
      * @param json 入参json数据
      * @return 集合
      */
-    public static List<Object> relationJSON(String json) {
+    /*public static List<Object> relationJSON(String json) {
         JSONArray objects = JSON.parseArray(json);
         List<Object> tempConfigInfoJSON = objects.toJavaList(Object.class);
         return tempConfigInfoJSON;
-    }
+    }*/
 
 
 
