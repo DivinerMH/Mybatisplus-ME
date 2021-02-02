@@ -1,5 +1,7 @@
 package com.hanchan.codeTest_2021_02;
 
+import org.springframework.context.annotation.Lazy;
+
 /**
  * @Author: menghuan
  * @Date: 2021/1/27 14:39
@@ -7,6 +9,7 @@ package com.hanchan.codeTest_2021_02;
 public class Childs extends Parents {
 
     // 默认无参构造方法
+    @Lazy
     Childs(){
         System.out.print(" Child子类构造方法！ -->");
     }
