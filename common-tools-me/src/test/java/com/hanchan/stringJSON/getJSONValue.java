@@ -1,4 +1,4 @@
-package com.hanchan.tools;
+package com.hanchan.stringJSON;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

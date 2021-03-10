@@ -10,7 +10,7 @@ public class ThreadInterruptDemo implements Runnable {
         Thread thread = new Thread(new ThreadInterruptDemo(), "MyThreadInterruptDemo");
         System.out.println("……………..start………………");
         thread.start();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         System.out.println("……………..Interrupted………………");
         thread.interrupt();
         System.out.println("线程是否中断" + thread.isInterrupted());
