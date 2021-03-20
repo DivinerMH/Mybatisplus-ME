@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.iot.meeting.mapper.IotPreparationMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.iot.meeting.entity.IotPreparation">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="meetingId" column="meeting_id" jdbcType="OTHER"/>
+        <result property="itemsId" column="items_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- IotPreparationVO查询结果集映射 -->
+    <resultMap id="IotPreparationVOResultMap" type="com.linksame.iot.meeting.vo.IotPreparationVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="meetingId" column="meeting_id" jdbcType="OTHER"/>
+        <result property="itemsId" column="items_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, meeting_id, items_id, name, description, status, create_time, update_time, del_flag</sql>
+
+
+    <!-- 根据id查询会议准备详情(跨服务) -->
+    <select id="queryIotPreparationDetail" resultMap="IotPreparationVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_preparation
+        WHERE del_flag = 0 AND status = 0 AND id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 无参查询会议准备List -->
+    <select id="queryIotPreparationList" resultMap="IotPreparationVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_preparation
+        WHERE del_flag = 0 AND status = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询会议准备List -->
+    <select id="queryByConditions" resultMap="IotPreparationVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_preparation
+        <where>
+            del_flag = 0
+            <if test="iotPreparationDTO.type != null and iotPreparationDTO.type != '' ">
+                AND type = #{iotPreparationDTO.type}
+            </if>
+            <if test="iotPreparationDTO.status != null and iotPreparationDTO.status != '' ">
+                AND status = #{iotPreparationDTO.status}
+            </if>
+            <if test="iotPreparationDTO.status == null or iotPreparationDTO.status == '' ">
+                AND status = '0'
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

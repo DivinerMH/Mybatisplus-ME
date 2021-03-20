@@ -1,0 +1,164 @@
+##导入宏定义 - 模板
+$!define
+
+##包路径（宏定义）
+#setPackageSuffix("service.impl")
+
+##保存文件（宏定义）
+#save("/service/impl", "ServiceImpl.java")
+
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀
+#setTableSuffix("ServiceImpl")
+
+##设置实体对象名（自定义）
+#set($entityName = $!tool.firstLowerCase($!tableInfo.name))
+
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+import $!{tableInfo.savePackageName}.vo.$!{tableInfo.name}VO;
+import $!{tableInfo.savePackageName}.dto.$!{tableInfo.name}DTO;
+import $!{tableInfo.savePackageName}.mapper.$!{tableInfo.name}Mapper;
+import $!{tableInfo.savePackageName}.service.I$!{tableInfo.name}Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+##表注释（宏定义）
+#tableComment("表服务实现类")
+@AllArgsConstructor
+@Service
+@Slf4j
+public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tableInfo.name}> implements I$!{tableInfo.name}Service {
+
+    private final $!{tableInfo.name}Mapper $!{entityName}Mapper;
+
+    @Override
+    ##@Transactional(rollbackFor = Exception.class)
+    public Boolean save$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO) {
+        // 校验：name 是否重复
+        checkNameUnity($!{entityName}DTO.getName());
+
+        $!{tableInfo.name} $!{entityName} = new $!{tableInfo.name}();
+        BeanUtils.copyProperties($!{entityName}DTO, $!{entityName});
+        $!{entityName}.setStatus(CommonConstants.STATUS_NORMAL);
+        $!{entityName}.setDelFlag(CommonConstants.STATUS_NORMAL);
+        $!{entityName}.setCreateTime(LocalDateTime.now());
+        $!{entityName}.setUpdateTime($!{entityName}.getCreateTime());
+        baseMapper.insert($!{entityName});
+        return Boolean.TRUE;
+    }
+
+    @Override
+    public Boolean delete$!{tableInfo.name}(Integer id) {
+        // 校验：资源是否存在
+        checkResource(id);
+
+        this.removeById(id);
+        return Boolean.TRUE;
+    }
+
+    @Override
+    ##@Transactional(rollbackFor = Exception.class)
+    public Boolean update$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO) {
+        // 校验：name 是否重复（修改时,排除自身）
+        if(StringUtils.isNotBlank($!{entityName}DTO.getName())){
+            checkNameUnity($!{entityName}DTO);
+        }
+
+        $!{tableInfo.name} $!{entityName} = new $!{tableInfo.name}();
+        BeanUtils.copyProperties($!{entityName}DTO, $!{entityName});
+        $!{entityName}.setUpdateTime(LocalDateTime.now());
+        baseMapper.updateById($!{entityName});
+        return Boolean.TRUE;
+    }
+
+    @Override
+    public $!{tableInfo.name}VO query$!{tableInfo.name}(Integer id) {
+        $!{tableInfo.name} $!{entityName} = $!{entityName}Mapper.selectById(id);
+        if (null == $!{entityName}) {
+            throw new IotRepositoryException("应资源不存在,请核实后输入");
+        }
+        $!{tableInfo.name}VO $!{entityName}VO = new $!{tableInfo.name}VO();
+        BeanUtils.copyProperties($!{entityName}, $!{entityName}VO);
+        return $!{entityName}VO;
+    }
+
+    @Override
+    public $!{tableInfo.name}VO query$!{tableInfo.name}Detail(Integer id) {
+        $!{tableInfo.name}VO $!{entityName}VO = $!{entityName}Mapper.query$!{tableInfo.name}Detail(id);
+        if (null == $!{entityName}VO) {
+            throw new IotRepositoryException("应资源不存在,请核实后输入");
+        }
+        return $!{entityName}VO;
+    }
+
+    @Override
+    public List<$!{tableInfo.name}VO> query$!{tableInfo.name}List() {
+        List<$!{tableInfo.name}VO> $!{entityName}VOS = $!{entityName}Mapper.query$!{tableInfo.name}List();
+        return $!{entityName}VOS;
+    }
+
+    @Override
+    public List<$!{tableInfo.name}VO> queryListByConditions($!{tableInfo.name}DTO $!{entityName}DTO) {
+        List<$!{tableInfo.name}VO> $!{entityName}VOS = $!{entityName}Mapper.queryByConditions($!{entityName}DTO);
+        return $!{entityName}VOS;
+    }
+
+    @Override
+    public IPage<$!{tableInfo.name}VO> queryPageByConditions(Page page, $!{tableInfo.name}DTO $!{entityName}DTO) {
+        IPage<$!{tableInfo.name}VO> $!{entityName}VOIPage = $!{entityName}Mapper.queryByConditions(page, $!{entityName}DTO);
+        return $!{entityName}VOIPage;
+    }
+
+
+    /* --------------------------------------------异常处理-----------------------------------------*/
+
+    // 校验：资源是否存在
+    private void checkResource(Integer id){
+        $!{tableInfo.name} $!{entityName} = baseMapper.selectById(id);
+        if(null == $!{entityName}){
+            throw new IotRepositoryException("应资源不存在,请核实后输入");
+        }
+    }
+
+    // 校验：name 是否重复
+    private void checkNameUnity(String name){
+        LambdaQueryWrapper<$!{tableInfo.name}> queryWrapper =
+                Wrappers.<$!{tableInfo.name}>lambdaQuery()
+                        .eq(StringUtils.isNotEmpty(name),$!{tableInfo.name}::getName,name);
+        List<$!{tableInfo.name}> $!{entityName}s = baseMapper.selectList(queryWrapper);
+        if(null != $!{entityName}s && !$!{entityName}s.isEmpty()){
+            throw new IotRepositoryException("名称已存在，请核实后输入");
+        }
+    }
+
+    // 校验：name 是否重复（修改时,排除自身重复的情况）
+    private void checkNameUnity($!{tableInfo.name}DTO $!{entityName}DTO){
+        LambdaQueryWrapper<$!{tableInfo.name}> queryWrapper =
+                Wrappers.<$!{tableInfo.name}>lambdaQuery()
+                        .eq(StringUtils.isNotEmpty($!{entityName}DTO.getName()),$!{tableInfo.name}::getName,$!{entityName}DTO.getName());
+        List<$!{tableInfo.name}> $!{entityName}List = baseMapper.selectList(queryWrapper);
+        // 排除自身重复的情况
+        if(null != $!{entityName}List && !$!{entityName}List.isEmpty()){
+            for ($!{tableInfo.name} $!{entityName} : $!{entityName}List) {
+                // 若非修改自身且名称还存在重复，则抛出异常
+                if(!$!{entityName}.getId().equals($!{entityName}DTO.getId()) && $!{entityName}.getName().equals($!{entityName}DTO.getName())){
+                    throw new IotRepositoryException("名称已存在，请核实后输入");
+                }
+            }
+        }
+    }
+
+
+}
