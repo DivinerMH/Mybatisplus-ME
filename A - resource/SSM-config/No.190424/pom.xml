@@ -80,7 +80,7 @@
     <dependency>  <!--mybatis-spring需要-->
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>3.5.0</version>
+      <version>3.5.6</version>
     </dependency>
 
     <dependency>  <!--SqlSessionFactory创建需要，mybatis需要-->
