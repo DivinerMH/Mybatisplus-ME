@@ -56,7 +56,4 @@ public class ReceiptHandleStrategyFactory {
         return receiptHandleStrategyMap.get(receiptType);
     }
 
-
-
-
 }
