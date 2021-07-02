@@ -1,7 +1,5 @@
 package com.hanchan.aop;
 
-import com.hanchan.proxyPattern.StaticProxyPerson;
-
 /**
  * 参考：https://mp.weixin.qq.com/s/Wio2tN8xGwbr6xAcBnoE5g
  * @Author: menghuan
