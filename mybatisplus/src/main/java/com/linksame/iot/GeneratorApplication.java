@@ -1,4 +1,4 @@
-package com.linksame.iot.office;
+package com.linksame.iot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
