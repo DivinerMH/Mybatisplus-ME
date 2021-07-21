@@ -7,7 +7,7 @@
     <!--因为，目前，没有其他模型;如果你写你的pom符合4.1，它不会与Maven 3和模型4.0.0兼容-->
 
     <groupId>com.menghuan</groupId><!--groupId是项目组织唯一的标识符，实际对应JAVA的包的结构，是main目录里java的目录结构-->
-    <artifactId>common-tools-me</artifactId><!--artifactId就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称-->
+    <artifactId>common-utils-me</artifactId><!--artifactId就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称-->
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
