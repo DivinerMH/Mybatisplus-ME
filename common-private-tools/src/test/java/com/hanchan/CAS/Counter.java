@@ -35,4 +35,29 @@ public class Counter {
         }
     }
 
+    /*public static void main(String[] args) {
+        for (int j = 0; j < 100; j++) {
+            for (int i = 0; i < 100; i++) {
+                int finalJ = j;
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                            if (Counter.addOne() == 100) {
+                                System.out.println("次数计数 : " + finalJ);
+                                System.out.println("counter = 100");
+                            }
+                            // System.out.println("result : " + Counter.addOne());
+                        } catch (InterruptedException e) {
+
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+            }
+        }
+    }*/
+
 }
