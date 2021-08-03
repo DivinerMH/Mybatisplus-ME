@@ -11,6 +11,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * 工程里有获取唯一时间戳作为id的需求,用乐观锁cas实现,自旋.
  * cas原子性操作获得了绝对唯一的时间戳 (系统时间:纳秒版本). ---- 单机有效,不能分布式调用.
  *
+ * https://blog.csdn.net/qq_36402372/article/details/83753395
+ *
  * @Author: menghuan
  * @Date: 2021/7/29 10:22
  */

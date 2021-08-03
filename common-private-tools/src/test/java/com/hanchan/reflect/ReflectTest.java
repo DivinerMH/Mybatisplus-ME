@@ -17,14 +17,14 @@ public class ReflectTest {
     /**
      * 打印对象的类名
      * @author 二当家的白帽子 https://le-yi.blog.csdn.net/
-     * @param o
+     * @param o 对象
      */
     public static void printClass(Object o) {
         System.out.printf(o.getClass().getName());
     }
 
     @Test
-    public void test1() {
+    public void testOne() {
         printClass(new ArrayList<>());
     }
 
@@ -41,7 +41,7 @@ public class ReflectTest {
     }
 
     @Test
-    public void test2() {
+    public void testTwo() {
         printFields(MyClass.class);
     }
 
@@ -59,7 +59,7 @@ public class ReflectTest {
     }
 
     @Test
-    public void test3() {
+    public void testThree() {
         printMethods(MyClass.class);
     }
 
@@ -91,7 +91,7 @@ public class ReflectTest {
     }
 
     @Test
-    public void test4() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+    public void testFour() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
         MyClass o = new MyClass();
 
         // 修改任意属性，即使是私有的
@@ -101,7 +101,6 @@ public class ReflectTest {
         // 调用任意方法，即使是私有的
         callMethod(o, "getName");
     }
-
 
 
 
