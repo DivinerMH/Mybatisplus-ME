@@ -47,7 +47,7 @@ public class CommonServiceImpl<T> implements CommonService<T> {
     public void testOne(){
         CommonServiceImpl commonService = new CommonServiceImpl();
         MyClass myClass = new MyClass();
-        myClass.setName("邻盛");
+        myClass.setName("LINKSAME");
         commonService.explain(myClass);
     }
 

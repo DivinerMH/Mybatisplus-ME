@@ -141,8 +141,8 @@ public class $!{tableName}{
     @ApiOperation(value = "条件查询$!{tableInfo.comment}列表")
     @ApiImplicitParams(value = {
             @ApiImplicitParam(paramType = "body", name = "$!{entityName}DTO", dataType = "$!{tableInfo.name}DTO", required = false, value = "$!{tableInfo.comment}对象")})
-    @GetMapping("/lists/conditions")
-    public R<List<$!{tableInfo.name}VO>> queryListByConditions($!{tableInfo.name}DTO $!{entityName}DTO) {
+    @PostMapping("/lists/conditions")
+    public R<List<$!{tableInfo.name}VO>> queryListByConditions(@RequestBody $!{tableInfo.name}DTO $!{entityName}DTO) {
         return R.ok($!{serviceName}.queryListByConditions($!{entityName}DTO));
     }
 
