@@ -46,8 +46,8 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
     @Override
     ##@Transactional(rollbackFor = Exception.class)
     public Boolean save$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO) {
-        // 校验：name 是否重复
-        checkNameUnity($!{entityName}DTO.getName());
+        // 校验：名称是否重复
+        checkNameUnity($!{entityName}DTO);
 
         $!{tableInfo.name} $!{entityName} = new $!{tableInfo.name}();
         BeanUtils.copyProperties($!{entityName}DTO, $!{entityName});
@@ -62,7 +62,7 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
     @Override
     public Boolean delete$!{tableInfo.name}(Integer id) {
         // 校验：资源是否存在
-        checkResource(id);
+        CommonConverter.checkResource(id,baseMapper);
 
         this.removeById(id);
         return Boolean.TRUE;
@@ -71,7 +71,9 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
     @Override
     ##@Transactional(rollbackFor = Exception.class)
     public Boolean update$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO) {
-        // 校验：name 是否重复（修改时,排除自身）
+        // 校验：资源是否存在
+        CommonConverter.checkResource($!{entityName}DTO.getId(),baseMapper);
+        // 校验：名称是否重复
         if(StringUtils.isNotBlank($!{entityName}DTO.getName())){
             checkNameUnity($!{entityName}DTO);
         }
@@ -124,31 +126,16 @@ public class $!{tableName} extends ServiceImpl<$!{tableInfo.name}Mapper, $!{tabl
 
     /* --------------------------------------------异常处理-----------------------------------------*/
 
-    // 校验：资源是否存在
-    private void checkResource(Integer id){
-        $!{tableInfo.name} $!{entityName} = baseMapper.selectById(id);
-        if(null == $!{entityName}){
-            throw new IotRepositoryException("对应资源不存在,请核实后输入");
-        }
-    }
-
-    // 校验：name 是否重复
-    private void checkNameUnity(String name){
-        LambdaQueryWrapper<$!{tableInfo.name}> queryWrapper =
-                Wrappers.<$!{tableInfo.name}>lambdaQuery()
-                        .eq(StringUtils.isNotEmpty(name),$!{tableInfo.name}::getName,name);
-        List<$!{tableInfo.name}> $!{entityName}s = baseMapper.selectList(queryWrapper);
-        if(null != $!{entityName}s && !$!{entityName}s.isEmpty()){
-            throw new IotRepositoryException("名称已存在，请核实后输入");
-        }
-    }
-
-    // 校验：name 是否重复（修改时,排除自身重复的情况）
-    // 新增时，xxxDTO 入参数据无主键id信息，故也可用该方法
+    /**
+     * 校验：新增 / 修改 name 是否重复【多租户版本】
+     * 提示：新增时，id请传入为 null，
+     *      修改时，id传入相应值，以排除自身数据
+     */
     private void checkNameUnity($!{tableInfo.name}DTO $!{entityName}DTO){
         // 使用 .ne() 排除自身重复的情况
         LambdaQueryWrapper<$!{tableInfo.name}> queryWrapper =
                 Wrappers.<$!{tableInfo.name}>lambdaQuery()
+                        .eq(null != $!{entityName}DTO.getTenantId(), $!{tableInfo.name}::getTenantId, $!{entityName}DTO.getTenantId())
                         .eq(StringUtils.isNotEmpty($!{entityName}DTO.getName()),$!{tableInfo.name}::getName,$!{entityName}DTO.getName())
                         .ne(null != $!{entityName}DTO.getId(),$!{tableInfo.name}::getId,$!{entityName}DTO.getId());
         List<$!{tableInfo.name}> $!{entityName}List = baseMapper.selectList(queryWrapper);
