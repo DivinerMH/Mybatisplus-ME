@@ -1,0 +1,81 @@
+java -version
+javac -version
+
+java xxxClass		执行命令
+javac xxxClass.java		编译命令
+---------------------------------------------------------------------------------
+日志文件所在位置
+	1、当天日志 ： logs/xxx项目/debug.log
+	2、非当天日志 ：按月/按天 分组    2021-05
+less 目标文件
+	/123456		查找 123456
+	n		重复前一个搜索 ( 与 / 或 ? 有关 )
+	N 		反向重复前一个搜索 ( 与 / 或 ? 有关 )
+---------------------------------------------------------------------------------
+查询 ip 状态 : ipconfig
+	本地 ip: 192.168.1.39
+
+测试网络状态 ：ping IP 
+	ping 192.168.1.137 
+	ping 192.168.1.137:4005 
+---------------------------------------------------------------------------------
+netstat -ano|findstr  "4000" 	根据具体的端口号查对应的PID （only one）
+netstat -ano 		查看端口使用情况 （list）
+taskkill /pid 10248		通过进程号杀端口号 
+taskkill /pid 10248 /f    	通过进程号杀端口号（强杀）
+---------------------------------------------------------------------------------
+git checkout release-dev
+git checkout -b release-dev	创建并切换到新分支
+git push --set-upstream origin release-dev
+
+1、提交到 release-user-center-mh 分支（add + commit）
+2、通过 IDEA 拉取 release-dev 分支内容（以防合并冲突）
+3、git pull release-user-center-mh
+4、git push release-user-center-mh
+5、在管理平台提交合并请求
+6、在管理平台 merge 自己提交的合并请求
+
+---------------------------------------------------------------------------------
+git add . && git commit -m "提交信息" && git pull origin master && git push origin master
+
+E:\apache-maven-3.3.9\conf\settings.xml
+
+/data/iottest/static:/app/statical
+
+---------------------------------------------------------------------------------
+
+2012年中级职称软件设计师，2017年高级职称项目管理师，2018年CSM敏捷认证。
+
+1、软考中级
+2、PMP
+3、BAT
+
+---------------------------------------------------------------------------------
+
+Privacy cleanup
+1、退出谷歌账号（清除标签、卸载谷歌，清除历史记录）
+2、IDEA（清除模板）
+3、删除 -- 微信、QQ （文件、照片、信息）
+4、删除本地笔记、备份
+5、清楚本地 Typro 缓存信息（偏好设置 -> 恢复未保存的草稿）
+6、私属 Java 项目处理
+7、Postman 账号退出，清洗
+8、微信聊天记录 备份清理 ( H:\微信 Download\WeChat Files\WeChat Files\wxid_ov0iwyxzwlaq22\BackupFiles\ ) 
+9、百度网盘账号
+
+---------------------------------------------------------------------------------
+1、G:\Git_info
+2、F:\BaiduNetdiskDownload
+3、
+
+Bearer 8b47de7b-3a46-45d2-8b11-432e8348a04d
+
+123456 = rKu1/348LvKp0rsVC06eCA==
+1234567 = +06sfajP/FffZmMVxa8OSg==
+123456a 7IxOav7YRAFdBXnV3WfGvg==
+123456b mVx4J+NcS3md+JdDB9ePSg==
+123456c dSGPE5ovCVESFB9+jzWy9g==
+123456d 93PLQZblTDUn4Xybd8+JaQ==
+123456f 6lHatjfq2HBXCgpDD016Qg==
+
+
