@@ -27,7 +27,6 @@ public class PlusGenerator {
 
     private static final String PASSWORD = "123456";
 
-    //
     // com.mysql.jdbc.Driver
     private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
 
