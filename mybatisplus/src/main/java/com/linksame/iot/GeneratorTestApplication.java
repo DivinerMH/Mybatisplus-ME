@@ -9,10 +9,10 @@ import org.springframework.cloud.client.SpringCloudApplication;
  */
 
 @SpringCloudApplication
-public class GeneratorApplication {
+public class GeneratorTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GeneratorApplication.class, args);
+        SpringApplication.run(GeneratorTestApplication.class, args);
     }
 
 }
