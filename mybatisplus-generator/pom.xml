@@ -46,7 +46,6 @@
             <version>4.3.20.RELEASE</version>
         </dependency>
 
-
         <!-- MeGenerator_2 belongs to Duan Zongliang -->
         <dependency>
             <groupId>org.projectlombok</groupId>

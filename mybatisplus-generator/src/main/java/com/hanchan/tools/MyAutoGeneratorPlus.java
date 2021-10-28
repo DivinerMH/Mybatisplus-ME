@@ -1,5 +1,6 @@
 package com.hanchan.tools;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -15,6 +16,9 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * 使用 Mybatis-plus 自动生成代码
+ * 参考：
+ *          https://blog.csdn.net/liuenyiGG/article/details/120505239   postgresql数据库使用mybatis-plus自动生成代码异常
  * @Author: menghuan
  * @Date: 2019/12/26 16:15
  */
@@ -27,11 +31,11 @@ public class MyAutoGeneratorPlus {
     private final static String DATABASE_IP = "192.168.1.175";                  // 数据库id
     private final static String PORT_NUMBER = ":3306/";                         // 数据库端口号
     private final static String USERNAME = "root";                              // 数据库账号
-    private final static String PASSWORD = "123456";                              // 数据库密码
-    private final static String DATABASE_NAME = "iot_resource";                  // 数据库名称
+    private final static String PASSWORD = "123456";                            // 数据库密码
+    private final static String DATABASE_NAME = "iot_resource";                 // 数据库名称
     // 包配置
-    private final static String PARENT = "com.hzcloud.iot";                          // 父包名。 如果为空，将下面子包名必须写全部， 否则就只需写子包名
-    private final static String MODULE_NAME = "contract";                          // 父包模块名 , 可以为空字符串
+    private final static String PARENT = "com.hzcloud.iot";                     // 父包名 - 如果为空，将下面子包名必须写全部， 否则就只需写子包名
+    private final static String MODULE_NAME = "contract";                       // 父包模块名 - 可以为空字符串
     // 自定义基类 (会导致自动生成文件，XxxController extends BaseController)
     private final static String SuperEntity = "com.baomidou.mybatisplus.samples.generator.common.BaseEntity";           // 所有实体的基类(全类名)
     private final static String SuperController = "com.baomidou.mybatisplus.samples.generator.common.BaseController";   // 所有控制器的基类(全类名)
@@ -63,50 +67,45 @@ public class MyAutoGeneratorPlus {
         final String projectPath = System.getProperty("user.dir");
 
         // 代码生成器
-        AutoGenerator mpg = new AutoGenerator();
+        AutoGenerator autoConfig = new AutoGenerator();
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig()
                 .setOutputDir(projectPath + OUTPUT_DIR)     // 生成文件的输出目录
                 .setAuthor(AUTHOR)                          // 作者名
-                .setOpen(false)
-                .setBaseResultMap(true)
-                .setBaseColumnList(true)
+                .setOpen(false)                             // 是否打开输出目录
+                .setBaseResultMap(true)                     // 开启 BaseResultMap
+                .setBaseColumnList(true)                    // 开启 baseColumnList
                 .setSwagger2(true);                         // 实体属性 Swagger2 注解 (默认：即为正常的注解)
 
-        mpg.setGlobalConfig(gc);
+        autoConfig.setGlobalConfig(gc);
 
+        /*我们在使用pg数据库想通过mybatis-plus自动生成代码的时候，如果表不在public模式中，那么就需要自己手动设置SchemaName*/
         // 数据源配置
-        DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://" + DATABASE_IP + PORT_NUMBER + DATABASE_NAME + "?useUnicode=true&useSSL=false&characterEncoding=utf8");
-        // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");         // JDK7
-        // dsc.setDriverName("com.mysql.cj.jdbc.Driver");   // JDK8
-        dsc.setUsername(USERNAME);
-        dsc.setPassword(PASSWORD);
-        mpg.setDataSource(dsc);
+        DataSourceConfig dsc = new DataSourceConfig()
+                .setDbType(DbType.MYSQL)                            // 设置数据库类型，此处是 Mysql（postgresql）
+                .setDriverName("com.mysql.jdbc.Driver")             // JDK7 - 驱动名称
+                // dsc.setDriverName("com.mysql.cj.jdbc.Driver");   // JDK8 - 驱动名称
+                // 指定数据库
+                .setUrl("jdbc:mysql://" + DATABASE_IP + PORT_NUMBER + DATABASE_NAME + "?useUnicode=true&useSSL=false&characterEncoding=utf8")
+                // dsc.setSchemaName("public");                     // PostgreSQL schemaName
+                .setUsername(USERNAME)
+                .setPassword(PASSWORD);
+
+        autoConfig.setDataSource(dsc);
 
         // 包配置
-        PackageConfig pc = new PackageConfig();
-        // 自定义模块名
-        // pc.setModuleName(scanner("模块名"));
-        pc.setModuleName(MODULE_NAME);      // 父包模块名 , 可以为空字符串
-        pc.setParent(PARENT);       // 包名（自己手动设置）
-        mpg.setPackageInfo(pc);
+        PackageConfig pc = new PackageConfig()
+                // pc.setModuleName(scanner("模块名"));              // 自定义模块名
+                .setModuleName(MODULE_NAME)                         // 父包模块名 , 可以为空字符串
+                .setParent(PARENT);                                 // 包名（自己手动设置）
+        autoConfig.setPackageInfo(pc);
 
 
-        // 自定义配置
-        /*InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                // to do nothing
-            }
-        };*/
         // 如果模板引擎是 freemarker
-        // String templatePath = "/templates/mapper.xml.ftl";
+        String templatePath = "/templates/mapper.xml.ftl";
         // 如果模板引擎是 velocity
         // String templatePath = "/templates/mapper.xml.vm";
-
 
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
@@ -118,7 +117,8 @@ public class MyAutoGeneratorPlus {
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
         // 自定义配置会被优先输出
-        focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+        // focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+        focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称、模块名（自己设置）
@@ -126,12 +126,12 @@ public class MyAutoGeneratorPlus {
             }
         });
         cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+
+        autoConfig.setCfg(cfg);
 
 
         // 配置模板
-        mpg.setTemplate(new TemplateConfig().setXml(null));
-
+        autoConfig.setTemplate(new TemplateConfig().setXml(null));
 
         /* TemplateConfig templateConfig = new TemplateConfig();
 
@@ -142,33 +142,26 @@ public class MyAutoGeneratorPlus {
         // templateConfig.setController();
 
         templateConfig.setXml(null);
-        mpg.setTemplate(templateConfig); */
-
+        autoConfig.setTemplate(templateConfig); */
 
         // 策略配置（个性化定制）
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        // 实体类自动继承 Entity,不需要也可以(禁用)
-        // strategy.setSuperEntityClass(SuperEntity);
-        strategy.setEntityLombokModel(true);    //【实体】是否为lombok模型
-        // 公共父类 - 注释后，可避免自动去继承 BaseController - （XxxController extends BaseController）
-        // strategy.setSuperControllerClass(SuperController);
+        StrategyConfig strategy = new StrategyConfig()
+                .setNaming(NamingStrategy.underline_to_camel)
+                .setColumnNaming(NamingStrategy.underline_to_camel)
+                // .strategy.setSuperEntityClass(SuperEntity);      // 实体类自动继承 Entity,不需要也可以(禁用)
+                .setEntityLombokModel(true)                         //【实体】是否为lombok模型
+                // .setSuperControllerClass(SuperController);       // 公共父类 - 注释后，可避免自动去继承 BaseController - （XxxController extends BaseController）
+                // .setInclude(scanner("表名"));                    // 调用 scanner 启动控制台操作,(禁用时，直接按code配置生成)
+                .setInclude(".+")
+                .setSuperEntityColumns("id")                        // 写于父类中的公共字段
+                .setControllerMappingHyphenStyle(true);
+                // .setTablePrefix(pc.getModuleName() + "_");       // 将数据库表名具象化至项目中，删除 _ 之前的部分（注释后，可实现项目与数据库完美映射）
+        autoConfig.setStrategy(strategy);
 
-        // 调用 scanner 启动控制台操作,(禁用时，直接按code配置生成)
-        // strategy.setInclude(scanner("表名"));
-
-        strategy.setInclude(".+");
-        // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
-        strategy.setControllerMappingHyphenStyle(true);
-
-        // 将数据库表名具象化至项目中，删除 _ 之前的部分（注释后，可实现项目与数据库完美映射）
-        //strategy.setTablePrefix(pc.getModuleName() + "_");
-        mpg.setStrategy(strategy);
         // 选择 freemarker 引擎需要指定如下，注意 pom.xml 依赖必须有！
-        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-        mpg.execute();
+        autoConfig.setTemplateEngine(new FreemarkerTemplateEngine());
+        // 执行
+        autoConfig.execute();
     }
 
 

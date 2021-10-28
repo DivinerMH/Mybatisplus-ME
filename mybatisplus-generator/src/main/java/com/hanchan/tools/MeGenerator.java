@@ -13,17 +13,19 @@ import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 /**
  * 生成代码工具
  */
-public class MeGenerator_2 {
+public class MeGenerator {
 
     //生成文件地址配置
-    private final static String documentAddress = "mybatisplus.com.hzcloud.iot";
+    // private final static String documentAddress = "mybatisplus.com.hzcloud.iot";
+    // private final static String documentAddress = "/mybatisplus/src/main/java";
+    private final static String documentAddress = "mybatisplus.src.main.java";
 
     public static void main(String[] args) {
-        MeGenerator_2 g = new MeGenerator_2();
+        MeGenerator g = new MeGenerator();
         boolean startWithI = true;
         String projectName = "mybatisplus";
         String packageName = "com.hzcloud.iot";
-        String tableName = "contract";                // 数据库单表生成
+        String tableName = "iot_contract";                // 数据库单表生成
         //String tableName = "fitmgr_cloud";  		数据库整体生成失败
         g.generateByTables(startWithI, projectName, packageName, tableName);
     }
@@ -69,7 +71,13 @@ public class MeGenerator_2 {
      * @return PackageConfig    包名配置
      */
     private PackageConfig getPackageConfig(String packageName) {
-        return new PackageConfig().setParent(packageName).setXml("mapper").setMapper("mapper").setController("controller").setService("service").setEntity("entity");
+        return new PackageConfig()
+                .setParent(packageName)
+                .setXml("mapper")
+                .setMapper("mapper")
+                .setController("controller")
+                .setService("service")
+                .setEntity("entity");
     }
 
     /**
