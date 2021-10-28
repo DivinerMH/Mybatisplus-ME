@@ -1,4 +1,4 @@
-package com.hanchan.tools;
+package com.hanchan.utils;
 
 import java.util.Date;
 
