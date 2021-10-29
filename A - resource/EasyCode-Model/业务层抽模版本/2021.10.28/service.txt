@@ -23,6 +23,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import $!{tableInfo.savePackageName}.entity.$!tableInfo.name;
+import $!{tableInfo.savePackageName}.vo.$!{tableInfo.name}VO;
+import $!{tableInfo.savePackageName}.dto.$!{tableInfo.name}DTO;
+
+import java.util.List;
 
 ##表注释（宏定义）
 #tableComment("表服务接口")
@@ -50,34 +54,34 @@ public interface $!{tableName} extends IService<$!tableInfo.name> {
     Boolean update$!{tableInfo.name}($!{tableInfo.name}DTO $!{entityName}DTO);
 
     /**
-     * 根据id查询$!{tableInfo.comment}详情（单服务）
+     * 根据id查询$!{tableInfo.comment}详情(单服务)
      * @param id $!{tableInfo.comment}id
      * @return $!{tableInfo.comment}展示对象
      */
     $!{tableInfo.name}VO query$!{tableInfo.name}(Integer id);
 
     /**
-     * 根据id查询$!{tableInfo.comment}详情(跨服务)
+     * 根据id查询$!{tableInfo.comment}详情(多服务)
      * @param id $!{tableInfo.comment}id
      * @return $!{tableInfo.comment}展示对象
      */
     $!{tableInfo.name}VO query$!{tableInfo.name}Detail(Integer id);
 
     /**
-     * 无参查询查询$!{tableInfo.comment}列表
+     * 无参查询$!{tableInfo.comment}列表
      * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
      */
     List<$!{tableInfo.name}VO> query$!{tableInfo.name}List();
 
     /**
-     * 条件查询查询$!{tableInfo.comment}列表
+     * 条件查询$!{tableInfo.comment}列表
      * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
      * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
      */
     List<$!{tableInfo.name}VO> queryListByConditions($!{tableInfo.name}DTO $!{entityName}DTO);
 
     /**
-     * 分页查询查询$!{tableInfo.comment}列表
+     * 分页条件查询$!{tableInfo.comment}列表
      * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
      * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
      */

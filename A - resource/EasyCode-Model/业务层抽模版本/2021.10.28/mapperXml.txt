@@ -33,12 +33,12 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
     <sql id="Base_Column_List">#allSqlColumn()</sql>
 
 
-    <!-- 根据id查询$!{tableInfo.comment}详情(跨服务) -->
+    <!-- 根据id查询$!{tableInfo.comment}详情(多服务) -->
     <select id="query$!{tableInfo.name}Detail" resultMap="$!{tableInfo.name}VOResultMap">
         SELECT
             <include refid="Base_Column_List" />
         FROM $!tableInfo.obj.name
-        WHERE del_flag = 0 AND status = 0 AND id = #{id}
+        WHERE del_flag = 0 AND id = #{id}
         ORDER BY create_time DESC
     </select>
 
@@ -47,7 +47,7 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         SELECT
             <include refid="Base_Column_List" />
         FROM $!tableInfo.obj.name
-        WHERE del_flag = 0 AND status = 0
+        WHERE del_flag = 0
         ORDER BY create_time DESC
     </select>
 
@@ -58,8 +58,8 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         FROM $!tableInfo.obj.name
         <where>
             del_flag = 0
-            <if test="$!{entityName}DTO.type != null and $!{entityName}DTO.type != '' ">
-                AND type = #{$!{entityName}DTO.type}
+            <if test="$!{entityName}DTO.name != null and $!{entityName}DTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{$!{entityName}DTO.name},'%')
             </if>
             <if test="$!{entityName}DTO.status != null and $!{entityName}DTO.status != '' ">
                 AND status = #{$!{entityName}DTO.status}

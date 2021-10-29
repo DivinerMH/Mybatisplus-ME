@@ -32,7 +32,7 @@ import java.util.List;
 public interface $!{tableName} extends BaseMapper<$!tableInfo.name> {
 
     /**
-     * 根据id查询$!{tableInfo.comment}详情(跨服务)
+     * 根据id查询$!{tableInfo.comment}详情(多服务)
      * @param id $!{tableInfo.comment}id
      * @return $!{tableInfo.comment}展示对象$!{tableInfo.name}VO
      */
@@ -52,7 +52,7 @@ public interface $!{tableName} extends BaseMapper<$!tableInfo.name> {
     List<$!{tableInfo.name}VO> queryByConditions(@Param("$!{entityName}DTO") $!{tableInfo.name}DTO $!{entityName}DTO);
 
     /**
-     * 条件查询$!{tableInfo.comment}Page
+     * 分页条件查询$!{tableInfo.comment}Page
      * @param page 分页参数
      * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
      * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList

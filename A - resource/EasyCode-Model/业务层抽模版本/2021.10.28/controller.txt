@@ -94,11 +94,11 @@ public class $!{tableName}{
     }
 
     /**
-     * 根据id查询$!{tableInfo.comment}详情（单服务）
+     * 根据id查询$!{tableInfo.comment}详情(单服务)
      * @param id $!{tableInfo.comment}id
      * @return $!{tableInfo.comment}展示对象$!{tableInfo.name}VO
      */
-    @ApiOperation(value = "根据id查询$!{tableInfo.comment}详情")
+    @ApiOperation(value = "根据id查询$!{tableInfo.comment}详情(单服务)")
     @GetMapping
     @ApiImplicitParams(@ApiImplicitParam(paramType = "query", name = "id", dataType = "Integer", required = true, value = "$!{tableInfo.comment}id"))
     public R<$!{tableInfo.name}VO> query$!{tableInfo.name}(@RequestParam("id") Integer id) {
@@ -109,11 +109,11 @@ public class $!{tableName}{
     }
 
     /**
-     * 根据id查询$!{tableInfo.comment}详情(跨服务)
+     * 根据id查询$!{tableInfo.comment}详情(多服务)
      * @param id $!{tableInfo.comment}id
      * @return $!{tableInfo.comment}展示对象$!{tableInfo.name}VO
      */
-    @ApiOperation(value = "根据id查询$!{tableInfo.comment}详情(跨服务)")
+    @ApiOperation(value = "根据id查询$!{tableInfo.comment}详情(多服务)")
     @GetMapping("/detail")
     @ApiImplicitParams(@ApiImplicitParam(paramType = "query", name = "id", dataType = "Integer", required = true, value = "$!{tableInfo.comment}id"))
     public R<$!{tableInfo.name}VO> query$!{tableInfo.name}Detail(@RequestParam("id") Integer id) {
@@ -141,23 +141,61 @@ public class $!{tableName}{
     @ApiOperation(value = "条件查询$!{tableInfo.comment}列表")
     @ApiImplicitParams(value = {
             @ApiImplicitParam(paramType = "body", name = "$!{entityName}DTO", dataType = "$!{tableInfo.name}DTO", required = false, value = "$!{tableInfo.comment}对象")})
-    @GetMapping("/lists/conditions")
-    public R<List<$!{tableInfo.name}VO>> queryListByConditions($!{tableInfo.name}DTO $!{entityName}DTO) {
+    @PostMapping("/lists/conditions")
+    public R<List<$!{tableInfo.name}VO>> queryListByConditions(@RequestBody $!{tableInfo.name}DTO $!{entityName}DTO) {
+        // 数据权限
+        // $!{entityName}DTO.setTenantId(CommonConverter.dataPermission($!{entityName}DTO.getTenantId()));
         return R.ok($!{serviceName}.queryListByConditions($!{entityName}DTO));
     }
 
     /**
-     * 分页查询查询$!{tableInfo.comment}列表
+     * 分页条件查询$!{tableInfo.comment}列表
      * @param $!{entityName}DTO $!{tableInfo.comment}接收入参DTO
      * @return $!{tableInfo.comment}展示对象集合$!{tableInfo.name}VOList
      */
-    @ApiOperation(value = "分页查询查询$!{tableInfo.comment}列表")
+    @ApiOperation(value = "分页条件查询$!{tableInfo.comment}列表")
     @ApiImplicitParams(value = {
             @ApiImplicitParam(paramType = "query", name = "page", dataType = "Page", required = true, value = "分页条件"),
             @ApiImplicitParam(paramType = "query", name = "$!{entityName}DTO", dataType = "$!{tableInfo.name}DTO", required = false, value = "$!{tableInfo.comment}对象")})
     @GetMapping("/page/conditions")
     public R<IPage<$!{tableInfo.name}VO>> queryPageByConditions(Page page, $!{tableInfo.name}DTO $!{entityName}DTO) {
+        // 数据权限
+        // $!{entityName}DTO.setTenantId(CommonConverter.dataPermission($!{entityName}DTO.getTenantId()));
         return R.ok($!{serviceName}.queryPageByConditions(page, $!{entityName}DTO));
+    }
+
+    /**
+     * 数据权限：参数转换
+     *      将 tenantId == 1 的系统租户,处理为无 tenantId 条件的情况 - 20.10.12
+     *      提示1：若前端同事未提供tenantId参数,但tenantId又有可能作为有用参数,故需要入参进行处理
+     *      提示2：此处对比的非租户类型 tenantType
+     *      提示3：系统租户唯一性
+     *      提示4：构建角色对应资产结构数据权限 - 2021.08.19
+     * @param $!{entityName}DTO 入参
+     * @return $!{entityName}DTO 处理后的入参
+     */
+    private $!{tableInfo.name}DTO dealParam($!{tableInfo.name}DTO $!{entityName}DTO) {
+        // 第一层处理:当tenant不传的情况,直接从框架获取对应TenantId数据信息
+        if (null == $!{entityName}DTO.getTenantId()) {
+            try{
+                IotUser user = SecurityUtils.getUser();
+                if (null != user.getTenantId()) {
+                    $!{entityName}DTO.setTenantId(user.getTenantId());
+                }
+                // 构建角色资产结构数据权限 - 2021.08.19
+                // if (null != user.getRoleId()){
+                    // $!{entityName}DTO.setAssertIdList(DataScopeComponent.assemblyParam(user.getRoleId()));
+                // }
+            }catch (Exception e){
+                e.printStackTrace();
+                log.info("当前用户登录权限信息获取异常......");
+            }
+        }
+        // 第二层处理:tenant是超级管理员的情况,移除租户边界限制,查询所有
+        if ($!{entityName}DTO.getTenantId() == 1) {
+            $!{entityName}DTO.setTenantId(null);
+        }
+        return $!{entityName}DTO;
     }
 
 
