@@ -1,4 +1,4 @@
-package com.menghuan.QuickMark;
+package com.menghuan.quickMark;
 
 /**
  * @Author: menghuan

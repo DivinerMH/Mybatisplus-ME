@@ -1,4 +1,4 @@
-package com.menghuan.QuickMark;
+package com.menghuan.quickMark;
 
 import com.google.zxing.*;
 import com.google.zxing.common.BitMatrix;
