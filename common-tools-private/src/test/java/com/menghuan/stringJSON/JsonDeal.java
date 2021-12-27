@@ -2,7 +2,7 @@ package com.menghuan.stringJSON;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.test.codeTest_2020_11.TemporaryEntity;
+import com.test_I.codeTest_2020_11.TemporaryEntity;
 import org.junit.Test;
 
 import java.util.HashMap;
