@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "0950f617-566b-4de4-9b0d-69e29e7b626c",
+		"name": "测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://iot-test.szyservice.cn:5100/pro-api/admin/sby/business/data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"externalToken\": \"evJhbGcioiJIUzI1NiJ9eyJleHAi0iE2NDAZNDQ4ODUsImpOasI6IjE2NDAZMDg40DU1ODK2NTYwIiwiYXBWVHIwZSI6IjEiLCJ1c3J3ZCI6IjUwNDg1Mzc10Dc1MjczNjA2MDAifQ.iFl dZEJwOE8BzQeUaZ6DvCVxp77Bibxx7SvgGOgmYA\",\r\n    \"requestMethod \": \"get\",\r\n    \"requestPath\": \"/admin/user/page\",\r\n    \"params\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://iot-test.szyservice.cn:5100/pro-api/admin/sby/business/data",
+					"protocol": "http",
+					"host": [
+						"iot-test",
+						"szyservice",
+						"cn"
+					],
+					"port": "5100",
+					"path": [
+						"pro-api",
+						"admin",
+						"sby",
+						"business",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://iot-test.szyservice.cn:5100/pro-api/admin/sby/business/data -2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"externalToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDAzNDQ4ODUsImp0aSI6IjE2NDAzMDg4ODU1ODk2NTYwIiwiYXBwVHlwZSI6IjEiLCJ1c3JJZCI6IjUwNDg1Mzc1ODc1MjczNjA2MDAifQ.jFl_dZEJw0E8BzQeUaZ6DvCVxp77BibXx7SvgG0qmYA\",\r\n    \"requestMethod\": \"get\",\r\n    \"requestPath\": \"/structure/structure/lists/conditions\",\r\n    \"params\": {\r\n        \"productId\": 1639724516\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://iot-test.szyservice.cn:5100/pro-api/admin/sby/business/data",
+					"protocol": "http",
+					"host": [
+						"iot-test",
+						"szyservice",
+						"cn"
+					],
+					"port": "5100",
+					"path": [
+						"pro-api",
+						"admin",
+						"sby",
+						"business",
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

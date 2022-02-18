@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "8227a041-a2a4-49dd-befa-96655ff215d3",
+		"name": "诉求平台 - Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:9999/auth/oauth/token 用户登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "hssgly",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9999/auth/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/user/1 通过用户id获取用户/部门详情信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/admin/user/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"admin",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/dept/szxDept 获取 dept_logo = 1的部门信息（辅助于工单列表查询）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/admin/dept/szxDept",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"admin",
+						"dept",
+						"szxDept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/dept/redeployDept?deptId=92",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/admin/dept/redeployDept?deptId=92",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"admin",
+						"dept",
+						"redeployDept"
+					],
+					"query": [
+						{
+							"key": "deptId",
+							"value": "92"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/appeal/list/role 通过角色查询工单列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/appeal/list/role?pageNum=1&pageSize=20&status=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"appeal",
+						"list",
+						"role"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						},
+						{
+							"key": "title",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "3"
+						},
+						{
+							"key": "cityId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "deptId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/appeal/log/{appealId} 工单纪录信息byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/appeal/log/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"appeal",
+						"log",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/user/info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 49077dd8-3aef-48e2-89f4-9c7786e26f25",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4000/user/info",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8769/appeal/log/{appealId} 工单处理记录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8769/appeal/log/62",
+					"host": [
+						"localhost"
+					],
+					"port": "8769",
+					"path": [
+						"appeal",
+						"log",
+						"62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:9999/appeal/log/{appealId} 工单处理记录【过网关】",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/log/62",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"log",
+						"62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "-----------------------统计---------------------",
+			"request": {
+				"method": "LINK",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/data 数据总数统计",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/data?type=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"data"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "3",
+							"description": "1/2/3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/data/year 数据总数统计【年度】",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/data/year?yearInfo=2021",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"data",
+						"year"
+					],
+					"query": [
+						{
+							"key": "yearInfo",
+							"value": "2021",
+							"description": "1/2/3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/list 查询所有统计列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/list?deptId=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"list"
+					],
+					"query": [
+						{
+							"key": "deptId",
+							"value": "3",
+							"description": "1/2/3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/type 工单类型占比  前八名",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/type?type=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/source 来源占比",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/source?type=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"source"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/linechart 折线图",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/linechart?time=mon",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"linechart"
+					],
+					"query": [
+						{
+							"key": "time",
+							"value": "mon",
+							"description": "year 、 week 、"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appeal/bill/linechartyear 折线图【年度】",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/appeal/bill/linechart/year?yearInfo=2021",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"appeal",
+						"bill",
+						"linechart",
+						"year"
+					],
+					"query": [
+						{
+							"key": "yearInfo",
+							"value": "2021"
+						},
+						{
+							"key": "typeId",
+							"value": "9",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

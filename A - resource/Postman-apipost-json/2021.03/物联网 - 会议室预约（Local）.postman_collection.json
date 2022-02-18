@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "ea47b950-f334-4b39-8c51-326c78abc301",
+		"name": "物联网 - 会议室预约（Local）",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:4005/meeting 新增会议室预约",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"20.04启智上市会议\",\n    \"cause\": \"上市前期重要事项介决策\",\n    \"compereId\": 1,\n    \"resourcesId\": 2,\n    \"preparationId\": 3,\n    \"registerId\": 3,\n    \"type\": 1,\n    \"startTime\": \"2020-04-26 07:43:57\",\n    \"endTime\": \"2020-04-26 23:43:57\",\n    \"introduction\": \"上市前期重要事项介决策+上市前期重要事项介决策+上市前期重要事项介决策\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/meeting",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/meeting/{id} 删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/meeting/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"meeting",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/meeting 修改",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"20.04邻盛上市会议\",\n    \"cause\": \"上市前期重要事项介决策\",\n    \"compereId\": 2,\n    \"resourcesId\": 2,\n    \"preparationId\": 2,\n    \"registerId\": 3,\n    \"type\": 1,\n    \"startTime\": \"2020-04-26 07:43:57\",\n    \"endTime\": \"2020-04-26 23:43:57\",\n    \"introduction\": \"上市前期重要事项介决策+上市前期重要事项介决策+上市前期重要事项介决策\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/meeting",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/meeting/1 查询byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/meeting/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"meeting",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/meeting/list 无参列表查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/meeting/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"meeting",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/preparation 新增会议准备",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"水果-芒果\",\n    \"meetingId\": 2,\n    \"description\": \"用于标识会议参与人身份的标识牌\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/preparation",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"preparation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/preparation/{id} 删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/preparation/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"preparation",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/preparation 修改",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"3\",\n    \"name\": \"水果-枣子2.0\",\n    \"meetingId\": 1,\n    \"userId\": 1,\n    \"description\": \"用于标识会议参与人身份的标识牌\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/preparation",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"preparation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/preparation/{id} 查询byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/preparation/4",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"preparation",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/preparation/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/preparation/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"preparation",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register 新增会议签到",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"meetingId\": 3,\n    \"userId\": 6,\n    \"description\": \"Xxxx在进行会议敲到排队等待中\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/{id} 删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/register/3",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register 修改会议签到-状态",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"meetingId\": 9,\n    \"userId\": 9,\n    \"description\": \"Xxxx在进行会议敲到排队等待中\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/{id} 查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/register/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/list 查询签到列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4005/register/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/page 分页条件查询会议签到List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4005/register/page?current=1&size=10&meetingId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"page"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "meetingId",
+							"value": "3"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/participant/{id} 通过id修改确认参会状态",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"meetingId\": 1,\n    \"userId\": 9\n}"
+				},
+				"url": {
+					"raw": "localhost:4005/register/participant",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"participant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4005/register/participant/batch 通过参会人员id修改是否参会状态（批量）",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"meetingId\": 1,\n        \"userId\": 3,\n        \"isParticipant\": \"8\"\n    },\n    {\n        \"meetingId\": 1,\n        \"userId\": 9,\n        \"isParticipant\": \"8\"\n    }\n]"
+				},
+				"url": {
+					"raw": "localhost:4005/register/participant/batch?",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"register",
+						"participant",
+						"batch"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "isParticipant",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

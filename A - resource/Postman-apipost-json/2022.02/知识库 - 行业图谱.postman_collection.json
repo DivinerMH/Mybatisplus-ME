@@ -1,0 +1,1142 @@
+{
+	"info": {
+		"_postman_id": "d8bc6701-a304-461e-af4d-4e62465aaab9",
+		"name": "知识库 - 行业图谱",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/map 新增行业图谱",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"typeId\": 1,\r\n    \"name\": \"火灾灾害等级评估2\",\r\n    \"performType\":1,\r\n    \"displayCode\": \"a+b\",\r\n    \"executeCode\": \"String str = hello world\",\r\n    \"trainIs\": \"1\",\r\n    \"trainNumber\": 0,\r\n    \"iotParamDTOList\": [\r\n        {\r\n            \"paramType\": \"0\",\r\n            \"paramKey\": \"L\",\r\n            \"paramName\": \"长度度\",\r\n            \"dataType\": \"int\",\r\n            \"colType\": \"0\"\r\n        },\r\n        {\r\n            \"paramType\": \"0\",\r\n            \"paramKey\": \"W\",\r\n            \"paramName\": \"宽度\",\r\n            \"dataType\": \"int\",\r\n            \"colType\": \"0\"\r\n        },\r\n        {\r\n            \"paramType\": \"1\",\r\n            \"paramKey\": \"S\",\r\n            \"paramName\": \"面积\",\r\n            \"dataType\": \"int\",\r\n            \"colType\": \"0\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map 删除行业图谱 byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map?id=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map 修改行业图谱 byId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"tenantId\": 1,\r\n    \"typeId\": 2,\r\n    \"name\": \"火灾灾害等级评估\",\r\n    \"displayCode\": \"hello world3\",\r\n    \"executeCode\": \"String str = hello world\",\r\n    \"trainIs\": \"1\",\r\n    \"trainNumber\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map 查询行业图谱 byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/detail 查询行业图谱 byId（详情）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/lists 无参查询行业图谱List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/lists/conditions 条件查询行业图谱List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {  \r",
+							"    pm.response.to.have.status(200);  \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/page/conditions 分页条件查询行业图谱List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/groovy/test 测试脚本功能",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"params\": \"{\\\"a\\\":\\\"5.00\\\",\\\"b\\\":\\\"13\\\",\\\"c\\\":\\\"27\\\"}\",\r\n    \"code\": \"import com.alibaba.fastjson.JSON; def toDo(vv){ def dd =null; vv = vv.split(\\\";\\\"); String a = vv[0];Map<String,String> map = JSON.parseObject(a);BigDecimal num1 = new BigDecimal(map.get(\\\"a\\\"));BigDecimal num2 = new BigDecimal(map.get(\\\"b\\\"));BigDecimal num3 = new BigDecimal(map.get(\\\"c\\\"));try { result = num1.multiply(num2);dd = result;}catch (Exception e){ dd = 0;}   \\r\\n   return \\\"$dd\\\"; }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/groovy/test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"groovy",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/map/groovy/execute 执行行业图谱计算 No permission",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/map/groovy/execute",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"map",
+						"groovy",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/test/execute/{topic} 计算引擎 Kafka 测试",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"businessId\": 1,\r\n    \"modelInstanceId\": 1,\r\n    \"algorithmType\": \"3\",\r\n    \"algorithmId\": 2,\r\n    \"nodeId\": \"1\",\r\n    \"data\": {\r\n        \"L\": \"100\",\r\n        \"W\": \"9\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/test/execute/algorithm_data_mq",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"test",
+						"execute",
+						"algorithm_data_mq"
+					]
+				},
+				"description": "[\r\n    {\r\n        \"paramId\": 6,\r\n        \"paramValue\": 0.6\r\n    },\r\n    {\r\n        \"paramId\": 7,\r\n        \"paramValue\": -0.111\r\n    },\r\n    {\r\n        \"paramId\": 5,\r\n        \"paramValue\": 0.45\r\n    }\r\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/test/execute/{topic} 计算引擎 Kafka 测试 Python",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"businessId\": 1,\r\n    \"modelInstanceId\": 1,\r\n    \"algorithmType\": \"3\",\r\n    \"algorithmId\": 8,\r\n    \"nodeId\": \"1\",\r\n    \"data\": {\r\n        \"L\": \"100\",\r\n        \"W\": \"6\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/test/execute/algorithm_data_mq_2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"test",
+						"execute",
+						"algorithm_data_mq_2"
+					]
+				},
+				"description": "[\r\n    {\r\n        \"paramId\": 6,\r\n        \"paramValue\": 0.6\r\n    },\r\n    {\r\n        \"paramId\": 7,\r\n        \"paramValue\": -0.111\r\n    },\r\n    {\r\n        \"paramId\": 5,\r\n        \"paramValue\": 0.45\r\n    }\r\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type 新增行业图谱类型",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"name\": \"健身行业\",\r\n    \"description\": \"这是健身行业相关的类型描述\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type 删除行业图谱类型",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/lists 无参查询行业图谱类型List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"name\": \"建筑行业\",\r\n    \"description\": \"这是建筑行业相关的类型描述\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/lists/conditions 条件查询行业图谱类型List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/page/conditions 分页条件查询行业图谱类型List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result 新增行业图谱结果集",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"templateConfigId\": 1,\r\n    \"industryMapId\": \"2\",\r\n    \"name\": \"xxxx计算结果值\",\r\n    \"inParamJson\": \"import xxx\",\r\n    \"value\": \"8848\",\r\n    \"isCorrection\": \"1\",\r\n    \"identification\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result 删除行业图谱结果集 byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result 查询行业图谱结果集 byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result/detail 查询行业图谱结果集 byId (详情)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result/lists/conditions 条件查询行业图谱结果集List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/result/page/conditions 分页条件查询行业图谱结果集List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/result/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"result",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param 新增行业图谱参数",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"industryMapId\": \"1\",\r\n    \"paramType\": \"0\",\r\n    \"paramKey\": \"H\",\r\n    \"paramName\": \"高度\",\r\n    \"dataType\": \"int\",\r\n    \"colType\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param 删除行业图谱参数 byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param 查询行业图谱参数 byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param/detail 查询行业图谱参数详情 byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param/detail?id=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param/lists 无参查询行业图谱参数",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param/lists/conditions 条件查询行业图谱参数",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/param/page/conditions 分页条件查询行业图谱参数",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/param/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"param",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "variable_key",
+			"value": ""
+		}
+	]
+}

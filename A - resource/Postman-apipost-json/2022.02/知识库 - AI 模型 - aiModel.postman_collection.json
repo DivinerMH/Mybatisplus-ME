@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "9c00d767-61ee-43fd-b6be-cc069f2a688b",
+		"name": "知识库 - AI 模型 - aiModel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.163:9999/admin/sys-file/upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer cbdbf7de-f1af-4fcf-9193-2839bb257ef5",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bucketName",
+							"value": "alink",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/LinearRegTrain2.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.163:9999/admin/sys-file/upload",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"163"
+					],
+					"port": "9999",
+					"path": [
+						"admin",
+						"sys-file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/lists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/file/lists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/file/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"file",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"typeId\": 1,\r\n    \"trainingPattern\": \"1\",\r\n    \"name\": \"KKK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/lists/conditions 条件查询 IA 模型列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"typeId\": 1,\r\n    \"trainingPattern\": \"1\",\r\n    \"name\": \"KKK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/page/conditions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"typeId\": 1,\r\n    \"trainingPattern\": \"1\",\r\n    \"name\": \"KKK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/train-model",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/train-model?coreId=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"train-model"
+					],
+					"query": [
+						{
+							"key": "coreId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/core/pred-model",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/core/pred-model?coreId=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"core",
+						"pred-model"
+					],
+					"query": [
+						{
+							"key": "coreId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/feature/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/feature/list?coreId=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"feature",
+						"list"
+					],
+					"query": [
+						{
+							"key": "coreId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

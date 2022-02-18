@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "0055a27f-4dca-4b3e-8081-4fc188796291",
+		"name": "物联网 - 文件上传 - nginx/upload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.175:4320/nginx/upload/unzip 解压缩文件上传",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/500M.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.175:4320/nginx/upload/unzip",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"175"
+					],
+					"port": "4320",
+					"path": [
+						"nginx",
+						"upload",
+						"unzip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "192.168.1.163:4009/nginx/upload/unzip 解压缩文件上传",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/SZYDEMO.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.163:4009/nginx/upload/unzip",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"163"
+					],
+					"port": "4009",
+					"path": [
+						"nginx",
+						"upload",
+						"unzip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "192.168.1.163:4009/nginx/upload/model 模型fbx文件上传",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/U盘-soft/3d - tiles/SZY.zip"
+						},
+						{
+							"key": "type",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.163:4009/nginx/upload/model",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"163"
+					],
+					"port": "4009",
+					"path": [
+						"nginx",
+						"upload",
+						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4009/nginx/upload/model ( 本地 )fbx模型",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/chegongmiao.zip"
+						},
+						{
+							"key": "type",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4009/nginx/upload/model",
+					"host": [
+						"localhost"
+					],
+					"port": "4009",
+					"path": [
+						"nginx",
+						"upload",
+						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4009/nginx/upload/unzip ( 本地 )tiles模型",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/chegongmiao.zip"
+						},
+						{
+							"key": "type",
+							"value": "0",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4009/nginx/upload/unzip",
+					"host": [
+						"localhost"
+					],
+					"port": "4009",
+					"path": [
+						"nginx",
+						"upload",
+						"unzip"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

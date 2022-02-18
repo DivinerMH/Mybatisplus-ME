@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "b454babd-47ac-48cd-a22d-c93adc0653f5",
+		"name": "数据实时推送",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/push 新增 数据实时推送配置",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"businessId\": 12,\r\n    \"nodeId\": 22,\r\n    \"effectId\": 43,\r\n    \"name\": \"713事故等级判定结果数据实时推送\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push 删除 数据实时推送配置ById",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push 修改 数据实时推送配置byId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"tenantId\": 1,\r\n    \"businessId\": 12,\r\n    \"nodeId\": 22,\r\n    \"effectId\": 55,\r\n    \"name\": \"水灾灾害等级判定结果数据实时推送\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push 查询 数据实时推送配置ById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push/detail 查询 数据实时推送配置ById(跨服务)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push/lists 无参查询数据实时推送配置List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/push/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push/lists/conditions 条件查询数据实时推送配置List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/push/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push/page/conditions 分页条件查询数据实时推送配置List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/push/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/push/execute/{topic} 数据实时推送 Kafka 测试",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"businessId\": 1,\r\n    \"modelInstanceId\": 70,\r\n    \"modelId\": 29,\r\n    \"nodeId\": \"75\",\r\n    \"sourceType\": \"3\",\r\n    \"sourceId\": 2,\r\n    \"data\": {\r\n        \"S\": \"100\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/push/execute/handle_result_mq",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"push",
+						"execute",
+						"handle_result_mq"
+					]
+				},
+				"description": "[\r\n    {\r\n        \"paramId\": 6,\r\n        \"paramValue\": 0.6\r\n    },\r\n    {\r\n        \"paramId\": 7,\r\n        \"paramValue\": -0.111\r\n    },\r\n    {\r\n        \"paramId\": 5,\r\n        \"paramValue\": 0.45\r\n    }\r\n]"
+			},
+			"response": []
+		}
+	]
+}

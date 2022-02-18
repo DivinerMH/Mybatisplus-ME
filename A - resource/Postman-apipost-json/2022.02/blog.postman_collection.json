@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "c03c91cd-9468-49ae-a73b-59e7906ea69d",
+		"name": "blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "139.196.143.72:8080/api/login 线上后台登录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "139.196.143.72:8080/api/login?username=tycoding&password=tycoding",
+					"host": [
+						"139",
+						"196",
+						"143",
+						"72"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "tycoding"
+						},
+						{
+							"key": "password",
+							"value": "tycoding"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/api/login 后台登录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/login?username=tycoding&password=tycoding",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "tycoding"
+						},
+						{
+							"key": "password",
+							"value": "tycoding"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/api/user/{id} 查询用户ById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"1"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "tycoding",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "tycoding",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/api/review/{id} 查询内省ById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/review?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"review"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/api/review/lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/review/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"review",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

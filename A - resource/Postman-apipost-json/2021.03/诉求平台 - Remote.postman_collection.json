@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "c3ce86c1-fae3-4b6b-9f9c-c7089f916346",
+		"name": "诉求平台 - Remote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": ".cn/api/auth/oauth/token 用户登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/auth/oauth/token",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/admin/user/{id} 查询用户byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/admin/user/99",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"admin",
+						"user",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/admin/dept/tree 查询部门租户结构Tree",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer 94f4f87b-72ff-49e7-afca-740a84b88ede"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/admin/dept/tree",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"admin",
+						"dept",
+						"tree"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/admin/dept/{id} 通过ID查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer a151650e-24cb-4085-a853-f4a4d807ac8c"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/admin/dept/124",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"admin",
+						"dept",
+						"124"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/admin/dept/dispense/tree/{deptId} 返回派发工单树形部门列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer 9c91ffad-bccb-4419-a6fd-0425592e1dc9"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/admin/dept/dispense/tree?deptId=73",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"admin",
+						"dept",
+						"dispense",
+						"tree"
+					],
+					"query": [
+						{
+							"key": "deptId",
+							"value": "73"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/admin/dept/redeployDept/{deptId} 转派部门Tree",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/admin/dept/redeployDept?deptId=89",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"admin",
+						"dept",
+						"redeployDept"
+					],
+					"query": [
+						{
+							"key": "deptId",
+							"value": "89"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/appeal/list/role/?pageNum=1&pageSize=20 - 异常",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer a1254701-f2a9-41d8-bd52-551872149f6e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/appeal/list/role?",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"appeal",
+						"list",
+						"role"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "20",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "cityId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "deptId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/appeal/log/{appealId} 工单日志跟踪",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/appeal/log/77",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"appeal",
+						"log",
+						"77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/appeal/selectOne/{appealId} 查询工单详情",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/appeal/selectOne/2",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"appeal",
+						"selectOne",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/dispense/save 工单派发",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 8d8b8073-8be9-41b2-95fc-dda1a45e3eb0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/dispense/save",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"dispense",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/dispense 工单二次派发",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 8d8b8073-8be9-41b2-95fc-dda1a45e3eb0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/dispense",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"dispense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/type/list 工单分类（属性字段）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer 8d8b8073-8be9-41b2-95fc-dda1a45e3eb0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/type/list?",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"type",
+						"list"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": ".cn/api/appeal/sms/list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer 94f4f87b-72ff-49e7-afca-740a84b88ede"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://sqsl.hbsme.com.cn/api/appeal/sms/list",
+					"protocol": "http",
+					"host": [
+						"sqsl",
+						"hbsme",
+						"com",
+						"cn"
+					],
+					"path": [
+						"api",
+						"appeal",
+						"sms",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

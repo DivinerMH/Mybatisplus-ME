@@ -1,0 +1,1390 @@
+{
+	"info": {
+		"_postman_id": "7b49ab19-3d3a-4ce2-9407-d7d1f0519a00",
+		"name": "物联网 - 智慧会议室 - Meeting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/meeting 新增会议室预约",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1,\n    \"structureId\": 2,\n    \"roomId\": 3,\n    \"compereId\": 1,\n    \"preparerId\": 2,\n    \"name\": \"21.03.24启智上市会议-5阶\",\n    \"cause\": \"上市前期重要事项介决策\",\n    \"type\": \"1\",\n    \"level\": \"1\",\n    \"startTime\": \"2021-04-15 07:43:57\",\n    \"endTime\": \"2020-04-26 23:43:57\",\n    \"introduction\": \"上市前期重要事项介决策+上市前期重要事项介决策+上市前期重要事项介决策\",\n    \"iotRegisterDTOList\": [\n        {\n            \"userId\": 1,\n            \"type\": \"1\"\n        },\n        {\n            \"userId\": 2,\n            \"type\": \"0\"\n        },\n        {\n            \"userId\": 3,\n            \"type\": \"1\"\n        }\n    ],\n    \"iotPreparationDTOList\": [\n        {\n            \"itemsId\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"itemsId\": 2,\n            \"quantity\": 3\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting  删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/meeting?id=9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting 修改",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 9,\n    \"name\": \"21.03.24启智上市会议\",\n    \"cause\": \"上市前期重要事项介决策\",\n    \"compereId\": 1,\n    \"resourcesId\": 2,\n    \"preparationId\": 3,\n    \"registerId\": 3,\n    \"type\": 1,\n    \"startTime\": \"2020-04-26 07:43:57\",\n    \"endTime\": \"2020-04-26 23:43:57\",\n    \"introduction\": \"上市前期重要事项介决策+上市前期重要事项介决策+上市前期重要事项介决策\",\n    \"iotRegisterDTOList\": [\n        {\n            \"id\": 18,\n            \"userId\": 24,\n            \"type\": \"1\"\n        },\n        {\n            \"id\": 19,\n            \"userId\": 24,\n            \"type\": \"0\"\n        },\n        {\n            \"id\": 24,\n            \"userId\": 26,\n            \"type\": \"0\"\n        },\n        {\n            \"userId\": 26,\n            \"type\": \"1\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/status 修改会议室状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 117,\n    \"status\": \"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/appeal 会议审批",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 8,\n    \"status\": \"5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting/appeal",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"appeal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting 会议详情单服务查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/meeting?id=49",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/detail 会议详情单跨服务查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/meeting/detail?id=117",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "117"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/lists 无参列表查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/meeting/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/lists/month 以 “月” 为参数，动态查询月度数据",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting/lists/month?tenantId=1&startTime=2021-03-19 11:00:00&endTime=2021-03-04 11:00:00",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"lists",
+						"month"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						},
+						{
+							"key": "startTime",
+							"value": "2021-03-19 11:00:00"
+						},
+						{
+							"key": "endTime",
+							"value": "2021-03-04 11:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/lists/day 以 “天” 为参数，动态查询月度数据 Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting/lists/day?tenantId=1&startTime=2021-05-25 11:00:00&dayNumber=27",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"lists",
+						"day"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						},
+						{
+							"key": "startTime",
+							"value": "2021-05-25 11:00:00"
+						},
+						{
+							"key": "dayNumber",
+							"value": "27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/lists/conditions 条件查询会议信息列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/meeting/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "2021-04-19 11:00:00",
+							"disabled": true
+						},
+						{
+							"key": "endTime",
+							"value": "2021-04-20 12:00:00",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/meeting/page/conditions 分页查询查询会议信息列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/meeting/page/conditions?type=1&size=5&current=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"meeting",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "2021-04-15 12:00:00",
+							"disabled": true
+						},
+						{
+							"key": "tenantId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "roomId",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "current",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register 新增会议签到",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"meetingId\": 3,\n    \"userId\": 6,\n    \"description\": \"Xxxx在进行会议敲到排队等待中\",\n    \"type\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/batch 批量新增会议签到信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"meetingId\": 3,\n    \"userId\": 6,\n    \"description\": \"Xxxx在进行会议敲到排队等待中\",\n    \"type\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register/batch ",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"batch "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register 删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/register/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register 修改会议签到-状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"meetingId\": 9,\n    \"userId\": 9,\n    \"description\": \"Xxxx在进行会议敲到排队等待中\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/batch  批量修改会议签到信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 154,\n        \"meetingId\": 64,\n        \"type\": 1,\n        \"userId\": 250,\n        \"description\": \"Xxxx在进行会议敲到排队等待中\"\n    },\n    {\n        \"meetingId\": 3,\n        \"type\": 1,\n        \"userId\": 208,\n        \"description\": \"Xxxx在进行会议敲到排队等待中\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/register?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/register/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/lists 查询签到列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/register/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/lists/conditions 条件查询签到列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/register/lists/conditions?meetingId=117",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "meetingId",
+							"value": "117"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/register/page/conditions 分页条件查询签到列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/register/page/conditions?current=1&size=10&meetingId=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "meetingId",
+							"value": "3"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation 新增会议准备",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"水果-芒果2\",\n    \"meetingId\": 2,\n    \"description\": \"用于标识会议参与人身份的标识牌\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/preparation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation 删除byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/preparation/2?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation",
+						"2"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation 修改",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"3\",\n    \"name\": \"水果-枣子2.0\",\n    \"meetingId\": 1,\n    \"userId\": 1,\n    \"description\": \"用于标识会议参与人身份的标识牌\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/preparation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation 会议准备事项详情查询byId(单服务)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/preparation?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation/detail 会议准备事项详情查询byId(跨服务)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/preparation/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation/lists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/preparation/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/preparation/lists/conditions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/preparation/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"preparation",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "meetingId",
+							"value": "55",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room  新增会议室",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"structureId\": 2,\r\n    \"name\": \"xx5\",\r\n    \"pricing\": \"12000.00\",\r\n    \"approveType\": \"0\",\r\n    \"openType\": \"1\",\r\n    \"seatingCapacity\": 200,\r\n    \"proportion\": 300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room 删除会议室byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/room?id=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room  修改会议室",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"tenantId\": 1,\r\n    \"structureId\": 2,\r\n    \"name\": \"xx\",\r\n    \"galleryful\": \"200\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room  根据id查询会议室详情(单服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room/detail  根据id查询会议室详情(跨服务)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room/lists 无参查询会议室列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room/lists/conditions 条件查询会议室列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/room/page/conditions 条件分页查询会议室列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/room/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"room",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/iotAppeal 新增申请（退款）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"kk\",\r\n    \"tenantId\": 1,\r\n    \"type\": \"2\",\r\n    \"appealBy\": 11,\r\n    \"appealDescription\": \"12000.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/iotAppeal",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"iotAppeal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/iotAppeal 删除申请（退款）",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/iotAppeal?id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"iotAppeal"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/iotAppeal 无参查询申请列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": 1,\r\n    \"tenantid\": 1,\r\n    \"type\": 2,\r\n    \"appealBy\": \"xx5\",\r\n    \"appealDescription\": \"12000.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/iotAppeal/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"iotAppeal",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

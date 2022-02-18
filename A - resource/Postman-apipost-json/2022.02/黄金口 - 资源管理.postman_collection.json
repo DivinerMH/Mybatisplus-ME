@@ -1,0 +1,1679 @@
+{
+	"info": {
+		"_postman_id": "e132dd55-9680-4788-9a5e-260fcf25b0ac",
+		"name": "黄金口 - 资源管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.174:9998/auth/oauth/token 登录(黄金口）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.174:9998/auth/oauth/token",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"174"
+					],
+					"port": "9998",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources 新增资源信息 （gold-直接使用）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1,\n    \"structureId\": 80,\n    \"typeId\": 2,\n    \"name\": \"3层\",\n    \"picture\": \"[[pic01],[pic02]]\",\n    \"area\": \"99.8\",\n    \"type\": \"0\",\n    \"phone\": 18162319097,\n    \"introduction\": \"这是一件于2020.04.02添加的房源\",\n    \"houseType\": \"两室一厅\",\n    \"galleryful\": 5,\n    \"labelId\": [\n        1,\n        2,\n        3\n    ],\n    \"facilitiesId\": [\n        1,\n        2\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/{id} 删除资源",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources 修改资源信息byId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"tenantId\": 1,\n    \"structureId\": 40,\n    \"accountId\": 10086,\n    \"typeId\": 2,\n    \"name\": \"青年公寓\",\n    \"facilitiesId\": [\n        3,\n        4,\n        5\n    ],\n    \"labelId\": [\n        1,\n        2,\n        3,\n        4\n    ],\n    \"picture\": \"[[pic01],[pic02]]\",\n    \"cashPledge\": \"500\",\n    \"houseType\": \"两室一厅\",\n    \"area\": \"\",\n    \"introduction\": \"这是一件于2020.04.02添加的房源\",\n    \"mapLocation\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/status 修改资源状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 41,\n    \"status\": \"9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/relation 修改资源关联关系",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 41,\n    \"parentId\": 52,\n    \"childId\": 77\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/relation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"relation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/{id} 查询资源详情byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/resources/33",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/detail/{id} 查询资源详情（数据整合）byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/resources/detail/33",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"detail",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list 房源信息List查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "type_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list/conditions 房源信息条件查询",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": 8,\r\n    \"typeId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/page/conditions 房源信息分页查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/page/conditions?current=1&size=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "structureIdentity",
+							"value": "7",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "青年公寓",
+							"disabled": true
+						},
+						{
+							"key": "typeId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list/label-id 根据标签List<id>查询资源集合",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"labelId\": [\r\n        4\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/list/label-id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list",
+						"label-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/page/label-id 根据标签List<id>分页查询资源集合 - 存在异常",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/page/label-id?current=1&size=20&labelIdList=4,5&name=湖景公寓",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"page",
+						"label-id"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "20"
+						},
+						{
+							"key": "labelIdList",
+							"value": "4,5"
+						},
+						{
+							"key": "name",
+							"value": "湖景公寓"
+						},
+						{
+							"key": "typeId",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/structure-id 通过租户idList查询资产结构idList集合",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantIdList\": [\r\n        121,\r\n        122,\r\n        147,\r\n        152,\r\n        153,\r\n        154,\r\n        155,\r\n        156,\r\n        161,\r\n        162,\r\n        163,\r\n        164,\r\n        165,\r\n        166,\r\n        167,\r\n        168,\r\n        169,\r\n        170,\r\n        171,\r\n        172\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/structure-id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"structure-id"
+					]
+				},
+				"description": "121,\r\n        122,\r\n        147,"
+			},
+			"response": []
+		},
+		{
+			"name": "resources/profile 资源中心资源概览 - ResourceProfileVO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/profile/map 资源中心资源一张图 - ResourceMapVO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resources/profile/map?tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"profile",
+						"map"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------type------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type 新增资源类型",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"瑜伽室\",\n    \"type\":\"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/{id} 删除资源类型",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/1?Authorization={{Authorization}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"1"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "{{Authorization}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type 修改资源类型byId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"8\",\n    \"name\": \"健身室2\",\n    \"attribute\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/{id} 查询源类型byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/list 查询资源类型list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/list/conditions 条件查询资源类型list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/page/conditions 条件查询资源类型Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/type/page/conditions?status=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "0"
+						},
+						{
+							"key": "name",
+							"value": "客",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------facilities------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities 新增设施设备",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": \"2\",\n    \"typeId\": \"3\",\n    \"name\": \"扫地机器人T30\",\n    \"price\":200000.223\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/{id} 删除设施设备byId",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities 修改设施设备",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"10\",\n    \"name\": \"冰箱XXI\",\n    \"type\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/status 修改设施设备状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"10\",\n    \"status\": \"9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/{id} 查询设施设备byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list 查询设施设备List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/conditions 根据条件查询资源设备List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"typeId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/page/conditions 根据条件查询资源设备Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/page/conditions?name=扫地机器",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "扫地机器"
+						},
+						{
+							"key": "typeId",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/has-used 查询已被使用的设备设施列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/facilities/list/has-used",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"has-used"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/has-unused 查询未被使用的设备设施列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/facilities/list/has-unused",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"has-unused"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------label------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label 新增资源标签",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"typeId\": \"3\",\n    \"name\": \"中层魅族\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/{id} 删除资源标签ById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label/2?Authorization={{Authorization}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"2"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "{{Authorization}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label 修改资源标签",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"typeId\": \"1\",\r\n    \"name\": \"大阳台\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/{id} 查询资源标签ById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/list 条件查询资源标签List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"list"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/page 条件查询资源标签Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label/page",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"page"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "客户",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------Portal------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "portal/detail/{id} 根据id查询(门户)资源详情",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/portal/detail?id=13",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"portal",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "portal/page/conditions 根据条件分页查询(门户)资源信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/portal/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"portal",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "structureIdentity",
+							"value": "7",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "青年公寓",
+							"disabled": true
+						},
+						{
+							"key": "typeId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "labelIdList",
+							"value": "24",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "portal/map (门户)资源中心资源一张图",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/portal/map?tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"portal",
+						"map"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

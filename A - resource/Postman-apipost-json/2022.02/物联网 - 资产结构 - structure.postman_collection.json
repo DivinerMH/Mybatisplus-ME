@@ -1,0 +1,3542 @@
+{
+	"info": {
+		"_postman_id": "2665929a-5251-4e64-8196-cecd2970372f",
+		"name": "物联网 - 资产结构 - structure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/structure 新增资产结构",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 123,\n    \"parentId\": 0,\n    \"planimetricMap\": \"Pic-20051301\",\n    \"name\": \"珠海园区2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/{id} 删除资产结构 - ById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/structure/43",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure 修改资产结构",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 54,\n    \"tenantId\": 35,\n    \"userId\": null,\n    \"name\": \"205层\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/position 更新资产结构位置信息byId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 62,\n    \"lng\": \"21\",\n    \"lat\": \"22\",\n    \"height\": \"0\",\n    \"heading\": \"0\",\n    \"pitch\":\"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/position",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/gis 修改资产结构GIS信息",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 31,\n    \"gisMap\":\"[2121]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/gis",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"gis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/status 更新资产结构状态",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"status\": \"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/level 修改资产结构层级关系",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"upId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/level",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"level"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/{id} 查询资产结构-byId (单表)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/2444",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"2444"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/detail 查询资产结构-byId (单服务 - No 权限)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/detail?id=2444",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/info/{id} 查询资产结构-byId (跨服务)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/info/20",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"info",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists 根据租户id获取资产结构List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/page 资产结构分页查询 (跨服务-转地址)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/page?current=1&size=50&tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"page"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "tenantId",
+							"value": "1"
+						},
+						{
+							"key": "roomId",
+							"value": "1548",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/tenant 查询已被使用的平台租户List<id>",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/tenant",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"tenant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/no-param 无参查询资产结构列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/no-param",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"no-param"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/node 通过某节点（conditions）查询该节点下一级（仅下一级）节点所有资产结构信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 69,\r\n    \"level\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/node",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/{productId} 根据产品id查询资产结构列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"1"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/lists/conditions 据产品id、租户id查询资产结构列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/structure/lists/conditions?tenantId=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "31601",
+							"disabled": true
+						},
+						{
+							"key": "tenantId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/tree 资产结构树",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/structure/tree",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"tree"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/tree/param 资产结构树 byParam",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/tree/param",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"tree",
+						"param"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{url}}/structure/tree/param 资产结构树 byParam",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenantId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/structure/tree/param",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"structure",
+								"tree",
+								"param"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Jan 2021 02:05:30 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 0,\n    \"msg\": \"操作成功\",\n    \"data\": [\n        {\n            \"id\": 143,\n            \"parentId\": 0,\n            \"children\": [\n                {\n                    \"id\": 144,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 147,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"金花路与金砖路交汇处\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16346130665025,30.590857101769334],[114.16647063010868,30.589582506283453],[114.16531181600081,30.586605793571646],[114.16444944271123,30.586256043196684],[114.16364995080735,30.586566932481823],[114.16294028945447,30.587445189271172],[114.1614131700875,30.588750901321724],[114.16337147609926,30.59096590791672],[114.16346130665025,30.590857101769334]]\",\n                            \"planimetricMap\": \"ad141e5248444f25a540c6bb615fc93d.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 148,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"万济医院\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16620616896655,30.58755633166063],[114.16731108474382,30.587140521301283],[114.1660309993921,30.58683740607218],[114.16600854175435,30.586942330682902],[114.16620616896655,30.58755633166063]]\",\n                            \"planimetricMap\": \"a45e63cd7d4f47adabd88df0603d4944.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 149,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"福运隆物业\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16639400464868,30.588099058393514],[114.16757976792185,30.58756666837792],[114.1675034119535,30.587084794576494],[114.16616493674364,30.587364592562224],[114.16637603853849,30.588032995559388],[114.16636705548339,30.587982476890847],[114.16639400464868,30.588099058393514]]\",\n                            \"planimetricMap\": \"a45e63cd7d4f47adabd88df0603d4944.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 150,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"湖北烟草民意纸业有限公司\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16689211505397,30.58905929592203],[114.16809135290978,30.588647378100514],[114.1678308443119,30.587932346740143],[114.16649236910202,30.588394786108985],[114.16689211505397,30.58905929592203]]\",\n                            \"planimetricMap\": \"a45e63cd7d4f47adabd88df0603d4944.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 151,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"金花路与淘金路交汇处\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.169453363724,30.59351535522718],[114.16986209273104,30.594168172174196],[114.1717036190265,30.59351535522718],[114.1712544662715,30.59251280626705],[114.16904014318942,30.59258663774936],[114.16890539736292,30.592613838807456],[114.169453363724,30.59351535522718]]\",\n                            \"planimetricMap\": \"a45e63cd7d4f47adabd88df0603d4944.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 233,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"黄金口汽配城\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16775403919078,30.595801438051986],[114.16998183685553,30.595599379578154],[114.17026929461872,30.595055373879532],[114.16862539553546,30.592560679669365],[114.16604725872182,30.593757519254627],[114.16775403919078,30.595801438051986]]\",\n                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 240,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"理想科技工业园\",\n                            \"level\": 3,\n                            \"orgType\": 2,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17273253815763,30.599099514900427],[114.17315474174733,30.599826119759545],[114.17376558949411,30.59981057746722],[114.17380152171451,30.59904511645422],[114.17393626754101,30.597825028912705],[114.17229236845775,30.598015425761133],[114.1721531311037,30.59804651092498],[114.17273253815763,30.599099514900427]]\",\n                            \"planimetricMap\": \"7c1b860e41984b9ab49854cb88f98b8e.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 247,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"理想物业\",\n                            \"level\": 3,\n                            \"orgType\": 4,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17308287730653,30.599678467880825],[114.17385092851755,30.599585213945588],[114.17376558949411,30.59932876515619],[114.17288075856678,30.599371506668703],[114.17308287730653,30.599678467880825]]\",\n                            \"planimetricMap\": \"7c1b860e41984b9ab49854cb88f98b8e.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 261,\n                            \"parentId\": 144,\n                            \"children\": null,\n                            \"name\": \"黄金口都市工业园区\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-144-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17285291109597,30.577100683743936],[114.17723664198466,30.576929677898264],[114.17739833697647,30.574356780454877],[114.17276308054498,30.57455888365558],[114.17285291109597,30.577100683743936]]\",\n                            \"planimetricMap\": \"deada9f85ce440f09969d39c8e829391.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"金花路\",\n                    \"level\": 2,\n                    \"orgType\": 1,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[[114.27080269285919,30.564632200286656],[114.27170548989672,30.563745960726738],[114.27315625329534,30.564391206128033],[114.27304396510658,30.56503256021356],[114.27304396510658,30.56503256021356],[114.27080269285919,30.564632200286656]]\",\n                    \"planimetricMap\": \"066fcebf497b4920a9d2730752e9a6f4.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 145,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 226,\n                            \"parentId\": 145,\n                            \"children\": [\n                                {\n                                    \"id\": 227,\n                                    \"parentId\": 226,\n                                    \"children\": [\n                                        {\n                                            \"id\": 228,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"101\",\n                                            \"level\": 5,\n                                            \"orgType\": 4,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": 192,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 229,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"102\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 230,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"103\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 231,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"104\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 232,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"105\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 234,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"106\",\n                                            \"level\": 5,\n                                            \"orgType\": 4,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"345da3b2bfc54928b869a6249e917c02.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 236,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"107\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"345da3b2bfc54928b869a6249e917c02.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 237,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"108\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"345da3b2bfc54928b869a6249e917c02.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        },\n                                        {\n                                            \"id\": 238,\n                                            \"parentId\": 227,\n                                            \"children\": null,\n                                            \"name\": \"109\",\n                                            \"level\": 5,\n                                            \"orgType\": 3,\n                                            \"path\": \"-0-143-145-226-227-\",\n                                            \"tenantId\": 123,\n                                            \"provinceId\": 1548,\n                                            \"userId\": null,\n                                            \"hasTrd\": \"0\",\n                                            \"cameraPosition\": null,\n                                            \"gisMap\": \"[]\",\n                                            \"planimetricMap\": \"345da3b2bfc54928b869a6249e917c02.jpg\",\n                                            \"identification\": null,\n                                            \"addressPath\": null,\n                                            \"status\": \"0\"\n                                        }\n                                    ],\n                                    \"name\": \"1层\",\n                                    \"level\": 4,\n                                    \"orgType\": 3,\n                                    \"path\": \"-0-143-145-226-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": 192,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"1栋\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-145-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16480139881004,30.590569464221403],[114.16535834822622,30.59126893225565],[114.1660769926342,30.59089588327191],[114.16563682293432,30.590110921298724],[114.16480139881004,30.590569464221403]]\",\n                            \"planimetricMap\": \"be4f0932933f43138579e6cb6f6f507a.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 272,\n                            \"parentId\": 145,\n                            \"children\": [\n                                {\n                                    \"id\": 273,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"201\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 274,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"202\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 275,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"203\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 276,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"204\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 277,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"205\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 278,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"206\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 279,\n                                    \"parentId\": 272,\n                                    \"children\": null,\n                                    \"name\": \"207\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-145-272-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"2栋\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-145-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.16573563654042,30.590153666918024],[114.1663015690117,30.5909736019298],[114.16714597619108,30.590577236116467],[114.16670131496365,30.5897495257563],[114.16573563654042,30.590153666918024]]\",\n                            \"planimetricMap\": \"79351b93e7a241e8970d7b67f0b964ab.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 280,\n                            \"parentId\": 145,\n                            \"children\": [\n                                {\n                                    \"id\": 281,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"301\",\n                                    \"level\": 4,\n                                    \"orgType\": 3,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 282,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"302\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 283,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"303\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 284,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"304\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 285,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"305\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 286,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"306\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 287,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"307\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 288,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"308\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 289,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"309\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 290,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"310\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 291,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"311\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 292,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"312\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 293,\n                                    \"parentId\": 280,\n                                    \"children\": null,\n                                    \"name\": \"313\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-145-280-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"3栋\",\n                            \"level\": 3,\n                            \"orgType\": 2,\n                            \"path\": \"-0-143-145-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[]\",\n                            \"planimetricMap\": \"e1ac5eb4ae88477891ee7696f3dff38e.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"金砖路\",\n                    \"level\": 2,\n                    \"orgType\": 1,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": 192,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"610a721d84a64ef1975b4634dd977796.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 146,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 242,\n                            \"parentId\": 146,\n                            \"children\": null,\n                            \"name\": \"黄金口什湖路\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-146-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.157627800499,30.594581853471006],[114.15840034323759,30.59497043120268],[114.15964000484135,30.593583201480754],[114.15855305517428,30.592949809811888],[114.157627800499,30.594581853471006]]\",\n                            \"planimetricMap\": \"7c1b860e41984b9ab49854cb88f98b8e.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"什湖路\",\n                    \"level\": 2,\n                    \"orgType\": 1,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"3099de5102594eacaf11cdb58c791a88.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 219,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 220,\n                            \"parentId\": 219,\n                            \"children\": [\n                                {\n                                    \"id\": 224,\n                                    \"parentId\": 220,\n                                    \"children\": null,\n                                    \"name\": \"电子厂A栋\",\n                                    \"level\": 4,\n                                    \"orgType\": 1,\n                                    \"path\": \"-0-143-219-220-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"08816419699746eea3e20036f3490809.png\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"阿迪克电子\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-219-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17854671698439,30.59023039804871],[114.17926536139237,30.590541274458595],[114.17922942917197,30.589888432834577],[114.17887010696798,30.589950608418693],[114.17854671698439,30.59023039804871]]\",\n                            \"planimetricMap\": \"ceb7721a0aa441239ae2a26b602d1e9d.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 221,\n                            \"parentId\": 219,\n                            \"children\": [\n                                {\n                                    \"id\": 222,\n                                    \"parentId\": 221,\n                                    \"children\": null,\n                                    \"name\": \"俊辉饲料\",\n                                    \"level\": 4,\n                                    \"orgType\": 2,\n                                    \"path\": \"-0-143-219-221-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"ceb7721a0aa441239ae2a26b602d1e9d.png\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"和平风机\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-219-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[]\",\n                            \"planimetricMap\": \"ceb7721a0aa441239ae2a26b602d1e9d.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 223,\n                            \"parentId\": 219,\n                            \"children\": null,\n                            \"name\": \"加华科技\",\n                            \"level\": 3,\n                            \"orgType\": 2,\n                            \"path\": \"-0-143-219-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[116.41271805274008,39.91127662051493],[116.41301449355836,39.91055714686749],[116.41413288391821,39.91066099490757],[116.4149413588772,39.91113142012788],[116.41420923988663,39.91172628767638],[116.41271805274008,39.91127662051493],[116.41271805274008,39.91127662051493],[116.41271805274008,39.91127662051493]]\",\n                            \"planimetricMap\": \"ceb7721a0aa441239ae2a26b602d1e9d.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 270,\n                            \"parentId\": 219,\n                            \"children\": null,\n                            \"name\": \"270号\",\n                            \"level\": 3,\n                            \"orgType\": 1,\n                            \"path\": \"-0-143-219-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.15767271577451,30.594523566675505],[114.15842729240289,30.59496654543315],[114.15966695400665,30.593567658176962],[114.15846322462329,30.59293038055349],[114.15767271577451,30.594523566675505]]\",\n                            \"planimetricMap\": \"90c979d9f6134d9086d5ce0a79be2f20.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"黄金口三村\",\n                    \"level\": 2,\n                    \"orgType\": 1,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"ceb7721a0aa441239ae2a26b602d1e9d.png\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 251,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 252,\n                            \"parentId\": 251,\n                            \"children\": null,\n                            \"name\": \"百威路与百威立交桥交汇处\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-251-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17203392596252,30.595809908632617],[114.17259087537872,30.595638936120636],[114.17218214637168,30.59537470527553],[114.17184079027788,30.595479620551146],[114.17203392596252,30.595809908632617]]\",\n                            \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 253,\n                            \"parentId\": 251,\n                            \"children\": [\n                                {\n                                    \"id\": 254,\n                                    \"parentId\": 253,\n                                    \"children\": null,\n                                    \"name\": \"黄金口都市工业园\",\n                                    \"level\": 4,\n                                    \"orgType\": 4,\n                                    \"path\": \"-0-143-251-253-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"百威路与金花路口\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-251-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17147895281846,30.594996542900667],[114.17071988466252,30.595486148468492],[114.17171251225105,30.59549003421697],[114.17147895281846,30.594996542900667]]\",\n                            \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 268,\n                            \"parentId\": 251,\n                            \"children\": null,\n                            \"name\": \"10号\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-251-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[]\",\n                            \"planimetricMap\": \"90c979d9f6134d9086d5ce0a79be2f20.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        },\n                        {\n                            \"id\": 269,\n                            \"parentId\": 251,\n                            \"children\": null,\n                            \"name\": \"18号\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-251-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[]\",\n                            \"planimetricMap\": \"90c979d9f6134d9086d5ce0a79be2f20.png\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"百威路\",\n                    \"level\": 2,\n                    \"orgType\": 1,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 255,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 256,\n                            \"parentId\": 255,\n                            \"children\": [\n                                {\n                                    \"id\": 257,\n                                    \"parentId\": 256,\n                                    \"children\": null,\n                                    \"name\": \"未来工业园\",\n                                    \"level\": 4,\n                                    \"orgType\": 4,\n                                    \"path\": \"-0-143-255-256-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"398号\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-255-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.18093191153051,30.57283143260526],[114.1813451320651,30.572796452606266],[114.18124182693145,30.5724505385969],[114.1809049623652,30.572532158868736],[114.18093191153051,30.57283143260526]]\",\n                            \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"彭家岭\",\n                    \"level\": 2,\n                    \"orgType\": 2,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 258,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 259,\n                            \"parentId\": 258,\n                            \"children\": null,\n                            \"name\": \"汉阳智能产业园\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-258-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.17389575396251,30.599253306960136],[114.17483448322044,30.599187251805915],[114.17480753405513,30.59830910249269],[114.1739496522931,30.598293559954563],[114.17389575396251,30.599253306960136]]\",\n                            \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"金福路\",\n                    \"level\": 2,\n                    \"orgType\": 2,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"e1b6ec0f1adc43e8b58a8f382c8548ff.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                },\n                {\n                    \"id\": 264,\n                    \"parentId\": 143,\n                    \"children\": [\n                        {\n                            \"id\": 265,\n                            \"parentId\": 264,\n                            \"children\": [\n                                {\n                                    \"id\": 266,\n                                    \"parentId\": 265,\n                                    \"children\": null,\n                                    \"name\": \"麦迪森广场\",\n                                    \"level\": 4,\n                                    \"orgType\": 4,\n                                    \"path\": \"-0-143-264-265-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[]\",\n                                    \"planimetricMap\": \"1262bb15ebd84f85859b872badadbf22.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                },\n                                {\n                                    \"id\": 267,\n                                    \"parentId\": 265,\n                                    \"children\": null,\n                                    \"name\": \"九州通健康城\",\n                                    \"level\": 4,\n                                    \"orgType\": 3,\n                                    \"path\": \"-0-143-264-265-\",\n                                    \"tenantId\": 123,\n                                    \"provinceId\": 1548,\n                                    \"userId\": null,\n                                    \"hasTrd\": \"0\",\n                                    \"cameraPosition\": null,\n                                    \"gisMap\": \"[[114.27271159206789,30.564501985776033],[114.2724151512496,30.563817870820404],[114.27318769398818,30.563716807970724],[114.27316074482289,30.5644086976599]]\",\n                                    \"planimetricMap\": \"1262bb15ebd84f85859b872badadbf22.jpg\",\n                                    \"identification\": null,\n                                    \"addressPath\": null,\n                                    \"status\": \"0\"\n                                }\n                            ],\n                            \"name\": \"78号\",\n                            \"level\": 3,\n                            \"orgType\": 3,\n                            \"path\": \"-0-143-264-\",\n                            \"tenantId\": 123,\n                            \"provinceId\": 1548,\n                            \"userId\": null,\n                            \"hasTrd\": \"0\",\n                            \"cameraPosition\": null,\n                            \"gisMap\": \"[[114.209367143635,30.55647316733963],[114.21046307635717,30.55606499705238],[114.20994205916139,30.55519811535737],[114.20914705878506,30.555575190418956],[114.209367143635,30.55647316733963]]\",\n                            \"planimetricMap\": \"4917af2e958e48f2a9d36f88c449aa72.jpg\",\n                            \"identification\": null,\n                            \"addressPath\": null,\n                            \"status\": \"0\"\n                        }\n                    ],\n                    \"name\": \"龙阳大道\",\n                    \"level\": 2,\n                    \"orgType\": 2,\n                    \"path\": \"-0-143-\",\n                    \"tenantId\": 123,\n                    \"provinceId\": 1548,\n                    \"userId\": null,\n                    \"hasTrd\": \"0\",\n                    \"cameraPosition\": null,\n                    \"gisMap\": \"[]\",\n                    \"planimetricMap\": \"4917af2e958e48f2a9d36f88c449aa72.jpg\",\n                    \"identification\": null,\n                    \"addressPath\": null,\n                    \"status\": \"0\"\n                }\n            ],\n            \"name\": \"黄金口智慧工业园区\",\n            \"level\": 1,\n            \"orgType\": 1,\n            \"path\": \"-0-\",\n            \"tenantId\": 123,\n            \"provinceId\": 1548,\n            \"userId\": null,\n            \"hasTrd\": \"0\",\n            \"cameraPosition\": null,\n            \"gisMap\": \"[]\",\n            \"planimetricMap\": \"c96767155d66459f8d72f33b8112543a.jpg\",\n            \"identification\": null,\n            \"addressPath\": null,\n            \"status\": \"0\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "{{url}}/structure/tree/conditions 节点同级及以下Tree列表 (地址转换)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 120,\n    \"id\":80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/tree/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"tree",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/tree/pure 通过平台租户id获取所有归属资产结构Tree",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/tree/pure",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"tree",
+						"pure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/product-tree/{productId} 通过产品id获取所有通过锚点与之存在关系的资产结构id(反差上级生产完整Tree)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}//structure/product-tree/314",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"structure",
+						"product-tree",
+						"314"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/id-list/{tenantId} 资产结构idl（段私属）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/id-list/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"id-list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/id-list 资产id集合by资产父节点 / 平台id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/id-list?tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"id-list"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/id-name-list 资产id+name集合 - idList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"structureIdList\": [\r\n        3,1,4\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/id-name-list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"id-name-list"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "9",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/{tenantId} 资产结构id-byTenantId （段私属）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/id/2?tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"id",
+						"2"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						},
+						{
+							"key": "level",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/machine-lists 根据资产结构id + 产品id 查询设备列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/structure/machine-lists?id=6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"machine-lists"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						},
+						{
+							"key": "productId",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/level-id 通过structureId上溯查询指定level的父级structureId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/structure/level-id?structureId=48&levelId=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"level-id"
+					],
+					"query": [
+						{
+							"key": "structureId",
+							"value": "48"
+						},
+						{
+							"key": "levelId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/product-tree/{productId} 通过产品id获取所有通过锚点与之存在关系的资产结构id(反差上级生产完整Tree) Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}//structure/map/tenant",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"structure",
+						"map",
+						"tenant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/structure/map/tenant 询已被使用的平台租户List<id>",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/structure/map/tenant",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"structure",
+						"map",
+						"tenant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------分隔---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------分隔---------------------------",
+					"host": [
+						"----------------------------分隔---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor 新增锚点",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"0\",\n    \"structureId\": 29,\n    \"productId\":410,\n    \"deviceType\": \"GB28181\",\n    \"machineId\": \"115\",\n    \"name\": \"nicaia\",\n    \"planCoordinates\": \"55,39\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd/save 新增Trd-tiles锚点",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"nizhidaio3\",\n    \"lng\": 1,\n    \"lat\": \"2\",\n    \"height\": \"31601\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/trd/save",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/bach-list （批量）新增锚点",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"machineId\": 31601112,\n        \"structureId\": 35,\n        \"productId\": 31601,\n        \"cameraId\": \"Canon-03\",\n        \"name\": \"3L-23-98\",\n        \"planCoordinates\": \"55,39\",\n        \"gisCoordinates\": \"3L-23-98\",\n        \"bimCoordinates\": \"3L-23-98\"\n    },\n    {\n        \"machineId\": 31222233,\n        \"structureId\": 40,\n        \"productId\": 31601,\n        \"cameraId\": \"Canon-03\",\n        \"name\": \"3L-23-98\",\n        \"planCoordinates\": \"55,39\",\n        \"gisCoordinates\": \"3L-23-98\",\n        \"bimCoordinates\": \"3L-23-98\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/bach-list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"bach-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/{id} 删除锚点",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/18",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor 修改锚点",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 39,\n    \"name\": \"3L-23-98\",\n    \"planCoordinates\": \"55,39\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/status 修改锚点状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 39,\n    \"status\": \"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/gis 修改锚点GIS信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 39,\n    \"gisCoordinates\": \"[33.356164383561644%,49.35294117647058%]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/gis",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"gis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd/update-all 完善Trd-tiles锚点关联资产设备信息",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 40,\n    \"structureId\": 1,\n    \"type\": \"1\",\n    \"productId\": 31601,\n    \"machineId\": 28,\n    \"name\": \"3L-23-98\",\n    \"planCoordinates\": \"55,39\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/trd/update-all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd",
+						"update-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd/position 修改Trd-tiles锚点坐标",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 39,\n    \"name\": \"nicaia\",\n    \"lng\": 30,\n    \"lat\": \"15\",\n    \"height\": \"132\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/trd/position",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd",
+						"position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd/lists 3D坐标锚点信息列表查询（吴远专属）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/trd/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd/lists/page 3D锚点坐标信息分页列表查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/anchor/trd/lists/page",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd",
+						"lists",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/{id} 查询锚点-byId + 消息推送测试-21.05.06",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/150",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"150"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/info 查询资产id + 平台租户id - CYL专属",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"1\",\r\n    \"machineId\":34020000001310000002\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/info/{id} 查询锚点(跨)-byId（地址转换）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/info/103",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"info",
+						"103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/info-list/{structureId } 查询锚点列表（跨）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/info-list/29",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"info-list",
+						"29"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/info-lists/{structureId } 查询锚点列表-加强版-WY",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/info-lists/192",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"info-lists",
+						"192"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists/param 根据条件查锚点列表（单服务）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists/param",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists",
+						"param"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists 根据条件查询3d锚点列表（跨服务）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "structureIdList",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "productId",
+							"value": "276",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists/type 根据type获取锚点列表 - 辅助筛选",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists/type?type=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "0"
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists/info 锚点信息列表查询（跨服务）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"structureIdList\": [\r\n        369\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists/info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists",
+						"info"
+					],
+					"query": [
+						{
+							"key": "structureIdList",
+							"value": "143",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "productId",
+							"value": "276",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists/anchor 通过资产结构idList查询所有锚点记录",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists/anchor?structureIdList=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists",
+						"anchor"
+					],
+					"query": [
+						{
+							"key": "structureIdList",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists-machine 通过租户id+租户类型查询产品（id+name）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": \"1\",\r\n    \"type\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists-machine",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists-machine"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/lists/page 锚点信息分页条件查询(跨服务)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/lists/page?current=1&size=50",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"lists",
+						"page"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/anchor-list/{machineId}  根据设备id查询锚点信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/anchor-list/34020000001310000003",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"anchor-list",
+						"34020000001310000003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/userId/{machineId} 根据设备id获取资产结构负责人id（锚点线 + 设备线）",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/anchor/userId/121",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"userId",
+						"121"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/synchronization/structure-id 同步设备数据关联资产结构信息（锚点主，设备从）",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/anchor/synchronization/structure-id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"synchronization",
+						"structure-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------省市区 / 组织---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/province/tree 全国省市区结构树",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/province/tree",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"province",
+						"tree"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/province/tree/city 全国省市（区）结构树",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/province/tree/city",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"province",
+						"tree",
+						"city"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/province/child/{id} 通过节点查询所有当前级子节点信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/province/child/180",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"province",
+						"child",
+						"180"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type 新增组织结构",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tenantId\":2,\n\t\"name\":\"园区\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/org-type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/batch （批量）新增组织结构",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"园区3\"\n    },\n    {\n        \"name\": \"园区4\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/org-type/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/5 删除组织结构byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/org-type/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type 修改组织结构byId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 5,\n    \"name\": \"园区2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/org-type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/batch （批量）修改组织结构",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 1,\n        \"name\": \"园区21\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"楼栋\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"楼层21\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"房间\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/org-type/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/{id} 查询组织结构byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/org-type/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/lists 查询组织结构列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/org-type/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/org-type/lists 通过tenantId查询组织结构列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/org-type/lists/12",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"org-type",
+						"lists",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------文件上传---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------文件上传---------------------------",
+					"host": [
+						"----------------------------文件上传---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/upload 文件上传",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/sys-file/upload?access-key=linksame&secret-key=linksame",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sys-file",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "access-key",
+							"value": "linksame"
+						},
+						{
+							"key": "secret-key",
+							"value": "linksame"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/compress-upload 文件上传2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/3d-tiles 文件/6.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/sys-file/compress-upload?access-key=linksame&secret-key=linksame",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sys-file",
+						"compress-upload"
+					],
+					"query": [
+						{
+							"key": "access-key",
+							"value": "linksame"
+						},
+						{
+							"key": "secret-key",
+							"value": "linksame"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/static-upload 静态资源服务器上传",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/Git_info/firehome_document/孟焕/Iot-资产结构 - 20.03.18/资料：文档/3d-tiles 文件/cat.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:14000/sys-file/static-upload",
+					"host": [
+						"localhost"
+					],
+					"port": "14000",
+					"path": [
+						"sys-file",
+						"static-upload"
+					],
+					"query": [
+						{
+							"key": "access-key",
+							"value": "linksame",
+							"disabled": true
+						},
+						{
+							"key": "secret-key",
+							"value": "linksame",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/static-upload/second 静态资源服务器上传2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Administrator/Desktop/3dTest.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:14000/sys-file/static-upload/second",
+					"host": [
+						"localhost"
+					],
+					"port": "14000",
+					"path": [
+						"sys-file",
+						"static-upload",
+						"second"
+					],
+					"query": [
+						{
+							"key": "access-key",
+							"value": "linksame",
+							"disabled": true
+						},
+						{
+							"key": "secret-key",
+							"value": "linksame",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/static-upload/trd 静态资源服务器上传3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/Git_info/firehome_document/孟焕/Iot-资产结构 - 20.03.18/资料：文档/70m.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:14000/sys-file/static-upload/trd",
+					"host": [
+						"localhost"
+					],
+					"port": "14000",
+					"path": [
+						"sys-file",
+						"static-upload",
+						"trd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/page 存储服务器（数据库纪录）分页查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/sys-file/page",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sys-file",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/{bucket}/{fileName} 获取文件",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/sys-file/iot/a516bac781804b04a2f994cbbac2797a.txt",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sys-file",
+						"iot",
+						"a516bac781804b04a2f994cbbac2797a.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sys-file/string-upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"0/2/1/m.cmpt\": \"eb1263b9cae94a90af1a5fadc0cc6641.cmpt\",\n    \"0/1/0/0/m.cmpt\": \"681c6e1ee0864adcb3f99db2e1592678.cmpt\",\n    \"bucketName\": \"iot\",\n    \"0/2/0/m.cmpt\": \"f4f5368b11f344b585b88290cd1dc7fd.cmpt\",\n    \"textures/102_5add8536225f5c9586591a6c791ba325_x.webp\": \"39ebc119e350493e9c641f1877318fb6.webp\",\n    \"0/0/m.cmpt\": \"bbe71f5e716c4810a7be27c9812eec71.cmpt\",\n    \"0/1/0/1/m.cmpt\": \"6f4f3e21881647709e275185faa08a8f.cmpt\",\n    \"0/1/m.cmpt\": \"df460c20a4f04cee83651a4332766d91.cmpt\",\n    \"0/1/1/m.cmpt\": \"8fc1bded75e947ea973850baadf050bc.cmpt\",\n    \"instances/2.glb\": \"aef72751bb44477cb16e6fe45c9b6a8d.glb\",\n    \"tileset.json\": \"{\\\"asset\\\":{\\\"version\\\":\\\"1.0\\\",\\\"tilesetVersion\\\":\\\"2020-06-02 12:34:23.374\\\",\\\"extras\\\":{\\\"copyright\\\":\\\"**Trial version, Do not use for commercial purpose!** Copyright BimAngle 2017-2020\\\",\\\"generator\\\":\\\"**Trial version, Do not use for commercial purpose!** BimAngle Engine (For Revit) 2020.4.14\\\",\\\"title\\\":\\\"REC-S1P3-S103-INrvt\\\",\\\"cesium\\\":{\\\"credits\\\":[{\\\"html\\\":\\\"<font color='#FFFF00'><b>BimAngle Engine: Trial version, Do not use for commercial purpose!</b></font>\\\",\\\"showOnScreen\\\":true}]}}},\\\"geometricError\\\":138.444,\\\"root\\\":{\\\"boundingVolume\\\":{\\\"box\\\":[56.227075341349021,21.874995803759845,19.350000294380067,64.647073711124492,0.0,0.0,0.0,24.644996837780877,0.0,0.0,0.0,2.2515979088606048]},\\\"geometricError\\\":138.444,\\\"refine\\\":\\\"ADD\\\",\\\"content\\\":{\\\"uri\\\":\\\"0/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[1.5775001378114939,27.972018146187672,19.350000901602176,1.8475001486586007,0.0,0.0,0.0,6.872020784396037,0.0,0.0,0.0,2.2515969619273086]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/0/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[42.976844714499066,28.948194587032802,19.350001488118117,7.2568431866109222,0.0,0.0,0.0,6.4643025351581063,0.0,0.0,0.0,2.2515959800782994]},\\\"geometricError\\\":19.952,\\\"content\\\":{\\\"uri\\\":\\\"0/1/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[39.160000899016268,32.793746678687995,19.350000515894884,3.439999371128124,0.0,0.0,0.0,2.6187504435029147,0.0,0.0,0.0,2.2515950066629067]},\\\"geometricError\\\":9.749,\\\"content\\\":{\\\"uri\\\":\\\"0/1/0/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[40.254289932315942,30.814997939867851,18.614202428742121,1.4542903194871997,0.0,0.0,0.0,0.61499845515871954,0.0,0.0,0.0,1.5157969195100058]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/1/0/0/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[40.690000551714547,33.371246277702049,18.524202293095406,1.9099997184298445,0.0,0.0,0.0,2.0412508444888573,0.0,0.0,0.0,1.4257966670383837]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/1/0/1/m.cmpt\\\"}}]},{\\\"boundingVolume\\\":{\\\"box\\\":[47.903013854971277,24.425946506481324,19.800798232373033,2.3306740461387108,0.0,0.0,0.0,1.9420544546066285,0.0,0.0,0.0,1.8007992358233853]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/1/1/m.cmpt\\\"}}]},{\\\"boundingVolume\\\":{\\\"box\\\":[41.924999602622393,37.071245683161685,19.350001522235733,8.474999079351619,0.0,0.0,0.0,1.6987509504058735,0.0,0.0,0.0,2.2515966810049406]},\\\"geometricError\\\":17.864,\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[38.025002722147065,37.071245683161685,19.350001522235733,4.575002198876291,0.0,0.0,0.0,1.6987509504058735,0.0,0.0,0.0,2.2515966810049406]},\\\"geometricError\\\":10.749,\\\"content\\\":{\\\"uri\\\":\\\"0/2/0/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[40.800004303684432,35.714994942586088,18.14920323659813,1.8000006173389238,0.0,0.0,0.0,0.34249999515854057,0.0,0.0,0.0,1.0507974190612295]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/2/0/0/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[40.4499989191097,37.854996667462338,18.549202796082444,2.0299993720125258,0.0,0.0,0.0,0.91499996610522061,0.0,0.0,0.0,1.4507979548516516]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/2/0/1/m.cmpt\\\"}}]},{\\\"boundingVolume\\\":{\\\"box\\\":[46.070000136028057,37.078646437446089,19.350001522235733,4.3299985459459549,0.0,0.0,0.0,1.6913501961214692,0.0,0.0,0.0,2.2515966810049406]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/2/1/m.cmpt\\\"}}]},{\\\"boundingVolume\\\":{\\\"box\\\":[85.684422140514016,18.275089933949509,19.35000014857534,7.2470135539210787,0.0,0.0,0.0,4.5449095390807,0.0,0.0,0.0,2.2515967497768816]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/3/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[113.98500668042641,16.52999668441656,19.350000206761173,6.8850030862730591,0.0,0.0,0.0,6.3499990676403435,0.0,0.0,0.0,2.2515970535338994]},\\\"geometricError\\\":19.266,\\\"content\\\":{\\\"uri\\\":\\\"0/4/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[110.33750369520067,19.602497142328637,19.349999232084389,3.237500101047317,0.0,0.0,0.0,3.2224996459202213,0.0,0.0,0.0,2.2515956991950929]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/4/0/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[116.69500408940746,19.389996177813998,19.350000412397193,4.1750056772920061,0.0,0.0,0.0,3.489999574242904,0.0,0.0,0.0,2.2515968478978809]},\\\"geometricError\\\":11.778,\\\"content\\\":{\\\"uri\\\":\\\"0/4/1/m.cmpt\\\"},\\\"children\\\":[{\\\"boundingVolume\\\":{\\\"box\\\":[114.4650052965053,17.359997057510007,18.907879606131772,0.910000279801352,0.0,0.0,0.0,0.7600001110667236,0.0,0.0,0.0,0.90452440803960066]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/4/1/0/i0.i3dm\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[114.57499858399751,21.114997786611752,18.614201945795436,2.0550001718820567,0.0,0.0,0.0,1.7099990016371081,0.0,0.0,0.0,1.5157968895586986]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/4/1/1/m.cmpt\\\"}}]}]},{\\\"boundingVolume\\\":{\\\"box\\\":[113.54383360570951,36.759806661029046,19.350001411715159,6.4438207092453439,0.0,0.0,0.0,2.010189972542225,0.0,0.0,0.0,2.2515967915255146]},\\\"geometricError\\\":0.0,\\\"content\\\":{\\\"uri\\\":\\\"0/5/m.cmpt\\\"}},{\\\"boundingVolume\\\":{\\\"box\\\":[37.072705031155039,34.599995546945962,19.800798148063045,0.15310461004651188,0.0,0.0,0.0,2.1553985926603438,0.0,0.0,0.0,1.8007976144032511]},\\\"geometricError\\\":5.626,\\\"refine\\\":\\\"ADD\\\",\\\"content\\\":{\\\"uri\\\":\\\"0/6/m.cmpt\\\"}}],\\\"transform\\\":[-0.91662232846732,-0.39975430823838365,0.0,0.0,0.15192183112032723,-0.34835132409252745,0.92497087101812558,0.0,-0.369761090684506,0.84784895355707934,0.38003800832018148,0.0,-2359527.8382386481,5410312.926208768,2408872.5488892803,1.0]},\\\"extras\\\":{\\\"BIMANGLE_georeferencing\\\":{\\\"ver\\\":1.0,\\\"longitude\\\":113.56282,\\\"latitude\\\":22.336037,\\\"height\\\":0.0,\\\"rotation\\\":0.0}}}\",\n    \"0/1/0/m.cmpt\": \"78d5b75737574b3885a1f511b63b8c50.cmpt\",\n    \"0/2/0/0/m.cmpt\": \"e25b530c8e914e8c83195eb27d88133f.cmpt\",\n    \"0/2/0/1/m.cmpt\": \"bc3c925686764871911bcf2632049900.cmpt\",\n    \"textures/102_5add8536225f5c9586591a6c791ba325_x.png\": \"8ecc4de9a4fe425da7db8e2043f2321a.png\",\n    \"0/m.cmpt\": \"70574f6b320c4f048d93b08cdce44e46.cmpt\",\n    \"instances/1.glb\": \"471024ea74d44c2d99a934bbc3cd4bf2.glb\",\n    \"instances/3.glb\": \"a72b970d45d7413ea06d8425dc34826a.glb\",\n    \"textures/chipboard_f8a58ea8481e947ea30cd7ba7a36cd78.png\": \"f47659a8e6114efe8bc41f4af58842c2.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/sys-file/string-upload?access-key=linksame&secret-key=linksame",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sys-file",
+						"string-upload"
+					],
+					"query": [
+						{
+							"key": "access-key",
+							"value": "linksame"
+						},
+						{
+							"key": "secret-key",
+							"value": "linksame"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------3Dtiles文件上传记录---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------3Dtiles文件上传记录---------------------------",
+					"host": [
+						"----------------------------3Dtiles文件上传记录---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles 添加3d-Tiles文件数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"kebi\",\n    \"type\": 1,\n    \"abbrDataFormat\": \"0\",\n    \"abbrUrl\": \"statical/bbbbbbbf-17e1-4396-88c6-3282a37e7a67/tileset.json2\",\n    \"structureId\": 91\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles 删除3d-Tiles文件数据ById",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles 修改3d-Tiles文件数据",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100,\n    \"abbrUrlOuter\": \"wwww.baidu.com\",\n    \"resourceIcon\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles 更新3d-Tiles文件数据",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1,\n    \"name\": \"kebi\",\n    \"abbrDataFormat\": \"0\",\n    \"abbrUrl\": \"statical/3c0643fb-17e1-4396-88c6-3282a37e7a67/tileset.json\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/position 更新3d-Tiles数据位置信息byId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 62,\n    \"lng\": \"21\",\n    \"lat\": \"22\",\n    \"height\": \"0\",\n    \"heading\": \"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/position",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"position"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/{id} 查询3d-Tiles文件数据byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/list/{structureId} 通过资产结构id查询3d-Tiles文件数据集合",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/list/425",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"list",
+						"425"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/lists 无参查询3d-Tiles文件数据列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/page/lists 分页查询3d-Tiles文件数据列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/page/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"page",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "current",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-tiles/preview/{StructureId} 通过资产结构id获取3d-展示数据（视角+3dlist+公司lsit）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-tiles/preview/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-tiles",
+						"preview",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "--------------3D模型组件与资产结构设备关系--------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "--------------3D模型组件与资产结构设备关系--------------",
+					"host": [
+						"--------------3D模型组件与资产结构设备关系--------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/anchor/trd-node/save 新增Trd-tiles 组件-资产-设备 挂载",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1,\n    \"trdNodeId\": \"111111111111iiiiiiiii11\",\n    \"trdTilesId\": 222222,\n    \"trdType\": \"1\",\n    \"structureId\": 29,\n    \"productId\": 410,\n    \"deviceType\": \"GB28181\",\n    \"machineId\": \"115\",\n    \"name\": \"ni-cai-cai-kan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/anchor/trd-node/save",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"anchor",
+						"trd-node",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine 新增 3D模型组件与资产结构设备关系",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"1\",\r\n    \"trdNodeId\": \"111111111111iiiiiiiii11\",\r\n    \"trdTilesId\": 222222,\r\n    \"structureId\": 29,\r\n    \"machineId\": \"118\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine 删除 3D-资产-设备 关系 By主键id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine?id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine/map 通过条件删除 3D-资产-设备 关系",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"machineId\": 115\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine 修改 3D模型组件与资产结构设备关系",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"tenantId\": 1,\r\n    \"trdNodeId\": \"ssss\",\r\n    \"trdTilesId\": 222222,\r\n    \"type\": \"1\",\r\n    \"structureId\": 29,\r\n    \"productId\": 410,\r\n    \"deviceType\": \"GB28181\",\r\n    \"machineId\": \"116\",\r\n    \"name\": \"ni-cai-cai-kan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine/detail 查询3D模型组件与资产结构设备关系详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"BATCH_LENGTH\": 23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine/detail?id=5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine/lists 无参查询3D模型组件与资产结构设备关系列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine/lists/conditions 条件查询3D模型组件与资产结构设备关系列表 Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"structureId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/trd-machine/page/conditions 分页条件查询3D模型组件与资产结构设备关系列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/trd-machine/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trd-machine",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "--------------物模型实例 与 资产结构 关系--------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "--------------3D模型组件与资产结构设备关系--------------",
+					"host": [
+						"--------------3D模型组件与资产结构设备关系--------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model 新增 物模型实例 与资产结构 关系",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"structureId\": 1,\r\n    \"modelInstanceId\":8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model 删除 物模型实例 与资产结构 关系",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model?id=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model 修改 物模型实例 与资产结构 关系byId",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"structureId\": 1,\r\n    \"modelInstanceId\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model/detail 查询 物模型实例 与资产结构 关系byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model/lists/conditions 条件查询 物模型实例 与资产结构 关系List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/str-model/page/conditions 分页条件查询 物模型实例 与资产结构 关系List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/str-model/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"str-model",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

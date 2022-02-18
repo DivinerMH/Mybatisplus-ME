@@ -1,0 +1,1556 @@
+{
+	"info": {
+		"_postman_id": "f205de1a-acfa-45ef-9255-107b71a3c98e",
+		"name": "物联网 - 资源管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.175:9999/auth/oauth/token 用户登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.175:9999/auth/oauth/token",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"175"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources 新增资源信息 （gold-直接使用）",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1,\n    \"structureId\": 51,\n    \"accountId\": 10086,\n    \"typeId\": 2,\n    \"name\": \"3层\",\n    \"labelId\": [\n        1,\n        2,\n        3,\n        4,\n        5\n    ],\n    \"facilitiesId\": [\n        1,\n        2,\n        5,\n        6\n    ],\n    \"picture\": \"[[pic01],[pic02]][[pic01],[pic02]][[pic01],[pic02]][[pic01],[pic02]]\",\n    \"cashPledge\": \"500\",\n    \"houseType\": \"两室一厅\",\n    \"area\": \"\",\n    \"introduction\": \"这是一件于2020.04.02添加的房源\",\n    \"mapLocation\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/add-two 同步添加：资源+自定义字段属性值",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": 1,\n    \"structureId\": 40,\n    \"accountId\": 10086,\n    \"typeId\": 2,\n    \"name\": \"3层\",\n    \"labelId\": [\n        1,\n        2,\n        3\n    ],\n    \"facilitiesId\": [\n        5,\n        6\n    ],\n    \"picture\": \"[[pic01],[pic02]][[pic01],[pic02]][[pic01],[pic02]][[pic01],[pic02]]\",\n    \"cashPledge\": \"500\",\n    \"houseType\": \"两室一厅\",\n    \"area\": \"\",\n    \"introduction\": \"这是一件于2020.04.02添加的房源\",\n    \"iotFieldValueDTOList\": [\n        {\n            \"fieldId\": \"2\",\n            \"value\": \"991\",\n            \"countId\": \"101\"\n        },\n        {\n            \"fieldId\": \"3\",\n            \"value\": \"992\",\n            \"countId\": \"102\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources/add-two",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"add-two"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/{id} 删除资源",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources 修改资源信息byId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 30,\n    \"tenantId\": 1,\n    \"structureId\": 40,\n    \"accountId\": 10086,\n    \"typeId\": 2,\n    \"name\": \"青年公寓\",\n    \"facilitiesId\": [\n        3,\n        4,\n        5\n    ],\n    \"labelId\": [\n        1,\n        2,\n        3,\n        4\n    ],\n    \"picture\": \"[[pic01],[pic02]]\",\n    \"cashPledge\": \"500\",\n    \"houseType\": \"两室一厅\",\n    \"area\": \"\",\n    \"introduction\": \"这是一件于2020.04.02添加的房源\",\n    \"mapLocation\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/status 修改资源状态",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 7,\n    \"status\": \"6\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/tenant 修改资源与普通租户的关联关系",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 7,\n    \"parentId\": \"6\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources/tenant",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"tenant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/{id} 查询资源详情byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/detail/{id} 查询资源详情（数据整合）byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/detail/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"detail",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list 房源信息List查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/list?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "type_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list/conditions 房源信息条件查询",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "{{url}}/resources/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/page/conditions 房源信息分页查询",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/page/conditions?current=1&size=20",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "20"
+						},
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "青年公寓",
+							"disabled": true
+						},
+						{
+							"key": "type_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/list/label-id 根据标签List<id>查询资源集合",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"labelId\": [\r\n        4\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/resources/list/label-id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"list",
+						"label-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/page/label-id 根据标签List<id>分页查询资源集合 - 存在异常",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/page/label-id?current=1&size=20&labelIdList=4&name=湖景公寓",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"page",
+						"label-id"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "20"
+						},
+						{
+							"key": "labelIdList",
+							"value": "4"
+						},
+						{
+							"key": "name",
+							"value": "湖景公寓"
+						},
+						{
+							"key": "typeId",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/profile 资源中心资源概览 - ResourceProfileVO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resources/profile/map 资源中心资源一张图 - ResourceMapVO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer a9bb4143-e85a-4d15-bec3-90e3e425516b",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/resources/profile/map?tenantId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resources",
+						"profile",
+						"map"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------type------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type 新增资源类型",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"瑜伽室\",\n    \"attribute\": \"0\",\n    \"type\":\"0\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/{id} 删除资源类型",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/type/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type 修改资源类型byId",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"8\",\n    \"name\": \"健身室2\",\n    \"attribute\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/type",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/{id} 查询源类型byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/type/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/list 查询资源类型list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/type/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/list/conditions 条件查询资源类型list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/type/list/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "type/page/conditions 条件查询资源类型Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/type/page/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------facilities------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities 新增设施设备",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenantId\": \"2\",\n    \"typeId\": \"3\",\n    \"name\": \"扫地机器人T30\",\n    \"price\":200000.223\n}"
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/{id} 删除设施设备byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities 修改设施设备",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"10\",\n    \"name\": \"冰箱XXI\",\n    \"type\": \"2\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/{id} 查询设施设备byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list 查询设施设备List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/conditions 根据条件查询资源设备List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/has-used 查询已被使用的设备设施列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list/has-used?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"has-used"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/list/has-unused 查询未被使用的设备设施列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/list/has-unused?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"list",
+						"has-unused"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facilities/page/conditions 根据条件查询资源设备Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/facilities/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------label------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label 新增资源标签",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"typeId\": \"1\",\n    \"name\": \"湖景\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/label",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/{id} 删除资源标签ById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/label/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label 修改资源标签",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"typeId\": \"0\",\r\n    \"name\": \"独卫\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/label",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/{id} 查询资源标签ById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/label/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/list 条件查询资源标签List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/label/list?typeId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"list"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "label/page 条件查询资源标签Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/label/page?typeId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"page"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "1"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------field------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field 新增类型字段",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"typeId\": 2,\n    \"fieldType\": \"input\",\n    \"fieldName\": \"资源商标\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/field",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field/batch 批量新增类型字段",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源A\"\n    },\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源B\"\n    },\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源C\"\n    },\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源D\"\n    },\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源E\"\n    },\n    {\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源F\"\n    }\n]"
+				},
+				"url": {
+					"raw": "{{url}}/field/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field 删除类型字段byId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/field/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field 修改类型字段",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":2,\n    \"typeId\": 1,\n    \"fieldType\": \"input\",\n    \"fieldName\": \"资源定价\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/field",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field/batch 批量修改类型字段",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\":36,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Aa\"\n    },\n    {\n        \"id\":37,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Bb\"\n    },\n    {\n        \"id\":38,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Cc\"\n    },\n    {\n        \"id\":39,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Dd\"\n    },\n    {\n        \"id\":40,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Ee\"\n    },\n    {\n        \"id\":41,\n        \"typeId\": 7,\n        \"fieldType\": \"input\",\n        \"fieldName\": \"配套资源Ff\"\n    }\n]"
+				},
+				"url": {
+					"raw": "{{url}}/field/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field/{id} 查询类型字段byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/field/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field/list 查询类型字段List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/field/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "field/list/conditions 条件查询类型字段List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/field/list/conditions?typeId=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"field",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "typeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------value------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value 新增类型字段值",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"resourcesId\": 1,\n    \"fieldId\": \"2\",\n    \"value\": \"10000\",\n    \"countId\": \"101\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/value",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value 批量新增类型字段值",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"resourcesId\": 6,\n        \"fieldId\": \"2\",\n        \"value\": \"991\",\n        \"countId\": \"101\"\n    },\n    {\n        \"resourcesId\": 6,\n        \"fieldId\": \"3\",\n        \"value\": \"992\",\n        \"countId\": \"102\"\n    }\n]"
+				},
+				"url": {
+					"raw": "{{url}}/value/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value/{id} 删除类型字段值",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/value/6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value 修改类型字段值",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"resourcesId\": 1,\n    \"fieldId\": \"2\",\n    \"value\": \"10000\",\n    \"countId\": \"101\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/value",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value/batch 批量修改类型字段值",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": [\n        {\n            \"id\": 5,\n            \"resourcesId\": 1,\n            \"fieldId\": \"2\",\n            \"value\": \"10000\",\n            \"countId\": \"101\"\n        },\n        {\n            \"id\": 6,\n            \"resourcesId\": 1,\n            \"fieldId\": \"3\",\n            \"value\": \"20000\",\n            \"countId\": \"102\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{url}}/value/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value/{id} 查询类型字段值byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/value/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value/list/{resourcesId} 查询类型字段值List - byResourcesId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/value/list/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "value/list/comditions 查询类型字段值List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/value/list/conditions?status=0&fieldId=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"value",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "0"
+						},
+						{
+							"key": "fieldId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

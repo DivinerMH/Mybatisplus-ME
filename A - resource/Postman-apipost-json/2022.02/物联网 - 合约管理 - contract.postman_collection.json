@@ -1,0 +1,854 @@
+{
+	"info": {
+		"_postman_id": "bc66d055-ad85-4763-b8e5-872be1869ec8",
+		"name": "物联网 - 合约管理 - contract",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/contract 新增合约",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractUnityCode\": \"MH20092801\",\r\n    \"resourceId\": 12,\r\n    \"onwerId\": 12,\r\n    \"buyerId\": 12,\r\n    \"typeId\": 13,\r\n    \"name\": \"玲珑022\",\r\n    \"startTime\": \"2020-08-22 16:04:00\",\r\n    \"endTime\": \"2020-08-23 18:22:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/contract",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/{id} 删除合约",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract 修改合约",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/{id} 查询合约",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/list/conditions 条件查询合约列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/page/conditions 分页条件查询合约列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/profile 查询合约资源概览",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contract/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/billing/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/billing/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"billing",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/billing/list/conditions 条件查询账单细明列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractCode\": \"HT1423597924641669120\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/billing/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"billing",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/billing/page/conditions 分页条件查询账单细明列表 Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/billing/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"billing",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------分隔---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------分隔---------------------------",
+					"host": [
+						"----------------------------分隔---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash 新增回款计划",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractId\": 1,\r\n    \"billId\": 11,\r\n    \"name\": \"测试\",\r\n    \"billPushTime\": \"2020-08-22 16:04:00\",\r\n    \"cashTime\": \"2020-08-23 16:04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cash",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/{id} 删除回款计划",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractId\": 1,\r\n    \"billId\": 12,\r\n    \"name\": 12,\r\n    \"billPushTime\": \"2020-08-22 16:04:00\",\r\n    \"cashTime\": \"2020-08-23 16:04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cash/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash 修改回款计划",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractId\": 1,\r\n    \"billId\": 12,\r\n    \"name\": 12,\r\n    \"billPushTime\": \"2020-08-22 16:04:00\",\r\n    \"cashTime\": \"2020-08-23 16:04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cash/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/{id} 查询回款计划",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cash/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"1"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "{{Authorization}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/list 查询回款计划列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cash/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/list/conditions 条件查询回款计划列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cash/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/page/conditions 分页条件查询回款计划列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cash/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------分隔---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------分隔---------------------------",
+					"host": [
+						"----------------------------分隔---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model 新增合约模板",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\":2,\r\n    \"typeId\":1,\r\n    \"specialId\":102,\r\n    \"name\":\"kaikai\",\r\n    \"heading\":\"xxxxxxxxxxxxxxxxxxxxxx\",\r\n    \"bodyOfContract\":\"ggggggggggggg\",\r\n    \"status\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/model",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model/{id} 删除合约模板",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/model/12",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model 修改合约模板",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\":2,\r\n    \"typeId\":1,\r\n    \"specialId\":102,\r\n    \"name\":\"kaikai\",\r\n    \"heading\":\"xxxxxxxxxxxxxxxxxxxxxx\",\r\n    \"bodyOfContract\":\"ggggggggggggg\",\r\n    \"status\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/model",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model/{id} 查询合约模板",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/model/12",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model/detail 根据id查询合约模板详情(跨服务)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/model/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model/list/conditions 条件查询合约模板List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/model/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/model/page/conditions 条件查询合约模板Page",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/model/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"model",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/special/list/conditions 条件查询合约模板特性List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/special/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"special",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/special/page/conditions 分页条件查询合约模板特性List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/special/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"special",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------分隔--------------------------- Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------分隔---------------------------",
+					"host": [
+						"----------------------------分隔---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/list/conditions 条件查询合约类型",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/type/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"list",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/page/conditions 分页条件查询合约类型",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/type/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

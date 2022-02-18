@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "d9d821de-d423-48c8-99ca-8fd0235aad19",
+		"name": "物联网 - 合约管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/contract 新增合约",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractUnityCode\": \"MH20092801\",\r\n    \"resourceId\": 12,\r\n    \"onwerId\": 12,\r\n    \"buyerId\": 12,\r\n    \"typeId\": 13,\r\n    \"name\": \"玲珑022\",\r\n    \"startTime\": \"2020-08-22 16:04:00\",\r\n    \"endTime\": \"2020-08-23 18:22:00\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/contract",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/{id} 删除合约",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/contract/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract 修改合约",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/contract",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/contract/{id} 查询合约",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/contract/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contract",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/billing/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/billing/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"billing",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/cash/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/cash",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contractId\": 1,\r\n    \"billId\": 12,\r\n    \"name\": 12,\r\n    \"billPushTime\": \"2020-08-22 16:04:00\",\r\n    \"cashTime\": \"2020-08-23 16:04:00\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/cash",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cash"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

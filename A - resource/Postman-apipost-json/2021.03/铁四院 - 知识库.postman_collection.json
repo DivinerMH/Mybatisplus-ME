@@ -1,0 +1,2399 @@
+{
+	"info": {
+		"_postman_id": "bf70f780-1907-4208-9dfe-5bb55a1659d1",
+		"name": "铁四院 - 知识库",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.174:9999/auth/oauth/token 用户登录（铁四院）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ce7p5ve/6o3w8BDQwQkYbw==",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.176:9999/auth/oauth/token",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"176"
+					],
+					"port": "9999",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate 添加业务分类",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"火灾\",\r\n    \"description\": \"这是一个火灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate 根据id（逻辑）删除业务分类",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate 修改业务分类",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"eventName\": \"奶茶翻车事件\",\r\n    \"modelId\": 101,\r\n    \"equipmentId\": 101,\r\n    \"product_id\": 101,\r\n    \"equipmentName\": \"设备2020\",\r\n    \"structureId\": \"21\",\r\n    \"structureName\": \"智慧创意园\",\r\n    \"context\": \"时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述\",\r\n    \"type\": 1,\r\n    \"tenantId\": 117,\r\n    \"reportingName\": \"赵无敌\",\r\n    \"reporting_phone\": \"18162319096\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate 根据id查询业务分类详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate/detail 根据id查询业务分类详情（跨服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate/detail?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate/lists 无参查询业务分类列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate/lists?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate/lists/conditions 条件询业务分类List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate/lists/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "火",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-cate/page/conditions 条件查询业务分类Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-cate/page/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-cate",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------业务模板------------------------------------",
+			"request": {
+				"method": "COPY",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-ccurrency 新增业务模板",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-currency",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-currency"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-currency/lists 无参查询业务模板列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-currency/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-currency",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-currency/lists/conditions 条件查询业务模板列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-currency/lists/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-currency",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "火",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-currency/page/conditions 分页查询业务模板列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-currency/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-currency",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------业务模板功能配置----------------------------",
+			"request": {
+				"method": "COPY",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config 新增业务模板配置",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    {\r\n        \"tempId\": 1,\r\n        \"cateId\": 1,\r\n        \"name\": \"水灾2\",\r\n        \"description\": \"这是一个水灾的业务测试\"\r\n    },\r\n    {\r\n        \r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config 删除业务模板配置",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config 修改业务模板配置",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 21,\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"火灾\",\r\n    \"description\": \"这是一个水灾的业务测试\",\r\n    \"relationship\":\"22222222222\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config 查询业务模板配置详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config?id=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config/detail 查询业务模板配置详情（跨服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config/detail?id=9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config/lists 无参查询业务模板配置列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config/lists/conditions 条件查询业务模板配置列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config/lists/conditions?tempId=7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config/page/conditions 分页查询业务模板配置列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info 新增业务模板配置详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/batch 批量新增业务模板配置详情",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempConfigDTO\": {\r\n        \"tempId\": 1,\r\n        \"cateId\": 1,\r\n        \"name\": \"究极风暴灾害预警分析\",\r\n        \"description\": \"这是2020.11.30日的究极风暴灾害预警分析\",\r\n        \"relationship\": \"wwww\"\r\n    },\r\n    \"tempConfigInfoDTOList\": [\r\n        {\r\n            \"ruleType\": 1,\r\n            \"ruleId\": 1,\r\n            \"sort\": \"1\"\r\n        },\r\n        {\r\n            \"ruleType\": 2,\r\n            \"ruleId\": 2,\r\n            \"sort\": \"2\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info 删除业务模板配置详情",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info 修改业务模板配置详情",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/batch 批量修改业务模板配置详情",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempConfigDTO\": {\r\n        \"id\":22,\r\n        \"tempId\": 1,\r\n        \"cateId\": 1,\r\n        \"name\": \"究极风暴灾害预警分析\",\r\n        \"description\": \"这是2020.11.30日的究极风暴灾害预警分析\",\r\n        \"relationship\": \"wwww\"\r\n    },\r\n    \"tempConfigInfoDTOList\": [\r\n        {\r\n            \"ruleType\": 1,\r\n            \"ruleId\": 1,\r\n            \"sourceId\": 111,\r\n            \"sort\": \"1\"\r\n        },\r\n        {\r\n            \"ruleType\": 2,\r\n            \"ruleId\": 2,\r\n            \"sort\": \"2\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info 查询业务模板配置详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/detail 查询业务模板配置详情（跨服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/detail?id=46",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "46"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/default 据条件查询业务模板功能配置参数默认值",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d85af7b7-7c12-4cac-9606-85da72bcb5a8",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"configId\":19,\r\n    \"ruleType\":\"1\",\r\n    \"ruleId\":19\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/default?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"default"
+					],
+					"query": [
+						{
+							"key": "ConfigId",
+							"value": "46",
+							"disabled": true
+						}
+					]
+				},
+				"description": "{\r\n    \"configId\":47,\r\n    \"ruleType\":\"3\",\r\n    \"ruleId\":61\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/lists 无参查询业务模板配置详情列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/lists?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/lists/conditions 条件查询业务模板配置详情列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/lists/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-info/page/conditions 分页查询业务模板配置详情列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 1,\r\n    \"cateId\": 1,\r\n    \"name\": \"水灾2\",\r\n    \"description\": \"这是一个水灾的业务测试\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-info/page/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-info",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------引擎结果集实例化------------------------------",
+			"request": {
+				"method": "COPY",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value 新增业务模板功能配置结果集",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tempId\": 27,\r\n    \"configId\": 42,\r\n    \"dateSourceType\": \"6\",\r\n    \"dateSourceId\": \"2\",\r\n    \"calculateType\": \"2\",\r\n    \"calculateId\": 18,\r\n    \"paramKey\": 11,\r\n    \"identification\": \"0\",\r\n    \"value\": \"2222222222级\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value"
+					]
+				},
+				"description": "{\r\n    \"tempId\": 19,\r\n    \"configId\": 1,\r\n    \"dateSourceType\": \"5\",\r\n    \"dateSourceId\": \"5\",\r\n    \"calculateType\": \"1\",\r\n    \"calculateId\": 18,\r\n    \"value\": \"IV 级 2015\"\r\n}\r\n\r\n\r\n{\r\n    \"tempId\": 19,\r\n    \"configId\": 2,\r\n    \"dateSourceType\": \"6\",\r\n    \"dateSourceId\": \"5\",\r\n    \"calculateType\": \"1\",\r\n    \"calculateId\": 18,\r\n    \"paramKey\": 19,\r\n    \"value\": \"水灾test6\"\r\n}\r\n\r\n{\r\n    \"tempId\": 27,\r\n    \"configId\": 42,\r\n    \"dateSourceType\": \"6\",\r\n    \"dateSourceId\": \"2\",\r\n    \"calculateType\": \"2\",\r\n    \"calculateId\": 18,\r\n    \"paramKey\": 11,\r\n    \"identification\": \"0\",\r\n    \"value\": \"I级\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/batch 批量新增业务模板功能配置结果集",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"tempId\": 27,\r\n        \"configId\": 46,\r\n        \"dateSourceType\": \"6\",\r\n        \"dateSourceId\": \"1\",\r\n        \"calculateType\": \"1\",\r\n        \"calculateId\": 19,\r\n        \"identification\": \"0\",\r\n        \"paramKey\": 29,\r\n        \"value\": \"6655\"\r\n    },\r\n    {\r\n        \"tempId\": 27,\r\n        \"configId\": 46,\r\n        \"dateSourceType\": \"6\",\r\n        \"dateSourceId\": \"1\",\r\n        \"calculateType\": \"1\",\r\n        \"calculateId\": 19,\r\n        \"identification\": \"0\",\r\n        \"paramKey\": 39,\r\n        \"value\": \"2021-01-08 16:10:00\"\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"batch"
+					]
+				},
+				"description": "{\r\n    \"tempId\": 19,\r\n    \"configId\": 1,\r\n    \"dateSourceType\": \"5\",\r\n    \"dateSourceId\": \"5\",\r\n    \"calculateType\": \"1\",\r\n    \"calculateId\": 18,\r\n    \"value\": \"IV 级 2015\"\r\n}\r\n\r\n\r\n{\r\n    \"tempId\": 19,\r\n    \"configId\": 2,\r\n    \"dateSourceType\": \"6\",\r\n    \"dateSourceId\": \"5\",\r\n    \"calculateType\": \"1\",\r\n    \"calculateId\": 18,\r\n    \"paramKey\": 19,\r\n    \"value\": \"水灾test6\"\r\n}\r\n\r\n{\r\n    \"tempId\": 27,\r\n    \"configId\": 42,\r\n    \"dateSourceType\": \"6\",\r\n    \"dateSourceId\": \"2\",\r\n    \"calculateType\": \"2\",\r\n    \"calculateId\": 18,\r\n    \"paramKey\": 11,\r\n    \"identification\": \"0\",\r\n    \"value\": \"I级\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value 删除业务模板功能配置结果集",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value 修改业务模板功能配置结果集",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/detail 根据id查询业务模板功能配置结果集详情(跨服务)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/detail?id=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/lists 无参查询业务模板功能配置结果集列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/lists?tempId=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/lists/group 查询业务模板功能配置（当前组最新的）结果集List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/lists/group?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"lists",
+						"group"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "19",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/lists/conditions 条件查询业务模板功能配置结果集列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/lists/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "19",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/trend/group 趋势分析（参数条件）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/trend/group?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"trend",
+						"group"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "19",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "temp-config-value/trend 趋势分析",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/temp-config-value/trend?configId=45",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"temp-config-value",
+						"trend"
+					],
+					"query": [
+						{
+							"key": "configId",
+							"value": "45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------计算引擎------------------------------------",
+			"request": {
+				"method": "COPY",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency 新增通用计算引擎",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"a-b通用计算引擎\",\r\n    \"formula\": \"a,b\",\r\n    \"description\": \"这是一个a-b通用计算引擎\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/batch 新增通用计算引擎(批量添加计算引擎参数)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"a/b通用计算引擎\",\r\n    \"formula\": \"a,b\",\r\n    \"description\": \"这是一个a-b通用计算引擎\",\r\n    \"calculateParamsDTOList\": [\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 21\r\n        },\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 22\r\n        },\r\n        {\r\n            \"paramType\": 0,\r\n            \"paramKey\": 22\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency 删除通用计算引擎",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency 修改通用计算引擎",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"a-b通用计算引擎\",\r\n    \"formula\": \"a,b\",\r\n    \"description\": \"这是一个a-b通用计算引擎\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency 查询通用计算引擎",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/detail 查询通用计算引擎（跨服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/detail?id=27",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/lists 无参查询通用计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/lists?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/lists/conditions 条件查询通用计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/lists/conditions?",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/lists/label 根据标签idList查询（通用+镜像）计算引擎（并返回所有的标签信息）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/lists/label?idList=5,16",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"lists",
+						"label"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "5,16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/lists/labels 根据标签idList查询（通用+镜像）计算引擎（并返回所有的标签信息） 【纯净版】",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/lists/labels?idList=5,8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"lists",
+						"labels"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "5,8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/page/conditions 分页查询通用计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/page/conditions?current=1&size=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/groovyTest 通用计算引擎计算公式测试",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"params\": \"{\\\"params1\\\":\\\"1\\\",\\\"params2\\\":\\\"KK\\\"}\",\r\n    \"code\": \"import com.alibaba.fastjson.JSON; def toDo(vv){  def dd =null; vv = vv.split(\\\";\\\"); String a = vv[0];Map<String,String> map = JSON.parseObject(a); b = map.get(\\\"params2\\\"); try { dd = b; }catch (Exception e){ dd = c;}   \\r\\n        return \\\"$dd\\\"; }\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/groovyTest",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"groovyTest"
+					]
+				},
+				"description": "{\r\n    \"params\": \"11,22,55,45\",\r\n    \"code\": \"def toDo(vv){  def dd =null; vv = vv.split(\\\",\\\"); String a = vv[1];String b = vv[2]; try { Double varValue = Double.parseDouble(a) + Double.parseDouble(b); dd = varValue.toString(); }catch (Exception e){ dd = (Float.parseFloat(a) + Float.parseFloat(b)) + \\\"\\\";}   \\r\\n        return \\\"$dd\\\"; }\"\r\n}\r\n\r\n{\r\n    \"params\": \"{\\\"params1\\\":\\\"1\\\",\\\"params2\\\":\\\"KK\\\"}\",\r\n    \"code\": \"def toDo(vv){  def dd =null; try { dd = vv; }catch (Exception e){ dd = (Float.parseFloat(a) + Float.parseFloat(b)) + \\\"\\\";}   \\r\\n        return \\\"$dd\\\"; }\"\r\n}\r\n\r\n\r\n{\r\n    \"params\": \"{\\\"c\\\":\\\"11\\\",\\\"d\\\":\\\"22\\\"}\",\r\n    \"code\": \"import com.alibaba.fastjson.JSON; def toDo(vv){  def dd =null; JSONObject json = JSONObject.fromObject(vv[0]);Map<String, Object> map = (Map<String, Object>)json; String a = map.get(\\\"c\\\"); String b = map.get(\\\"d\\\");try { Double varValue = Double.parseDouble(a) + Double.parseDouble(b); dd = varValue.toString(); }catch (Exception e){ dd = (Float.parseFloat(a) + Float.parseFloat(b)) + \\\"\\\";}   \\r\\n        return \\\"$dd\\\"; }\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-currency/execute 通用计算引擎计算公式执行",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 27,\r\n    \"params\": \"11.3333333,2.1\",\r\n    \"code\": \"def toDo(vv){  def dd =null; vv = vv.split(\\\",\\\"); String a = vv[0];String b = vv[1];BigDecimal num1 = new BigDecimal(a);BigDecimal num2 = new BigDecimal(b);BigDecimal num3 = null; try { num3 = num1.subtract(num2); dd = num3.toString(); }catch (Exception e){ dd = (Float.parseFloat(a) + Float.parseFloat(b)) + \\\"\\\";}   \\r\\n        return \\\"$dd\\\"; }\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-currency/execute",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-currency",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4021/test/execute 本地计算引擎推理引擎Kafka测试",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paramSource\": \"1\",\r\n    \"data\": [\r\n        {\r\n            \"paramId\": 5,\r\n            \"paramValue\": 0.6,\r\n            \"paramCode\": \"h0\"\r\n        },\r\n        {\r\n            \"paramId\": 6,\r\n            \"paramValue\": 0.33,\r\n            \"paramCode\": \"hs\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/test/execute/bus_mh1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"test",
+						"execute",
+						"bus_mh1"
+					]
+				},
+				"description": "[\r\n    {\r\n        \"paramId\": 6,\r\n        \"paramValue\": 0.6\r\n    },\r\n    {\r\n        \"paramId\": 7,\r\n        \"paramValue\": -0.111\r\n    },\r\n    {\r\n        \"paramId\": 5,\r\n        \"paramValue\": 0.45\r\n    }\r\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------------镜像计算引擎------------------------------------",
+			"request": {
+				"method": "COPY",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image 新增镜像计算引擎",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"长江武汉区域水位监测计算引擎\",\r\n    \"imageUrl\": \"www.baidu.com\",\r\n    \"description\": \"这是一个三峡大坝水位监测计算引擎\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image/batch 新增镜像计算引擎(批量添加计算引擎参数)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"长江武汉区域水位监测镜像计算引擎\",\r\n    \"imageUrl\": \"www.baidu.com\",\r\n    \"disasterCode\": \"xxx\",\r\n    \"description\": \"这是一个三峡大坝水位监测计算引擎\",\r\n    \"calculateParamsDTOList\": [\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 21\r\n        },\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 22\r\n        },\r\n        {\r\n            \"paramType\": 0,\r\n            \"paramKey\": 22\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image/batch",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image 删除镜像计算引擎",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image 修改镜像计算引擎",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"disasterSceneId\": 1,\r\n    \"disasterTypeId\": 1,\r\n    \"disasterAreaId\": 1,\r\n    \"name\": \"长江武汉区域水位监测计算引擎2\",\r\n    \"imageUrl\": \"www.baidu.com\",\r\n    \"description\": \"这是一个长江武汉区域水位监测计算引擎\",\r\n    \"calculateParamsDTOList\": [\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 21\r\n        },\r\n        {\r\n            \"paramType\": 1,\r\n            \"paramKey\": 22\r\n        },\r\n        {\r\n            \"paramType\": 0,\r\n            \"paramKey\": 22\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image 查询镜像计算引擎",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image/detail 查询镜像计算引擎（跨服务）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image/detail?id=19&paramType=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "19"
+						},
+						{
+							"key": "paramType",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image/lists 无参查询镜像计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image/lists/conditions 条件查询镜像计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-image/page/conditions 分页查询镜像计算引擎列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-image/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-image",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ws://192.168.1.176:9888/websocket 数据推送",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "ws://192.168.1.176:9888/websocket?",
+					"protocol": "ws",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"176"
+					],
+					"port": "9888",
+					"path": [
+						"websocket"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "19",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate-params/lists/conditions 条件查询计算引擎参数列表【 No permission】",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/calculate-params/lists/conditions?tempId=19",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"calculate-params",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "tempId",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

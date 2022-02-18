@@ -1,0 +1,785 @@
+{
+	"info": {
+		"_postman_id": "774b10b7-ecf1-4c5d-8f4e-66a749d01bc7",
+		"name": "物联网 - 智慧公寓 - apartment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/house 新增(注册)公寓",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 188,\r\n    \"contractModelId\": 11,\r\n    \"structureId\": 11,\r\n    \"structureIdentity\": 26,\r\n    \"createBy\": 325,\r\n    \"name\": \"爱情公寓5\",\r\n    \"picture\": \"[{\\\"name\\\":\\\"dada1e4af5e05a1e07b330df93d0cb29.jpeg\\\",\\\"url\\\":\\\"/dev-api/admin/sys-file/iot/31c6f38ba2a849eb84ac62ac84377d7a.jpeg\\\",\\\"uid\\\":1622860164774,\\\"status\\\":\\\"success\\\"}]\",\r\n    \"area\": \"123\",\r\n    \"houseType\": \"123\",\r\n    \"phone\": \"13223213123\",\r\n    \"seatingCapacity\": \"123\",\r\n    \"description\": \" 师德师风第三方水电费\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house 删除公寓详情ById",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/house?id=35",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "35"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house 修改(注册)公寓ById",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":41,\r\n    \"tenantId\": 189,\r\n    \"contractModelId\": \"11\",\r\n    \"structureId\": 12,\r\n    \"structureIdentity\": 26,\r\n    \"createBy\": 325,\r\n    \"name\": \"爱情公寓4\",\r\n    \"picture\": \"[{\\\"name\\\":\\\"dada1e4af5e05a1e07b330df93d0cb29.jpeg\\\",\\\"url\\\":\\\"/dev-api/admin/sys-file/iot/31c6f38ba2a849eb84ac62ac84377d7a.jpeg\\\",\\\"uid\\\":1622860164774,\\\"status\\\":\\\"success\\\"}]\",\r\n    \"area\": \"123\",\r\n    \"houseType\": \"123\",\r\n    \"phone\": \"13223213123\",\r\n    \"seatingCapacity\": \"123\",\r\n    \"description\": \" 师德师风第三方水电费\",\r\n    \"labelIdList\": [\r\n        1,\r\n        2,\r\n        3\r\n    ],\r\n    \"facilitiesIdList\": [\r\n        2,\r\n        3\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/sold 修改公寓上架下架状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":39,\r\n    \"status\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/sold",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"sold"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house 查询公寓详情",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/house?id=38",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "38"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house 查询公寓详情 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/house/getmodel?id=12",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"getmodel"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/detail/{id} 查询公寓详情(跨服务)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/detail?id=38",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "38"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/lists/ten 条件查询热度前十的公寓资源",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/lists/ten",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"lists",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/lists/conditions 条件查询房源信息列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"lists",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "2021-04-19 11:00:00",
+							"disabled": true
+						},
+						{
+							"key": "endTime",
+							"value": "2021-04-20 12:00:00",
+							"disabled": true
+						},
+						{
+							"key": "houseType",
+							"value": "2室",
+							"disabled": true
+						},
+						{
+							"key": "structureId",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/page/conditions 分页条件查询房源信息列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/page/conditions?structureId=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "2021-04-19 11:00:00",
+							"disabled": true
+						},
+						{
+							"key": "endTime",
+							"value": "2021-04-20 12:00:00",
+							"disabled": true
+						},
+						{
+							"key": "houseType",
+							"value": "2室",
+							"disabled": true
+						},
+						{
+							"key": "structureId",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/house/test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/house/test?date=2021-04-19    问问前无群",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"house",
+						"test"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-04-19    问问前无群"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/facilities 新增设施设备",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantId\": 1,\r\n    \"typeId\": 1,\r\n    \"name\": \"海尔只能空调A05\",\r\n    \"price\": 0.01000000,\r\n    \"attribute\": \"0\",\r\n    \"status\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/facilities 删除设施设备",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/facilities 查询设施设备",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/facilities/lists 无参查询设施设备列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/lists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/facilities/lists/conditions 条件查询设施设备列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/facilities/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"facilities",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/label/lists/conditions 条件查询标签列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/label/lists/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"label",
+						"lists",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------分隔---------------------------",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "----------------------------分隔---------------------------",
+					"host": [
+						"----------------------------分隔---------------------------"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/resource/profile 资源中心资源概览",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resource/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resource",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/queryid 查询类型 byId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/type/queryid/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"queryid",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/type/listquery 条件查询类型",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/type/listquery?type=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"type",
+						"listquery"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/iotbilling/page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/iotbilling/page",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"iotbilling",
+						"page"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

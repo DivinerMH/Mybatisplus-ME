@@ -1,0 +1,1550 @@
+{
+	"info": {
+		"_postman_id": "48b7e87a-c90c-441f-b38d-1ba5a0b50184",
+		"name": "黄金口 - 应急管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "192.168.1.174:9998/auth/oauth/token 登录(黄金口）",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDp0ZXN0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.1.174:9998/auth/oauth/token",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"174"
+					],
+					"port": "9998",
+					"path": [
+						"auth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event 添加应急事件",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventName\": \"冰轮丸炸鱼事件6\",\r\n    \"modelId\": 15,\r\n    \"equipmentId\": 101,\r\n    \"product_id\": 101,\r\n    \"equipmentName\": \"设备2020\",\r\n    \"structureId\": \"21\",\r\n    \"structureName\": \"智慧创意园\",\r\n    \"context\": \"时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述\",\r\n    \"type\": 1,\r\n    \"tenantId\": 117,\r\n    \"reportingName\": \"赵无敌\",\r\n    \"reporting_phone\": \"18162319096\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event 根据id（逻辑）删除应急事件",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event 修改应急事件",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"eventName\": \"奶茶翻车事件\",\r\n    \"modelId\": 101,\r\n    \"equipmentId\": 101,\r\n    \"product_id\": 101,\r\n    \"equipmentName\": \"设备2020\",\r\n    \"structureId\": \"21\",\r\n    \"structureName\": \"智慧创意园\",\r\n    \"context\": \"时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述\",\r\n    \"type\": 1,\r\n    \"tenantId\": 117,\r\n    \"reportingName\": \"赵无敌\",\r\n    \"reporting_phone\": \"18162319096\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/status 修改应急事件状态",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"status\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event 根据id查询应急事件详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event?id=15",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/list 无参查询应急事件List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/list/limit 无参查询最新10条应急事件",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/list/limit",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"list",
+						"limit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/list/conditions 条件询应急事件List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/list/conditions?type=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "0"
+						},
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/page/conditions 条件查询应急事件Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/page/conditions?current=1&size=10&status=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"page",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/profile 应急事件概览展统计",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/profile/machine 设备报警事件概览展统计（产品维度）",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/profile/machine?productId=435",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"profile",
+						"machine"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "435"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/task/profile 应急调度事件概览展统计",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/task/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"task",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "modelId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event/export 应急事件Excel导出",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/export",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"export"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel 添加事件模板",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 1,\r\n    \"userId\": 3,\r\n    \"planId\": 1,\r\n    \"modelName\": \"游戏翻车事件\",\r\n    \"alarmId\": 22\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel 根据id（逻辑）删除事件模板",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel 修改事件模板",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"productId\": 1,\r\n    \"userId\": 1,\r\n    \"planId\": 1,\r\n    \"modelName\": \"爆炸事件模板2\",\r\n    \"alarmId\": 223\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel 根据id查询事件模板详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel/list 无参查询事件模板List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel/list/conditions 条件询事件模板List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel/list/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel",
+						"list",
+						"conditions"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventModel/page/conditions 条件查询事件模板Page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/eventModel/page/conditions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"eventModel",
+						"page",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person 添加应急人员",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"亮宝\",\r\n    \"sex\": \"男\",\r\n    \"typeId\": 2,\r\n    \"phone\": \"18162319097\",\r\n    \"email\": \"1096464960@qq.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/person",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person 删除应急人员",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/person?idList=1,2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"person"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person 修改应急人员信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"寻乌\",\r\n    \"sex\": \"男\",\r\n    \"typeId\": 2,\r\n    \"phone\": \"18162319097\",\r\n    \"email\": \"1096464960@qq.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/person",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dangerousSourcesType/list 危险源分类",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/dangerousSourcesType/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dangerousSourcesType",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis 企业上报预警信息新增",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantCode\": \"GB211-773-xhxh002\",\r\n    \"tenantId\": 2,\r\n    \"tenantPhone\": \"18162319998\",\r\n    \"tenantName\": \"奇点科技有限公司\",\r\n    \"modelId\": 1,\r\n    \"eventReason\": \"我也不知道为什么会发生水灾啊~~~\",\r\n    \"eventProcess\": \"处理过程1+处理过程2+处理过程3\",\r\n    \"eventResult\": \"待处理\",\r\n    \"injuryNum\": 6,\r\n    \"deathNum\": 21,\r\n    \"directEconomicLoss\": 300000,\r\n    \"indirectEconomicLoss\": 75000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis 企业上报预警信息删除",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis?idList=1,2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis/{id} 企业上报预警信息查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis/list 企业上报预警信息列表查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis/page 企业上报预警信息分页查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis/page?modelId&tenantName=智",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis",
+						"page"
+					],
+					"query": [
+						{
+							"key": "modelId",
+							"value": null
+						},
+						{
+							"key": "tenantName",
+							"value": "智"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis/profile 预警信息统计分析概览",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "warningAnalysis/export 企业上报信息Excel导出",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/warningAnalysis/export",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"warningAnalysis",
+						"export"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goods/percent 应急物资与危险源类型百分比统计",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/goods/percent",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"goods",
+						"percent"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "record",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"modelId\": 1,\r\n    \"eventId\": 2\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/record",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"record"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "record/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/record/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"record",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "record/page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/record/page?current=1&size=10&status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"record",
+						"page"
+					],
+					"query": [
+						{
+							"key": "current",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "status",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event 添加应急事件【设备触发】",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\": \"时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述\",\r\n    \"equipmentId\": 101,\r\n    \"equipmentName\": \"设备2020\",\r\n    \"eventName\": \"冰轮丸炸鱼事件\",\r\n    \"modelId\": 101,\r\n    \"structureId\": \"21\",\r\n    \"structureName\": \"智慧创意园\",\r\n    \"type\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/equipment-alarm",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"equipment-alarm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goods/profile 应急资源概览",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/goods/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"goods",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "-----------------------------测试------------------------------",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\": \"时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述-时间描述\",\r\n    \"equipmentId\": 101,\r\n    \"equipmentName\": \"设备2020\",\r\n    \"eventName\": \"冰轮丸炸鱼事件\",\r\n    \"modelId\": 101,\r\n    \"structureId\": \"21\",\r\n    \"structureName\": \"智慧创意园\",\r\n    \"type\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/event/equipment-alarm",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"event",
+						"equipment-alarm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoteIotResourcesService.queryStructureIdByIdList() 测试",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tenantIdList\": [\r\n        121,\r\n        122,\r\n        147,\r\n        152,\r\n        153,\r\n        154,\r\n        155,\r\n        156,\r\n        161,\r\n        162,\r\n        163,\r\n        164,\r\n        165,\r\n        166,\r\n        167,\r\n        168,\r\n        169,\r\n        170,\r\n        171,\r\n        172\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/test/feign",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"test",
+						"feign"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
