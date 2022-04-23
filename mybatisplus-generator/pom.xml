@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.20.RELEASE</version>
+            <version>5.3.19</version>
         </dependency>
 
         <!-- MeGenerator_2 belongs to Duan Zongliang -->
