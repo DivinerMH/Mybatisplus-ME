@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.iot.external.structure.mapper.BuildingFloorRoomMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.iot.external.structure.entity.BuildingFloorRoom">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="subProjectId" column="sub_project_id" jdbcType="INTEGER"/>
+        <result property="buildingId" column="building_id" jdbcType="INTEGER"/>
+        <result property="floorId" column="floor_id" jdbcType="INTEGER"/>
+        <result property="roomCode" column="room_code" jdbcType="VARCHAR"/>
+        <result property="useType" column="use_type" jdbcType="INTEGER"/>
+        <result property="businessStatus" column="business_status" jdbcType="INTEGER"/>
+        <result property="isPublic" column="is_public" jdbcType="INTEGER"/>
+        <result property="roomArchitectureArea" column="room_architecture_area" jdbcType="NUMERIC"/>
+        <result property="sleeveArchitectureArea" column="sleeve_architecture_area" jdbcType="NUMERIC"/>
+        <result property="supportBusinessType" column="support_business_type" jdbcType="VARCHAR"/>
+        <result property="roomAlias" column="room_alias" jdbcType="VARCHAR"/>
+        <result property="roomImg" column="room_img" jdbcType="VARCHAR"/>
+        <result property="roomComment" column="room_comment" jdbcType="VARCHAR"/>
+        <result property="lightFlag" column="light_flag" jdbcType="INTEGER"/>
+        <result property="windowNum" column="window_num" jdbcType="INTEGER"/>
+        <result property="orientations" column="orientations" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="deleteAllowFlag" column="delete_allow_flag" jdbcType="INTEGER"/>
+        <result property="changeId" column="change_id" jdbcType="INTEGER"/>
+        <result property="roomType" column="room_type" jdbcType="INTEGER"/>
+        <result property="changeState" column="change_state" jdbcType="INTEGER"/>
+        <result property="validState" column="valid_state" jdbcType="INTEGER"/>
+        <result property="validTime" column="valid_time" jdbcType="TIMESTAMP"/>
+        <result property="approveState" column="approve_state" jdbcType="INTEGER"/>
+        <result property="linkCustomerId" column="link_customer_id" jdbcType="INTEGER"/>
+        <result property="linkCustomerName" column="link_customer_name" jdbcType="VARCHAR"/>
+        <result property="linkOperateId" column="link_operate_id" jdbcType="INTEGER"/>
+        <result property="linkTime" column="link_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <!-- BuildingFloorRoomVO查询结果集映射 -->
+    <resultMap id="BuildingFloorRoomVOResultMap" type="com.linksame.iot.external.structure.vo.BuildingFloorRoomVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="subProjectId" column="sub_project_id" jdbcType="INTEGER"/>
+        <result property="buildingId" column="building_id" jdbcType="INTEGER"/>
+        <result property="floorId" column="floor_id" jdbcType="INTEGER"/>
+        <result property="roomCode" column="room_code" jdbcType="VARCHAR"/>
+        <result property="useType" column="use_type" jdbcType="INTEGER"/>
+        <result property="businessStatus" column="business_status" jdbcType="INTEGER"/>
+        <result property="isPublic" column="is_public" jdbcType="INTEGER"/>
+        <result property="roomArchitectureArea" column="room_architecture_area" jdbcType="NUMERIC"/>
+        <result property="sleeveArchitectureArea" column="sleeve_architecture_area" jdbcType="NUMERIC"/>
+        <result property="supportBusinessType" column="support_business_type" jdbcType="VARCHAR"/>
+        <result property="roomAlias" column="room_alias" jdbcType="VARCHAR"/>
+        <result property="roomImg" column="room_img" jdbcType="VARCHAR"/>
+        <result property="roomComment" column="room_comment" jdbcType="VARCHAR"/>
+        <result property="lightFlag" column="light_flag" jdbcType="INTEGER"/>
+        <result property="windowNum" column="window_num" jdbcType="INTEGER"/>
+        <result property="orientations" column="orientations" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="deleteAllowFlag" column="delete_allow_flag" jdbcType="INTEGER"/>
+        <result property="changeId" column="change_id" jdbcType="INTEGER"/>
+        <result property="roomType" column="room_type" jdbcType="INTEGER"/>
+        <result property="changeState" column="change_state" jdbcType="INTEGER"/>
+        <result property="validState" column="valid_state" jdbcType="INTEGER"/>
+        <result property="validTime" column="valid_time" jdbcType="TIMESTAMP"/>
+        <result property="approveState" column="approve_state" jdbcType="INTEGER"/>
+        <result property="linkCustomerId" column="link_customer_id" jdbcType="INTEGER"/>
+        <result property="linkCustomerName" column="link_customer_name" jdbcType="VARCHAR"/>
+        <result property="linkOperateId" column="link_operate_id" jdbcType="INTEGER"/>
+        <result property="linkTime" column="link_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, company_id, project_id, sub_project_id, building_id, floor_id, room_code, use_type, business_status, is_public, room_architecture_area, sleeve_architecture_area, support_business_type, room_alias, room_img, room_comment, light_flag, window_num, orientations, remark, creator, create_time, modifier, modify_time, delete_flag, delete_allow_flag, change_id, room_type, change_state, valid_state, valid_time, approve_state, link_customer_id, link_customer_name, link_operate_id, link_time</sql>
+
+
+    <!-- 根据id查询资源管理-单元(房源)表详情(多服务) -->
+    <select id="queryBuildingFloorRoomDetail" resultMap="BuildingFloorRoomVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor_room
+        WHERE del_flag = 0 AND id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 无参查询资源管理-单元(房源)表List -->
+    <select id="queryBuildingFloorRoomList" resultMap="BuildingFloorRoomVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor_room
+        WHERE del_flag = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询资源管理-单元(房源)表List -->
+    <select id="queryByConditions" resultMap="BuildingFloorRoomVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor_room
+        <where>
+            del_flag = 0
+            <if test="buildingFloorRoomDTO.name != null and buildingFloorRoomDTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{buildingFloorRoomDTO.name},'%')
+            </if>
+            <if test="buildingFloorRoomDTO.status != null and buildingFloorRoomDTO.status != '' ">
+                AND status = #{buildingFloorRoomDTO.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

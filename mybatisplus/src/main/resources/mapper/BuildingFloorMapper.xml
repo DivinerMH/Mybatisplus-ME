@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.iot.external.structure.mapper.BuildingFloorMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.iot.external.structure.entity.BuildingFloor">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="subProjectId" column="sub_project_id" jdbcType="INTEGER"/>
+        <result property="buildingId" column="building_id" jdbcType="INTEGER"/>
+        <result property="floorName" column="floor_name" jdbcType="VARCHAR"/>
+        <result property="floorHeight" column="floor_height" jdbcType="NUMERIC"/>
+        <result property="floorGroundUpdown" column="floor_ground_updown" jdbcType="INTEGER"/>
+        <result property="bearing" column="bearing" jdbcType="NUMERIC"/>
+        <result property="liftNum" column="lift_num" jdbcType="INTEGER"/>
+        <result property="houseImg" column="house_img" jdbcType="VARCHAR"/>
+        <result property="planeGraphImg" column="plane_graph_img" jdbcType="VARCHAR"/>
+        <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="roomCoordinates" column="room_coordinates" jdbcType="VARCHAR"/>
+        <result property="floorNum" column="floor_num" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- BuildingFloorVO查询结果集映射 -->
+    <resultMap id="BuildingFloorVOResultMap" type="com.linksame.iot.external.structure.vo.BuildingFloorVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="subProjectId" column="sub_project_id" jdbcType="INTEGER"/>
+        <result property="buildingId" column="building_id" jdbcType="INTEGER"/>
+        <result property="floorName" column="floor_name" jdbcType="VARCHAR"/>
+        <result property="floorHeight" column="floor_height" jdbcType="NUMERIC"/>
+        <result property="floorGroundUpdown" column="floor_ground_updown" jdbcType="INTEGER"/>
+        <result property="bearing" column="bearing" jdbcType="NUMERIC"/>
+        <result property="liftNum" column="lift_num" jdbcType="INTEGER"/>
+        <result property="houseImg" column="house_img" jdbcType="VARCHAR"/>
+        <result property="planeGraphImg" column="plane_graph_img" jdbcType="VARCHAR"/>
+        <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+        <result property="roomCoordinates" column="room_coordinates" jdbcType="VARCHAR"/>
+        <result property="floorNum" column="floor_num" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, company_id, project_id, sub_project_id, building_id, floor_name, floor_height, floor_ground_updown, bearing, lift_num, house_img, plane_graph_img, sort_num, creator, create_time, modifier, modify_time, delete_flag, room_coordinates, floor_num</sql>
+
+
+    <!-- 根据id查询资源管理-楼层表详情(多服务) -->
+    <select id="queryBuildingFloorDetail" resultMap="BuildingFloorVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor
+        WHERE del_flag = 0 AND id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 无参查询资源管理-楼层表List -->
+    <select id="queryBuildingFloorList" resultMap="BuildingFloorVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor
+        WHERE del_flag = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询资源管理-楼层表List -->
+    <select id="queryByConditions" resultMap="BuildingFloorVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM building_floor
+        <where>
+            del_flag = 0
+            <if test="buildingFloorDTO.name != null and buildingFloorDTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{buildingFloorDTO.name},'%')
+            </if>
+            <if test="buildingFloorDTO.status != null and buildingFloorDTO.status != '' ">
+                AND status = #{buildingFloorDTO.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

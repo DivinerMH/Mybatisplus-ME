@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.mapper.IotTrdStructureMachineMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.entity.IotTrdStructureMachine">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="dataSources" column="data_sources" jdbcType="VARCHAR"/>
+        <result property="dataPerfect" column="data_perfect" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="trdNodeId" column="trd_node_id" jdbcType="VARCHAR"/>
+        <result property="trdNodeCoordinate" column="trd_node_coordinate" jdbcType="VARCHAR"/>
+        <result property="structureId" column="structure_id" jdbcType="INTEGER"/>
+        <result property="machineId" column="machine_id" jdbcType="VARCHAR"/>
+        <result property="trdTilesId" column="trd_tiles_id" jdbcType="INTEGER"/>
+        <result property="productId" column="product_id" jdbcType="INTEGER"/>
+        <result property="structureIdCascade" column="structure_id_cascade" jdbcType="VARCHAR"/>
+        <result property="buildColorAlarm" column="build_color_alarm" jdbcType="VARCHAR"/>
+        <result property="buildColorNormal" column="build_color_normal" jdbcType="VARCHAR"/>
+        <result property="buildColorOffline" column="build_color_offline" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- IotTrdStructureMachineVO查询结果集映射 -->
+    <resultMap id="IotTrdStructureMachineVOResultMap" type="com.linksame.vo.IotTrdStructureMachineVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="dataSources" column="data_sources" jdbcType="VARCHAR"/>
+        <result property="dataPerfect" column="data_perfect" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="trdNodeId" column="trd_node_id" jdbcType="VARCHAR"/>
+        <result property="trdNodeCoordinate" column="trd_node_coordinate" jdbcType="VARCHAR"/>
+        <result property="structureId" column="structure_id" jdbcType="INTEGER"/>
+        <result property="machineId" column="machine_id" jdbcType="VARCHAR"/>
+        <result property="trdTilesId" column="trd_tiles_id" jdbcType="INTEGER"/>
+        <result property="productId" column="product_id" jdbcType="INTEGER"/>
+        <result property="structureIdCascade" column="structure_id_cascade" jdbcType="VARCHAR"/>
+        <result property="buildColorAlarm" column="build_color_alarm" jdbcType="VARCHAR"/>
+        <result property="buildColorNormal" column="build_color_normal" jdbcType="VARCHAR"/>
+        <result property="buildColorOffline" column="build_color_offline" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, data_sources, data_perfect, type, trd_node_id, trd_node_coordinate, structure_id, machine_id, trd_tiles_id, product_id, structure_id_cascade, build_color_alarm, build_color_normal, build_color_offline</sql>
+
+
+    <!-- 根据id查询3D模型组件与资产结构设备关系详情(多服务) -->
+    <select id="queryIotTrdStructureMachineDetail" resultMap="IotTrdStructureMachineVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_structure_machine
+        WHERE del_flag = 0 AND id = #{id}
+    </select>
+
+    <!-- 无参查询3D模型组件与资产结构设备关系List -->
+    <select id="queryIotTrdStructureMachineList" resultMap="IotTrdStructureMachineVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_structure_machine
+        WHERE del_flag = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询3D模型组件与资产结构设备关系List -->
+    <select id="queryByConditions" resultMap="IotTrdStructureMachineVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_structure_machine
+        <where>
+            del_flag = 0
+            <if test="iotTrdStructureMachineDTO.name != null and iotTrdStructureMachineDTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{iotTrdStructureMachineDTO.name},'%')
+            </if>
+            <if test="iotTrdStructureMachineDTO.status != null and iotTrdStructureMachineDTO.status != '' ">
+                AND status = #{iotTrdStructureMachineDTO.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

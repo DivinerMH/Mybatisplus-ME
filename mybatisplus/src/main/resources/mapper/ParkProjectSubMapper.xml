@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.iot.external.structure.mapper.ParkProjectSubMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.iot.external.structure.entity.ParkProjectSub">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="projectStage" column="project_stage" jdbcType="VARCHAR"/>
+        <result property="projectStageName" column="project_stage_name" jdbcType="VARCHAR"/>
+        <result property="country" column="country" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="street" column="street" jdbcType="VARCHAR"/>
+        <result property="fourto" column="fourto" jdbcType="VARCHAR"/>
+        <result property="useType" column="use_type" jdbcType="VARCHAR"/>
+        <result property="planArchitectureArea" column="plan_architecture_area" jdbcType="NUMERIC"/>
+        <result property="capacityRate" column="capacity_rate" jdbcType="NUMERIC"/>
+        <result property="area" column="area" jdbcType="NUMERIC"/>
+        <result property="capacityArea" column="capacity_area" jdbcType="NUMERIC"/>
+        <result property="buildingHeightLimit" column="building_height_limit" jdbcType="VARCHAR"/>
+        <result property="buildingDensity" column="building_density" jdbcType="VARCHAR"/>
+        <result property="greenRate" column="green_rate" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="architectureAreaTotal" column="architecture_area_total" jdbcType="NUMERIC"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifer" column="modifer" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- ParkProjectSubVO查询结果集映射 -->
+    <resultMap id="ParkProjectSubVOResultMap" type="com.linksame.iot.external.structure.vo.ParkProjectSubVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+        <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+        <result property="projectStage" column="project_stage" jdbcType="VARCHAR"/>
+        <result property="projectStageName" column="project_stage_name" jdbcType="VARCHAR"/>
+        <result property="country" column="country" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="street" column="street" jdbcType="VARCHAR"/>
+        <result property="fourto" column="fourto" jdbcType="VARCHAR"/>
+        <result property="useType" column="use_type" jdbcType="VARCHAR"/>
+        <result property="planArchitectureArea" column="plan_architecture_area" jdbcType="NUMERIC"/>
+        <result property="capacityRate" column="capacity_rate" jdbcType="NUMERIC"/>
+        <result property="area" column="area" jdbcType="NUMERIC"/>
+        <result property="capacityArea" column="capacity_area" jdbcType="NUMERIC"/>
+        <result property="buildingHeightLimit" column="building_height_limit" jdbcType="VARCHAR"/>
+        <result property="buildingDensity" column="building_density" jdbcType="VARCHAR"/>
+        <result property="greenRate" column="green_rate" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="architectureAreaTotal" column="architecture_area_total" jdbcType="NUMERIC"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifer" column="modifer" jdbcType="VARCHAR"/>
+        <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, company_id, project_id, project_stage, project_stage_name, country, province, city, district, street, fourto, use_type, plan_architecture_area, capacity_rate, area, capacity_area, building_height_limit, building_density, green_rate, image, remark, architecture_area_total, creator, create_time, modifer, modify_time, delete_flag</sql>
+
+
+    <!-- 根据id查询资源管理-项目分期表详情(多服务) -->
+    <select id="queryParkProjectSubDetail" resultMap="ParkProjectSubVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM park_project_sub
+        WHERE del_flag = 0 AND id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 无参查询资源管理-项目分期表List -->
+    <select id="queryParkProjectSubList" resultMap="ParkProjectSubVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM park_project_sub
+        WHERE del_flag = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询资源管理-项目分期表List -->
+    <select id="queryByConditions" resultMap="ParkProjectSubVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM park_project_sub
+        <where>
+            del_flag = 0
+            <if test="parkProjectSubDTO.name != null and parkProjectSubDTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{parkProjectSubDTO.name},'%')
+            </if>
+            <if test="parkProjectSubDTO.status != null and parkProjectSubDTO.status != '' ">
+                AND status = #{parkProjectSubDTO.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
