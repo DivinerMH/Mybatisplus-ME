@@ -8,7 +8,7 @@ public class QrCodeTest {
 
     public static void main(String[] args) throws Exception {
         // 存放在二维码中的内容
-        String text = "梅老板，YYDS";
+        String text = "诗羽是居宝宝";
         // 嵌入二维码的图片路径
         // String imgPath = "G:/qrCode/dog.jpg";
         // String imgPath = "C:\\Users\\Administrator\\Desktop\\Alink.png";
