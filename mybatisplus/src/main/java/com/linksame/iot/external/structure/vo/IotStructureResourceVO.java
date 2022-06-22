@@ -1,10 +1,8 @@
 package com.linksame.iot.external.structure.vo;
 
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.linksame.iot.external.structure.entity.IotStructureResource;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;

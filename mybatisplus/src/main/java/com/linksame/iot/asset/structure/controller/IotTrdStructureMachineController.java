@@ -1,17 +1,14 @@
 package com.linksame.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.linksame.dto.IotTrdStructureMachineDTO;
 import com.linksame.iot.common.core.constant.enums.BusinessEnum;
 import com.linksame.iot.common.core.util.R;
 import com.linksame.iot.common.log.annotation.SysLog;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.linksame.entity.IotTrdStructureMachine;
-import com.linksame.vo.IotTrdStructureMachineVO;
-import com.linksame.dto.IotTrdStructureMachineDTO;
 import com.linksame.service.IIotTrdStructureMachineService;
+import com.linksame.vo.IotTrdStructureMachineVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

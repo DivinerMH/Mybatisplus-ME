@@ -4,9 +4,9 @@ package com.linksame.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.linksame.dto.IotTrdStructureMachineDTO;
 import com.linksame.entity.IotTrdStructureMachine;
 import com.linksame.vo.IotTrdStructureMachineVO;
-import com.linksame.dto.IotTrdStructureMachineDTO;
 
 import java.util.List;
 

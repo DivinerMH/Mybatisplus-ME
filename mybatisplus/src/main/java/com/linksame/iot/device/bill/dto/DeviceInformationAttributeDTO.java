@@ -1,15 +1,10 @@
 package com.linksame.iot.device.bill.dto;
 
 
-import java.time.LocalDateTime;
-
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.linksame.iot.device.bill.entity.DeviceInformationAttribute;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 

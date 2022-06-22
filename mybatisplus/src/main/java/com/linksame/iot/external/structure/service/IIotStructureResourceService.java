@@ -4,9 +4,9 @@ package com.linksame.iot.external.structure.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.linksame.iot.external.structure.dto.IotStructureResourceDTO;
 import com.linksame.iot.external.structure.entity.IotStructureResource;
 import com.linksame.iot.external.structure.vo.IotStructureResourceVO;
-import com.linksame.iot.external.structure.dto.IotStructureResourceDTO;
 
 import java.util.List;
 
