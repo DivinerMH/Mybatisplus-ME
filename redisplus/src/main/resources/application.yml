@@ -17,3 +17,12 @@ spring:
         max-idle: 200
         # 最小空闲连接，默认0
         min-idle: 5
+
+#配置日志
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    # root: ERROR
+    # com.example.redisplus: error
+    # com.example.redisplus: debug
+    com.example.redisplus.seckill: error

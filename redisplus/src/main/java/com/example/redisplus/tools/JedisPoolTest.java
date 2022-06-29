@@ -1,6 +1,6 @@
 package com.example.redisplus.tools;
 
-import com.example.redisplus.utils.JedisPoolUtil;
+import com.example.redisplus.utils.JedisPoolUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -8,10 +8,10 @@ import redis.clients.jedis.JedisPool;
  * @Author: menghuan
  * @Date: 2022/6/23 17:53
  */
-public class testJedisPool {
+public class JedisPoolTest {
 
     public static void main(String[] args) {
-        JedisPool jedisPool = JedisPoolUtil.getJedisPoolInstance();
+        JedisPool jedisPool = JedisPoolUtils.getJedisPoolInstance();
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -20,7 +20,7 @@ public class testJedisPool {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JedisPoolUtil.release(jedisPool, jedis);
+            JedisPoolUtils.release(jedisPool, jedis);
         }
     }
 
