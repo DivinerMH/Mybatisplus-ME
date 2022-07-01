@@ -22,7 +22,7 @@ spring:
 logging:
   config: classpath:logback-spring.xml
   level:
-    # root: ERROR
+    root: error
     # com.example.redisplus: error
     # com.example.redisplus: debug
-    com.example.redisplus.seckill: error
+    # com.example.redisplus.seckill: error

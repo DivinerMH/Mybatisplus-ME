@@ -36,7 +36,7 @@ public class RedisUtils {
                     .set(key, val, "NX", "PX", 1000 * 60 * 3)
                     .equalsIgnoreCase("OK");
         } catch (Exception ex) {
-            log.info("Redis分布式锁加锁异常,请核实后操作！");
+            // log.info("Redis分布式锁加锁异常,请核实后操作！");
         } finally {
             if (jedis != null) {
                 jedis.close();
@@ -69,7 +69,7 @@ public class RedisUtils {
                     .append(" end");
             return Integer.valueOf(jedis.eval(sbScript.toString()).toString());
         } catch (Exception ex) {
-            log.info("Redis分布式锁解锁异常,请核实后操作！");
+            // log.info("Redis分布式锁解锁异常,请核实后操作！");
         } finally {
             if (jedis != null) {
                 jedis.close();

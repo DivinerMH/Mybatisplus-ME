@@ -18,6 +18,7 @@ import java.util.stream.IntStream;
  */
 @Slf4j
 public class SeckillTest {
+
     // 总库存
     private long kuCun = 0;
     // 商品key名字
@@ -110,10 +111,13 @@ public class SeckillTest {
         System.out.println(shopUsers);
     }
 
+    /**
+     * 单行
+     */
     @Test
     public void serialTest(){
-        //构造很多用户
-        Set<String> users = new HashSet<>();
+        // 构造很多用户
+        List<String> users = new ArrayList<>();
         IntStream.range(0, 1000000)
                 //.distinct()
                 //.boxed()
@@ -123,9 +127,13 @@ public class SeckillTest {
         System.out.println("数量：" + users.size());
     }
 
+    /**
+     * 并行
+     */
     @Test
     public void parallelTest(){
-        //构造很多用户
+        // 构造很多用户
+        // List<String> users = new ArrayList<>();
         Set<String> users = new HashSet<>();
         IntStream.range(0, 100000)
                 //.boxed()
@@ -133,6 +141,33 @@ public class SeckillTest {
                 .forEach(b -> users.add("神牛-" + b)
                 );
         System.out.println("数量：" + users.size());
+    }
+
+    @Test
+    public void testLog(){
+        String logLevel = JudgeCurrentLevel();
+        System.out.println(logLevel);
+
+        log.debug("debug");
+        log.info("info");
+        log.error("error");
+        log.warn("warn");
+    }
+
+
+    private String JudgeCurrentLevel(){
+        if (log.isDebugEnabled()){
+            return "当前日志等级：debug";
+        }else if (log.isInfoEnabled()){
+            return "当前日志等级：info";
+        }
+        else if (log.isWarnEnabled()){
+            return "当前日志等级：warn";
+        }
+        else if (log.isErrorEnabled()){
+            return "当前日志等级：error";
+        }
+        return log.getName();
     }
 
 }
