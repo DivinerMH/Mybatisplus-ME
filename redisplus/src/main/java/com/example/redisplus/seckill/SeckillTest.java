@@ -143,31 +143,6 @@ public class SeckillTest {
         System.out.println("数量：" + users.size());
     }
 
-    @Test
-    public void testLog(){
-        String logLevel = JudgeCurrentLevel();
-        System.out.println(logLevel);
 
-        log.debug("debug");
-        log.info("info");
-        log.error("error");
-        log.warn("warn");
-    }
-
-
-    private String JudgeCurrentLevel(){
-        if (log.isDebugEnabled()){
-            return "当前日志等级：debug";
-        }else if (log.isInfoEnabled()){
-            return "当前日志等级：info";
-        }
-        else if (log.isWarnEnabled()){
-            return "当前日志等级：warn";
-        }
-        else if (log.isErrorEnabled()){
-            return "当前日志等级：error";
-        }
-        return log.getName();
-    }
 
 }

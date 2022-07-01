@@ -20,9 +20,9 @@ spring:
 
 #≈‰÷√»’÷æ
 logging:
-  config: classpath:logback-spring.xml
+  config: classpath:logback.xml
   level:
-    root: error
+    # root: error
     # com.example.redisplus: error
     # com.example.redisplus: debug
-    # com.example.redisplus.seckill: error
+    com.example.redisplus.seckill: error
