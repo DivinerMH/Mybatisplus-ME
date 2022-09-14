@@ -1,7 +1,10 @@
 package com.menghuan.aop;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,11 +23,20 @@ import org.springframework.stereotype.Component;
 @Aspect // 定义切面
 public class AgentProxy {
 
+    @Pointcut("@annotation(com.menghuan.aop.AgentProxyAnnotation)")
+    public void validToken(){}
+
     // 声明前置通知
     // 切点表达式：可以指定方法，指定包，指定方法可见性等
     @Before("execution(void com.menghuan.proxyPattern.StaticProxyPerson.skill())")
     public void doSkill(){
         System.out.println("我是经纪人，能接代言，接戏，管理粉丝");
     }
+
+    @After(value = "validToken()")
+    public void after(JoinPoint joinPoint)throws Throwable{
+        System.out.println("调用方法后执行。。。");
+    }
+
 
 }
