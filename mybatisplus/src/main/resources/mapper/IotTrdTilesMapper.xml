@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linksame.mapper.IotTrdTilesMapper">
+    <!-- 通用查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.linksame.entity.IotTrdTiles">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="tenantId" column="tenant_id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="structureId" column="structure_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="abbrDataFormat" column="abbr_data_format" jdbcType="VARCHAR"/>
+        <result property="abbrUrl" column="abbr_url" jdbcType="VARCHAR"/>
+        <result property="abbrUrlOuter" column="abbr_url_outer" jdbcType="VARCHAR"/>
+        <result property="resourceIcon" column="resource_icon" jdbcType="VARCHAR"/>
+        <result property="lng" column="lng" jdbcType="VARCHAR"/>
+        <result property="lat" column="lat" jdbcType="VARCHAR"/>
+        <result property="height" column="height" jdbcType="VARCHAR"/>
+        <result property="heading" column="heading" jdbcType="VARCHAR"/>
+        <result property="buildStructure" column="build_structure" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- IotTrdTilesVO查询结果集映射 -->
+    <resultMap id="IotTrdTilesVOResultMap" type="com.linksame.vo.IotTrdTilesVO">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="tenantId" column="tenant_id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="structureId" column="structure_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="abbrDataFormat" column="abbr_data_format" jdbcType="VARCHAR"/>
+        <result property="abbrUrl" column="abbr_url" jdbcType="VARCHAR"/>
+        <result property="abbrUrlOuter" column="abbr_url_outer" jdbcType="VARCHAR"/>
+        <result property="resourceIcon" column="resource_icon" jdbcType="VARCHAR"/>
+        <result property="lng" column="lng" jdbcType="VARCHAR"/>
+        <result property="lat" column="lat" jdbcType="VARCHAR"/>
+        <result property="height" column="height" jdbcType="VARCHAR"/>
+        <result property="heading" column="heading" jdbcType="VARCHAR"/>
+        <result property="buildStructure" column="build_structure" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, tenant_id, type, structure_id, name, abbr_data_format, abbr_url, abbr_url_outer, resource_icon, lng, lat, height, heading, build_structure, status, create_time, update_time, del_flag</sql>
+
+
+    <!-- 根据id查询3d-tiles 文件数据表详情(多服务) -->
+    <select id="queryIotTrdTilesDetail" resultMap="IotTrdTilesVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_tiles
+        WHERE del_flag = 0 AND id = #{id}
+    </select>
+
+    <!-- 无参查询3d-tiles 文件数据表List -->
+    <select id="queryIotTrdTilesList" resultMap="IotTrdTilesVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_tiles
+        WHERE del_flag = 0
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 条件查询3d-tiles 文件数据表List -->
+    <select id="queryByConditions" resultMap="IotTrdTilesVOResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM iot_trd_tiles
+        <where>
+            del_flag = 0
+            <if test="iotTrdTilesDTO.name != null and iotTrdTilesDTO.name != '' ">
+                AND `name` LIKE CONCAT('%', #{iotTrdTilesDTO.name},'%')
+            </if>
+            <if test="iotTrdTilesDTO.status != null and iotTrdTilesDTO.status != '' ">
+                AND status = #{iotTrdTilesDTO.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
