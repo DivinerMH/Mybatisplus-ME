@@ -2,6 +2,7 @@ package com.menghuan.stringJSON;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.test_I.codeTest_2020_11.TemporaryEntity;
 import org.junit.Test;
 
@@ -90,5 +91,104 @@ public class JsonDeal {
         }
     }
 
+    @Test
+    public void xxxTest4() {
+        String jsonStr = "{\n" +
+                "\t\"total\": 3,\n" +
+                "\t\"rows\": [\n" +
+                "\t\t{\n" +
+                "\t\t\t\"sendId\": 1638947137,\n" +
+                "\t\t\t\"isShowStr\": \"\",\n" +
+                "\t\t\t\"statusStr\": \"否\",\n" +
+                "\t\t\t\"remark\": \"\",\n" +
+                "\t\t\t\"delFlag\": \"1\",\n" +
+                "\t\t\t\"gmtUpdateTime\": \"2022-03-07 16:05:31\",\n" +
+                "\t\t\t\"proIdStr\": \"讯饶DDC\",\n" +
+                "\t\t\t\"commandName\": \"读电能\",\n" +
+                "\t\t\t\"protocolName\": \"读取电能数据\",\n" +
+                "\t\t\t\"proName\": \"讯饶DDC\",\n" +
+                "\t\t\t\"actionTypeStr\": \"功能键\",\n" +
+                "\t\t\t\"protocolIdStr\": \"读取电能数据\",\n" +
+                "\t\t\t\"isShow\": \"\",\n" +
+                "\t\t\t\"delFlagStr\": \"启用\",\n" +
+                "\t\t\t\"actionType\": \"7\",\n" +
+                "\t\t\t\"protocolId\": 1646623910,\n" +
+                "\t\t\t\"isWriteStr\": \"否\",\n" +
+                "\t\t\t\"proId\": 1646206284,\n" +
+                "\t\t\t\"tenantId\": 0,\n" +
+                "\t\t\t\"gmtCreateTime\": \"2022-03-07 16:04:04\",\n" +
+                "\t\t\t\"isWrite\": \"0\",\n" +
+                "\t\t\t\"status\": \"0\",\n" +
+                "\t\t\t\"actionName\": \"读电能\"\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\t\"sendId\": 1638947136,\n" +
+                "\t\t\t\"isShowStr\": \"\",\n" +
+                "\t\t\t\"statusStr\": \"否\",\n" +
+                "\t\t\t\"remark\": \"\",\n" +
+                "\t\t\t\"delFlag\": \"1\",\n" +
+                "\t\t\t\"gmtUpdateTime\": \"2022-03-07 16:03:44\",\n" +
+                "\t\t\t\"proIdStr\": \"讯饶DDC\",\n" +
+                "\t\t\t\"commandName\": \"关\",\n" +
+                "\t\t\t\"protocolName\": \"IO424CAT1.DO1写入\",\n" +
+                "\t\t\t\"proName\": \"讯饶DDC\",\n" +
+                "\t\t\t\"actionTypeStr\": \"关\",\n" +
+                "\t\t\t\"protocolIdStr\": \"IO424CAT1.DO1写入\",\n" +
+                "\t\t\t\"isShow\": \"\",\n" +
+                "\t\t\t\"delFlagStr\": \"启用\",\n" +
+                "\t\t\t\"actionType\": \"2\",\n" +
+                "\t\t\t\"protocolId\": 1646624051,\n" +
+                "\t\t\t\"isWriteStr\": \"否\",\n" +
+                "\t\t\t\"proId\": 1646206284,\n" +
+                "\t\t\t\"tenantId\": 0,\n" +
+                "\t\t\t\"gmtCreateTime\": \"2022-03-07 16:03:44\",\n" +
+                "\t\t\t\"isWrite\": \"0\",\n" +
+                "\t\t\t\"status\": \"0\",\n" +
+                "\t\t\t\"actionName\": \"\"\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\t\"sendId\": 1638947135,\n" +
+                "\t\t\t\"isShowStr\": \"\",\n" +
+                "\t\t\t\"statusStr\": \"否\",\n" +
+                "\t\t\t\"remark\": \"\",\n" +
+                "\t\t\t\"delFlag\": \"1\",\n" +
+                "\t\t\t\"gmtUpdateTime\": \"2022-03-07 16:03:32\",\n" +
+                "\t\t\t\"proIdStr\": \"讯饶DDC\",\n" +
+                "\t\t\t\"commandName\": \"开\",\n" +
+                "\t\t\t\"protocolName\": \"IO424CAT1.DO1写入\",\n" +
+                "\t\t\t\"proName\": \"讯饶DDC\",\n" +
+                "\t\t\t\"actionTypeStr\": \"开\",\n" +
+                "\t\t\t\"protocolIdStr\": \"IO424CAT1.DO1写入\",\n" +
+                "\t\t\t\"isShow\": \"\",\n" +
+                "\t\t\t\"delFlagStr\": \"启用\",\n" +
+                "\t\t\t\"actionType\": \"1\",\n" +
+                "\t\t\t\"protocolId\": 1646624051,\n" +
+                "\t\t\t\"isWriteStr\": \"否\",\n" +
+                "\t\t\t\"proId\": 1646206284,\n" +
+                "\t\t\t\"tenantId\": 0,\n" +
+                "\t\t\t\"gmtCreateTime\": \"2022-03-07 16:03:32\",\n" +
+                "\t\t\t\"isWrite\": \"0\",\n" +
+                "\t\t\t\"status\": \"0\",\n" +
+                "\t\t\t\"actionName\": \"\"\n" +
+                "\t\t}\n" +
+                "\t]\n" +
+                "}";
+        JSONObject jsonObject = JSONObject.parseObject(jsonStr);
+        System.out.println(jsonObject.toJSONString());
+
+        Object rows = jsonObject.get("rows");
+        System.out.println("=========================================================================================");
+        System.out.println(rows.toString());
+        System.out.println("=========================================================================================");
+        List<Object> list = JSONArray.parseArray(rows.toString(), Object.class);
+        System.out.println(list);
+        for (Object o : list) {
+
+        }
+
+    }
 
 }
+
+
+

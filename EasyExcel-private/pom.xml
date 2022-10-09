@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>menghuan.com</groupId>
-    <artifactId>EasyExcel_private</artifactId>
+    <artifactId>EasyExcel-private</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

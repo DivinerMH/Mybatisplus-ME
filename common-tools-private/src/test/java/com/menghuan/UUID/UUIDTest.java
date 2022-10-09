@@ -1,4 +1,4 @@
-package com.test_I.codeTest_2022_09;
+package com.menghuan.UUID;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

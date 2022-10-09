@@ -1,4 +1,4 @@
-package com.test_I.codeTest_2022_07;
+package com.menghuan.UUID;
 
 import org.junit.jupiter.api.Test;
 
