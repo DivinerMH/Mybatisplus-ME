@@ -44,7 +44,7 @@ public class SnowFlakeUtil {
 
     // 产生下一个ID
     public synchronized long getNextId() {
-        long currStmp = getNewstmp();
+        long currStmp = getNewTimestamp();
         if (currStmp < lastStmp) {
             throw new RuntimeException("Clock moved backwards.Refusing to generate id");
         }
@@ -71,17 +71,16 @@ public class SnowFlakeUtil {
     // 获取新的毫秒数
     private long getNextMill()
     {
-        long mill = getNewstmp();
+        long mill = getNewTimestamp();
         while (mill <= lastStmp)
         {
-            mill = getNewstmp();
+            mill = getNewTimestamp();
         }
         return mill;
     }
 
     // 获取当前的毫秒数
-    private long getNewstmp()
-    {
+    private long getNewTimestamp(){
         return System.currentTimeMillis();
     }
 
@@ -89,7 +88,9 @@ public class SnowFlakeUtil {
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             SnowFlakeUtil snowFlakeUtil = new SnowFlakeUtil (12,13);
-            System.out.println(snowFlakeUtil.getNextId());
+            long nextId = snowFlakeUtil.getNextId();
+            String s = nextId + "";
+            System.out.println(snowFlakeUtil.getNextId() + " 位数：" + (s.length() + 1));
         }
     }
 
