@@ -44,33 +44,32 @@ public class SnowFlakeUtil {
 
     // 产生下一个ID
     public synchronized long getNextId() {
-        long currStmp = getNewTimestamp();
-        if (currStmp < lastStmp) {
+        long currTimestamp = getNewTimestamp();
+        if (currTimestamp < lastStmp) {
             throw new RuntimeException("Clock moved backwards.Refusing to generate id");
         }
-        if (currStmp == lastStmp) {
+        if (currTimestamp == lastStmp) {
             // 若在相同毫秒内 序列号自增
             sequence = (sequence + 1) & MAX_SEQUENCE;
             // 同一毫秒的序列数已达到最大
             if (sequence == 0L)
             {
-                currStmp = getNextMill();
+                currTimestamp = getNextMill();
             }
         } else {
             // 若在不同毫秒内 则序列号置为0
             sequence = 0L;
         }
-        lastStmp = currStmp;
+        lastStmp = currTimestamp;
 
-        return (currStmp - START_STMP) << TIMESTMP_LEFT // 时间戳部分
+        return (currTimestamp - START_STMP) << TIMESTMP_LEFT // 时间戳部分
                 | datacenterId << DATACENTER_LEFT // 机房id部分
                 | machineId << MACHINE_LEFT // 机器id部分
                 | sequence; // 序列号部分
     }
 
     // 获取新的毫秒数
-    private long getNextMill()
-    {
+    private long getNextMill(){
         long mill = getNewTimestamp();
         while (mill <= lastStmp)
         {
