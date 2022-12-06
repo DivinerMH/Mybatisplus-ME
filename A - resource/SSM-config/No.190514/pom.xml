@@ -116,7 +116,7 @@
     <dependency>  <!--封装了各种网络协议的客户端，支持FTP、NNTP、SMTP、POP3、Telnet等协议。-->
       <groupId>commons-net</groupId>
       <artifactId>commons-net</artifactId>
-      <version>3.6</version>
+      <version>3.9.0</version>
     </dependency>
     <dependency>   <!--Java文件上传的工具包、文件上传时候的组件-->
       <groupId>commons-fileupload</groupId>
