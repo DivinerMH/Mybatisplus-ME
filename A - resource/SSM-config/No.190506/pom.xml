@@ -120,7 +120,7 @@
     <dependency>   <!--Java文件上传的工具包、文件上传时候的组件-->
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
-      <version>1.3.3</version>
+      <version>1.5</version>
     </dependency>
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>shiro框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
