@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace=".dao.ContractMapper">
+<mapper namespace="com.cateyes.smart.park.invest.dao.ContractMapper">
 
-    <resultMap id="BaseResultMap" type=".bean.po.Contract">
+    <resultMap id="BaseResultMap" type="com.cateyes.smart.park.invest.bean.po.Contract">
         <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
         <result property="companyId" column="company_id" jdbcType="INTEGER"/>
         <result property="type" column="type" jdbcType="INTEGER"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
@@ -19,6 +20,6 @@
     </resultMap>
 
     <!-- 通用查询基本字段 -->
-    <sql id="Base_Column_List">id, company_id, type, name, serial_number, state, file_id, file_signed_id, create_by, create_time, update_by, update_time, filing_time</sql>
+    <sql id="Base_Column_List">id, park_id, company_id, type, name, serial_number, state, file_id, file_signed_id, create_by, create_time, update_by, update_time, filing_time</sql>
 
 </mapper>

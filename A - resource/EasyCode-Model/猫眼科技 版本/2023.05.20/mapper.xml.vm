@@ -1,0 +1,57 @@
+##引入mybatis支持
+    $!{mybatisSupport.vm}
+
+    #set($tableName = $tool.append($!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),"Mapper"))
+##定义实体对象名
+    #set($poName = $!tool.getClassName($!{tableInfo.obj.name.replaceFirst("sp_iot_","")}))
+
+##设置保存名称与保存位置
+    $!callback.setFileName($tool.append($!{tableName}, ".xml"))
+    $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
+##$!callback.setSavePath($tool.append($projectPath, "/dao/xml"))
+
+##拿到主键
+    #if(!$tableInfo.pkColumn.isEmpty())
+        #set($pk = $tableInfo.pkColumn.get(0))
+    #end
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="$!{tableInfo.savePackageName}.dao.$!{tableName}">
+
+    <!-- Rsp$!{poName}Dto查询结果集映射 -->
+    <resultMap id="Rsp$!{poName}DtoResultMap" type="$!{tableInfo.savePackageName}.bean.dto.Rsp$!{poName}Dto">
+        #foreach($column in $tableInfo.fullColumn)
+            <result property="$!column.name" column="$!column.obj.name" jdbcType="$!column.ext.jdbcType"/>
+        #end
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">#allSqlColumn()</sql>
+
+
+    <!-- $!{tableInfo.comment}-详情查询 -->
+    <select id="queryDetail" resultMap="Rsp$!{poName}DtoResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM $!tableInfo.obj.name
+        WHERE id = #{id}
+    </select>
+
+    <!-- $!{tableInfo.comment}-条件查询 -->
+    <select id="queryByConditions"  resultMap="Rsp$!{poName}DtoResultMap">
+        SELECT
+        #allSqlColumn()
+        FROM $!tableInfo.obj.name
+        <where>
+            <if test="reqDto.type != null and reqDto.type != '' ">
+                AND type = #{reqDto.type}
+            </if>
+            <if test="reqDto.status != null">
+                AND status = #{reqDto.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

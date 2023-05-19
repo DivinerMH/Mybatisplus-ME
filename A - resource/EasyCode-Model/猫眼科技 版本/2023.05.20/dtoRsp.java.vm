@@ -1,0 +1,40 @@
+##导入宏定义 - 模板
+$!define.vm
+
+##包路径（宏定义）
+#setPackageSuffix("bean.dto")
+
+##保存文件（宏定义）
+#save("/bean/dto", "Dto.java")
+
+##设置文件名（自定义）（当前环境 -> ResXxxMapper；覆盖模板 tableName）
+##重置（宏定义）模板表名：tableName，为其添加自定义前缀、后缀
+#set($tableName = $tool.append("Rsp",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),"Dto"))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+##设置回调 (使用当前 tableName 变量为参数，添加 .java后缀，作为当前文件命名)
+$!callback.setFileName($tool.append($tableName,".java"))
+
+##自动导入包（全局变量）
+$!autoImport
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+##表注释（宏定义）
+#tableComment("RspDto")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class $tableName implements Serializable {
+
+#foreach($column in $tableInfo.fullColumn)
+@ApiModelProperty(value = "#if(${column.comment})${column.comment}#end")
+private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+
+#end
+
+}

@@ -1,0 +1,104 @@
+$!define.vm
+
+#setPackageSuffix("service.impl")
+
+##保存文件（宏定义）
+#save("/service/impl", ".java")
+
+#set($tableName = $tool.append("",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),""))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+$!callback.setFileName($tool.append($tableName,"ServiceImpl.java"))
+
+##自动导入包（全局变量）
+$!autoImport
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
+
+import javax.annotation.Resource;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Service;
+import com.cateyes.smart.park.base.api.ApiCode;
+import com.cateyes.smart.park.core.util.Assert;
+
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.cateyes.smart.park.base.bean.vo.PageInfo;
+import com.cateyes.smart.park.base.util.BeanMapperUtil;
+
+/**
+ * $!{tableInfo.comment}($!{tableInfo.name})impl
+ *
+ * @author $!author
+ * @since $!time.currTime()
+ */
+@Service
+@AllArgsConstructor
+public class ${tableName}ServiceImpl extends ServiceImpl<$!{tableName}Mapper, $!{tableName}> implements I$!{tableName}Service{
+
+    @Resource
+    private ${tableName}Mapper ${entityName}Mapper;
+
+    @Override
+    public int save$!{tableName}(Req$!{tableName}Dto reqDto){
+        List<${tableName}> list = ${entityName}Mapper.selectList(
+                new LambdaQueryWrapper<${tableName}>().eq(StringUtils.isNotBlank(reqDto.getName()), ${tableName}::getName, reqDto.getName()));
+        Assert.isTrue(CollectionUtils.isEmpty(list), "名称重复");
+        return ${entityName}Mapper.insert(BeanMapperUtil.map(reqDto, ${tableName}.class));
+    }
+
+    @Override
+    public Boolean delete$!{tableName}(Integer id){
+        ${tableName} ${entityName} = ${entityName}Mapper.selectById(id);
+        Assert.notNull(${entityName}, ApiCode.RESOURCE_NOT_EXISTS.getMsg());
+        return ${entityName}Mapper.deleteById(id) > 0;
+    }
+
+    @Override
+    public Boolean update$!{tableName}(Req${tableName}Dto reqDto){
+        ${tableName} ${entityName} = ${entityName}Mapper.selectById(reqDto.getId());
+        Assert.notNull(${entityName}, ApiCode.RESOURCE_NOT_EXISTS.getMsg());
+        if (reqDto.getName() != null && !StringUtils.equals(${entityName}.getName(), reqDto.getName())) {
+            List<${tableName}> list =
+                        ${entityName}Mapper.selectList(Wrappers.<${tableName}>lambdaQuery().eq(${tableName}::getName, reqDto.getName()));
+            Assert.isTrue(CollectionUtils.isEmpty(list), ApiCode.INVEST_INDUSTRY_NAME_REPEAT);
+        }
+        return ${entityName}Mapper.updateById(BeanMapperUtil.map(reqDto, ${tableName}.class)) > 0;
+    }
+
+    @Override
+    public Rsp${tableName}Dto queryDetail(Integer id){
+        return ${entityName}Mapper.queryDetail(id);
+    }
+
+    @Override
+    public List<Rsp${tableName}Dto> queryList(Req${tableName}Dto reqDto) {
+        return ${entityName}Mapper.queryByConditions(reqDto);
+    }
+
+    @Override
+    public PageInfo<Rsp${tableName}Dto> queryPage(Req${tableName}Dto reqDto) {
+        return queryPageConditions(reqDto);
+    }
+
+    private PageInfo<Rsp${tableName}Dto> queryPageConditions(Req${tableName}Dto reqDto) {
+        Page<Rsp${tableName}Dto> page = new Page<>();
+        if (null != reqDto.getPageNo()) {
+            page.setCurrent(reqDto.getPageNo());
+        }
+        if (null != reqDto.getPageSize()) {
+            page.setSize(reqDto.getPageSize());
+        }
+        IPage<Rsp${tableName}Dto> pageInfo = ${entityName}Mapper.queryByConditions(page, reqDto);
+        PageInfo<Rsp${tableName}Dto> pageResult = PageUtil.build(Math.toIntExact(pageInfo.getCurrent()),
+                Math.toIntExact(page.getSize()), pageInfo.getRecords(), Math.toIntExact(page.getTotal()));
+        if (CollectionUtils.isEmpty(pageResult.getList())) {
+            return pageResult;
+        }
+        // 数据转换
+        return pageResult;
+    }
+
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.invest.dao.InvestmentLeadMapper">
+
+    <resultMap id="BaseResultMap" type="com.cateyes.smart.park.invest.bean.po.InvestmentLead">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="serialNumber" column="serial_number" jdbcType="VARCHAR"/>
+        <result property="contactPerson" column="contact_person" jdbcType="VARCHAR"/>
+        <result property="contactTel" column="contact_tel" jdbcType="VARCHAR"/>
+        <result property="wayFromId" column="way_from_id" jdbcType="INTEGER"/>
+        <result property="wayChannelId" column="way_channel_id" jdbcType="INTEGER"/>
+        <result property="follow" column="follow" jdbcType="INTEGER"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, name, serial_number, contact_person, contact_tel, way_from_id, way_channel_id, follow, create_by, create_time</sql>
+    
+</mapper>

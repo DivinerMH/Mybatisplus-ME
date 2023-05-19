@@ -1,0 +1,74 @@
+$!define.vm
+
+#setPackageSuffix("service")
+
+##保存文件（宏定义）
+#save("/service", ".java")
+
+#set($tableName = $tool.append("",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),""))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+$!callback.setFileName($tool.append("I",$tableName,"Service.java"))
+
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
+import $!{tableInfo.savePackageName}.bean.dto.Rsp$!{entityName}Dto;
+import $!{tableInfo.savePackageName}.bean.dto.Req$!{entityName}Dto;
+import $!{tableInfo.savePackageName}.bean.po.$!{entityName};
+
+/**
+ * $!{tableInfo.comment}($!{tableInfo.name})service
+ *
+ * @author $!author
+ * @since $!time.currTime()
+ */
+##public interface $fileName extends SpBaseService<$tableName, Req${tableName}Dto> {}
+
+        public interface I$!{tableName}Service extends IService<$!tableName> {
+
+    /**
+     * $!{tableInfo.comment}-新增
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return 主键ID
+     */
+    int save$!{tableName}(Req$!{tableName}Dto reqDto);
+
+    /**
+     * $!{tableInfo.comment}-删除
+     * @param id $!{tableInfo.comment}id
+     * @return Boolean.TRUE or Boolean.FALSE
+     */
+    Boolean delete$!{tableName}(Integer id);
+
+    /**
+     * $!{tableInfo.comment}-修改
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return Boolean.TRUE or Boolean.FALSE
+     */
+    Boolean update$!{tableName}(Req$!{tableName}Dto reqDto);
+
+    /**
+     * $!{tableInfo.comment}-详情
+     * @param id $!{tableInfo.comment}id
+     * @return Rsp$!{tableName}Dto展示对象
+     */
+    Rsp$!{tableName}Dto queryDetail(Integer id);
+
+    /**
+     * $!{tableInfo.comment}-条件查询
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return Rsp$!{tableName}Dto展示对象List
+     */
+    List<Rsp$!{tableName}Dto> queryList(Req$!{tableName}Dto reqDto);
+
+    /**
+     * $!{tableInfo.comment}-分页查询
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return Rsp$!{tableName}Dto展示对象IPage
+     */
+    PageInfo<Rsp$!{tableName}Dto> queryPage(Req$!{tableName}Dto reqDto);
+
+}

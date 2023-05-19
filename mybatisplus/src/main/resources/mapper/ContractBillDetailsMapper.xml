@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.invest.dao.ContractBillDetailsMapper">
+
+    <resultMap id="BaseResultMap" type="com.cateyes.smart.park.invest.bean.po.ContractBillDetails">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+        <result property="billId" column="bill_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="dateChargeStart" column="date_charge_start" jdbcType="TIMESTAMP"/>
+        <result property="dateChargeEnd" column="date_charge_end" jdbcType="TIMESTAMP"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="datePayEnd" column="date_pay_end" jdbcType="TIMESTAMP"/>
+        <result property="priceUnit" column="price_unit" jdbcType="OTHER"/>
+        <result property="billTotal" column="bill_total" jdbcType="OTHER"/>
+        <result property="billReceivable" column="bill_receivable" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, contract_id, bill_id, name, date_charge_start, date_charge_end, type, date_pay_end, price_unit, bill_total, bill_receivable</sql>
+    
+</mapper>

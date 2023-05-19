@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.DeviceTypeMapper">
+
+    <!-- RspDeviceTypeDto查询结果集映射 -->
+    <resultMap id="RspDeviceTypeDtoResultMap" type=".bean.dto.RspDeviceTypeDto">
+                    <result property="id" column="id" jdbcType="INTEGER"/>
+                    <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+                    <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+                    <result property="typeName" column="type_name" jdbcType="VARCHAR"/>
+                    <result property="isDisabled" column="is_disabled" jdbcType="INTEGER"/>
+                    <result property="createAt" column="create_at" jdbcType="TIMESTAMP"/>
+                    <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, parent_id, type_name, is_disabled, create_at, create_by</sql>
+
+
+    <!-- -详情查询 -->
+    <select id="queryDetail" resultMap="RspDeviceTypeDtoResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM sp_iot_device_type
+        WHERE id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- -条件查询 -->
+    <select id="queryByConditions"  resultMap="RspDeviceTypeDtoResultMap">
+        SELECT
+            id, park_id, parent_id, type_name, is_disabled, create_at, create_by        FROM sp_iot_device_type
+        <where>
+            <if test="reqDto.type != null and reqDto.type != '' ">
+                AND type = #{reqDto.type}
+            </if>
+            <if test="reqDto.status != null">
+                AND status = #{reqDto.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    
+</mapper>

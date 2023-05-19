@@ -1,0 +1,75 @@
+##导入宏定义 - 模板
+$!define.vm
+
+##包路径（宏定义）
+#setPackageSuffix("bean.po")
+
+##保存文件（宏定义）
+#save("/bean/po", ".java")
+
+#set($tableName = $tool.append($!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot",""))))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+##设置回调 (使用当前 tableName 变量为参数，添加 .java后缀，作为当前文件命名)
+$!callback.setFileName($tool.append($tableName,".java"))
+
+##保存文件（宏定义）
+##savePo("/bean/po", ".java")
+
+##自动导入包（全局变量）
+$!autoImport
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.Date;
+##import java.time.LocalDateTime;
+
+##表注释（宏定义）
+#tableComment("Po")
+@Data
+##@ApiModel(value = "$!{tableInfo.comment}实体类")
+@Builder
+@Accessors(chain = true)
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("$!{tableInfo.obj.name}")
+public class $tableName implements Serializable  {
+
+## 统一序列化版本号
+## private static final long serialVersionUID = 1L;
+
+#foreach($column in $tableInfo.fullColumn)
+
+    #if($!{tool.getClsNameByFullName($column.name).contains('id')})
+    @TableId(value = "#if(${column.obj.name})${column.obj.name}#end", type = IdType.AUTO)
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #elseif($!{tool.getClsNameByFullName($column.name).contains('delFlag')})
+    @TableLogic
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end")
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #elseif($!{tool.getClsNameByFullName($column.name).contains('createBy')})
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end",fill = FieldFill.INSERT )
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #elseif($!{tool.getClsNameByFullName($column.name).contains('createTime')})
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end",fill = FieldFill.INSERT )
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #elseif($!{tool.getClsNameByFullName($column.name).contains('updateBy')})
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end",fill = FieldFill.INSERT )
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #elseif($!{tool.getClsNameByFullName($column.name).contains('updateTime')})
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end",fill = FieldFill.INSERT )
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #else
+    @TableField(value = "#if(${column.obj.name})${column.obj.name}#end")
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+    #end
+#end
+
+}

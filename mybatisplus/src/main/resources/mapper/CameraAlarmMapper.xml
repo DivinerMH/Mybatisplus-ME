@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.invest.dao.CameraAlarmMapper">
+
+    <!-- RspCameraAlarmDto查询结果集映射 -->
+    <resultMap id="RspCameraAlarmDtoResultMap" type="com.cateyes.smart.park.invest.bean.dto.RspCameraAlarmDto">
+                    <result property="id" column="id" jdbcType="INTEGER"/>
+                    <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+                    <result property="eventId" column="event_id" jdbcType="VARCHAR"/>
+                    <result property="cameraId" column="camera_id" jdbcType="INTEGER"/>
+                    <result property="regionId" column="region_id" jdbcType="INTEGER"/>
+                    <result property="positionId" column="position_id" jdbcType="INTEGER"/>
+                    <result property="eventType" column="event_type" jdbcType="INTEGER"/>
+                    <result property="eventLevel" column="event_level" jdbcType="INTEGER"/>
+                    <result property="deviceNum" column="device_num" jdbcType="VARCHAR"/>
+                    <result property="videoUrl" column="video_url" jdbcType="VARCHAR"/>
+                    <result property="handler" column="handler" jdbcType="VARCHAR"/>
+                    <result property="handlerTel" column="handler_tel" jdbcType="VARCHAR"/>
+                    <result property="state" column="state" jdbcType="INTEGER"/>
+                    <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+                    <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+                    <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+                    <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, event_id, camera_id, region_id, position_id, event_type, event_level, device_num, video_url, handler, handler_tel, state, create_by, create_time, update_by, update_time</sql>
+
+
+    <!-- 视屏告警事件-详情查询 -->
+    <select id="queryDetail" resultMap="RspCameraAlarmDtoResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM sp_iot_camera_alarm
+        WHERE id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 视屏告警事件-条件查询 -->
+    <select id="queryByConditions"  resultMap="RspCameraAlarmDtoResultMap">
+        SELECT
+            id, park_id, event_id, camera_id, region_id, position_id, event_type, event_level, device_num, video_url, handler, handler_tel, state, create_by, create_time, update_by, update_time        FROM sp_iot_camera_alarm
+        <where>
+            <if test="reqDto.type != null and reqDto.type != '' ">
+                AND type = #{reqDto.type}
+            </if>
+            <if test="reqDto.status != null">
+                AND status = #{reqDto.status}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    
+</mapper>

@@ -1,0 +1,61 @@
+##导入宏定义 - 模板
+$!define.vm
+
+##包路径（宏定义）
+#setPackageSuffix("dao")
+
+##保存文件（宏定义）
+#save("/dao", "Mapper.java")
+
+##设置表后缀（宏定义） - 重置（宏定义）模板表名：tableName，为其添加自定义后缀（Xxxxx -> XxxxMapper）
+##setTableSuffix("Mapper")
+
+##设置文件名（自定义）（当前环境 -> ResXxxMapper；覆盖模板 tableName）
+##重置（宏定义）模板表名：tableName，为其添加自定义前缀、后缀
+#set($tableName = $tool.append("",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),""))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+##设置回调 (使用当前 tableName 变量为参数，添加 .java后缀，作为当前文件命名)
+$!callback.setFileName($tool.append(${tableName},"Mapper.java"))
+
+##自动导入包（全局变量）
+$!autoImport
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import $!{tableInfo.savePackageName}.bean.dto.Rsp$!{entityName}Dto;
+import $!{tableInfo.savePackageName}.bean.po.$!{entityName};
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+##表注释（宏定义）
+#tableComment("Mapper")
+@Mapper
+public interface $!{tableName}Mapper extends BaseMapper<$!tableName> {
+
+    /**
+     * 根据id查询$!{tableInfo.comment}详情(跨服务)
+     * @param id $!{tableInfo.comment}id
+     * @return $!{tableInfo.comment}展示对象Rsp$!{tableName}Dto
+     */
+    Rsp$!{tableName}Dto queryDetail(@Param("id") Integer id);
+
+    /**
+     * 条件查询$!{tableInfo.comment}List
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return $!{tableInfo.comment}展示对象集合Rsp$!{tableName}DtoList
+     */
+    List<Rsp$!{tableName}Dto> queryByConditions(@Param("reqDto") Req$!{tableName}Dto reqDto);
+
+    /**
+     * 条件查询$!{tableInfo.comment}Page
+     * @param page 分页参数
+     * @param reqDto $!{tableInfo.comment}接收入参DTO
+     * @return $!{tableInfo.comment}展示对象集合Rsp$!{entityName}DtoList
+     */
+    IPage<Rsp$!{tableName}Dto> queryByConditions(@Param("page")Page page, @Param("reqDto") Req$!{tableName}Dto reqDto);
+
+}

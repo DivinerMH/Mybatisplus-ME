@@ -1,0 +1,113 @@
+$!define.vm
+
+#setPackageSuffix("controller")
+
+##保存文件（宏定义）
+#save("/controller", ".java")
+
+#set($tableName = $tool.append("",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_iot_","")),""))
+#set($entityName = $!tool.firstLowerCase($tableName))
+
+##set($fileName = $tool.append("",$!tool.getClassName($!tableInfo.obj.name.replaceFirst("sp_","")),"Controller"))
+
+$!callback.setFileName($tool.append($tableName,"Controller.java"))
+
+##自动导入包（全局变量）
+$!autoImport
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import com.cateyes.smart.park.base.api.ApiResult;
+import com.cateyes.smart.park.base.valid.PageValid;
+import com.cateyes.smart.park.base.valid.QueryValid;
+import com.cateyes.smart.park.base.valid.SaveValid;
+import com.cateyes.smart.park.base.valid.UpdateValid;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+/**
+ * Description: $!{tableInfo.comment}Controller
+ *
+ * @author $!author
+ * @since $!time.currTime()
+ */
+@RestController
+@RequestMapping("/$entityName")
+@Api(tags = "$!{tableInfo.comment}")
+public class ${tableName}Controller {
+
+    @Autowired
+    private I${tableName}Service ${entityName}Service;
+
+    /**
+     * $!{tableInfo.comment}-新增
+     * @param reqDto 入参Dto
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-新增")
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult save${tableName}(@Validated(SaveValid.class) @RequestBody Req$!{tableName}Dto reqDto) {
+        return ApiResult.ok(${entityName}Service.save${tableName}(reqDto));
+    }
+
+    /**
+     * $!{tableInfo.comment}-删除
+     * @param id 主键id
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-删除")
+    @PostMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult delete${tableName}(@PathVariable("id") Integer id) {
+            ${entityName}Service.delete${tableName}(id);
+        return ApiResult.ok();
+    }
+
+    /**
+     * $!{tableInfo.comment}-修改
+     * @param reqDto 入参Dto
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-修改")
+    @PostMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult update${tableName}(@Validated(UpdateValid.class) @RequestBody Req${tableName}Dto reqDto) {
+            ${entityName}Service.update${tableName}(reqDto);
+        return ApiResult.ok();
+    }
+
+    /**
+     * $!{tableInfo.comment}-详情查询
+     * @param id 主键id
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-详情查询")
+    @PostMapping(value = "/detail/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult queryDetail(@PathVariable("id") Integer id) {
+        return ApiResult.ok(${entityName}Service.queryDetail(id));
+    }
+
+    /**
+     * $!{tableInfo.comment}-条件查询
+     * @param reqDto 入参Dto
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-条件查询")
+    @PostMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult queryList(@RequestBody Req${tableName}Dto reqDto) {
+        return ApiResult.ok(${entityName}Service.queryList(reqDto));
+    }
+
+    /**
+     * $!{tableInfo.comment}-分页查询
+     * @param reqDto 入参Dto
+     * @return ApiResult
+     **/
+    @ApiOperation(value = "$!{tableInfo.comment}-分页查询")
+    @PostMapping(value = "/page", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResult queryPage(@Validated({PageValid.class}) @RequestBody Req${tableName}Dto reqDto) {
+        return ApiResult.ok(${entityName}Service.queryPage(reqDto));
+    }
+}
