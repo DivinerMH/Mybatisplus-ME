@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.safe.dao.PatrolStructureMapper">
+
+    <!-- RspPatrolStructureDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.safe.bean.dto.RspPatrolStructureDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="enterprise_id" jdbcType="INTEGER"/>
+        <result property="structureName" column="structure_name" jdbcType="VARCHAR"/>
+        <result property="structureCode" column="structure_code" jdbcType="VARCHAR"/>
+        <result property="region" column="region" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, enterprise_id, structure_name, structure_code, region, type, create_by, create_time, update_by, update_time</sql>
+
+
+    <!-- 构筑物-详情查询 -->
+    <select id="queryDetail" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_sf_patrol_structure
+        WHERE id = #{id}
+    </select>
+
+    <!-- 构筑物-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, park_id, enterprise_id, structure_name, structure_code, region, type, create_by, create_time, update_by,
+        update_time FROM sp_sf_patrol_structure
+        <where>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

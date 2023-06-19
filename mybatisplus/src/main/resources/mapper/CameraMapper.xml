@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.iot.dao.CameraMapper">
+
+    <!-- RspCameraDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.iot.bean.dto.RspCameraDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="deviceTypeId" column="device_type_id" jdbcType="INTEGER"/>
+        <result property="deviceTypeSubId" column="device_type_sub_id" jdbcType="INTEGER"/>
+        <result property="cameraName" column="camera_name" jdbcType="VARCHAR"/>
+        <result property="deviceAttr" column="device_attr" jdbcType="INTEGER"/>
+        <result property="deviceNum" column="device_num" jdbcType="VARCHAR"/>
+        <result property="cameraStatus" column="camera_status" jdbcType="INTEGER"/>
+        <result property="isDisabled" column="is_disabled" jdbcType="INTEGER"/>
+        <result property="regionId" column="region_id" jdbcType="INTEGER"/>
+        <result property="cameraLon" column="camera_lon" jdbcType="NUMERIC"/>
+        <result property="cameraLat" column="camera_lat" jdbcType="NUMERIC"/>
+        <result property="channelName" column="channel_name" jdbcType="VARCHAR"/>
+        <result property="cameraUrl" column="camera_url" jdbcType="VARCHAR"/>
+        <result property="lastSyncTime" column="last_sync_time" jdbcType="TIMESTAMP"/>
+        <result property="createAt" column="create_at" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, device_type_id, device_type_sub_id, camera_name, device_attr, device_num, camera_status, is_disabled, region_id, camera_lon, camera_lat, channel_name, camera_url, last_sync_time, create_at, create_by, update_at, update_by</sql>
+
+
+    <!-- 摄像头-详情查询 -->
+    <select id="queryDetail" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_iot_camera
+        WHERE id = #{id}
+    </select>
+
+    <!-- 摄像头-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, park_id, device_type_id, device_type_sub_id, camera_name, device_attr, device_num, camera_status,
+        is_disabled, region_id, camera_lon, camera_lat, channel_name, camera_url, last_sync_time, create_at, create_by,
+        update_at, update_by FROM sp_iot_camera
+        <where>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.safe.dao.EmergencySupplyMapper">
+
+    <!-- RspEmergencySupplyDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.safe.bean.dto.RspEmergencySupplyDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="enterprise_id" jdbcType="INTEGER"/>
+        <result property="supplyName" column="supply_name" jdbcType="VARCHAR"/>
+        <result property="supplyCode" column="supply_code" jdbcType="VARCHAR"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="amount" column="amount" jdbcType="INTEGER"/>
+        <result property="longitude" column="longitude" jdbcType="NUMERIC"/>
+        <result property="latitude" column="latitude" jdbcType="NUMERIC"/>
+        <result property="regionId" column="region_id" jdbcType="INTEGER"/>
+        <result property="chargePerson" column="charge_person" jdbcType="VARCHAR"/>
+        <result property="chargePersonPhone" column="charge_person_phone" jdbcType="VARCHAR"/>
+        <result property="consumeStatus" column="consume_status" jdbcType="INTEGER"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, enterprise_id, supply_name, supply_code, unit, amount, longitude, latitude, region_id, charge_person, charge_person_phone, consume_status, remark, create_by, create_time, update_by, update_time</sql>
+
+
+    <!-- 应急物资-详情查询 -->
+    <select id="queryDetail" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_sf_emergency_supply
+        WHERE id = #{id}
+    </select>
+
+    <!-- 应急物资-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, park_id, enterprise_id, supply_name, supply_code, unit, amount, longitude, latitude, region_id,
+        charge_person, charge_person_phone, consume_status, remark, create_by, create_time, update_by, update_time FROM
+        sp_sf_emergency_supply
+        <where>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.safe.dao.EmergencyEvacuateMapper">
+
+    <!-- RspEmergencyEvacuateDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.safe.bean.dto.RspEmergencyEvacuateDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="lineData" column="line_data" jdbcType="VARCHAR"/>
+        <result property="longitude" column="longitude" jdbcType="NUMERIC"/>
+        <result property="latitude" column="latitude" jdbcType="NUMERIC"/>
+        <result property="enable" column="enable" jdbcType="OTHER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, name, line_data, longitude, latitude, enable, create_time, create_by, update_time, update_by</sql>
+
+
+    <!-- 应急疏散表-详情查询 -->
+    <select id="queryDetail" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_sf_emergency_evacuate
+        WHERE id = #{id}
+    </select>
+
+    <!-- 应急疏散表-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_sf_emergency_evacuate
+        <where>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

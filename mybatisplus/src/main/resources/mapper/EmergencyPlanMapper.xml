@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.safe.dao.EmergencyPlanMapper">
+
+    <!-- RspEmergencyPlanDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.safe.bean.dto.RspEmergencyPlanDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="planName" column="plan_name" jdbcType="VARCHAR"/>
+        <result property="planCode" column="plan_code" jdbcType="VARCHAR"/>
+        <result property="attachmentFileIds" column="attachment_file_ids" jdbcType="VARCHAR"/>
+        <result property="enable" column="enable" jdbcType="OTHER"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, plan_name, plan_code, attachment_file_ids, enable, create_by, create_time, update_by, update_time</sql>
+
+
+    <!-- 应急预案-详情查询 -->
+    <select id="queryDetail" resultMap="RspDtoResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sp_sf_emergency_plan
+        WHERE id = #{id}
+    </select>
+
+    <!-- 应急预案-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, plan_name, plan_code, attachment_file_ids, enable, create_by, create_time, update_by, update_time FROM
+        sp_sf_emergency_plan
+        <where>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
