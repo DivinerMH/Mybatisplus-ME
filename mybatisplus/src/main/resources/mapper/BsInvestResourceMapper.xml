@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.smart.park.report.dao.BsInvestResourceMapper">
+
+    <!-- RspBsInvestResourceDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.smart.park.report.bean.dto.RspBsInvestResourceDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" jdbcType="INTEGER"/>
+        <result property="regionId" column="region_id" jdbcType="INTEGER"/>
+        <result property="date" column="date" jdbcType="TIMESTAMP"/>
+        <result property="landInvest" column="land_invest" jdbcType="NUMERIC"/>
+        <result property="landInvestWait" column="land_invest_wait" jdbcType="NUMERIC"/>
+        <result property="landSign" column="land_sign" jdbcType="NUMERIC"/>
+        <result property="landBuild" column="land_build" jdbcType="NUMERIC"/>
+        <result property="areaHouseInvest" column="area_house_invest" jdbcType="NUMERIC"/>
+        <result property="areaHouseVacant" column="area_house_vacant" jdbcType="NUMERIC"/>
+        <result property="areaPlant" column="area_plant" jdbcType="NUMERIC"/>
+        <result property="areaHostel" column="area_hostel" jdbcType="NUMERIC"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, park_id, region_id, date, land_invest, land_invest_wait, land_sign, land_build, area_house_invest, area_house_vacant, area_plant, area_hostel, create_by, create_time, update_by, update_time</sql>
+
+    <!-- 智慧大屏-系统-招商资源统计-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, park_id, region_id, date, land_invest, land_invest_wait, land_sign, land_build, area_house_invest,
+        area_house_vacant, area_plant, area_hostel, create_by, create_time, update_by, update_time FROM
+        sp_bs_invest_resource
+        <where>
+            <if test="reqDto.id != null">
+                AND id = #{reqDto.id}
+            </if>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
