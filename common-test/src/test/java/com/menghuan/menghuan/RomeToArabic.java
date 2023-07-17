@@ -1,4 +1,4 @@
-package java.com.menghuan.menghuan;
+package com.menghuan;
 
 /**
  * @Author:menghuan

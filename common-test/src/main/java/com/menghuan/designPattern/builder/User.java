@@ -1,9 +1,8 @@
-package java.com.menghuan.designPattern.builder;
+package com.menghuan.designPattern.builder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author Administrator

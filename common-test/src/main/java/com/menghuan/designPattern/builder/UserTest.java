@@ -1,4 +1,4 @@
-package java.com.menghuan.designPattern.builder;
+package com.menghuan.designPattern.builder;
 
 import java.util.ArrayList;
 import java.util.List;

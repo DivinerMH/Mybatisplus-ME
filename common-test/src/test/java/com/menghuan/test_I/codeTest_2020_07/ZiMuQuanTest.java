@@ -1,6 +1,6 @@
 package java.com.menghuan.test_I.codeTest_2020_07;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
