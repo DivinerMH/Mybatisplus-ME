@@ -2,11 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 模型版本 -->
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>menghuan.com</groupId>
+    <!-- 父坐标 -->
+    <parent>
+        <artifactId>Mybatisplus-ME</artifactId>
+        <groupId>com.menghuan</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <!-- 坐标 -->
     <artifactId>EasyExcel-private</artifactId>
+    <groupId>menghuan.com</groupId>
     <version>1.0-SNAPSHOT</version>
+
+    <!-- 打包类型 -->
+    <packaging>jar</packaging>
+
+    <!-- 属性值 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+
 
     <dependencies>
         <dependency>

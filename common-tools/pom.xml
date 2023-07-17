@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 模型版本 -->
     <modelVersion>4.0.0</modelVersion>
-    <!--pom.xml的modelVersion是必要的,并且始终设置为4.0.0-->
-    <!--它被定义为强制性的，可能强制实施特定的XML模型，以便在定义新模型的情况下-->
-    <!--因为，目前，没有其他模型;如果你写你的pom符合4.1，它不会与Maven 3和模型4.0.0兼容-->
 
-    <groupId>com.menghuan</groupId><!--groupId是项目组织唯一的标识符，实际对应JAVA的包的结构，是main目录里java的目录结构-->
-    <artifactId>common-tools</artifactId><!--artifactId就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称-->
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>common-tools</name>
-    <description>Demo project for common-tools</description>
-
+    <!-- 父坐标 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <!--<version>2.1.8.RELEASE</version>-->
-        <version>2.0.5.RELEASE</version>
-        <!--<version>2.0.0.RELEASE</version>-->
-        <!--<version>1.5.6.RELEASE</version>-->
-        <relativePath/> <!-- lookup parent from repository -->
+        <artifactId>Mybatisplus-ME</artifactId>
+        <groupId>com.menghuan</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <!-- 坐标 -->
+    <artifactId>common-tools</artifactId>
+    <groupId>menghuan.com</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Demo project for mybatisplus</description>
+
+    <!-- 打包类型 -->
+    <packaging>jar</packaging>
+
+    <!-- 属性值 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+
 
     <!-- ++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++ -->
     <dependencies>
