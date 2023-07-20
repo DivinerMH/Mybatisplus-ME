@@ -12,10 +12,10 @@
     </parent>
 
     <!-- 坐标 -->
-    <artifactId>redisplus</artifactId>
+    <artifactId>generationCenter</artifactId>
     <groupId>menghuan.com</groupId>
     <version>1.0-SNAPSHOT</version>
-    <description>Demo project for mybatisplus</description>
+    <description>代码生成中心</description>
 
     <!-- 打包类型 -->
     <packaging>jar</packaging>

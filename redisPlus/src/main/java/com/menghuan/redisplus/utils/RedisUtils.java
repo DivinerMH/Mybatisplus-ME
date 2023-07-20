@@ -1,8 +1,9 @@
 package com.menghuan.redisplus.utils;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.stereotype.Component;
+
+import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -15,11 +16,8 @@ import redis.clients.jedis.JedisPool;
 public class RedisUtils {
 
     /**
-     * 加锁
-     *      提示：
-     *          NX：是否存在key，存在就不set成功
-     *          PX：key过期时间单位设置为毫秒（EX：单位秒）
-     *          1 分(分钟)=60000 毫秒
+     * 加锁 提示： NX：是否存在key，存在就不set成功 PX：key过期时间单位设置为毫秒（EX：单位秒） 1 分(分钟)=60000 毫秒
+     * 
      * @param key key
      * @param val value
      * @return
@@ -32,9 +30,7 @@ public class RedisUtils {
             if (null == jedis) {
                 return false;
             }
-            return jedis
-                    .set(key, val, "NX", "PX", 1000 * 60 * 3)
-                    .equalsIgnoreCase("OK");
+            return jedis.set(key, val, "NX", "PX", 1000 * 60 * 3).equalsIgnoreCase("OK");
         } catch (Exception ex) {
             // log.info("Redis分布式锁加锁异常,请核实后操作！");
         } finally {
@@ -62,11 +58,8 @@ public class RedisUtils {
             }
             StringBuilder sbScript = new StringBuilder();
             sbScript.append("if redis.call('get','").append(key).append("')").append("=='").append(val).append("'")
-                    .append(" then ")
-                    .append("    return redis.call('del','").append(key).append("')")
-                    .append(" else ")
-                    .append("    return 0")
-                    .append(" end");
+                .append(" then ").append("    return redis.call('del','").append(key).append("')").append(" else ")
+                .append("    return 0").append(" end");
             return Integer.valueOf(jedis.eval(sbScript.toString()).toString());
         } catch (Exception ex) {
             // log.info("Redis分布式锁解锁异常,请核实后操作！");

@@ -25,24 +25,30 @@
 
     <!-- ++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++ -->
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-core</artifactId>
             <version>3.4.0</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
+        <!-- mybatis -->
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <!-- 子模块 -->
@@ -50,9 +56,9 @@
         <module>common-test</module>
         <module>common-tools</module>
 		<module>EasyExcel-private</module>		        
-		<module>mybatisplus</module>
-		<module>mybatisplus-generator</module>		        
-		<module>redisplus</module>
+		<module>generationCenter</module>
+		<module>mybatisPlus-generator</module>
+		<module>redisPlus</module>
     </modules>
 
 </project>

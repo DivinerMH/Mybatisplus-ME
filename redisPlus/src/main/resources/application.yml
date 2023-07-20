@@ -3,9 +3,9 @@ server:
 
 spring:
   redis:
-    host: 192.168.1.163
-    port: 6379
-    database: 2         # 选择哪个库，默认0库
+    host: 192.168.1.103
+    port: 26379
+    database: 7         # 选择哪个库，默认0库
     timeout: 10000ms    # 连接超时时间
     jedis:
       pool:
@@ -25,4 +25,4 @@ logging:
     # root: error
     # com.example.redisplus: error
     # com.example.redisplus: debug
-    com.example.redisplus.seckill: error
+    com.menghuan.redisPlus.seckill: error

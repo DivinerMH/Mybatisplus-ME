@@ -1,7 +1,8 @@
 package com.menghuan.redisplus.seckill;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Author: menghuan
@@ -11,7 +12,7 @@ import org.junit.Test;
 public class LogLevelTest {
 
     @Test
-    public void testLog(){
+    public void testLog() {
         String logLevel = JudgeCurrentLevel();
         System.out.println(logLevel);
 
@@ -21,17 +22,14 @@ public class LogLevelTest {
         log.warn("warn");
     }
 
-
-    private String JudgeCurrentLevel(){
-        if (log.isDebugEnabled()){
+    private String JudgeCurrentLevel() {
+        if (log.isDebugEnabled()) {
             return "当前日志等级：debug";
-        }else if (log.isInfoEnabled()){
+        } else if (log.isInfoEnabled()) {
             return "当前日志等级：info";
-        }
-        else if (log.isWarnEnabled()){
+        } else if (log.isWarnEnabled()) {
             return "当前日志等级：warn";
-        }
-        else if (log.isErrorEnabled()){
+        } else if (log.isErrorEnabled()) {
             return "当前日志等级：error";
         }
         return log.getName();
