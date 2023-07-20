@@ -1,4 +1,5 @@
-package com.example.redisplus.utils;
+package com.menghuan.redisplus.utils;
+
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

@@ -1,4 +1,4 @@
-package com.example.redisplus.tools;
+package com.menghuan.redisplus.tools;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

@@ -1,7 +1,7 @@
-package com.example.redisplus.seckill;
+package com.menghuan.redisplus.seckill;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.example.redisplus.utils.RedisUtils;
+import com.menghuan.redisplus.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 

@@ -1,14 +1,14 @@
 package com.menghuan.stringJSON;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.test_I.codeTest_2020_11.TemporaryEntity;
-import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.junit.Test;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @Author:menghuan
@@ -84,11 +84,11 @@ public class JsonDeal {
                 "\t}\n" +
                 "]";
         JSONArray objects = JSON.parseArray(json);
-        List<TemporaryEntity> temporaryEntities = objects.toJavaList(TemporaryEntity.class);
+        /*        List<TemporaryEntity> temporaryEntities = objects.toJavaList(TemporaryEntity.class);
         // System.out.println("temporaryEntities:" + temporaryEntities);
         for (TemporaryEntity temporaryEntity : temporaryEntities) {
             System.out.println("temporaryEntity:" + temporaryEntity);
-        }
+        }*/
     }
 
     @Test

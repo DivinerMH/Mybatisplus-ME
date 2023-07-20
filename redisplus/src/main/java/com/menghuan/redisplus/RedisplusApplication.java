@@ -1,4 +1,4 @@
-package com.example.redisplus;
+package com.menghuan.redisplus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

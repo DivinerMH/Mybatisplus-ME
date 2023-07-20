@@ -1,15 +1,14 @@
 package com.menghuan.CAS;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
+import cn.hutool.core.thread.ThreadFactoryBuilder;
+
 /**
- * 工程里有获取唯一时间戳作为id的需求,用乐观锁cas实现,自旋.
- * cas原子性操作获得了绝对唯一的时间戳 (系统时间:纳秒版本). ---- 单机有效,不能分布式调用.
+ * 工程里有获取唯一时间戳作为id的需求,用乐观锁cas实现,自旋. cas原子性操作获得了绝对唯一的时间戳 (系统时间:纳秒版本). ---- 单机有效,不能分布式调用.
  *
  * https://blog.csdn.net/qq_36402372/article/details/83753395
  *
@@ -26,18 +25,12 @@ public class AtomicTimeStamp {
     public static void main(String[] args) {
         AtomicTimeStamp stamp = new AtomicTimeStamp();
         // 构建线程池
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(
-                100,
-                150,
-                200,
-                TimeUnit.MILLISECONDS,
-                new PriorityBlockingQueue<>(100),
-                new ThreadFactoryBuilder().build()
-        );
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(100, 150, 200, TimeUnit.MILLISECONDS,
+            new PriorityBlockingQueue<>(100), new ThreadFactoryBuilder().build());
         long l = System.currentTimeMillis();
         System.out.println("当前唯一时间戳 ：" + l);
 
-        //开启三个线程测试成功性,at自增,测试10S会有多少个成功的
+        // 开启三个线程测试成功性,at自增,测试10S会有多少个成功的
         poolExecutor.execute(() -> {
             while (true) {
                 // 获取唯一时间戳
@@ -73,8 +66,8 @@ public class AtomicTimeStamp {
     }
 
     /**
-     * System.nanoTime()返回的是纳秒，nanoTime而返回的可能是任意时间，甚至可能是负数
-     * System.currentTimeMillis()返回的毫秒，这个毫秒其实就是自1970年1月1日0时起的毫秒数 (两个方法都不能保证完全精确,精确程度依赖具体的环境.)
+     * System.nanoTime()返回的是纳秒，nanoTime而返回的可能是任意时间，甚至可能是负数 System.currentTimeMillis()返回的毫秒，这个毫秒其实就是自1970年1月1日0时起的毫秒数
+     * (两个方法都不能保证完全精确,精确程度依赖具体的环境.)
      *
      * @return 唯一时间戳
      */
@@ -89,6 +82,5 @@ public class AtomicTimeStamp {
             }
         }
     }
-
 
 }
