@@ -1,8 +1,7 @@
-package easy;
+package com.menghuan.easy;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import menghuan.com.easy.ExcelStudentDTO;
 import org.junit.Test;
 
 import java.util.ArrayList;

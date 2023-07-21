@@ -1,4 +1,4 @@
-package com.cateyes.smart.park.safe.service.impl;
+package com.base;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,6 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
@@ -17,19 +16,14 @@ import org.springframework.stereotype.Component;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.smart.park.base.bean.dto.BaseDto;
-import com.cateyes.smart.park.base.bean.vo.PageInfo;
-import com.cateyes.smart.park.base.util.PageUtil;
-import com.cateyes.smart.park.core.common.Cst;
-import com.cateyes.smart.park.core.util.SerializableCodeUtil;
-import com.cateyes.smart.park.feign.bean.dto.ReqQueryParkDto;
-import com.cateyes.smart.park.feign.bean.dto.ReqSysUserIdsDto;
-import com.cateyes.smart.park.feign.bean.dto.RspQueryParkDto;
-import com.cateyes.smart.park.feign.client.RbacApiClient;
-import com.cateyes.smart.park.feign.client.ResourceApiClient;
+import com.base.BaseDto;
+import com.base.PageInfo;
+import com.base.PageUtil;
+import com.base.SerializableCodeUtil;
 import com.google.common.collect.Maps;
 
 /**
@@ -121,7 +115,7 @@ public class BaseServiceImpl {
         return prefix + formatString + INIT_CODE;
     }
 
-    Map<Integer, String> userMap(RbacApiClient rbacApiClient, List<Integer> ids) {
+    /*Map<Integer, String> userMap(RbacApiClient rbacApiClient, List<Integer> ids) {
         List<Map<String, Object>> maps = rbacApiClient.selectByIds(ReqSysUserIdsDto.builder().userIds(ids).build());
         if (CollectionUtils.isEmpty(maps)) {
             return Maps.newHashMap();
@@ -130,7 +124,7 @@ public class BaseServiceImpl {
         maps.forEach(a -> map.put(Integer.parseInt(a.get(Cst.ID).toString()), a.get(Cst.NICKNAME).toString()));
         return map;
     }
-
+    
     Map<Integer, String> parkMap(ResourceApiClient resourceApiClient, List<Integer> ids) {
         List<RspQueryParkDto> list = resourceApiClient.parkList(ReqQueryParkDto.builder().ids(ids).build());
         if (CollectionUtils.isEmpty(list)) {
@@ -139,6 +133,6 @@ public class BaseServiceImpl {
         return Optional
             .ofNullable(list.stream().collect(Collectors.toMap(RspQueryParkDto::getId, RspQueryParkDto::getParkName)))
             .orElse(Maps.newHashMapWithExpectedSize(16));
-    }
+    }*/
 
 }

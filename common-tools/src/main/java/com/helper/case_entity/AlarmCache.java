@@ -1,15 +1,12 @@
-package com.hzcloud.iot.alarm.cache;
+package com.helper.case_entity;
 
-import com.hzcloud.iot.alarm.entity.IotAlarmMachineRelation;
-import com.hzcloud.iot.alarm.entity.IotAlarmRuleMachineProperty;
+import java.io.Serializable;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 /**
  * 业务配置，缓存对象
@@ -55,7 +52,6 @@ public class AlarmCache implements Serializable {
      */
     private Date updateTime;
 
-
     /**
      * 0 正常 1逻辑删除
      */
@@ -72,7 +68,7 @@ public class AlarmCache implements Serializable {
     private String hasApp;
 
     /**
-     * 0 禁用  1启用
+     * 0 禁用 1启用
      */
     private String status;
 
@@ -85,12 +81,12 @@ public class AlarmCache implements Serializable {
     /**
      * 报警设备条件 (设备应满足的条件)
      */
-    private List<IotAlarmRuleMachineProperty> machinePropertyRules;
+    // private List<IotAlarmRuleMachineProperty> machinePropertyRules;
 
     /**
      * 设备列表
      */
-    private List<IotAlarmMachineRelation> machines;
+    // private List<IotAlarmMachineRelation> machines;
 
     /**
      * 紧急程度 1-5

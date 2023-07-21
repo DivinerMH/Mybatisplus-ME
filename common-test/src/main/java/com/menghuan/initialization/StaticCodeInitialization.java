@@ -1,6 +1,6 @@
 package com.menghuan.initialization;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @Author: menghuan
@@ -19,18 +19,14 @@ public class StaticCodeInitialization {
     }
 
     @Test
-    public void test(){
+    public void test() {
 
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         CCTV = "null";
         System.out.println("CCTV:" + CCTV);
     }
-
-
-
-
 
 }

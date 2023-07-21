@@ -1,4 +1,4 @@
-package menghuan.com.easy;
+package com.menghuan.easy;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
