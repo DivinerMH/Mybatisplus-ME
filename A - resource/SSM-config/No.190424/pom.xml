@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,7 +11,7 @@
   <packaging>war</packaging>
 
   <name>PhoneRetrieve Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
+  &lt;!&ndash; FIXME change it to the project's website &ndash;&gt;
   <url>http://www.example.com</url>
 
   <properties>
@@ -21,82 +22,82 @@
 
   <dependencies>
 
-    <dependency>  <!--test需要-->
+    <dependency>  &lt;!&ndash;test需要&ndash;&gt;
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>	<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
+      <scope>test</scope>	&lt;!&ndash; 表示开发的时候引入，发布的时候不会加载此包 &ndash;&gt;
     </dependency>
 
-    <!-- >>>>>>>>>>>>>>>>>>>>>>spring所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
-	<!-- >>>>>>>>>>>>>>>>>>>>>>frame框架<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>spring所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
+	&lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>frame框架<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
 	
-    <dependency>  <!--使用Spring-Context的注解实现依赖注入功能-->
+    <dependency>  &lt;!&ndash;使用Spring-Context的注解实现依赖注入功能&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
-    <dependency>  <!--包含Spring MVC 框架相关的所有类。包括框架的Servlets，Web MVC框架，控制器和视图支持。当然，如果你的应用使用了独立的MVC 框架，则无需这个JAR 文件里的任何类-->
+    <dependency>  &lt;!&ndash;包含Spring MVC 框架相关的所有类。包括框架的Servlets，Web MVC框架，控制器和视图支持。当然，如果你的应用使用了独立的MVC 框架，则无需这个JAR 文件里的任何类&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
-    <dependency>  <!--包含Web 应用开发时，用到Spring 框架时所需的核心类，包括自动载入Web ApplicationContext 特性的类、Struts 与JSF 集成类、文件上传的支持类、Filter 类和大量工具辅助类-->
+    <dependency>  &lt;!&ndash;包含Web 应用开发时，用到Spring 框架时所需的核心类，包括自动载入Web ApplicationContext 特性的类、Struts 与JSF 集成类、文件上传的支持类、Filter 类和大量工具辅助类&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
 
-    <dependency>  <!--包含在应用中使用Spring 的AOP 特性时所需的类和源码级元数据支持-->
+    <dependency>  &lt;!&ndash;包含在应用中使用Spring 的AOP 特性时所需的类和源码级元数据支持&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
-    <dependency>  <!--提供对AspectJ的支持，以便可以方便的将面向方面的功能集成进IDE中，比如Eclipse AJDT。外部依赖。-->
+    <dependency>  &lt;!&ndash;提供对AspectJ的支持，以便可以方便的将面向方面的功能集成进IDE中，比如Eclipse AJDT。外部依赖。&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
-    <dependency>  <!--对Junit等测试框架的简单封装。-->
+    <dependency>  &lt;!&ndash;对Junit等测试框架的简单封装。&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
 
-    <dependency>  <!--为JDBC、Hibernate、JDO、JPA、Beans等提供的一致的声明式和编程式事务管理支持。-->
+    <dependency>  &lt;!&ndash;为JDBC、Hibernate、JDO、JPA、Beans等提供的一致的声明式和编程式事务管理支持。&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
 
-    <dependency>  <!--包含对Spring 对JDBC 数据访问进行封装的所有类。--><!--jdbc需要，依赖spring-tx-->
+    <dependency>  &lt;!&ndash;包含对Spring 对JDBC 数据访问进行封装的所有类。&ndash;&gt;&lt;!&ndash;jdbc需要，依赖spring-tx&ndash;&gt;
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
       <version>5.1.6.RELEASE</version>
     </dependency>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>spring所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>spring所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
 
-    <!-- >>>>>>>>>>>>>>>>>>>>>>spring整合mybatis所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
-    <dependency>  <!--mybatis-spring需要-->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>spring整合mybatis所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
+    <dependency>  &lt;!&ndash;mybatis-spring需要&ndash;&gt;
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
       <version>3.5.0</version>
     </dependency>
 
-    <dependency>  <!--SqlSessionFactory创建需要，mybatis需要-->
+    <dependency>  &lt;!&ndash;SqlSessionFactory创建需要，mybatis需要&ndash;&gt;
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
       <version>2.0.0</version>
     </dependency>
 
-    <dependency>  <!--mysql数据库驱动需要-->
+    <dependency>  &lt;!&ndash;mysql数据库驱动需要&ndash;&gt;
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.46</version>
     </dependency>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>spring整合mybatis所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>spring整合mybatis所需要的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
 
-    <dependency>  <!--c3p0连接池：需要的包-->
+    <dependency>  &lt;!&ndash;c3p0连接池：需要的包&ndash;&gt;
       <groupId>com.mchange</groupId>
       <artifactId>c3p0</artifactId>
       <version>0.9.5.2</version>
@@ -107,76 +108,76 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
-    <dependency>  <!--记录日志，通常和  log4j.jar共同使用-->
+    <dependency>  &lt;!&ndash;记录日志，通常和  log4j.jar共同使用&ndash;&gt;
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
       <version>1.2</version>
     </dependency>
-    <dependency>  <!--封装了各种网络协议的客户端，支持FTP、NNTP、SMTP、POP3、Telnet等协议。-->
+    <dependency>  &lt;!&ndash;封装了各种网络协议的客户端，支持FTP、NNTP、SMTP、POP3、Telnet等协议。&ndash;&gt;
       <groupId>commons-net</groupId>
       <artifactId>commons-net</artifactId>
       <version>3.6</version>
     </dependency>
-    <dependency>   <!--Java文件上传的工具包、文件上传时候的组件-->
+    <dependency>   &lt;!&ndash;Java文件上传的工具包、文件上传时候的组件&ndash;&gt;
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
       <version>1.3.3</version>
     </dependency>
 
-    <!-- >>>>>>>>>>>>>>>>>>>>>>shiro框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
-    <dependency>  <!--shiro安全认证框架；的核心jar包-->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>shiro框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
+    <dependency>  &lt;!&ndash;shiro安全认证框架；的核心jar包&ndash;&gt;
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-core</artifactId>
       <version>1.4.0</version>
     </dependency>
-    <dependency>  <!--与web整合的shiro-web-->
+    <dependency>  &lt;!&ndash;与web整合的shiro-web&ndash;&gt;
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-web</artifactId>
       <version>1.4.0</version>
     </dependency>
-    <dependency>  <!--与Spring整合的shiro-spring-->
+    <dependency>  &lt;!&ndash;与Spring整合的shiro-spring&ndash;&gt;
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-spring</artifactId>
       <version>1.3.2</version>
     </dependency>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>shiro框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>shiro框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
 
-    <!--<dependency>  &lt;!&ndash;HttpServletRequest,HttpServletResponse需要&ndash;&gt;
+    &lt;!&ndash;<dependency>  &lt;!&ndash;HttpServletRequest,HttpServletResponse需要&ndash;&gt;
     <groupId>javax.servlet</groupId>
     <artifactId>servlet-api</artifactId>  &lt;!&ndash;servlet.jar 是servlet 3.0 版本之前的地址 &ndash;&gt;
     <version>3.0-alpha-1</version>
     <scope>provided</scope>
-    </dependency>-->
+    </dependency>&ndash;&gt;
 	
     <dependency>
-      <groupId>javax.servlet</groupId>  <!--提供编写servlet时要用到HttpServletRequest和HttpServletResponse 等对象的-->
-      <artifactId>javax.servlet-api</artifactId>  <!--javax.servlet-api.jar 是servlet 3.0 版本之后的地址-->
+      <groupId>javax.servlet</groupId>  &lt;!&ndash;提供编写servlet时要用到HttpServletRequest和HttpServletResponse 等对象的&ndash;&gt;
+      <artifactId>javax.servlet-api</artifactId>  &lt;!&ndash;javax.servlet-api.jar 是servlet 3.0 版本之后的地址&ndash;&gt;
       <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
 	
-	<!--<dependency>
+	&lt;!&ndash;<dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>   &lt;!&ndash;不建议使用：提供@Set、@Get方法的快捷注解方式&ndash;&gt;
       <version>1.18.6</version>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>&ndash;&gt;
 	
-	<dependency>  <!-- JSTL标签类 -->
+	<dependency>  &lt;!&ndash; JSTL标签类 &ndash;&gt;
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
         <version>1.2</version>
     </dependency>
 	
 
-    <!-- jackson的核心jar包：JSON的流行推动了JSON开发包的大量使用，如何高效、简便的开发json字符串的输入和输出 -->
-    <!-- 以下是在maven项目中的依赖信息：-->
+    &lt;!&ndash; jackson的核心jar包：JSON的流行推动了JSON开发包的大量使用，如何高效、简便的开发json字符串的输入和输出 &ndash;&gt;
+    &lt;!&ndash; 以下是在maven项目中的依赖信息：&ndash;&gt;
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
       <version>2.9.8</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
@@ -187,7 +188,7 @@
       <artifactId>jackson-annotations</artifactId>
       <version>2.9.8</version>
     </dependency>
-    <!-- >>>>>>>>>>>>>>>>>>>>>>jackson框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    &lt;!&ndash; >>>>>>>>>>>>>>>>>>>>>>jackson框架的核心jar包<<<<<<<<<<<<<<<<<<<<<<<<< &ndash;&gt;
 
 
   </dependencies>
@@ -195,13 +196,13 @@
 
   <build>
     <finalName>PhoneRetrieve</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>&lt;!&ndash; lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) &ndash;&gt;
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        &lt;!&ndash; see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging &ndash;&gt;
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -230,3 +231,4 @@
     </pluginManagement>
   </build>
 </project>
+-->

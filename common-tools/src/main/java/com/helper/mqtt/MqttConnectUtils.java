@@ -1,3 +1,4 @@
+/*
 package com.helper.mqtt;
 
 
@@ -6,10 +7,12 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+*/
 /**
  * @author Administrator
  * @version Id: MqttConnect, v 0.1 2020\3\23 0023 16:23 Administrator Exp $$
- **/
+ **//*
+
 public class MqttConnectUtils {
 
     public static MqttClient getMqttClient(String address) throws MqttException {
@@ -30,3 +33,4 @@ public class MqttConnectUtils {
         return client;
     }
 }
+*/

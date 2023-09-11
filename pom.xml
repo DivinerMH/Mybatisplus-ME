@@ -53,8 +53,8 @@
 
     <!-- 子模块 -->
     <modules>
-        <module>common-test</module>
-        <module>common-tools</module>
+        <!--<module>common-test</module>
+        <module>common-tools</module>-->
 		<module>EasyExcel-private</module>		        
 		<module>generationCenter</module>
 		<module>mybatisPlus-generator</module>

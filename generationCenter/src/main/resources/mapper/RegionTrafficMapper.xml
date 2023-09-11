@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.dis.micro.park.dao.RegionTrafficMapper">
+
+    <!-- RspRegionTrafficDto查询结果集映射 -->
+    <resultMap id="RspDtoResultMap" type="com.cateyes.dis.micro.park.bean.dto.RspRegionTrafficDto">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="regionId" column="region_id" jdbcType="INTEGER"/>
+        <result property="reportTime" column="report_time" jdbcType="TIMESTAMP"/>
+        <result property="realtimeFlow" column="realtime_flow" jdbcType="INTEGER"/>
+        <result property="realtimeInflow" column="realtime_inflow" jdbcType="INTEGER"/>
+        <result property="realtimeOutflow" column="realtime_outflow" jdbcType="INTEGER"/>
+        <result property="occupationDistribution" column="occupation_distribution" jdbcType="VARCHAR"/>
+        <result property="hourAccumulatedRepeatVisits" column="hour_accumulated_repeat_visits" jdbcType="INTEGER"/>
+        <result property="createAt" column="create_at" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="Base_Column_List">id, region_id, report_time, realtime_flow, realtime_inflow, realtime_outflow, occupation_distribution, hour_accumulated_repeat_visits, create_at, create_by, update_at</sql>
+
+    <!-- 实时人流-条件查询 -->
+    <select id="queryByConditions" resultMap="RspDtoResultMap">
+        SELECT
+        id, region_id, report_time, realtime_flow, realtime_inflow, realtime_outflow, occupation_distribution,
+        hour_accumulated_repeat_visits, create_at, create_by, update_at FROM dis_region_traffic
+        <where>
+            <if test="reqDto.id != null">
+                AND id = #{reqDto.id}
+            </if>
+            <if test="reqDto.parkId != null">
+                AND park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
