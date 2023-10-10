@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2021_11;
+package com.menghuan.test_I.codeTest_2021_11;
 
 import org.junit.Test;
 

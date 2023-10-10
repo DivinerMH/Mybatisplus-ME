@@ -1,12 +1,7 @@
-package com.menghuan.Consumer;
+package com.menghuan.consumer;
 
-import cn.hutool.core.io.LineHandler;
-import cn.hutool.json.JSONUtil;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;

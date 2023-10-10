@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2021_02;
+package com.menghuan.test_I.codeTest_2021_02;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;

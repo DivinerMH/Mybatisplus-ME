@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2020_11;
+package com.menghuan.test_I.codeTest_2020_11;
 
 
 import com.alibaba.fastjson.JSONObject;

@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2021_06;
+package com.menghuan.test_I.codeTest_2021_06;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

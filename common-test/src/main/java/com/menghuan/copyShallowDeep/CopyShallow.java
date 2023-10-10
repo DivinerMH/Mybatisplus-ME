@@ -1,4 +1,4 @@
-package com.menghuan.CopyShallowDeep;
+package com.menghuan.copyShallowDeep;
 
 import java.util.HashMap;
 import java.util.Map;

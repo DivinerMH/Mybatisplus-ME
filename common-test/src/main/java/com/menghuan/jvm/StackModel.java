@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2020_07;
+package com.menghuan.jvm;
 
 import java.util.LinkedList;
 
@@ -63,7 +63,7 @@ class TeamList {
     }
 }
 
-public class zhanModel {
+public class StackModel {
     public static void main(String[] args) {
         TeamList list = new TeamList();
         list.add("李嘉诚");

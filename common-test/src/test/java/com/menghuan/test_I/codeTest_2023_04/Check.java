@@ -1,4 +1,4 @@
-package java.com.menghuan.test_I.codeTest_2023_04;
+package com.menghuan.test_I.codeTest_2023_04;
 
 
 /**
