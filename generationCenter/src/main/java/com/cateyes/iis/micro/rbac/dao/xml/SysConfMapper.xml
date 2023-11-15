@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.iis.micro.rbac.dao.SysConfMapper">
+
+    <!-- RspSysConfDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="confKey" column="conf_key" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="confValue" column="conf_value" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="confDesc" column="conf_desc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createAt" column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.conf_key, a.conf_value, a.conf_desc, a.create_at, a.create_by, a.update_at</sql>
+
+    <!-- 系统配置表-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM iis_sys_conf a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 系统配置表-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM iis_sys_conf a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.parkId != null">
+                AND a.park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>

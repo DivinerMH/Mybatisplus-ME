@@ -2,7 +2,7 @@ package com.cateyes.smart.park.invest.bean.dto;
 
 import java.util.Date;
 
-import com.cateyes.smart.park.base.BaseDto;
+import com.cateyes.base.dto.BaseDto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

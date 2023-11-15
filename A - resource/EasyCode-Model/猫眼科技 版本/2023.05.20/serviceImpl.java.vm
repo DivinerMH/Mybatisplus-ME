@@ -13,20 +13,18 @@ $!callback.setFileName($tool.append($tableName,"ServiceImpl.java"))
 ##自动导入包（全局变量）
 $!autoImport
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
-import com.cateyes.smart.park.base.api.ApiCode;
+import com.cateyes.base.api.ApiCode;
 import com.cateyes.smart.park.core.util.Assert;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.cateyes.smart.park.base.bean.vo.PageInfo;
-import com.cateyes.smart.park.base.util.BeanMapperUtil;
+import com.cateyes.base.bean.vo.PageInfo;
+import com.cateyes.base.util.BeanMapperUtil;
 
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})impl

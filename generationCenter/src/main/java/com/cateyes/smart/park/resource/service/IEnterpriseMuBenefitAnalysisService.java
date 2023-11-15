@@ -1,9 +1,6 @@
 package com.cateyes.smart.park.resource.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.cateyes.smart.park.base.valid.SpBaseService;
+import com.cateyes.base.valid.SpBaseService;
 import com.cateyes.smart.park.resource.bean.dto.ReqEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspenterpriseMuBenefitAnalysisDto;

@@ -17,13 +17,11 @@ $!callback.setFileName($tool.append($tableName,".java"))
 
 ##自动导入包（全局变量）
 $!autoImport
-import com.cateyes.smart.park.base.bean.dto.BaseDto;
+import com.cateyes.base.bean.dto.BaseDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 ##表注释（宏定义）
 #tableComment("ReqDto")

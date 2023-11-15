@@ -1,6 +1,6 @@
 package com.cateyes.smart.park.report.service;
 
-import com.cateyes.smart.park.base.valid.SpBaseService;
+import com.cateyes.base.valid.SpBaseService;
 import com.cateyes.smart.park.report.bean.dto.ReqEnterpriseMuBenefitTargetDto;
 import com.cateyes.smart.park.report.bean.dto.RspEnterpriseMuBenefitTargetDto;
 
