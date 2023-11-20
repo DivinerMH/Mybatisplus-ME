@@ -8,16 +8,12 @@ package com.cateyes.iis.micro.rbac.service.impl;
 
 
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import javax.annotation.Resource;
 
 import com.cateyes.base.ApiCode;
 import com.cateyes.base.dto.ReqIdDto;
@@ -27,9 +23,8 @@ import com.cateyes.base.util.PageInfo;
 import com.cateyes.base.util.PageUtil;
 import com.cateyes.iis.micro.rbac.dao.SysConfMapper;
 import com.cateyes.iis.micro.rbac.service.ISysConfService;
-import com.cateyes.smart.park.invest.service.impl.SpBaseServiceImpl;
+import com.cateyes.base.service.SpBaseServiceImpl;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +33,6 @@ import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfQueryDto;
 import com.cateyes.iis.micro.rbac.bean.po.SysConf;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 
 /**
  * 系统配置表(IisSysConf)impl

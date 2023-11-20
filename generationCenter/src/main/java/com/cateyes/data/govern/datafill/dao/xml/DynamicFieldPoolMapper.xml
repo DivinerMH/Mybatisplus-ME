@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.data.govern.datafill.dao.DynamicFieldPoolMapper">
+
+    <!-- RspDynamicFieldPoolDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.data.govern.datafill.bean.dto.RspDynamicFieldPoolDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="fieldName" column="field_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldCode" column="field_code" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldType" column="field_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldLength" column="field_length" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="isInner" column="is_inner" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="isDisabled" column="is_disabled" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createAt" column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.field_name, a.field_code, a.field_type, a.field_length, a.is_inner, a.is_disabled, a.create_at, a.create_by, a.update_at, a.update_by</sql>
+
+    <!-- 动态表单字段池-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_dynamic_field_pool a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 动态表单字段池-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_dynamic_field_pool a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.parkId != null">
+                AND a.park_id = #{reqDto.parkId}
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>

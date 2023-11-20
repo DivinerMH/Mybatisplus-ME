@@ -3,6 +3,7 @@ package com.cateyes.smart.park.invest.service.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import com.cateyes.base.service.SpBaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -29,7 +30,7 @@ import lombok.AllArgsConstructor;
  */
 @Service
 @AllArgsConstructor
-public class IndustryWeakServiceImpl extends com.cateyes.smart.park.invest.service.impl.SpBaseServiceImpl
+public class IndustryWeakServiceImpl extends SpBaseServiceImpl
     implements IIndustryWeakService {
 
     private IndustryWeakMapper industryWeakMapper;

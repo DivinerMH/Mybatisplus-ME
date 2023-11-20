@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import com.cateyes.base.util.PageUtil;
-import com.cateyes.smart.park.invest.service.impl.SpBaseServiceImpl;
+import com.cateyes.base.service.SpBaseServiceImpl;
 import com.cateyes.smart.park.resource.bean.dto.ReqEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.po.EnterpriseMuBenefitAnalysis;

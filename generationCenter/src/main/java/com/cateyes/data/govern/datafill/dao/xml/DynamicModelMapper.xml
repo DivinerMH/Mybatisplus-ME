@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.data.govern.datafill.dao.DynamicModelMapper">
+
+    <!-- RspDynamicModelDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.data.govern.datafill.bean.dto.RspDynamicModelDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="modelName" column="model_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="modelCode" column="model_code" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="modelDesc" column="model_desc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="isDisabled" column="is_disabled" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createAt" column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.model_name, a.model_code, a.model_desc, a.is_disabled, a.create_at, a.create_by, a.update_at, a.update_by</sql>
+
+    <!-- 动态表单模型-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_dynamic_model a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 动态表单模型-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_dynamic_model a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.type != null and reqDto.type != '' ">
+                AND a.type = #{reqDto.type}
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>

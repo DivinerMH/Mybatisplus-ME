@@ -16,19 +16,16 @@ import com.cateyes.base.ApiCode;
 import com.cateyes.base.dto.BaseDto;
 import com.cateyes.base.util.Assert;
 import com.cateyes.base.util.PageInfo;
-import com.cateyes.base.util.PageUtils;
+import com.cateyes.base.util.PageUtil;
 import com.google.common.collect.Maps;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
- * Description: 基础Impl
+ * Description: 公共实现
  *
  * @author: CatEyes
  * @date: 2023/3/31 10:03
  */
-@Slf4j
-public class BaseServiceImpl {
+public class SpBaseServiceImpl {
     /**
      * Description: 公共分页查询-单表
      *
@@ -41,7 +38,7 @@ public class BaseServiceImpl {
      **/
     public <K extends BaseMapper<T>, T> PageInfo<T> query(K mapper, Wrapper<T> wrapper, BaseDto dto) {
         IPage<T> resultPage = mapper.selectPage(new Page<T>(dto.getPageNo(), dto.getPageSize()), wrapper);
-        return PageUtils.build(dto.getPageNo(), dto.getPageSize(), resultPage.getRecords(), (int)resultPage.getTotal());
+        return PageUtil.build(dto.getPageNo(), dto.getPageSize(), resultPage.getRecords(), (int)resultPage.getTotal());
     }
 
     /**
@@ -54,7 +51,7 @@ public class BaseServiceImpl {
      */
     protected <K extends BaseMapper<T>, T> void checkCollection(K mapper, Wrapper<T> wrapper, ApiCode apiCode) {
         List<T> list = mapper.selectList(wrapper);
-        Assert.isTrue(CollectionUtils.isEmpty(list), apiCode);
+        Assert.isTrue(com.baomidou.mybatisplus.core.toolkit.CollectionUtils.isEmpty(list), apiCode);
     }
 
     /**

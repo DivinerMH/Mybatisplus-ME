@@ -15,7 +15,7 @@ import com.cateyes.base.util.Assert;
 import com.cateyes.base.util.BeanMapperUtil;
 import com.cateyes.base.util.PageInfo;
 import com.cateyes.base.util.PageUtil;
-import com.cateyes.smart.park.invest.service.impl.SpBaseServiceImpl;
+import com.cateyes.base.service.SpBaseServiceImpl;
 import com.cateyes.smart.park.report.bean.dto.ReqEnterpriseMuBenefitTargetDto;
 import com.cateyes.smart.park.report.bean.dto.RspEnterpriseMuBenefitTargetDto;
 import com.cateyes.smart.park.report.bean.po.EnterpriseMuBenefitTarget;
