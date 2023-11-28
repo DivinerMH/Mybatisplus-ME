@@ -1,11 +1,12 @@
-package com.menghuan.designPattern.builder;
+package com.menghuan.designPattern.builderPattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 /**
- * @author Administrator
+ * 生成器模式 - 经典用例
+ * @author menghuan
  */
 @Data
 @Builder

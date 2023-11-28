@@ -1,6 +1,6 @@
-package com.menghuan.designPattern.strategyPattern;
+package com.menghuan.designPattern.strategyPattern.config;
 
-import com.menghuan.designPattern.Receipt;
+import com.menghuan.designPattern.strategyPattern.Receipt;
 
 /**
  * @Description: 策略上下文类(策略接口的持有者)

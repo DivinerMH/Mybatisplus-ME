@@ -1,13 +1,14 @@
-package com.menghuan.designPattern.builder;
+package com.menghuan.designPattern.builderPattern;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Administrator
+ * 生成器模式 - 经典用例 - 测试
+ * 
+ * @author menghuan
  */
-
 public class UserTest {
 
     public static void main(String[] args) {

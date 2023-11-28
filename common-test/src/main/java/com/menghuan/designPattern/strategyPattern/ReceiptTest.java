@@ -1,4 +1,4 @@
-package com.menghuan.designPattern;
+package com.menghuan.designPattern.strategyPattern;
 
 import org.apache.commons.codec.binary.StringUtils;
 import org.junit.Test;
@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.List;
 
 /**
+ * 策略模式 - 回执测试
  * @Author: menghuan
  * @Date: 2021/5/7 10:34
  */

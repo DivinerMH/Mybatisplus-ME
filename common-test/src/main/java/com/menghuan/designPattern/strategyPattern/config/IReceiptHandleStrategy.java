@@ -1,6 +1,6 @@
-package com.menghuan.designPattern.strategyPattern;
+package com.menghuan.designPattern.strategyPattern.config;
 
-import com.menghuan.designPattern.Receipt;
+import com.menghuan.designPattern.strategyPattern.Receipt;
 
 /**
  * @Description: 回执处理策略接口

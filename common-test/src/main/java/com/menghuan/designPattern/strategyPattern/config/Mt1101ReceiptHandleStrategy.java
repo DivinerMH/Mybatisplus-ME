@@ -1,10 +1,11 @@
-package com.menghuan.designPattern.strategyPattern;
+package com.menghuan.designPattern.strategyPattern.config;
 
-import com.menghuan.designPattern.Receipt;
+import com.menghuan.designPattern.strategyPattern.Receipt;
 
 /**
+ * 策略接口实现类（具体的处理者）
  * @Author: menghuan
- * @Date: 2021/5/7 10:49
+ * @Date: 2021/5/7 10:48
  */
 public class Mt1101ReceiptHandleStrategy implements IReceiptHandleStrategy {
 

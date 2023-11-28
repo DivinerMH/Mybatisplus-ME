@@ -1,4 +1,4 @@
-package com.menghuan.designPattern;
+package com.menghuan.designPattern.strategyPattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

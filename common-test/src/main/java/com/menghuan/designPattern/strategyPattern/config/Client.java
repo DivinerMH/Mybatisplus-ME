@@ -1,7 +1,7 @@
-package com.menghuan.designPattern.strategyPattern;
+package com.menghuan.designPattern.strategyPattern.config;
 
-import com.menghuan.designPattern.Receipt;
-import com.menghuan.designPattern.ReceiptBuilder;
+import com.menghuan.designPattern.strategyPattern.Receipt;
+import com.menghuan.designPattern.strategyPattern.ReceiptBuilder;
 
 import java.util.List;
 

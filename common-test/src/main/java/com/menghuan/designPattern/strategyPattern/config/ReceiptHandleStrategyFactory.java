@@ -1,4 +1,4 @@
-package com.menghuan.designPattern.strategyPattern;
+package com.menghuan.designPattern.strategyPattern.config;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.menghuan.designPattern;
+package com.menghuan.designPattern.strategyPattern;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +15,11 @@ public class ReceiptBuilder {
         //直接模拟一堆回执对象
         List<Receipt> receiptList = new ArrayList<>();
         receiptList.add(new Receipt("我是MT2101回执喔", "MT2101"));
-        receiptList.add(new Receipt("我是MT1101回执喔", "MT1101"));
+        /*receiptList.add(new Receipt("我是MT1101回执喔", "MT1101"));
         receiptList.add(new Receipt("我是MT8104回执喔", "MT8104"));
         receiptList.add(new Receipt("我是MT9999回执喔", "MT9999"));
         receiptList.add(new Receipt("我是MT3000回执喔", "MT3000"));
-        receiptList.add(new Receipt("我是MT4000回执喔", "MT4000"));
+        receiptList.add(new Receipt("我是MT4000回执喔", "MT4000"));*/
         return receiptList;
     }
 
