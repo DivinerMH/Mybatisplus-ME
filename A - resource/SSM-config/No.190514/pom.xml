@@ -133,7 +133,7 @@
     <dependency>  <!--与web整合的shiro-web-->
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-web</artifactId>
-      <version>1.4.0</version>
+      <version>1.13.0</version>
     </dependency>
     <dependency>  <!--与Spring整合的shiro-spring-->
       <groupId>org.apache.shiro</groupId>
