@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.data.govern.bi.dao.BiDatasetFieldMapper">
+
+    <!-- RspBiDatasetFieldDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.data.govern.bi.bean.dto.RspBiDatasetFieldDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="datasetId" column="dataset_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="type" column="type" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="tableName" column="table_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldOriginName" column="field_origin_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldName" column="field_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldType" column="field_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="fieldLength" column="field_length" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="fieldColumnIndex" column="field_column_index" javaType="java.lang.Integer"
+                jdbcType="INTEGER"/>
+        <result property="createAt" column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.dataset_id, a.type, a.table_name, a.field_origin_name, a.field_name, a.field_type, a.field_length, a.field_column_index, a.create_at, a.create_by, a.update_at, a.update_by</sql>
+
+    <!-- 数据集-字段管理-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_bi_dataset_field a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 数据集-字段管理-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_bi_dataset_field a
+        <where>
+            <if test="reqDto.datasetId != null">
+                AND a.dataset_id = #{reqDto.datasetId}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.id IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.type != null">
+                AND a.type = #{reqDto.type}
+            </if>
+            <if test="reqDto.originName != null and reqDto.originName != '' ">
+                AND a.origin_name LIKE concat('%',#{reqDto.originName},'%')
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>

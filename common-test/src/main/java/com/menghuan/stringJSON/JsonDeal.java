@@ -188,6 +188,35 @@ public class JsonDeal {
 
     }
 
+
+    @Test
+    public void xxxTest5() {
+        String jsonStr = "select v.month,IFNULL(b.count,0) as count from (\n" +
+                "    SELECT DATE_FORMAT(CURDATE(), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 1 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 2 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 3 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 4 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 5 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 6 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 7 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 8 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 9 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 10 MONTH), '%Y-%m') AS `month` \n" +
+                "    UNION SELECT DATE_FORMAT((CURDATE() - INTERVAL 11 MONTH), '%Y-%m') AS `month`\n" +
+                ") v \n" +
+                "left join\n" +
+                "(select \n" +
+                "\tleft(create_time,7) as 'month',count(*) as count\n" +
+                "\tfrom sp_bs_company_count as a\t\n" +
+                "\t\twhere DATE_FORMAT(a.create_time,'%Y-%m')> DATE_FORMAT(date_sub(curdate(), interval 12 month),'%Y-%m')\n" +
+                "\t\tGROUP BY month\n" +
+                ")b\n" +
+                "on v.month = b.month \n" +
+                "group by v.month, count\n" +
+                "order by v.month desc";
+    }
+
 }
 
 
