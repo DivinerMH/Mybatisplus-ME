@@ -217,6 +217,11 @@ public class JsonDeal {
                 "order by v.month desc";
     }
 
+    @Test
+    public void xxxTest6() {
+        String jsonStr = "\"id\" INT IDENTITY(1, 1) NOT NULL";
+    }
+
 }
 
 

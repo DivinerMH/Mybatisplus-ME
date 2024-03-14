@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.dis.micro.oper.dao.EnterpriseTechAchieveMapper">
+
+    <!-- RspEnterpriseTechAchieveDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.dis.micro.oper.bean.dto.RspEnterpriseTechAchieveDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="parkId" column="park_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="enterpriseId" column="enterprise_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="date" column="date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="trademark" column="trademark" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="patent" column="patent" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="inventionPatent" column="invention_patent" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="internationalPatent" column="international_patent" javaType="java.lang.Integer"
+                jdbcType="INTEGER"/>
+        <result property="copyright" column="copyright" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="techAchievement" column="tech_achievement" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createBy" column="create_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createAt" column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateAt" column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.park_id, a.enterprise_id, a.date, a.trademark, a.patent, a.invention_patent, a.international_patent, a.copyright, a.tech_achievement, a.create_by, a.create_at, a.update_by, a.update_at</sql>
+
+    <!-- 企业科技成果-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dis_enterprise_tech_achieve a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 企业科技成果-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dis_enterprise_tech_achieve a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.id IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.name != null and reqDto.name != '' ">
+                AND a.name LIKE concat('%',#{reqDto.name},'%')
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>

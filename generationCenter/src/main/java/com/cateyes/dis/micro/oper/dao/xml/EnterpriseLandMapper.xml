@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.dis.micro.oper.dao.EnterpriseLandMapper">
+
+    <!-- RspEnterpriseLandDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.dis.micro.oper.bean.dto.RspEnterpriseLandDto">
+                    <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+                    <result property="enterpriseId" column="enterprise_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+                    <result property="landId" column="land_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+                    <result property="accessType" column="access_type" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.enterprise_id, a.land_id, a.access_type</sql>
+
+    <!-- 企业地块表-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+            <include refid="BaseColumnList" />
+        FROM dis_enterprise_land a
+        WHERE a.id = #{id}
+    </select>
+    
+    <!-- 企业地块表-条件查询 -->
+    <select id="queryByConditions"  resultMap="BaseResultMap">
+                SELECT 
+            <include refid="BaseColumnList"/>
+        FROM dis_enterprise_land a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.id IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.name != null and reqDto.name != '' ">
+                AND a.name LIKE concat('%',#{reqDto.name},'%')
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+    
+
+</mapper>

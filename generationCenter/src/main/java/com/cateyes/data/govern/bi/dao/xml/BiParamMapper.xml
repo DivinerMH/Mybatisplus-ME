@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cateyes.data.govern.bi.dao.BiParamMapper">
+
+    <!-- RspBiParamDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.cateyes.data.govern.bi.bean.dto.RspBiParamDto">
+        <result property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="type" column="type" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="resourceId" column="resource_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="paramKey" column="param_key" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="paramValue" column="param_value" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="paramValueDefault" column="param_value_default" javaType="java.lang.String"
+                jdbcType="VARCHAR"/>
+        <result property="paramSort" column="param_sort" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="paramDesc" column="param_desc" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.type, a.resource_id, a.param_key, a.param_value, a.param_value_default, a.param_sort, a.param_desc</sql>
+
+    <!-- 參數-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_bi_param a
+        WHERE a.id = #{id}
+    </select>
+
+    <!-- 參數-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM dg_bi_param a
+        <where>
+            <if test="reqDto.id != null">
+                AND a.id = #{reqDto.id}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.id IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.name != null and reqDto.name != '' ">
+                AND a.name LIKE concat('%',#{reqDto.name},'%')
+            </if>
+        </where>
+        ORDER BY a.create_at DESC
+    </select>
+
+
+</mapper>
