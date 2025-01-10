@@ -20,11 +20,11 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.cateyes.base.api.ApiResult;
-import com.cateyes.base.valid.PageValid;
-import com.cateyes.base.valid.QueryValid;
-import com.cateyes.base.valid.SaveValid;
-import com.cateyes.base.valid.UpdateValid;
+import com.base.api.ApiResult;
+import com.base.valid.PageValid;
+import com.base.valid.QueryValid;
+import com.base.valid.SaveValid;
+import com.base.valid.UpdateValid;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -12,34 +12,27 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.Strram;
-import java.io.Serializable;
-import java.util.Optional;
 
-import com.cateyes.base.ApiCode;
-import com.cateyes.base.dto.ReqIdDto;
-import com.cateyes.base.util.Assert;
-import com.cateyes.base.util.BeanMapperUtil;
-import com.cateyes.base.util.PageInfo;
-import com.cateyes.base.util.PageUtils;
+import com.base.ApiCode;
+import com.base.dto.ReqIdDto;
+import com.base.util.Assert;
+import com.base.util.BeanMapperUtil;
+import com.base.util.PageInfo;
+import com.base.util.PageUtils;
 import com.cateyes.data.govern.datafill.dao.BiProjectMapper;
 import com.cateyes.data.govern.datafill.service.IBiProjectService;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import javax.annotation.Resource;
 
 import com.cateyes.data.govern.datafill.bean.dto.RspBiProjectDto;
 import com.cateyes.data.govern.datafill.bean.dto.ReqBiProjectAddDto;
 import com.cateyes.data.govern.datafill.bean.dto.ReqBiProjectUpdateDto;
 import com.cateyes.data.govern.datafill.bean.dto.ReqBiProjectQueryDto;
 import com.cateyes.data.govern.datafill.bean.po.BiProject;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 
 /**
  * 项目(DgBiProject)impl

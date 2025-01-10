@@ -1,8 +1,10 @@
 package com.cateyes.data.govern.bi.controller;
 
+import com.base.ApiResult;
+import com.base.dto.ReqIdDto;
+import com.cateyes.data.govern.bi.service.IBiReportFieldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.cateyes.smart.park.base.api.ApiResult;
@@ -14,6 +16,8 @@ import com.cateyes.data.govern.bi.bean.dto.ReqBiReportFieldQueryDto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+import javax.validation.Valid;
 
 /**
  * Description: 报表-字段管理Controller

@@ -1,6 +1,6 @@
 package com.cateyes.smart.park.resource.service;
 
-import com.cateyes.base.valid.SpBaseService;
+import com.base.valid.SpBaseService;
 import com.cateyes.smart.park.resource.bean.dto.ReqEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspenterpriseMuBenefitAnalysisDto;

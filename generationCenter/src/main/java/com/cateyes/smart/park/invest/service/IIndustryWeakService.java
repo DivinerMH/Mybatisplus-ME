@@ -1,6 +1,6 @@
 package com.cateyes.smart.park.invest.service;
 
-import com.cateyes.base.valid.SpBaseService;
+import com.base.valid.SpBaseService;
 import com.cateyes.smart.park.invest.bean.dto.ReqIndustryWeakDto;
 import com.cateyes.smart.park.invest.bean.dto.RspIndustryWeakDto;
 

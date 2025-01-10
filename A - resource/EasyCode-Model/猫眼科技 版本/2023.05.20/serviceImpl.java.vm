@@ -19,12 +19,12 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
-import com.cateyes.base.api.ApiCode;
+import com.base.api.ApiCode;
 import com.cateyes.smart.park.core.util.Assert;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.cateyes.base.bean.vo.PageInfo;
-import com.cateyes.base.util.BeanMapperUtil;
+import com.base.bean.vo.PageInfo;
+import com.base.util.BeanMapperUtil;
 
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})impl

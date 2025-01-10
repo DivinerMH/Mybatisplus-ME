@@ -1,7 +1,7 @@
 package com.cateyes.dis.micro.oper.service;
 
-import com.cateyes.base.dto.ReqIdDto;
-import com.cateyes.base.util.PageInfo;
+import com.base.dto.ReqIdDto;
+import com.base.util.PageInfo;
 import com.cateyes.dis.micro.oper.bean.dto.RspEnterpriseMuBenefitDto;
 import com.cateyes.dis.micro.oper.bean.dto.ReqEnterpriseMuBenefitAddDto;
 import com.cateyes.dis.micro.oper.bean.dto.ReqEnterpriseMuBenefitUpdateDto;

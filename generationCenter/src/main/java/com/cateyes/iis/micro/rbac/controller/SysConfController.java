@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cateyes.base.ApiResult;
-import com.cateyes.base.dto.ReqIdDto;
+import com.base.ApiResult;
+import com.base.dto.ReqIdDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfQueryDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;

@@ -6,8 +6,8 @@ import java.util.List;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import com.cateyes.base.util.PageUtil;
-import com.cateyes.base.service.SpBaseServiceImpl;
+import com.base.util.PageUtil;
+import com.base.service.SpBaseServiceImpl;
 import com.cateyes.smart.park.resource.bean.dto.ReqEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.dto.RspEnterpriseMuBenefitAnalysisDto;
 import com.cateyes.smart.park.resource.bean.po.EnterpriseMuBenefitAnalysis;
@@ -17,11 +17,11 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
-import com.cateyes.base.api.ApiCode;
+import com.base.api.ApiCode;
 import com.cateyes.smart.park.core.util.Assert;
 
-import com.cateyes.base.bean.vo.PageInfo;
-import com.cateyes.base.util.BeanMapperUtil;
+import com.base.bean.vo.PageInfo;
+import com.base.util.BeanMapperUtil;
 
 /**
  * 企业亩均效益分析-企业得分(SpEnterpriseMuBenefitAnalysis)impl

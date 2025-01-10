@@ -7,8 +7,8 @@ package com.cateyes.iis.micro.rbac.service;
 
 
 
-import com.cateyes.base.dto.ReqIdDto;
-import com.cateyes.base.util.PageInfo;
+import com.base.dto.ReqIdDto;
+import com.base.util.PageInfo;
 import com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;

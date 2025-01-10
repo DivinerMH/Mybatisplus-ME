@@ -1,6 +1,6 @@
 package com.cateyes.data.govern.datafill.bean.dto;
 
-import com.cateyes.base.dto.ReqBaseQueryDto;
+import com.base.dto.ReqBaseQueryDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;

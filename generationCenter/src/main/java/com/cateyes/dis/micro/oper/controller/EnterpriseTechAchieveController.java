@@ -1,10 +1,9 @@
 package com.cateyes.dis.micro.oper.controller;
 
-import com.cateyes.base.dto.ReqIdDto;
+import com.base.dto.ReqIdDto;
 import com.cateyes.dis.micro.oper.service.IEnterpriseTechAchieveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.cateyes.smart.park.base.api.ApiResult;

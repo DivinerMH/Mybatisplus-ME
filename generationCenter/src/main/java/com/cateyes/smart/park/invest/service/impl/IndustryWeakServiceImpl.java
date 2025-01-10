@@ -3,17 +3,17 @@ package com.cateyes.smart.park.invest.service.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import com.cateyes.base.service.SpBaseServiceImpl;
+import com.base.service.SpBaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.base.ApiCode;
-import com.cateyes.base.util.Assert;
-import com.cateyes.base.util.BeanMapperUtil;
-import com.cateyes.base.util.PageInfo;
-import com.cateyes.base.util.PageUtil;
+import com.base.ApiCode;
+import com.base.util.Assert;
+import com.base.util.BeanMapperUtil;
+import com.base.util.PageInfo;
+import com.base.util.PageUtil;
 import com.cateyes.smart.park.invest.bean.dto.ReqIndustryWeakDto;
 import com.cateyes.smart.park.invest.bean.dto.RspIndustryWeakDto;
 import com.cateyes.smart.park.invest.bean.po.IndustryWeak;

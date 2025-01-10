@@ -1,6 +1,6 @@
 package com.cateyes.smart.park.resource.bean.dto;
 
-import com.cateyes.base.bean.dto.BaseDto;
+import com.base.bean.dto.BaseDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

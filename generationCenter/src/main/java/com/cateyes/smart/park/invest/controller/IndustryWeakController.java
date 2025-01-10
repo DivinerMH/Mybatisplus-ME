@@ -5,10 +5,10 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.cateyes.base.ApiResult;
-import com.cateyes.base.valid.PageValid;
-import com.cateyes.base.valid.SaveValid;
-import com.cateyes.base.valid.UpdateValid;
+import com.base.ApiResult;
+import com.base.valid.PageValid;
+import com.base.valid.SaveValid;
+import com.base.valid.UpdateValid;
 import com.cateyes.smart.park.invest.bean.dto.ReqIndustryWeakDto;
 import com.cateyes.smart.park.invest.bean.dto.RspIndustryWeakDto;
 import com.cateyes.smart.park.invest.service.IIndustryWeakService;
