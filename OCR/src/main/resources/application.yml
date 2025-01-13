@@ -1,0 +1,13 @@
+server:
+  port: 2025
+
+spring:
+  mvc:
+  servlet:
+    multipart:
+      max-file-size: 10MB  		# 设置单个文件最大大小为10MB
+      max-request-size: 100MB  	# 设置多个文件大小为100MB
+
+ocr:
+  AccessKey: LTAI5tQ412T4NN8g86RnWCyA
+  AccessKeySecret: GrAvpCKlHETdJZHNBxcztGm1hghmMQ

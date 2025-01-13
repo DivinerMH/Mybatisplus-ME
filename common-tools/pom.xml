@@ -44,8 +44,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--lombok用来简化实体类-->
-        <!-- MeGenerator_2 belongs to Duan Zongliang -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -54,43 +52,12 @@
         </dependency>
 
 
-        <!--mybatis Plus 相关引用-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.0.1</version>
-        </dependency>
 
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-        <!--mysql-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>5.1.46</version>
-        </dependency>-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version>
-        </dependency>
 
-        <!--AutoGenerator 是 MyBatis-Plus 的代码生成器-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <!--hutool ；是一个小而全的Java工具类库，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。-->
+        <!--hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <!--<version>${hutool.version}</version>-->
             <version>5.1.0</version>
         </dependency>
         <!--server-api-->
@@ -100,16 +67,16 @@
             <version>3.1.0</version>
         </dependency>
         <!--feign 依赖-->
-        <dependency>
+        <!--<dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
             <version>10.7.0</version>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <version>2.2.1.RELEASE</version>
-        </dependency>
+        </dependency>-->
         <!--hibernate-validator-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -181,12 +148,12 @@
     </dependencies>
 
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
 </project>

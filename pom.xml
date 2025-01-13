@@ -17,47 +17,32 @@
     <packaging>pom</packaging>
 
     <!-- 属性值 -->
-    <properties>
+    <!--<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    </properties>-->
 
     <!-- ++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++ -->
     <dependencies>
-        <!--<dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <version>3.4.0</version>
-            <scope>compile</scope>
-        </dependency>-->
         <!-- mybatis -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.0</version>
         </dependency>
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>-->
+
     </dependencies>
 
     <!-- 子模块 -->
     <modules>
-        <!--<module>common-test</module>
-        <module>common-tools</module>-->
+        <module>common-test</module>
+        <module>common-tools</module>
 		<module>EasyExcel-private</module>		        
-		<module>generationCenter</module>
+        <!--module>generationCenter</module>-->
+        <module>HuanTools</module>
 		<module>mybatisPlus-generator</module>
+        <module>OCR</module>
 		<module>redisPlus</module>
     </modules>
 
