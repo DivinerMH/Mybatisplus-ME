@@ -1,16 +1,16 @@
 import com.aliyun.ocr_api20210707.models.RecognizeAllTextResponse;
-import com.aliyun.tea.*;
+import com.aliyun.tea.TeaException;
 
 public class Sample {
 
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID = "LTAI5tQ412T4NN8g86RnWCyA";
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET = "GrAvpCKlHETdJZHNBxcztGm1hghmMQ";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID = "XXXXXXXXXXXXXXXXXXXXXXX";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET = "XXXXXXXXXXXXXXXXXXXXXXX";
 
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID_ME = "LTAI5tCHYhuhc4kvK9ZPtPkc";
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET_ME = "D7hwIjMnwTAo7dLVRkKUfOSvbN8O1u";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID_ME = "XXXXXXXXXXXXXXXXXXXXXXX";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET_ME = "XXXXXXXXXXXXXXXXXXXXXXX";
 
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID_ME_2 = "LTAI5tHh1VwZy51f1XU1VgGm";
-    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET_ME_2 = "Au3kinPYyxZSbLcKL7b9e5UTjmKcJc";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_ID_ME_2 = "XXXXXXXXXXXXXXXXXXXXXXX";
+    private static final String ALIBABA_CLOUD_ACCESS_KEY_SECRET_ME_2 = "XXXXXXXXXXXXXXXXXXXXXXX";
 
     public static com.aliyun.ocr_api20210707.Client createClient() throws Exception {
         com.aliyun.teaopenapi.models.Config config = new com.aliyun.teaopenapi.models.Config()
