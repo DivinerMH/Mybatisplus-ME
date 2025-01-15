@@ -1,29 +1,22 @@
 package com.example.OCR.utils;
 
+import java.io.InputStream;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.aliyun.ocr_api20210707.models.RecognizeAllTextResponse;
 import com.aliyun.ocr_api20210707.models.RecognizeIdcardRequest;
 import com.aliyun.ocr_api20210707.models.RecognizeIdcardResponse;
 import com.aliyun.tea.TeaException;
 import com.aliyun.teautil.models.RuntimeOptions;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Component
 public class OcrUtils {
-
-    /*@Value("${ocr.AccessKey}")
-    private static String accessKey;
-
-    @Value("${ocr.AccessKeySecret}")
-    private static String accessKeySecret;*/
-
 
     // 静态变量
     private static String accessKey;
@@ -37,7 +30,6 @@ public class OcrUtils {
     public static String getAccessKeySecret() {
         return accessKeySecret;
     }
-
 
     @Value("${ocr.AccessKey}")
     public void setAccessKey(String key) {
