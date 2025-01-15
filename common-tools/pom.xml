@@ -9,7 +9,7 @@
     <parent>
         <artifactId>Mybatisplus-ME</artifactId>
         <groupId>com.menghuan</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.7-SNAPSHOT</version>
     </parent>
 
     <!-- 坐标 -->
@@ -21,16 +21,15 @@
     <!-- 打包类型 -->
     <packaging>jar</packaging>
 
-    <!-- 属性值 -->
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++ -->
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,17 +42,6 @@
             <version>2.1.8.RELEASE</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <scope>provided</scope>
-        </dependency>
-
-
-
-
         <!--hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -128,11 +116,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8</version>
-        </dependency>
-        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.22</version>
@@ -148,12 +131,23 @@
     </dependencies>
 
     <build>
-        <!--<plugins>
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-        </plugins>-->
+        </plugins>
     </build>
 
 </project>

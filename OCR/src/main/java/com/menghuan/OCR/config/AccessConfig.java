@@ -1,8 +1,9 @@
-package com.example.OCR.config;
+package com.menghuan.OCR.config;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import lombok.Data;
 
 /**
  * @Author: menghuan

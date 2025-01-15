@@ -1,9 +1,12 @@
 package com.material.bean.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiModel;
-import lombok.*;
 import java.util.List;
+
+import com.base.dto.ReqBaseQueryDto;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.*;
 
 /**
  * 物料申请(AfMaterialApply)ReqQueryDto

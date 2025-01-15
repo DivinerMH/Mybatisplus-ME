@@ -128,6 +128,31 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- jeecg tools -->
+        <dependency>
+            <groupId>org.jeecgframework.boot</groupId>
+            <artifactId>jeecg-boot-common</artifactId>
+            <version>${jeecgboot.version}</version>
+        </dependency>
+        <!-- AutoPoi Excel工具类-->
+        <dependency>
+            <groupId>org.jeecgframework</groupId>
+            <artifactId>autopoi-web</artifactId>
+            <version>${autopoi-web.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- jeecg core -->
+       <!-- <dependency>
+            <groupId>org.jeecgframework.boot</groupId>
+            <artifactId>jeecg-boot-base-core</artifactId>
+            <version>${jeecgboot.version}</version>
+        </dependency>-->
+
     </dependencies>
 
 

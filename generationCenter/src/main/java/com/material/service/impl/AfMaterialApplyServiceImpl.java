@@ -1,36 +1,28 @@
 package com.material.service.impl;
 
-    
-    
-
-
-
-
-
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import lombok.AllArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.jeecg.common.util.BeanMapperUtil;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import com.material.bean.dto.RspAfMaterialApplyDto;
+import com.base.ApiCode;
+import com.base.util.Assert;
 import com.material.bean.dto.ReqAfMaterialApplyAddDto;
-import com.material.bean.dto.ReqAfMaterialApplyUpdateDto;
 import com.material.bean.dto.ReqAfMaterialApplyQueryDto;
+import com.material.bean.dto.ReqAfMaterialApplyUpdateDto;
+import com.material.bean.dto.RspAfMaterialApplyDto;
 import com.material.bean.po.AfMaterialApply;
 import com.material.mapper.AfMaterialApplyMapper;
 import com.material.service.IAfMaterialApplyService;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import lombok.AllArgsConstructor;
 
 /**
  * 物料申请(AfMaterialApply)impl

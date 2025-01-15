@@ -36,6 +36,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <!--<version>3.3.0</version>-->
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
         <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,19 +64,6 @@
             <version>2.9.0</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.7.0</version>
-            <scope>compile</scope>
-        </dependency>-->
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -79,7 +71,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.5.RELEASE</version>
+                <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <mainClass>com.menghuan.redisplus.RedisPlusApplication</mainClass>
                     <includeSystemScope>true</includeSystemScope>
@@ -92,19 +84,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.16</version>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>-->
         </plugins>
     </build>
 

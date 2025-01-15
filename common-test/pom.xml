@@ -8,7 +8,7 @@
     <parent>
         <artifactId>Mybatisplus-ME</artifactId>
         <groupId>com.menghuan</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.7-SNAPSHOT</version>
     </parent>
 
     <!-- 坐标 -->
@@ -42,15 +42,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!--lombok用来简化实体类-->
-        <!-- MeGenerator_2 belongs to Duan Zongliang -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <scope>provided</scope>
         </dependency>
-
 
         <!--mybatis Plus 相关引用-->
         <dependency>
@@ -184,8 +179,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -338,11 +331,21 @@
 
     <build>
         <plugins>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.8.1</version>
-            </plugin>-->
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

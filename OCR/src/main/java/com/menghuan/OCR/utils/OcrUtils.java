@@ -1,4 +1,4 @@
-package com.example.OCR.utils;
+package com.menghuan.OCR.utils;
 
 import java.io.InputStream;
 
