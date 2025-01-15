@@ -9,5 +9,5 @@ spring:
       max-request-size: 100MB  	# 设置多个文件大小为100MB
 
 ocr:
-  AccessKey: LTAI5tQ412T4NN8g86RnWCyA
-  AccessKeySecret: GrAvpCKlHETdJZHNBxcztGm1hghmMQ
+  AccessKey: ###############LTAI5tQ412T4NN8g86RnWCyA
+  AccessKeySecret: #################GrAvpCKlHETdJZHNBxcztGm1hghmMQ
