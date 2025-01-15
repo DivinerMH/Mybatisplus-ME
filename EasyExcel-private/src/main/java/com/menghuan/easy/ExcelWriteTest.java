@@ -1,24 +1,30 @@
 package com.menghuan.easy;
 
-import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.support.ExcelTypeEnum;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.junit.Test;
+
+import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.support.ExcelTypeEnum;
 
 /**
  * @Author: menghuan
  * @Date: 2022/3/25 11:23
  */
 public class ExcelWriteTest {
+
+    private static final String file_save_ptah = "C:\\Users\\divin\\Desktop\\simpleWrite.xlsx";
+    private static final String file_save_ptah_2 = "C:/Users/divin/Desktop/simpleWrite.xls";
+
     /**
      * 写入xlsx
      */
     @Test
     public void simpleWriteXlsx() {
-        String fileName = "C:\\Users\\Administrator\\Desktop\\simpleWrite.xlsx"; //需要提前新建目录
+        // 需要提前新建目录
+        String fileName = file_save_ptah;
         // 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
         // 如果这里想使用03 则 传入excelType参数即可
         EasyExcel.write(fileName, ExcelStudentDTO.class).excelType(ExcelTypeEnum.XLSX).sheet("模板").doWrite(data());
@@ -29,13 +35,18 @@ public class ExcelWriteTest {
      */
     @Test
     public void simpleWriteXls() {
-        String fileName = "C:/Users/asus/Desktop/simpleWrite.xls"; //需要提前新建目录
+        // 需要提前新建目录
+        String fileName = file_save_ptah_2;
         // 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
         // 如果这里想使用03 则 传入excelType参数即可
         EasyExcel.write(fileName, ExcelStudentDTO.class).excelType(ExcelTypeEnum.XLS).sheet("模板").doWrite(data());
     }
 
-    // 辅助方法
+    /**
+     * 辅助方法 - 数据写入实体
+     * 
+     * @return
+     */
     private List<ExcelStudentDTO> data() {
         List<ExcelStudentDTO> list = new ArrayList<ExcelStudentDTO>();
         // 算上标题，做多可写65536行
@@ -49,5 +60,5 @@ public class ExcelWriteTest {
         }
         return list;
     }
-}
 
+}

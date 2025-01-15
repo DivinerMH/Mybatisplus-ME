@@ -3,18 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 父坐标 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.7.RELEASE</version>
+        <artifactId>Mybatisplus-ME</artifactId>
+        <groupId>com.menghuan</groupId>
+        <version>0.0.7-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.example</groupId>
+    <groupId>com.menghuan</groupId>
     <artifactId>OCR</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>OCR</name>
-    <description>Demo project for Spring Boot</description>
-
+    <version>0.0.1-SNAPSHOT</version>
+    <description>自定义工具JAR包</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>8</java.version>

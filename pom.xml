@@ -11,39 +11,83 @@
     <!-- 坐标 -->
     <groupId>com.menghuan</groupId><!--groupId是项目组织唯一的标识符，实际对应JAVA的包的结构，是main目录里java的目录结构-->
     <artifactId>Mybatisplus-ME</artifactId><!--artifactId就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称-->
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.7-SNAPSHOT</version><!--项目版本号-->
 
-    <!-- 父级的pom文件只作项目的子模块的整合，在maven install时不会生成jar包 -->
+    <!-- 打包方式必须为pom方式，父工程固定写法：父级的pom文件只作项目的子模块的整合，在maven install时不会生成jar包 -->
     <packaging>pom</packaging>
 
-    <!-- 属性值 -->
-    <!--<properties>
+    <name>menghuan</name>
+    <url>http://www.menghuan.com</url>
+    <description>Mybatis宝藏</description>
+
+    <!-- 自定义属性值 -->
+    <properties>
+        <menghuan.version>3.8.4</menghuan.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>-->
+
+        <java.version>8</java.version>
+        <spring.version>2.2.7.RELEASE</spring.version>
+        <springboot.version>2.2.7.RELEASE</springboot.version>
+        <maven-jar-plugin.version>2.2.7.RELEASE</maven-jar-plugin.version>
+
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <lombok.version>1.16.18</lombok.version>
+        <swagger.version>3.0.0</swagger.version>
+        <fastjson.version>2.0.20</fastjson.version>
+        <junit.version>4.12</junit.version>
+
+    </properties>
+
 
     <!-- ++++++++++++++++++++++++++++++++++++++++分割线++++++++++++++++++++++++++++++++++++++++ -->
-    <dependencies>
-        <!-- mybatis -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.0</version>
-        </dependency>
 
-    </dependencies>
+    <!-- Maven中有2种方法可以,避免重复造轮子，一种是继承，另外一种是引用;
+        1 - 继承就是,就是若依项目中(也就是本文所举例)父工程中，定义dependencyManagement 而子工程不需要写版本号，直接继承父工程版本号，当然如果子工程也写版本号，那么会使用自己的版本号;
+        2 - 引用与继承有些类似，不过确是，我们父工程要引用 原始起步依赖，那么我们父工程这个依赖类型要与原始依赖类型要一致，比如引入的是一个java工程，那么type 类型就应该是jar，也就是默认类型，可以不写,在本文中我们引入是spring-boot-dependencies这个Maven工程依赖，其原始类型是pom类型，所以我们这里必须写pom类型，并且要配合<scope>import</scope>标签所使用。相当于把依赖复制过来，而不是进行继承。
+    -->
+    <!--Maven 可以通过(一般父工程中才有dependencyManagement ) dependencyManagement 元素对依赖进行管理
+        它具有以下 2 大特性:
+        1 - 在该元素下声明的依赖不会实际引入到模块中(子模块)，只有在 (子模块) dependencies 元素下同样声明了该依赖，才会引入到模块中。
+        2 - 该元素能够约束 dependencies 下依赖的使用，即(子模块) dependencies 声明的依赖若未指定版本，则使用 (父工程)dependencyManagement 中指定的版本，
+            (如果子模块中指定了版本)否则将覆盖(父工程中) dependencyManagement 中的版本。
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <!--springBoot-starter-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.18</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <!-- 子模块 -->
     <modules>
         <module>common-test</module>
         <module>common-tools</module>
-		<module>EasyExcel-private</module>		        
-        <!--module>generationCenter</module>-->
+        <module>EasyExcel-private</module>
+        <module>generationCenter</module>
         <module>HuanTools</module>
-		<module>mybatisPlus-generator</module>
+        <module>mybatisPlus-generator</module>
         <module>OCR</module>
-		<module>redisPlus</module>
+        <module>redisPlus</module>
     </modules>
 
 </project>

@@ -1,9 +1,10 @@
 package com.menghuan;
 
 
-import com.menghuan.utils.MyAutoGeneratorPlusSuper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.menghuan.utils.MyAutoGeneratorPlusSuper;
 
 @SpringBootApplication
 public class GeneratorApplication {

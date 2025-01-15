@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.material.mapper.AfMaterialApplyMapper">
+
+    <!-- RspAfMaterialApplyDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.material.bean.dto.RspAfMaterialApplyDto">
+        <result property="id" column="ID" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="formNo" column="FORM_NO" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="title" column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="materialCategoryCode" column="MATERIAL_CATEGORY_CODE" javaType="java.lang.String"
+                jdbcType="VARCHAR"/>
+        <result property="applyReason" column="APPLY_REASON" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="entityName" column="ENTITY_NAME" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="entityCode" column="ENTITY_CODE" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="orgCode" column="ORG_CODE" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="actStatus" column="ACT_STATUS" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="procInstId" column="PROC_INST_ID" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="procDefId" column="PROC_DEF_ID" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="delFlag" column="DEL_FLAG" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createTime" column="CREATE_TIME" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createBy" column="CREATE_BY" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="UPDATE_TIME" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="UPDATE_BY" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.ID, a.FORM_NO, a.TITLE, a.MATERIAL_CATEGORY_CODE, a.APPLY_REASON, a.ENTITY_NAME, a.ENTITY_CODE, a.ORG_CODE, a.ACT_STATUS, a.PROC_INST_ID, a.PROC_DEF_ID, a.DEL_FLAG, a.CREATE_TIME, a.CREATE_BY, a.UPDATE_TIME, a.UPDATE_BY</sql>
+
+    <!-- 物料申请-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM AF_MATERIAL_APPLY a
+        WHERE DEL_FLAG = 0 and a.ID = #{id}
+    </select>
+
+    <!-- 物料申请-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM AF_MATERIAL_APPLY a
+        <where>
+            DEL_FLAG = 0
+            <if test="reqDto.id != null">
+                AND a.ID = #{reqDto.id}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.ID IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.name != null and reqDto.name != '' ">
+                AND a.NAME LIKE concat('%',#{reqDto.name},'%')
+            </if>
+        </where>
+        ORDER BY a.CREATE_TIME DESC
+    </select>
+
+
+</mapper>

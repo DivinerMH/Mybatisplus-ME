@@ -1,10 +1,11 @@
 package com.menghuan.easy;
 
+import java.util.Date;
+
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
-import lombok.Data;
 
-import java.util.Date;
+import lombok.Data;
 
 /**
  * @Author: menghuan
