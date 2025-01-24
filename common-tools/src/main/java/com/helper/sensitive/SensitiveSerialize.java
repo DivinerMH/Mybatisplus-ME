@@ -1,5 +1,8 @@
 package com.helper.sensitive;
 
+import java.io.IOException;
+import java.util.Objects;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -7,18 +10,16 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.google.common.base.Preconditions;
-import com.hzcloud.iot.common.core.util.DesensitizedUtils;
+import com.helper.util.DesensitizedUtils;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.io.IOException;
-import java.util.Objects;
-
 /**
+ * 脱敏序列化
+ * 
  * @author lengleng
  * @date 2019-08-13
- * <p>
- * 脱敏序列化
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +32,7 @@ public class SensitiveSerialize extends JsonSerializer<String> implements Contex
 
     @Override
     public void serialize(final String origin, final JsonGenerator jsonGenerator,
-                          final SerializerProvider serializerProvider) throws IOException {
+        final SerializerProvider serializerProvider) throws IOException {
         Preconditions.checkNotNull(type, "Sensitive type enum should not be null.");
         switch (type) {
             case CHINESE_NAME:
@@ -62,7 +63,8 @@ public class SensitiveSerialize extends JsonSerializer<String> implements Contex
                 jsonGenerator.writeString(DesensitizedUtils.key(origin));
                 break;
             case CUSTOMER:
-                jsonGenerator.writeString(DesensitizedUtils.desValue(origin, prefixNoMaskLen, suffixNoMaskLen, maskStr));
+                jsonGenerator
+                    .writeString(DesensitizedUtils.desValue(origin, prefixNoMaskLen, suffixNoMaskLen, maskStr));
                 break;
             default:
                 throw new IllegalArgumentException("Unknow sensitive type enum " + type);
@@ -71,7 +73,7 @@ public class SensitiveSerialize extends JsonSerializer<String> implements Contex
 
     @Override
     public JsonSerializer<?> createContextual(final SerializerProvider serializerProvider,
-                                              final BeanProperty beanProperty) throws JsonMappingException {
+        final BeanProperty beanProperty) throws JsonMappingException {
         if (beanProperty != null) {
             if (Objects.equals(beanProperty.getType().getRawClass(), String.class)) {
                 Sensitive sensitive = beanProperty.getAnnotation(Sensitive.class);
@@ -79,7 +81,8 @@ public class SensitiveSerialize extends JsonSerializer<String> implements Contex
                     sensitive = beanProperty.getContextAnnotation(Sensitive.class);
                 }
                 if (sensitive != null) {
-                    return new SensitiveSerialize(sensitive.type(), sensitive.prefixNoMaskLen(), sensitive.suffixNoMaskLen(), sensitive.maskStr());
+                    return new SensitiveSerialize(sensitive.type(), sensitive.prefixNoMaskLen(),
+                        sensitive.suffixNoMaskLen(), sensitive.maskStr());
                 }
             }
             return serializerProvider.findValueSerializer(beanProperty.getType(), beanProperty);
@@ -87,4 +90,3 @@ public class SensitiveSerialize extends JsonSerializer<String> implements Contex
         return serializerProvider.findNullValueSerializer(null);
     }
 }
-

@@ -1,12 +1,14 @@
 package com.helper.config;
 
-import com.hzcloud.iot.common.core.aspect.RepeatSubmitAspect;
-import com.hzcloud.iot.common.core.redis.IRedisService;
-import com.hzcloud.iot.common.core.redis.impl.RedisServiceImpl;
-import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+
+import com.helper.aspect.RepeatSubmitAspect;
+import com.helper.redis.IRedisService;
+import com.helper.redis.impl.RedisServiceImpl;
+
+import lombok.AllArgsConstructor;
 
 /**
  * 配置切面

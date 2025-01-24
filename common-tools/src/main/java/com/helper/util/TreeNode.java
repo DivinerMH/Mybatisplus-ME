@@ -1,10 +1,10 @@
 package com.helper.util;
 
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Data;
 
 /**
  * @author yang
@@ -15,6 +15,7 @@ public class TreeNode {
 
     protected int id;
     protected int parentId;
+
     protected List<TreeNode> children = new ArrayList<TreeNode>();
 
     public void add(TreeNode node) {

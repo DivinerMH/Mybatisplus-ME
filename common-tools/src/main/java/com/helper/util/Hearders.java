@@ -2,6 +2,7 @@ package com.helper.util;
 
 /**
  * 表头结构对象
+ * @author divin
  */
 public class Hearders {
     /**

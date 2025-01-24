@@ -1,4 +1,4 @@
-package com.menghuan.common.core.weixin;
+package com.helper.weixin;
 
 
 import java.security.MessageDigest;

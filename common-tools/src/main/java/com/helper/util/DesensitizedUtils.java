@@ -18,7 +18,7 @@
 package com.helper.util;
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 脱敏工具类

@@ -1,31 +1,15 @@
-/*
- *
- *      Copyright (c) 2018-2025, lengleng All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *
- * Redistributions of source code must retain the above copyright notice,
- *  this list of conditions and the following disclaimer.
- *  Redistributions in binary form must reproduce the above copyright
- *  notice, this list of conditions and the following disclaimer in the
- *  documentation and/or other materials provided with the distribution.
- *  Neither the name of the pig4cloud.com developer nor the names of its
- *  contributors may be used to endorse or promote products derived from
- *  this software without specific prior written permission.
- *  Author: lengleng (wangiegie@gmail.com)
- *
- */
-
 package com.helper.util;
 
-import cn.hutool.core.codec.Base64;
-import cn.hutool.json.JSONUtil;
-import com.hzcloud.iot.common.core.exception.CheckedException;
-import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -35,14 +19,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-
+import cn.hutool.core.codec.Base64;
+import cn.hutool.json.JSONUtil;
+import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Miscellaneous utilities for web applications.
@@ -56,8 +37,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     private final String UNKNOWN = "unknown";
 
     /**
-     * 判断是否ajax请求
-     * spring ajax 返回含有 ResponseBody 或者 RestController注解
+     * 判断是否ajax请求 spring ajax 返回含有 ResponseBody 或者 RestController注解
      *
      * @param handlerMethod HandlerMethod
      * @return 是否ajax请求
@@ -83,7 +63,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      * 读取cookie
      *
      * @param request HttpServletRequest
-     * @param name    cookie name
+     * @param name cookie name
      * @return cookie value
      */
     public String getCookieVal(HttpServletRequest request, String name) {
@@ -95,7 +75,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      * 清除 某个指定的cookie
      *
      * @param response HttpServletResponse
-     * @param key      cookie key
+     * @param key cookie key
      */
     public void removeCookie(HttpServletResponse response, String key) {
         setCookie(response, key, null, 0);
@@ -104,9 +84,9 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     /**
      * 设置cookie
      *
-     * @param response        HttpServletResponse
-     * @param name            cookie name
-     * @param value           cookie value
+     * @param response HttpServletResponse
+     * @param name cookie name
+     * @param value cookie value
      * @param maxAgeInSeconds maxage
      */
     public void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) {
@@ -123,7 +103,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      * @return {HttpServletRequest}
      */
     public HttpServletRequest getRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
     }
 
     /**
@@ -132,14 +112,14 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      * @return {HttpServletResponse}
      */
     public HttpServletResponse getResponse() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
     }
 
     /**
      * 返回json
      *
      * @param response HttpServletResponse
-     * @param result   结果对象
+     * @param result 结果对象
      */
     public void renderJson(HttpServletResponse response, Object result) {
         renderJson(response, result, MediaType.APPLICATION_JSON_UTF8_VALUE);
@@ -148,8 +128,8 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
     /**
      * 返回json
      *
-     * @param response    HttpServletResponse
-     * @param result      结果对象
+     * @param response HttpServletResponse
+     * @param result 结果对象
      * @param contentType contentType
      */
     public void renderJson(HttpServletResponse response, Object result, String contentType) {
@@ -211,15 +191,14 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
         String header = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
         if (header == null || !header.startsWith(BASIC_)) {
-            throw new CheckedException("请求头中client信息为空");
+            throw new Exception("请求头中client信息为空");
         }
         byte[] base64Token = header.substring(6).getBytes("UTF-8");
         byte[] decoded;
         try {
             decoded = Base64.decode(base64Token);
         } catch (IllegalArgumentException e) {
-            throw new CheckedException(
-                    "Failed to decode basic authentication token");
+            throw new Exception("Failed to decode basic authentication token");
         }
 
         String token = new String(decoded, StandardCharsets.UTF_8);
@@ -227,9 +206,9 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
         int delim = token.indexOf(":");
 
         if (delim == -1) {
-            throw new CheckedException("Invalid basic authentication token");
+            throw new Exception("Invalid basic authentication token");
         }
-        return new String[]{token.substring(0, delim), token.substring(delim + 1)};
+        return new String[] {token.substring(0, delim), token.substring(delim + 1)};
     }
 
     /**
@@ -280,10 +259,10 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      *
      * @return
      */
-    public String getClientId(String header) {
+    public String getClientId(String header) throws Exception {
         String clientId = extractClientId(header, null);
         if (clientId == null) {
-            throw new CheckedException("Invalid basic authentication token");
+            throw new Exception("Invalid basic authentication token");
         }
         return clientId;
     }

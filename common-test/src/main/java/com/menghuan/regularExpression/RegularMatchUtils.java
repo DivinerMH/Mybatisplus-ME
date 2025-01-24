@@ -9,8 +9,6 @@ import java.util.regex.Pattern;
  */
 public class RegularMatchUtils {
 
-
-
     /**
      * @param rex 正则校验规则
      * @param str 要校验的字符串

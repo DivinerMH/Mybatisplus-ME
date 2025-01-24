@@ -1,9 +1,9 @@
 package com.menghuan.test_I.codeTest_2020_07;
 
-import org.junit.Test;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.junit.Test;
 
 /**
  * @Author: menghuan
@@ -30,7 +30,7 @@ public class ZiMuQuanTest {
             System.out.println("大佬咕咕，天下无敌");
         } else {
             System.out.println("咕咕：“我要戒糖，明天起戒糖、锻炼”");
-            for (int i1 = 0; i1 < 1000000; i1++) {
+            for (int i1 = 0; i1 < 100; i1++) {
                 System.out.println("华灯第" + i1 + "次说：“不，你要多吃，长肉肉...”");
                 if (1222222 == i1) {
                     System.out.println("华灯第" + i1 + "次说：“好吧，大佬咕咕，天下无敌”");
@@ -49,7 +49,7 @@ public class ZiMuQuanTest {
         if (1 == i) {
             System.out.println("大佬咕咕，天下无敌");
         } else {
-            for (int i1 = 0; i1 < 1000000; i1++) {
+            for (int i1 = 0; i1 < 100; i1++) {
                 System.out.println("华灯第" + i1 + "次说：“群里的小姐姐，都是仙女哎”");
                 if (1222222 == i1) {
                     System.out.println("华灯第" + i1 + "次说：“好吧，大佬咕咕，天下无敌”");

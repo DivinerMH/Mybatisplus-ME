@@ -3,8 +3,8 @@ server:
 
 spring:
   redis:
-    host: 192.168.1.103
-    port: 26379
+    host: 8.130.109.125
+    port: 6379
     database: 7         # 选择哪个库，默认0库
     timeout: 10000ms    # 连接超时时间
     jedis:

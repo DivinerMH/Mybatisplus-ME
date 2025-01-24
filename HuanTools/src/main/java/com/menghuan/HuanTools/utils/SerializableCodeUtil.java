@@ -1,16 +1,17 @@
 package com.menghuan.HuanTools.utils;
 
-import java.rmi.ServerException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.Assert;
 
 /**
  * 自增编码工具
  * 
- * @author Administrator
+ * @since 2025-01-14
+ * @author menghuan
  */
 public final class SerializableCodeUtil {
 
@@ -25,18 +26,18 @@ public final class SerializableCodeUtil {
      *
      * @param currStr 当前最大序列（参考：20250110000000）
      * @return 编码Code
-     * @throws ServerException
      */
-    public static String incrementCode(String currStr) throws Exception {
+    public static String incrementCode(String currStr) {
         if (StringUtils.isBlank(currStr)) {
             return LocalDate.now().format(DateTimeFormatter.ofPattern(FORMAT_STR)) + INIT_CODE;
         }
         // 极限数据（位数）设置
         Long resultLimit = Long.valueOf(Long.valueOf(currStr.substring(0, 8)) + 1 + INIT_CODE);
         Long result = Long.parseLong(currStr) + 1;
-        if (result >= resultLimit) {
+        Assert.isTrue(result < resultLimit, RESOURCE_OVERFLOW_NOT_EXISTS);
+        /*if (result >= resultLimit) {
             throw new Exception(RESOURCE_OVERFLOW_NOT_EXISTS);
-        }
+        }*/
         return result.toString();
     }
 
@@ -46,20 +47,19 @@ public final class SerializableCodeUtil {
      * @param currStr 当前最大序列（参考：20250110000000）
      * @param init 初始化编码（参考：000000）
      * @return 编码Code
-     * @throws ServerException
+     * 
      */
-    public static String incrementCode(String currStr, String init) throws Exception {
-        if (init.length() < INIT_CODE.length()){
+    public static String incrementCode(String currStr, String init) {
+        /*if (init.length() < INIT_CODE.length()) {
             throw new Exception(INIT_BIT_LESS_THAN_DEFAULT_VALUE);
-        }
+        }*/
+        Assert.isTrue(init.length() >= INIT_CODE.length(), RESOURCE_OVERFLOW_NOT_EXISTS);
         if (StringUtils.isBlank(currStr)) {
             return LocalDate.now().format(DateTimeFormatter.ofPattern(FORMAT_STR)) + init;
         }
         Long resultLimit = Long.valueOf(Long.valueOf(currStr.substring(0, 8)) + 1 + init);
         Long result = Long.parseLong(currStr) + 1;
-        if (result >= resultLimit) {
-            throw new Exception(RESOURCE_OVERFLOW_NOT_EXISTS);
-        }
+        Assert.isTrue(result < resultLimit, RESOURCE_OVERFLOW_NOT_EXISTS);
         return result.toString();
     }
 
@@ -75,7 +75,7 @@ public final class SerializableCodeUtil {
 
     public static void main(String[] args) throws Exception {
         System.out.println(incrementCode("20250114000000"));
-        System.out.println(incrementCode("20250114000250","000000"));
+        System.out.println(incrementCode("20250114000250", "000000"));
         // System.out.println(incrementCode("20250114999999","000000"));
         System.out.println(incrementTimeCode());
     }

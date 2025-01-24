@@ -1,18 +1,19 @@
 package com.helper.redis.impl;
 
-import com.hzcloud.iot.common.core.redis.IRedisService;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Collections;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.UUID;
+import com.helper.redis.IRedisService;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Redis工具类
@@ -51,8 +52,9 @@ public class RedisServiceImpl implements IRedisService {
      * @param lockExpireMils 锁住的时长。如果超时未解锁，视为加锁线程死亡，其他线程可夺取锁
      * @return
      */
+    @Override
     public boolean lock(String lockKey, long lockExpireMils) {
-        return (Boolean) stringRedisTemplate.execute((RedisCallback) connection -> {
+        /*return (Boolean) stringRedisTemplate.execute((RedisCallback) connection -> {
             long nowTime = System.currentTimeMillis();
             Boolean acquire = connection.setNX(lockKey.getBytes(), String.valueOf(nowTime + lockExpireMils + 1).getBytes());
             if (acquire) {
@@ -70,7 +72,9 @@ public class RedisServiceImpl implements IRedisService {
                 }
             }
             return Boolean.FALSE;
-        });
+        });*/
+
+        return Boolean.FALSE;
     }
 
     /**
@@ -78,6 +82,7 @@ public class RedisServiceImpl implements IRedisService {
      *
      * @param lockKey key
      */
+    @Override
     public void releaseLock(String lockKey) {
         stringRedisTemplate.delete(lockKey);
     }

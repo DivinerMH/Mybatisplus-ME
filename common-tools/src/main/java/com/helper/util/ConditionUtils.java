@@ -1,10 +1,11 @@
 package com.helper.util;
 
-import com.hzcloud.iot.common.core.constant.ConditionConstants;
-import org.apache.commons.lang.StringUtils;
-
 import java.text.ParseException;
 import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.helper.constant.ConditionConstants;
 
 /**
  * 条件比对的方法类

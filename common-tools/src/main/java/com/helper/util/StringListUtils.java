@@ -1,13 +1,13 @@
 package com.helper.util;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class StringListUtils {
     /**
@@ -379,7 +379,7 @@ public class StringListUtils {
      * String转number
      *
      * @param num 1-取1位小数，2-取2位小数
-     * @param str
+     * @param data
      * @return
      */
     public static String getStringNumber(int num, Object data) {
@@ -399,7 +399,7 @@ public class StringListUtils {
      * String转number
      *
      * @param num 1-取1位小数，2-取2位小数
-     * @param str
+     * @param data
      * @return
      */
     public static String getStringNumber2(int num, Object data) {

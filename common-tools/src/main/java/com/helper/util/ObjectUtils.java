@@ -1,12 +1,15 @@
 package com.helper.util;
 
-import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang3.StringUtils;
-
+import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.alibaba.fastjson.JSON;
 
 /**
  * @author huyuyang@lxfintech.com
@@ -65,7 +68,9 @@ public class ObjectUtils {
      * @throws InstantiationException
      */
     public static Object deepClone(Object objSource) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        if (null == objSource) return null;
+        if (null == objSource) {
+            return null;
+        }
         //是否jdk类型、基础类型、枚举类型
         if (isJDKType(objSource.getClass())
                 || objSource.getClass().isPrimitive()
@@ -84,9 +89,13 @@ public class ObjectUtils {
         // 循环遍历字段，获取字段对应的属性值
         for (Field field : fields) {
             field.setAccessible(true);
-            if (null == field) continue;
+            if (null == field) {
+                continue;
+            }
             Object value = field.get(objSource);
-            if (null == value) continue;
+            if (null == value) {
+                continue;
+            }
             Class<?> type = value.getClass();
             if (isStaticFinal(field)) {
                 continue;
@@ -96,7 +105,9 @@ public class ObjectUtils {
                 //遍历集合属性
                 if (type.isArray()) {//对数组类型的字段进行递归过滤
                     int len = Array.getLength(value);
-                    if (len < 1) continue;
+                    if (len < 1) {
+                        continue;
+                    }
                     Class<?> c = value.getClass().getComponentType();
                     Array newArray = (Array) Array.newInstance(c, len);
                     for (int i = 0; i < len; i++) {
@@ -231,7 +242,9 @@ public class ObjectUtils {
     @Deprecated
     public static Object copy(Object objSource) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 
-        if (null == objSource) return null;
+        if (null == objSource) {
+            return null;
+        }
         // 获取源对象类型
         Class<?> clazz = objSource.getClass();
         Object objDes = clazz.newInstance();
