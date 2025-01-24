@@ -1,4 +1,4 @@
-package com.menghuan.test_I.codeTest_2021_06;
+package com.menghuan.testcase;
 
 import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;
@@ -9,52 +9,59 @@ import java.util.Date;
 
 /**
  * @Author: menghuan
- * @Date: 2021/6/28 14:56
+ * @Date: 2021/6/28 14:55
  */
-public class CustomSqlDateEditor extends PropertyEditorSupport {
+
+public class CustomDateEditor extends PropertyEditorSupport {
 
     private DateFormat formatter;
 
-    public CustomSqlDateEditor(String dateFormat) {
+    public CustomDateEditor(String dateFormat) {
         this.formatter = new SimpleDateFormat(dateFormat);
     }
 
     /**
-     * 对象转sql.Date
+     * <pre>
+     * 对象转日期
+     * java.sql.Date -> java.util.Date
+     * String -> java.util.Date
+     * Long -> java.util.Date
+     * Calandar -> java.util.Date
+     * </pre>
      */
     @Override
     public void setValue(Object o) {
-        if (o instanceof java.util.Date) {
-            super.setValue(new Date(((java.util.Date) o).getTime()));
+        if (o instanceof java.sql.Date) {
+            super.setValue(new Date(((java.sql.Date) o).getTime()));
         } else if (o instanceof String) {
             setAsText((String) o);
         } else if (o instanceof Long) {
             super.setValue(new Date((Long) o));
         } else if (o instanceof Calendar) {
-            super.setValue(new Date(((Calendar) o).getTimeInMillis()));
+            super.setValue(((Calendar) o).getTime());
         } else {
             super.setValue(o);
         }
     }
 
     /**
-     * 字符串转sql.Date
+     * 字符串转日期
      */
     @Override
     public void setAsText(String dateStr) {
         if (dateStr != null) {
             try {
-                super.setValue(new Date(formatter.parse(dateStr).getTime()));
+                super.setValue(formatter.parse(dateStr));
             } catch (ParseException e) {
                 throw new IllegalArgumentException("Could not parse date: " + e.getMessage());
             }
         } else {
-            setValue(null);
+            super.setValue(null);
         }
     }
 
     /**
-     * sql.Date转字符串
+     * 日期转字符串
      */
     public String getAsText() {
         Object v = this.getValue();

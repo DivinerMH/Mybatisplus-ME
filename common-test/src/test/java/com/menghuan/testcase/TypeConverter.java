@@ -1,8 +1,4 @@
-package com.menghuan.test_I.codeTest_2021_06;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.Maps;
+package com.menghuan.testcase;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -12,6 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Maps;
 
 
 /**

@@ -67,20 +67,19 @@ public interface SecurityConstants {
     /**
      * 微信获取OPENID
      */
-    String WX_AUTHORIZATION_CODE_URL = "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code";
+    String WX_AUTHORIZATION_CODE_URL =
+        "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code";
 
     /**
      * 微信获取微信用户信息
      */
-    String WX_USERINFO_URL = "https://api.weixin.qq.com/sns/userinfo" +
-            "?access_token=%s&openid=%s&lang=zh_CN";
+    String WX_USERINFO_URL = "https://api.weixin.qq.com/sns/userinfo" + "?access_token=%s&openid=%s&lang=zh_CN";
 
     /**
      * 码云获取token
      */
-    String GITEE_AUTHORIZATION_CODE_URL = "https://gitee.com/oauth/token?grant_type=" +
-            "authorization_code&code=%S&client_id=%s&redirect_uri=" +
-            "%s&client_secret=%s";
+    String GITEE_AUTHORIZATION_CODE_URL = "https://gitee.com/oauth/token?grant_type="
+        + "authorization_code&code=%S&client_id=%s&redirect_uri=" + "%s&client_secret=%s";
 
     /**
      * 开源中国获取token
@@ -105,14 +104,13 @@ public interface SecurityConstants {
      * sys_oauth_client_details 表的字段，不包括client_id、client_secret
      */
     String CLIENT_FIELDS = "client_id, CONCAT('{noop}',client_secret) as client_secret, resource_ids, scope, "
-            + "authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, "
-            + "refresh_token_validity, additional_information, autoapprove";
+        + "authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, "
+        + "refresh_token_validity, additional_information, autoapprove";
 
     /**
      * JdbcClientDetailsService 查询语句
      */
-    String BASE_FIND_STATEMENT = "select " + CLIENT_FIELDS
-            + " from sys_oauth_client_details";
+    String BASE_FIND_STATEMENT = "select " + CLIENT_FIELDS + " from sys_oauth_client_details";
 
     /**
      * 默认的查询语句

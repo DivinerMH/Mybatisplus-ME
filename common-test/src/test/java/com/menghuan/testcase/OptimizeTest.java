@@ -1,8 +1,9 @@
-package com.menghuan.test_I.codeTest_2020_11;
+package com.menghuan.testcase;
 
+
+import org.junit.Test;
 
 import com.alibaba.fastjson.JSONObject;
-import org.junit.Test;
 
 /**
  * @Author:menghuan

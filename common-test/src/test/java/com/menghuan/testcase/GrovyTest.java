@@ -1,8 +1,8 @@
-package com.menghuan.test_I.codeTest_2020_11;
-
-import org.junit.Test;
+package com.menghuan.testcase;
 
 import java.math.BigDecimal;
+
+import org.junit.Test;
 
 /**
  * @Author:menghuan

@@ -1,8 +1,8 @@
-package com.menghuan.test_I.codeTest_2020_11;
-
-import lombok.Data;
+package com.menghuan.testcase;
 
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * @Author:menghuan

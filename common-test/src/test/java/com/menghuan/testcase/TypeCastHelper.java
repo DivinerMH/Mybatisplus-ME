@@ -1,4 +1,4 @@
-package com.menghuan.test_I.codeTest_2021_06;
+package com.menghuan.testcase;
 
 /**
  * 类型转换工具类

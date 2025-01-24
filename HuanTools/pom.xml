@@ -12,7 +12,7 @@
 
     <groupId>com.menghuan</groupId>
     <artifactId>HuanTools</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>V1.0.1</version>
     <name>HuanTools</name>
     <description>Personal kit project for Spring Boot</description>
 

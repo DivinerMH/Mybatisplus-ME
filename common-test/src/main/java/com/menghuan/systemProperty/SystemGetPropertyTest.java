@@ -1,8 +1,8 @@
-package com.menghuan.test_I.codeTest_2021_11;
-
-import org.junit.Test;
+package com.menghuan.systemProperty;
 
 import java.util.Properties;
+
+import org.junit.Test;
 
 /**
  * @Author: menghuan
