@@ -12,10 +12,10 @@ public interface CommonConstants {
     String UTF8 = "UTF-8";
 
     /** 前端工程名 */
-    String FRONT_END_PROJECT = "menghuan-ui";
+    String PROJECT_FRONT_END = "menghuan-ui";
 
     /** 后端工程名 */
-    String BACK_END_PROJECT = "menghuan";
+    String PROJECT_BACK_END = "menghuan";
 
     /** 路由存放 */
     String GATEWAY_ROUTE_KEY = "gateway_route_key";

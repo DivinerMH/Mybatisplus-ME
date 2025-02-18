@@ -13,9 +13,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum StatusEnum {
 
-    ENABLE("0", "启用"),
+    ENABLE("0", "禁用"),
 
-    DISABLE("1", "禁用"),
+    DISABLE("1", "启用"),
 
     LOCK("2", "锁定")
 

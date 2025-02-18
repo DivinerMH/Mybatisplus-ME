@@ -12,26 +12,26 @@ import java.util.List;
  */
 public class ApproveStatusUtil {
 
-    public static final int UNCOMMITTED = 0; // 未提交
-    public static final int SUBMITTED = 1; // 提交
-    public static final int UNDER_REVIEW = 2; // 审核中
-    public static final int PASSED = 4; // 通过
-    public static final int REJECTED = 8; // 驳回
-    public static final int WITHDRAWN = 16; // 撤销
-    public static final int ARCHIVED = 32; // 已归档
+    public static final int UNCOMMITTED = 0;            // 未提交
+    public static final int SUBMITTED = 1;              // 提交
+    public static final int UNDER_REVIEW = 2;           // 审核中
+    public static final int PASSED = 4;                 // 通过
+    public static final int REJECTED = 8;               // 驳回
+    public static final int WITHDRAWN = 16;             // 撤销
+    public static final int ARCHIVED = 32;              // 已归档
 
-    // 位掩码
-    private static final int MASK_UNCOMMITTED = 0b00000000; // 未提交的位掩码
-    private static final int MASK_SUBMITTED = 0b00000001; // 提交的位掩码
-    private static final int MASK_UNDER_REVIEW = 0b00000010; // 审核中的位掩码
-    private static final int MASK_PASSED = 0b00000100; // 通过的位掩码
-    private static final int MASK_REJECTED = 0b00001000; // 驳回的位掩码
-    private static final int MASK_WITHDRAWN = 0b00010000; // 撤销的位掩码
-    private static final int MASK_ARCHIVED = 0b00100000; // 已归档的位掩码
+    /** 位掩码 */
+    private static final int MASK_UNCOMMITTED = 0b00000000;     // 未提交的位掩码
+    private static final int MASK_SUBMITTED = 0b00000001;       // 提交的位掩码
+    private static final int MASK_UNDER_REVIEW = 0b00000010;    // 审核中的位掩码
+    private static final int MASK_PASSED = 0b00000100;          // 通过的位掩码
+    private static final int MASK_REJECTED = 0b00001000;        // 驳回的位掩码
+    private static final int MASK_WITHDRAWN = 0b00010000;       // 撤销的位掩码
+    private static final int MASK_ARCHIVED = 0b00100000;        // 已归档的位掩码
 
     /**
      * 设置状态
-     * 
+     *
      * @param status 原状态值
      * @param state 新状态值
      * @return 新状态值
@@ -42,7 +42,7 @@ public class ApproveStatusUtil {
 
     /**
      * 检查是否包含指定状态
-     * 
+     *
      * @param status 状态值
      * @param state 指定状态
      * @return 是否包含指定状态
@@ -53,7 +53,7 @@ public class ApproveStatusUtil {
 
     /**
      * 清除指定状态
-     * 
+     *
      * @param status 状态值
      * @param state 指定状态
      * @return 新状态值
@@ -64,7 +64,7 @@ public class ApproveStatusUtil {
 
     /**
      * 将多个状态值合并成一个整数
-     * 
+     *
      * @param states 多个状态值
      * @return 合并后的状态值
      */
@@ -78,7 +78,7 @@ public class ApproveStatusUtil {
 
     /**
      * 从整数中反向拆分出多个状态值
-     * 
+     *
      * @param status 整数状态值
      * @return 多个状态值
      */
@@ -110,14 +110,14 @@ public class ApproveStatusUtil {
 
     public static void main(String[] args) {
         int [] a = new int[]{4,8};
-        System.out.println(ApproveStatusUtil.mergeStates(a));
-        
+        System.out.println("多状态合并：" + ApproveStatusUtil.mergeStates(a));
+
         // 假设从数据库中读取到的`status`字段值为51，即二进制为0b00110011
         int status = 33;
         // 反向拆分出多个状态值
         int[] states = ApproveStatusUtil.splitStatus(status);
         // 输出拆分出的状态值
-        System.out.println(Arrays.toString(states));
+        System.out.println("单状态拆分：" + Arrays.toString(states));
     }
 
 }
