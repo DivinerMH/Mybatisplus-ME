@@ -1,11 +1,12 @@
 package com.helper.aspect;
 
-import com.hzcloud.iot.common.core.annotation.NoRepeatSubmit;
-import com.hzcloud.iot.common.core.constant.enums.BusinessEnum;
-import com.hzcloud.iot.common.core.redis.IRedisService;
-import com.hzcloud.iot.common.core.util.R;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+import static com.helper.constant.CacheConstants.SUBMIT_DETAILS;
+
+import java.util.Objects;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,11 +15,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Objects;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.helper.annotation.NoRepeatSubmit;
+import com.helper.constant.enums.BusinessEnum;
+import com.helper.redis.IRedisService;
 
-import static com.hzcloud.iot.common.core.constant.CacheConstants.SUBMIT_DETAILS;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 重复提交
@@ -28,7 +31,7 @@ import static com.hzcloud.iot.common.core.constant.CacheConstants.SUBMIT_DETAILS
  */
 @Slf4j
 @Aspect
-//@AllArgsConstructor
+// @AllArgsConstructor
 @Component
 public class RepeatSubmitAspect {
 
@@ -41,15 +44,16 @@ public class RepeatSubmitAspect {
     @SneakyThrows
     @Around("@annotation(noRepeatSubmit)")
     public Object around(ProceedingJoinPoint point, NoRepeatSubmit noRepeatSubmit) {
-        HttpServletRequest request = ((ServletRequestAttributes) Objects
-                .requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+        HttpServletRequest request =
+            ((ServletRequestAttributes)Objects.requireNonNull(RequestContextHolder.getRequestAttributes()))
+                .getRequest();
 
         // 拿到ip地址、请求路径、token
         String path = request.getServletPath();
         String token = request.getHeader(HttpHeaders.AUTHORIZATION).split(" ")[1];
         String key = getKey(token, path);
 
-//        boolean isSuccess = iRedisService.lock(key, noRepeatSubmit.value());
+        // boolean isSuccess = iRedisService.lock(key, noRepeatSubmit.value());
         String lock = iRedisService.tryLock(key, String.valueOf(noRepeatSubmit.value()));
         if (lock != null) {
             // 第一次操作
@@ -67,7 +71,7 @@ public class RepeatSubmitAspect {
         } else {
             // 获取锁失败判断重复提交
             log.warn("tryLock fail, key = [{}]", key);
-            return R.failed(BusinessEnum.SUBMIT_REPEAT);
+            return R.failed(String.valueOf(BusinessEnum.SUBMIT_REPEAT));
         }
     }
 
@@ -75,7 +79,7 @@ public class RepeatSubmitAspect {
      * 生成key
      *
      * @param token token
-     * @param url   url
+     * @param url url
      * @return key
      */
     private String getKey(String token, String url) {

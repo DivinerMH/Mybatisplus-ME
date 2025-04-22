@@ -1,10 +1,10 @@
 package com.menghuan.async;
 
+import javax.annotation.Resource;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * @Author: menghuan
@@ -13,7 +13,9 @@ import javax.annotation.Resource;
 @Component
 public class AsyncMethod {
 
-    // 加入@Lazy注解，再添加一层代理，这里将注入代理对象的代理对象
+    /**
+     * 加入@Lazy注解，再添加一层代理，这里将注入代理对象的代理对象
+     */
     @Lazy
     @Resource
     private AsyncMethod asyncMethod;
@@ -36,4 +38,3 @@ public class AsyncMethod {
     }
 
 }
-

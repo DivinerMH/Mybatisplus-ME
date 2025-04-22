@@ -33,7 +33,7 @@ public class RedisUtils {
             // 注意 Jedis 版本(2.9.0 支持)
             return jedis.set(key, val, "NX", "PX", 1000 * 60 * 3).equalsIgnoreCase("OK");
         } catch (Exception ex) {
-            // log.info("Redis分布式锁加锁异常,请核实后操作！");
+            log.info("Redis分布式锁加锁异常,请核实后操作！");
         } finally {
             if (jedis != null) {
                 jedis.close();
@@ -63,7 +63,7 @@ public class RedisUtils {
                 .append("    return 0").append(" end");
             return Integer.valueOf(jedis.eval(sbScript.toString()).toString());
         } catch (Exception ex) {
-            // log.info("Redis分布式锁解锁异常,请核实后操作！");
+            log.info("Redis分布式锁解锁异常,请核实后操作！");
         } finally {
             if (jedis != null) {
                 jedis.close();

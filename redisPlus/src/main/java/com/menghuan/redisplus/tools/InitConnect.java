@@ -1,7 +1,8 @@
 package com.menghuan.redisplus.tools;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -30,19 +31,18 @@ public class InitConnect {
         // 使用ping命令，测试连接是否成功
         String result = jedis.ping();
         // 返回PONG
-        log.info("result：{}",result);
-        // System.out.println(result);
+        log.info("result：{}", result);
 
         // 添加一条数据
         jedis.set("username", "寒山月初℃");
 
         // 获取一条数据
         String username = jedis.get("username");
-        log.info("username：{}",username);
+        log.info("username：{}", username);
         // System.out.println(username);
 
         // 释放资源
-        if (null != jedis){
+        if (null != jedis) {
             jedis.close();
         }
     }
@@ -53,7 +53,7 @@ public class InitConnect {
     @Test
     public void initConn02() {
         // 初始化redis客户端连接池
-        JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), "192.168.1.163", 	 6379, 10000);
+        JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), "192.168.1.163", 6379, 10000);
 
         // 从连接池获取连接
         Jedis jedis = jedisPool.getResource();
@@ -63,7 +63,7 @@ public class InitConnect {
 
         // 使用ping命令，测试连接是否成功
         String result = jedis.ping();
-        System.out.println(result);// 返回PONG
+        System.out.println(result);
 
         // 添加一条数据
         jedis.set("username_2", "寒山月初℃_2");
@@ -72,10 +72,9 @@ public class InitConnect {
         String username = jedis.get("username_2");
         System.out.println(username);
         // 释放资源
-        if (null != jedis){
+        if (null != jedis) {
             jedis.close();
         }
     }
-
 
 }

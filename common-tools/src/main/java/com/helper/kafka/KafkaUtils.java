@@ -1,3 +1,4 @@
+/*
 package com.helper.kafka;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -13,13 +14,15 @@ public class KafkaUtils {
 
     private static final org.slf4j.Logger logger = (org.slf4j.Logger) LoggerFactory.getLogger(KafkaUtils.class);
 
-    /**
+    */
+/**
      * 发送消息
      *
      * @param topic
      * @param massage
      * @return
-     */
+     *//*
+
     public static boolean send(String topic, String massage, KafkaProducer kafkaProducer) {
         ProducerRecord<String, String> msgtar = new ProducerRecord<String, String>(topic, massage);
         try {
@@ -35,13 +38,15 @@ public class KafkaUtils {
         return true;
     }
 
-    /**
+    */
+/**
      * 发送消息 此方法废弃
      *
      * @param topic
      * @param massage
      * @return
-     */
+     *//*
+
     @Deprecated
     public static boolean send(String topic, String massage, String kafkaServerAddress) {
         ProducerRecord<String, String> msgtar = new ProducerRecord<String, String>(topic, massage);
@@ -60,14 +65,17 @@ public class KafkaUtils {
     }
 
 
-    /**
+    */
+/**
      * 获取topicList
      *
      * @return
-     */
+     *//*
+
     public static Map<String, List<PartitionInfo>> getTopicList() {
         return Consumer.getConsumer("topicClient", "topicGroup").listTopics();
     }
 
 
 }
+*/

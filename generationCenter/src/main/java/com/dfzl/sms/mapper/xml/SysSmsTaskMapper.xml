@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sms.mapper.SysSmsTaskMapper">
+
+    <!-- RspSysSmsTaskDto查询结果集映射 -->
+    <resultMap id="BaseResultMap" type="com.dfzl.sms.bean.dto.RspSysSmsTaskDto">
+        <result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="content" column="content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sendType" column="send_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="status" column="status" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sendNum" column="send_num" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="channel" column="channel" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="bizType" column="biz_type" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="operator" column="operator" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="orgCode" column="org_code" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="sendTime" column="send_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="delFlag" column="del_flag" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="operateTime" column="operate_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 通用查询基本字段 -->
+    <sql id="BaseColumnList">a.id, a.content, a.send_type, a.status, a.send_num, a.channel, a.biz_type, a.operator, a.org_code, a.send_time, a.create_by, a.create_time, a.update_by, a.update_time, a.del_flag, a.operate_time</sql>
+
+    <!-- 短信发送任务表-详情查询 -->
+    <select id="detail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM SYS_SMS_TASK a
+        WHERE DEL_FLAG = 0 and a.ID = #{id}
+    </select>
+
+    <!-- 短信发送任务表-条件查询 -->
+    <select id="queryByConditions" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM SYS_SMS_TASK a
+        <where>
+            DEL_FLAG = 0
+            <if test="reqDto.id != null">
+                AND a.ID = #{reqDto.id}
+            </if>
+            <if test="reqDto.ids != null and reqDto.ids.size > 0 ">
+                AND a.ID IN
+                <foreach collection="reqDto.ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="reqDto.name != null and reqDto.name != '' ">
+                AND a.NAME LIKE concat('%',#{reqDto.name},'%')
+            </if>
+        </where>
+        ORDER BY a.CREATE_TIME DESC
+    </select>
+
+
+</mapper>
