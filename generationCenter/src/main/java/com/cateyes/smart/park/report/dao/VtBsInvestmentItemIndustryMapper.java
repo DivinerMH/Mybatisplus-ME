@@ -1,14 +1,13 @@
 package com.cateyes.smart.park.report.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.smart.park.report.bean.dto.RspVtBsInvestmentItemIndustryDto;
-import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryQueryDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryQueryDto;
+import com.cateyes.smart.park.report.bean.dto.RspVtBsInvestmentItemIndustryDto;
 
 /**
  * 智慧大屏-手工-招商项目-产业项目分布(SpVtBsInvestmentItemIndustry)Mapper

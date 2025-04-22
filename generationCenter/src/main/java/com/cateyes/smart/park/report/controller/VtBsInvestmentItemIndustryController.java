@@ -2,15 +2,16 @@ package com.cateyes.smart.park.report.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.cateyes.smart.park.base.api.ApiResult;
-
-import com.cateyes.smart.park.report.bean.dto.RspVtBsInvestmentItemIndustryDto;
 import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryAddDto;
-import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryUpdateDto;
 import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryQueryDto;
+import com.cateyes.smart.park.report.bean.dto.ReqVtBsInvestmentItemIndustryUpdateDto;
+import com.cateyes.smart.park.report.bean.dto.RspVtBsInvestmentItemIndustryDto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

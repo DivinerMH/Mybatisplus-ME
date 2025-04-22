@@ -1,12 +1,13 @@
 package com.cateyes.smart.park.report.bean.dto;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * 智慧大屏-手工-招商项目-产业项目分布(SpVtBsInvestmentItemIndustry)ReqUpdateDto

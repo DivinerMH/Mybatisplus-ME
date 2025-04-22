@@ -1,11 +1,14 @@
 package com.cateyes.smart.park.report.bean.dto;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
 
 /**
  * 智慧大屏-手工-招商项目(SpVtBsInvestmentItem)RspDto

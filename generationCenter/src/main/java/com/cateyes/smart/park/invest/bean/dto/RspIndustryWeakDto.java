@@ -1,11 +1,12 @@
 package com.cateyes.smart.park.invest.bean.dto;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 产业链节点评价指标设置(SpInIndustryWeak)RspDto

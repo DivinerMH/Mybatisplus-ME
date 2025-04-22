@@ -1,12 +1,13 @@
 package com.cateyes.dis.micro.oper.bean.dto;
 
 import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * 企业亩均效益(DisEnterpriseMuBenefit)ReqUpdateDto

@@ -1,11 +1,8 @@
 package com.cateyes.iis.micro.resource.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.cateyes.iis.micro.resource.bean.dto.RspparkIndexDto;
-import com.cateyes.iis.micro.resource.bean.dto.ReqparkIndexDto;
-import com.cateyes.iis.micro.resource.bean.po.parkIndex;
+import com.base.valid.SpBaseService;
+import com.cateyes.iis.micro.resource.bean.dto.ReqParkIndexDto;
+import com.cateyes.iis.micro.resource.bean.dto.RspParkIndexDto;
 
 /**
  * (IisParkIndex)service

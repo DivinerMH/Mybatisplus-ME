@@ -1,6 +1,5 @@
 package com.dfzl.material.controller;
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +29,14 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/afMaterialApply")
 @Slf4j
-public class AfMaterialApplyController extends JeecgController<AfMaterialApply, IAfMaterialApplyService>{
+public class AfMaterialApplyController extends JeecgController<AfMaterialApply, IAfMaterialApplyService> {
 
-	@Autowired
+    @Autowired
     private IAfMaterialApplyService afMaterialApplyService;
 
     /**
      * 添加
+     * 
      * @param reqDto 入参Dto
      * @return Result
      **/
@@ -51,6 +51,7 @@ public class AfMaterialApplyController extends JeecgController<AfMaterialApply, 
 
     /**
      * 删除
+     * 
      * @param id 主键ID
      * @return Result
      **/
@@ -65,6 +66,7 @@ public class AfMaterialApplyController extends JeecgController<AfMaterialApply, 
 
     /**
      * 编辑
+     * 
      * @param reqDto 入参Dto
      * @return Result
      **/
@@ -76,9 +78,10 @@ public class AfMaterialApplyController extends JeecgController<AfMaterialApply, 
         afMaterialApplyService.update(reqDto);
         return Result.OK("编辑成功!");
     }
-    
+
     /**
      * 详情查询
+     * 
      * @param id 主键ID
      * @return Result
      **/
@@ -87,9 +90,10 @@ public class AfMaterialApplyController extends JeecgController<AfMaterialApply, 
     public Result<RspAfMaterialApplyDto> detail(@RequestParam("id") String id) {
         return Result.ok(afMaterialApplyService.detail(id));
     }
-    
+
     /**
      * 分页查询
+     * 
      * @param reqDto 入参Dto
      * @return ApiResult
      **/
@@ -98,5 +102,5 @@ public class AfMaterialApplyController extends JeecgController<AfMaterialApply, 
     public Result<IPage<RspAfMaterialApplyDto>> queryPage(@Valid ReqAfMaterialApplyQueryDto reqDto) {
         return Result.ok(afMaterialApplyService.queryPage(reqDto));
     }
-                           
+
 }

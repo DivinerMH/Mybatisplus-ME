@@ -1,14 +1,13 @@
 package com.cateyes.smart.park.resource.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.smart.park.resource.bean.dto.RspenterpriseMuBenefitAnalysisDto;
-import com.cateyes.smart.park.resource.bean.po.enterpriseMuBenefitAnalysis;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 /**
  * 企业亩均效益分析-企业得分(SpEnterpriseMuBenefitAnalysis)Mapper

@@ -1,11 +1,13 @@
 package com.cateyes.iis.micro.resource.bean.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Date;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * (IisParkIndex)RspDto
@@ -14,6 +16,7 @@ import java.util.Date;
  * @since 2023-10-17 11:11:51
  */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class RspParkIndexDto implements Serializable {
@@ -23,6 +26,8 @@ public class RspParkIndexDto implements Serializable {
 
     @ApiModelProperty(value = "园区、区域id")
     private Integer parkId;
+
+    private String parkName;
 
     @ApiModelProperty(value = "上报时间")
     private Date reportTime;

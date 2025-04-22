@@ -3,8 +3,8 @@ package com.cateyes.data.govern.datafill.bean.po;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
 import com.base.mybatis.MetaData;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 

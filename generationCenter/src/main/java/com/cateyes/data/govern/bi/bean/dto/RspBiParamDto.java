@@ -1,11 +1,11 @@
 package com.cateyes.data.govern.bi.bean.dto;
 
+import java.io.Serializable;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 參數(DgBiParam)RspDto

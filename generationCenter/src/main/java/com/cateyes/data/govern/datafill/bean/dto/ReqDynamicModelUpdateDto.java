@@ -1,11 +1,11 @@
 package com.cateyes.data.govern.datafill.bean.dto;
 
+import javax.validation.constraints.NotNull;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * 动态表单模型(DgDynamicModel)ReqUpdateDto

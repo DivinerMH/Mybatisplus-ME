@@ -3,15 +3,15 @@ package com.cateyes.smart.park.invest.service.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import com.base.service.SpBaseServiceImpl;
+import org.jeecg.common.util.BeanMapperUtil;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.base.ApiCode;
+import com.base.service.SpBaseServiceImpl;
 import com.base.util.Assert;
-import com.base.util.BeanMapperUtil;
 import com.base.util.PageInfo;
 import com.base.util.PageUtil;
 import com.cateyes.smart.park.invest.bean.dto.ReqIndustryWeakDto;
@@ -30,8 +30,7 @@ import lombok.AllArgsConstructor;
  */
 @Service
 @AllArgsConstructor
-public class IndustryWeakServiceImpl extends SpBaseServiceImpl
-    implements IIndustryWeakService {
+public class IndustryWeakServiceImpl extends SpBaseServiceImpl implements IIndustryWeakService {
 
     private IndustryWeakMapper industryWeakMapper;
 

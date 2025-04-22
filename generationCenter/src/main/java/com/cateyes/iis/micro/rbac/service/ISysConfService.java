@@ -1,18 +1,12 @@
 package com.cateyes.iis.micro.rbac.service;
 
-    
-    
-
-
-
-
 
 import com.base.dto.ReqIdDto;
 import com.base.util.PageInfo;
-import com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
-import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;
 import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfQueryDto;
+import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;
+import com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto;
 
 /**
  * 系统配置表(IisSysConf)service

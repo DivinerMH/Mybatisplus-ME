@@ -1,14 +1,15 @@
 package com.cateyes.iis.micro.resource.bean.po;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * (IisParkIndex)Po
@@ -29,6 +30,9 @@ public class ParkIndex implements Serializable {
 
     @TableField(value = "park_id")
     private Integer parkId;
+
+    @TableField(value = "park_name")
+    private String parkName;
 
     @TableField(value = "report_time")
     private Date reportTime;

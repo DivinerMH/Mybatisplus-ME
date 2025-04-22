@@ -5,10 +5,12 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.base.api.ApiResult;
+import com.base.ApiResult;
 import com.base.valid.PageValid;
 import com.base.valid.SaveValid;
 import com.base.valid.UpdateValid;
+import com.cateyes.iis.micro.resource.bean.dto.ReqParkIndexDto;
+import com.cateyes.iis.micro.resource.service.IParkIndexService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

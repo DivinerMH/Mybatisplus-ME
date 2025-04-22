@@ -1,6 +1,5 @@
 package com.cateyes.data.govern.bi.bean.dto;
 
-import java.util.Date;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,12 +1,13 @@
 package com.cateyes.smart.park.resource.bean.dto;
 
+import java.util.Date;
+
 import com.base.bean.dto.BaseDto;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 /**
  * 企业亩均效益分析-企业得分(SpEnterpriseMuBenefitAnalysis)ReqDto

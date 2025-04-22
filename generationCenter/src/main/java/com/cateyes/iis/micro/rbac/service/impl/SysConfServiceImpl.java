@@ -1,38 +1,31 @@
 package com.cateyes.iis.micro.rbac.service.impl;
 
-    
-    
-
-
-
-
-
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Service;
+
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 import com.base.ApiCode;
 import com.base.dto.ReqIdDto;
+import com.base.service.SpBaseServiceImpl;
 import com.base.util.Assert;
 import com.base.util.BeanMapperUtil;
 import com.base.util.PageInfo;
 import com.base.util.PageUtil;
+import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
+import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfQueryDto;
+import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;
+import com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto;
+import com.cateyes.iis.micro.rbac.bean.po.SysConf;
 import com.cateyes.iis.micro.rbac.dao.SysConfMapper;
 import com.cateyes.iis.micro.rbac.service.ISysConfService;
-import com.base.service.SpBaseServiceImpl;
-import lombok.AllArgsConstructor;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.stereotype.Service;
 
-import com.cateyes.iis.micro.rbac.bean.dto.RspSysConfDto;
-import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfAddDto;
-import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfUpdateDto;
-import com.cateyes.iis.micro.rbac.bean.dto.ReqSysConfQueryDto;
-import com.cateyes.iis.micro.rbac.bean.po.SysConf;
+import lombok.AllArgsConstructor;
 
 /**
  * 系统配置表(IisSysConf)impl

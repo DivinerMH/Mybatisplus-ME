@@ -1,12 +1,13 @@
 package com.base;
 
+import java.io.Serializable;
+
 import com.base.constant.CommonConstant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  *   接口返回数据格式

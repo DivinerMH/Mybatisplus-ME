@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseDto implements Serializable {
+    
     @NotNull(message = "pageNo不能为空", groups = PageValid.class)
     @Min(value = 1, message = "pageNo最小值为1", groups = PageValid.class)
     @ApiModelProperty(value = "当前页数", example = "1",  required = true)

@@ -1,24 +1,15 @@
 package com.cateyes.data.govern.bi.dao;
 
-    
-    
 
-
-
-
-
-
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.data.govern.bi.bean.dto.RspBiReportDto;
 import com.cateyes.data.govern.bi.bean.dto.ReqBiReportQueryDto;
+import com.cateyes.data.govern.bi.bean.dto.RspBiReportDto;
 import com.cateyes.data.govern.bi.bean.po.BiReport;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 报表(DgBiReport)Mapper

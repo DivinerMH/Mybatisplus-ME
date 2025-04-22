@@ -1,6 +1,5 @@
 package com.dfzl.material.service.impl;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -32,12 +31,13 @@ import lombok.AllArgsConstructor;
  */
 @Service
 @AllArgsConstructor
-public class AfMaterialApplyServiceImpl extends ServiceImpl<AfMaterialApplyMapper, AfMaterialApply> implements IAfMaterialApplyService{
+public class AfMaterialApplyServiceImpl extends ServiceImpl<AfMaterialApplyMapper, AfMaterialApply>
+    implements IAfMaterialApplyService {
 
     private AfMaterialApplyMapper afMaterialApplyMapper;
 
     @Override
-    public String add(ReqAfMaterialApplyAddDto reqDto){
+    public String add(ReqAfMaterialApplyAddDto reqDto) {
         // checkNameUnique(reqDto.getName());
         AfMaterialApply map = BeanMapperUtil.map(reqDto, AfMaterialApply.class);
         int insert = afMaterialApplyMapper.insert(map);
@@ -46,44 +46,45 @@ public class AfMaterialApplyServiceImpl extends ServiceImpl<AfMaterialApplyMappe
     }
 
     @Override
-    public int delete(String id){
+    public int delete(String id) {
         AfMaterialApply entity = afMaterialApplyMapper.selectById(id);
         Assert.notNull(entity, ApiCode.NOT_FOUND);
         return afMaterialApplyMapper.deleteById(id);
     }
 
     @Override
-    public int update(ReqAfMaterialApplyUpdateDto reqDto){
+    public int update(ReqAfMaterialApplyUpdateDto reqDto) {
         AfMaterialApply afMaterialApply = afMaterialApplyMapper.selectById(reqDto.getId());
         Assert.notNull(afMaterialApply, ApiCode.NOT_FOUND);
-        // if (StringUtils.isNotBlank(reqDto.getName()) && !StringUtils.equals(afMaterialApply.getName(), reqDto.getName())) {
-            // checkNameUnique(reqDto.getName());
+        // if (StringUtils.isNotBlank(reqDto.getName()) && !StringUtils.equals(afMaterialApply.getName(),
+        // reqDto.getName())) {
+        // checkNameUnique(reqDto.getName());
         // }
         return afMaterialApplyMapper.updateById(BeanMapperUtil.map(reqDto, AfMaterialApply.class));
     }
-    
+
     @Override
-    public RspAfMaterialApplyDto detail(String id){
+    public RspAfMaterialApplyDto detail(String id) {
         RspAfMaterialApplyDto rspDto = afMaterialApplyMapper.detail(id);
         Assert.notNull(rspDto, ApiCode.NOT_FOUND);
         List<RspAfMaterialApplyDto> list = Stream.of(rspDto).collect(Collectors.toList());
         listConverter(list);
         return list.get(0);
     }
-                                        
+
     @Override
     public List<RspAfMaterialApplyDto> queryList(ReqAfMaterialApplyQueryDto reqDto) {
         List<RspAfMaterialApplyDto> list = afMaterialApplyMapper.queryByConditions(reqDto);
         // 数据转换
         listConverter(list);
-        return list;                                   
+        return list;
     }
-    
+
     @Override
     public IPage<RspAfMaterialApplyDto> queryPage(ReqAfMaterialApplyQueryDto reqDto) {
         return queryPageConditions(reqDto);
     }
-    
+
     private IPage<RspAfMaterialApplyDto> queryPageConditions(ReqAfMaterialApplyQueryDto reqDto) {
         Page<RspAfMaterialApplyDto> page = new Page<>(reqDto.getPageNo(), reqDto.getPageSize());
         IPage<RspAfMaterialApplyDto> pageResult = afMaterialApplyMapper.queryByConditions(page, reqDto);
@@ -94,11 +95,11 @@ public class AfMaterialApplyServiceImpl extends ServiceImpl<AfMaterialApplyMappe
         listConverter(pageResult.getRecords());
         return pageResult;
     }
-    
+
     private void listConverter(List<RspAfMaterialApplyDto> list) {
         list.forEach(a -> {
 
         });
     }
-    
+
 }

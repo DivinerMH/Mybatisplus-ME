@@ -1,12 +1,14 @@
 package com.cateyes.iis.micro.resource.bean.dto;
 
-import com.base.bean.dto.BaseDto;
+import java.util.Date;
+
+import com.base.dto.BaseDto;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 /**
  * (IisParkIndex)ReqDto
@@ -15,6 +17,7 @@ import java.util.Date;
  * @since 2023-10-17 11:11:50
  */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReqParkIndexDto extends BaseDto {
@@ -24,6 +27,8 @@ public class ReqParkIndexDto extends BaseDto {
 
     @ApiModelProperty(value = "园区、区域id")
     private Integer parkId;
+
+    private String parkName;
 
     @ApiModelProperty(value = "上报时间")
     private Date reportTime;

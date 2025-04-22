@@ -2,15 +2,16 @@ package com.cateyes.data.govern.datafill.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.cateyes.smart.park.base.api.ApiResult;
-
-import com.cateyes.data.govern.datafill.bean.dto.RspDynamicModelDto;
 import com.cateyes.data.govern.datafill.bean.dto.ReqDynamicModelAddDto;
-import com.cateyes.data.govern.datafill.bean.dto.ReqDynamicModelUpdateDto;
 import com.cateyes.data.govern.datafill.bean.dto.ReqDynamicModelQueryDto;
+import com.cateyes.data.govern.datafill.bean.dto.ReqDynamicModelUpdateDto;
+import com.cateyes.data.govern.datafill.bean.dto.RspDynamicModelDto;
+import com.cateyes.smart.park.base.api.ApiResult;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,18 +1,12 @@
 package com.cateyes.data.govern.datafill.bean.dto;
 
-    
-    
 
-
-
-
+import java.io.Serializable;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 动态表单字段池主题关联(DgDynamicFieldPoolTopic)RspDto

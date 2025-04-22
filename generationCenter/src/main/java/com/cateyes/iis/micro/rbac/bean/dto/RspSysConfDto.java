@@ -1,12 +1,13 @@
 package com.cateyes.iis.micro.rbac.bean.dto;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 系统配置表(IisSysConf)RspDto

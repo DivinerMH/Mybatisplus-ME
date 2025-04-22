@@ -1,12 +1,12 @@
 package com.cateyes.iis.micro.rbac.bean.dto;
 
+import javax.validation.constraints.NotNull;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * 系统配置表(IisSysConf)ReqUpdateDto

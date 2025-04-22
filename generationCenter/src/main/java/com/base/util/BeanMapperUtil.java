@@ -1,13 +1,13 @@
 package org.jeecg.common.util;
 
-import com.alibaba.fastjson.JSONObject;
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+
+import com.alibaba.fastjson.JSONObject;
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
 
 /**
  * Description: Bean属性copy工具类，spring自带的工具类存在性能问题，不考虑，同时apache的工具类存在安全问题，故考虑使用dozer

@@ -1,14 +1,16 @@
 package com.cateyes.iis.micro.resource.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cateyes.iis.micro.resource.bean.dto.RspparkIndexDto;
-import com.cateyes.iis.micro.resource.bean.po.parkIndex;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cateyes.iis.micro.resource.bean.dto.ReqParkIndexDto;
+import com.cateyes.iis.micro.resource.bean.dto.RspParkIndexDto;
+import com.cateyes.iis.micro.resource.bean.po.ParkIndex;
 
 /**
  * (IisParkIndex)Mapper
