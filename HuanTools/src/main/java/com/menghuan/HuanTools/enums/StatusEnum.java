@@ -14,11 +14,8 @@ import lombok.Getter;
 public enum StatusEnum {
 
     ENABLE("0", "禁用"),
-
     DISABLE("1", "启用"),
-
     LOCK("2", "锁定")
-
     ;
 
     /**

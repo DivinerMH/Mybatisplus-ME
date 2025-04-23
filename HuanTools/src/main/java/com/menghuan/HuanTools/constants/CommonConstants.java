@@ -8,6 +8,8 @@ package com.menghuan.HuanTools.constants;
  */
 public interface CommonConstants {
 
+    /*----------------------------------------------- 系统级 - 通用常量 ----------------------------------------------*/
+
     /** 编码 */
     String UTF8 = "UTF-8";
 
@@ -41,7 +43,43 @@ public interface CommonConstants {
     /** 失败标记 */
     Boolean FALSE = false;
 
-    /*----------------------------------------------- 系统级 - 通用常量 ----------------------------------------------*/
+    /**
+     * {@code 500 Server Error} (HTTP/1.0 - RFC 1945)
+     */
+    Integer SC_INTERNAL_SERVER_ERROR_500 = 500;
+    /**
+     * {@code 200 OK} (HTTP/1.0 - RFC 1945)
+     */
+    Integer SC_OK_200 = 200;
+
+    /**
+     * 访问权限认证未通过 510
+     */
+    Integer SC_JEECG_NO_AUTHZ = 510;
+
+    /*----------------------------------------------- 业务级 - 通用常量 ----------------------------------------------*/
+
+    /**
+     * 自增编码 - 时间格式
+     */
+    String DATE_FORMAT = "yyyyMMdd";
+
+    /**
+     * 自增编码 - 初始化编码 - 长
+     */
+    String INIT_CODE = "00000001";
+
+    /**
+     * 自增编码 - 初始化编码 - 中
+     */
+    String INIT_CODE_MIDDLE = "000001";
+
+    /**
+     * 自增编码 - 初始化编码 - 短
+     */
+    String INIT_CODE_SHORT = "0001";
+
+
 
     /**
      * 服务模板
