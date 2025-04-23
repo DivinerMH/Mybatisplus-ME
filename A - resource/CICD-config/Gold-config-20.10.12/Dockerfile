@@ -3,7 +3,7 @@ FROM harbor.ls.com/operation-gold/nginx:latest
 MAINTAINER JinX
 
 ENV web_name m02
-#ÐÞ¸Äweb_name
+#ï¿½Þ¸ï¿½web_name
 WORKDIR /usr/html
 
 COPY ./dist ./${web_name}/
