@@ -1,4 +1,4 @@
-package com.menghuan.HuanTools.vo;
+package com.menghuan.HuanTools.bean.result;
 
 import lombok.Data;
 

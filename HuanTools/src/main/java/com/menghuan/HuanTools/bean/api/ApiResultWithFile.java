@@ -1,4 +1,4 @@
-package com.menghuan.HuanTools.api;
+package com.menghuan.HuanTools.bean.api;
 
 import java.util.List;
 

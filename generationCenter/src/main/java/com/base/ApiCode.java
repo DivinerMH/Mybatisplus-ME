@@ -27,8 +27,8 @@ public enum ApiCode {
     STRUCT_CONTAINS_MEMBER_AND_CANNOT_BE_DELETED(1100013, "组织下含有人员，无法删除"),
     BUILT_CONTAINS_FLOOR_AND_CANNOT_BE_DELETED(1100014, "楼栋下存在楼层，无法删除"),
     FLOOR_CONTAINS_ROOM_AND_CANNOT_BE_DELETED(1100015, "楼层下存在房间，无法删除"),
-    ROOM_CONNECT_HOURSE_AND_CANNOT_BE_DELETED(1100016, "房间已关联房源，无法删除"),
-    HOURSE_CONNECT_ENTERPRISE_AND_CANNOT_BE_DELETED(1100017, "房源已关联入驻企业，无法删除"),
+    ROOM_CONNECT_HOUSE_AND_CANNOT_BE_DELETED(1100016, "房间已关联房源，无法删除"),
+    HOUSE_CONNECT_ENTERPRISE_AND_CANNOT_BE_DELETED(1100017, "房源已关联入驻企业，无法删除"),
     LAND_CONNECT_ENTERPRISE_AND_CANNOT_BE_DELETED(1100018, "土地已关联入驻企业，无法删除"),
     LAND_CONNECT_PROJECT_AND_CANNOT_BE_DELETED(1100019, "土地已关联工程项目，无法删除"), PARK_IS_DISABLED(1100020, "园区已被禁用"),
     BUILT_NAME_ALREADY_EXISTS(1100021, "楼栋名称已存在"), ROOM_NAME_ALREADY_EXISTS(1100022, "房间名称已存在"),
@@ -40,7 +40,7 @@ public enum ApiCode {
     HOUSE_USE_TYPE_IS_APARTMENT_CANNOT_BE_SELECTED(1100030, "房源用途为公寓，无法选择"),
     HOUSE_IS_NOT_VACANCY_CANNOT_BE_SELECTED(1100031, "房源状态非空置，无法选择"),
     HOUSE_IS_USED_BY_CONTRACT_CANNOT_BE_SELECTED(1100032, "房源被合同占用，无法选择"),
-    ENTERPRISE_AND_HOURSE_ARE_NOT_IN_THE_SAME_PARK(1100033, "企业和房源园区不一致"),
+    ENTERPRISE_AND_HOUSE_ARE_NOT_IN_THE_SAME_PARK(1100033, "企业和房源园区不一致"),
     /** ---------------------------------------RBAC用户中心--end------------------------------------------- **/
     /** ---------------------------------------文件--start------------------------------------------- **/
     // smart-park-file（12xxxx ~ 129999）
