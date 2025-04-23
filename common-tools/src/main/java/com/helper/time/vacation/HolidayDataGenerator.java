@@ -1,12 +1,9 @@
 package com.helper.time.vacation;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.time.format.DateTimeParseException;
+import java.util.*;
 
 /**
  * @Author: menghuan
@@ -177,6 +174,79 @@ public class HolidayDataGenerator {
             return HOLIDAY_MAP.get(date).split(",")[1];
         }
         return (dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY) ? "2" : "1";
+    }
+
+    /**
+     * 自动计算工作日：根据入参时间自动往后推3天(跳过周末和法定节假日)
+     * 
+     * @param date 入参时间
+     * @return Date 返回时间
+     */
+    public static Date workingDayCalculator(Date date) {
+        if (date == null) {
+            throw new IllegalArgumentException("输入日期不能为null");
+        }
+        // 基础数据（提前获取并缓存）：获取当前日期和可能涉及的年份（当前年+明年）
+        ZonedDateTime zonedDateTime = date.toInstant().atZone(ZoneId.systemDefault());
+        /*LocalDate startDate = zonedDateTime.toLocalDate();
+        int currentYear = startDate.getYear();
+        List<String> years = Arrays.asList(String.valueOf(currentYear), String.valueOf(currentYear + 1));
+        
+        // 跨年查询节假日数据
+        List<RspBaseVacationDto> list = years.stream().flatMap(
+                year -> baseVacationMapper.queryByConditions(ReqBaseVacationQueryDto.builder().year(year).build()).stream())
+                .collect(Collectors.toList());
+        BusinessValidator.isTrue(CollectionUtils.isNotEmpty(list), ApiCode.NOT_FOUND);
+        
+        // 2. 预处理（节假日和调休）数据（避免在循环中重复计算）
+        Set<LocalDate> holidaySet = list.stream().filter(dto -> "3".equals(dto.getDayType()))
+                .map(dto -> parseDate(dto.getDayDate())).collect(Collectors.toSet());
+        
+        Set<LocalDate> workWeekendSet = list.stream().filter(dto -> "4".equals(dto.getDayType()))
+                .map(dto -> parseDate(dto.getDayDate())).collect(Collectors.toSet());*/
+
+        Set<LocalDate> holidaySet = null;
+        Set<LocalDate> workWeekendSet = null;
+
+        // 保留入参的时分秒
+        LocalDateTime currentDateTime = zonedDateTime.toLocalDateTime();
+        int count = 0;
+        while (count < 3) {
+            currentDateTime = currentDateTime.plusDays(1);
+            LocalDate currentDate = currentDateTime.toLocalDate();
+
+            if (isWorkingDay(currentDate, holidaySet, workWeekendSet)) {
+                count++;
+            }
+        }
+        // 返回时保持原始时分秒
+        return Date.from(currentDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**
+     * 判断是否为有效工作日
+     */
+    private static boolean isWorkingDay(LocalDate date, Set<LocalDate> holidaySet, Set<LocalDate> workWeekendSet) {
+        // 1. 排除法定节假日
+        if (holidaySet.contains(date)) {
+            return false;
+        }
+
+        // 2. 判断是否自然周末且非调休工作日
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        boolean isWeekend = dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY;
+        return !(isWeekend && !workWeekendSet.contains(date));
+    }
+
+    /**
+     * 安全的日期解析方法
+     */
+    private LocalDate parseDate(String dateStr) {
+        try {
+            return LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("非法日期格式: " + dateStr, e);
+        }
     }
 
 }
