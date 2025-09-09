@@ -10,7 +10,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -28,6 +27,7 @@ import com.menghuan.HuanTools.aspect.dict.DictModel;
 import com.menghuan.HuanTools.bean.result.Result;
 import com.menghuan.HuanTools.constants.CommonConstant;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -38,14 +38,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Aspect
 @Component
+@AllArgsConstructor
 @Slf4j
 public class DictAspect {
     @Lazy
-    @Autowired
+    // @Autowired
     private CommonAPI commonApi;
-    @Autowired
+    // @Autowired
     public RedisTemplate redisTemplate;
-    @Autowired
+    // @Autowired
     private ObjectMapper objectMapper;
 
     private static final String JAVA_UTIL_DATE = "java.util.Date";

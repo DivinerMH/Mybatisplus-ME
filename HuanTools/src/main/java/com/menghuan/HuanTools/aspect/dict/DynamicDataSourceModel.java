@@ -1,6 +1,6 @@
 package com.menghuan.HuanTools.aspect.dict;
 
-import org.springframework.beans.BeanUtils;
+import com.menghuan.HuanTools.utils.copy.BeanMapperUtil;
 
 import lombok.Data;
 
@@ -17,7 +17,8 @@ public class DynamicDataSourceModel {
 
     public DynamicDataSourceModel(Object dbSource) {
         if (dbSource != null) {
-            BeanUtils.copyProperties(dbSource, this);
+            BeanMapperUtil.map(dbSource, this);
+            // BeanUtils.copyProperties(dbSource, this);
         }
     }
 
@@ -42,10 +43,10 @@ public class DynamicDataSourceModel {
      */
     private String dbUrl;
 
-//    /**
-//     * 数据库名称
-//     */
-//    private java.lang.String dbName;
+    // /**
+    // * 数据库名称
+    // */
+    // private java.lang.String dbName;
 
     /**
      * 用户名
