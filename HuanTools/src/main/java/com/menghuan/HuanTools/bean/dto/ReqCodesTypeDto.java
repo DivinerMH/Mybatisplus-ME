@@ -12,13 +12,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * ReqCodesDto
+ * ReqCodesTypeDto
  *
  * @author menghuan
  * @since 2025-11-06 11:42:40
  */
 @Data
-@ApiModel(value = "ReqCodesDto")
+@ApiModel(value = "ReqCodesTypeDto")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

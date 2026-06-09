@@ -2,6 +2,7 @@ package com.menghuan.HuanTools.bean.api;
 
 import java.util.List;
 
+import com.menghuan.HuanTools.bean.result.ApiResult;
 import lombok.Data;
 
 /**

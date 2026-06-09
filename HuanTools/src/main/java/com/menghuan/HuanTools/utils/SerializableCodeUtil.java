@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.menghuan.HuanTools.bean.api.ApiCode;
+import com.menghuan.HuanTools.enums.ApiCode;
 import com.menghuan.HuanTools.valid.BusinessValidator;
 
 /**

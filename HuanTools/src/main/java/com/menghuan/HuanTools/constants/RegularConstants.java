@@ -1,7 +1,7 @@
 package com.menghuan.HuanTools.constants;
 
 /**
- * 正则
+ * 正则-规则
  * 
  * @Author: menghuan
  * @Date: 2025-02-21 14:13
@@ -13,6 +13,9 @@ public interface RegularConstants {
 
     /** 非0开头数字 */
     String REGEX_NUMBER_NOTZERO = "^(0|[1-9][0-9]*)$";
+
+    /** 非负金额，最多两位小数（如 0, 0.00, 123.45, 100.00）[最多10位整数和最多2位小数的正数] */
+    String REGEX_AMOUNT_FIGURE = "^(\\d{1,10})(\\.\\d{1,2})?$";
 
     /** 邮箱地址 */
     String REGEX_EMAIL = "^\\w+([-+.]\\w+)@\\w+([-.]\\w+)\\.\\w+([-.]\\w+)*$";
@@ -42,5 +45,8 @@ public interface RegularConstants {
 
     /** 中文(只能输入中文) */
     String REGEX_CHINESE = "[\\u4e00-\\u9fa5]+";
+
+    /** 时间格式为： YYYY-MM-DD（1900-2099） */
+    String REGEX_VALID_DATE_COMBINED = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
 
 }

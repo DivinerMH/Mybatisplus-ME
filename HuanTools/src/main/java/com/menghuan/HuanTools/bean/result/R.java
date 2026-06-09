@@ -1,4 +1,4 @@
-package com.menghuan.HuanTools.bean.api;
+package com.menghuan.HuanTools.bean.result;
 
 import java.io.Serializable;
 

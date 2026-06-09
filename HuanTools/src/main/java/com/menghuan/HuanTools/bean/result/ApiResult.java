@@ -1,9 +1,10 @@
-package com.menghuan.HuanTools.bean.api;
+package com.menghuan.HuanTools.bean.result;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.menghuan.HuanTools.enums.ApiCode;
 import lombok.Data;
 
 /**

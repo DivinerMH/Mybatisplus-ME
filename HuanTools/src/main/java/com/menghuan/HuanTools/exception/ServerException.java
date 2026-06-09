@@ -1,6 +1,6 @@
 package com.menghuan.HuanTools.exception;
 
-import com.menghuan.HuanTools.bean.api.ApiCode;
+import com.menghuan.HuanTools.enums.ApiCode;
 
 /**
  * 服务端异常

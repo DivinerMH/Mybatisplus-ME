@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
  * @since 2025-07-23 11:42:40
  */
 @Data
-@ApiModel(value = "-ReqIdsDto")
+@ApiModel(value = "ReqIdsDto")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
